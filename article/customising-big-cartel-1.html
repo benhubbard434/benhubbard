@@ -61,24 +61,34 @@
 </script>
             <!-- Content block, child page inject content -->
             <div class="wrapper">
-             
-	<div class="homepage">
-		
-			
-			<h2>Shopify expert</h2>
-			<h2>E-commerce design and development</h2>
-			<h2>Social Media &amp; digital marketing</h2>
-			
-		
-	</div>
-	<div class="mobile-homepage">
+            
 
-			<h2>Shopify expert</h2>
-			<h2>E-commerce design and development</h2>
-			<h2>Social Media &amp; digital marketing</h2>
+<h1>Customising Big Cartel - Part 1</h1>
+<p class="edit">This is now outdated - Big Cartel have updated their served scripts.</p>
 
-	</div>
+<p>I've been working with Big Cartel for a little while now, and over a series of posts I'm going to try and surmise some basic, yet not well known facts that are key to making things work.</p>
 
+<p>I'm going to focus on customising the default "Sexy" theme, so some assumptions will be made to the code that is already there. A warning to anyone who has just opened a Big Cartel account, before customising anything, take a back up of your code. Once you have pressed that save button, there is no going back.</p>
+
+<p>The easiest and most common way to add a bit of personality and uniqueness to your online store is to add in jQuery plugins. In theory this should be a case of simply calling jQuery and referencing your plugin. However it is not quite that simple.</p>
+
+<h4>To Begin</h4>
+<p>The first thing to look at is the head section. First of all you need to pick out the line of code containing Prototype.</p>
+<pre><code>
+  &lt;script src="prototype" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+<p>To allow for any jQuery plugins to work, this has to be loaded after jQuery. The safest way to do this is to this is to ensure that it is placed right at the end of the head tag.</p>
+<h4>Next Step</h4>
+<p>The next step, and one which is commonly asked in the Big Cartel forums, is how to actually run jQuery. Due to Big Cartel using a JS to run it's cart, this causes conflict with jQuery. To avoid this, you need to run jQuery in noConflict mode.</p>
+<pre><code> 
+ &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"&gt;&lt;/script&gt;
+  
+  &lt;script type="text/javascript"&gt;
+    var j = jQuery.noConflict();
+  &lt;/script&gt;
+</code></pre>
+<p>This allows both your cart/checkout and your plugins to work. Once you have done this, when calling a plugin you must make sure that you change every $ to a j</p>
+<p>It is important to test your store fully once completing any customisation to ensure it works.</p>
             </div>
         
         <!-- Script block allowing child pages to inject their own scripts -->

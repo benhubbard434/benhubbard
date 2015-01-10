@@ -61,24 +61,31 @@
 </script>
             <!-- Content block, child page inject content -->
             <div class="wrapper">
-             
-	<div class="homepage">
-		
-			
-			<h2>Shopify expert</h2>
-			<h2>E-commerce design and development</h2>
-			<h2>Social Media &amp; digital marketing</h2>
-			
-		
-	</div>
-	<div class="mobile-homepage">
+            
 
-			<h2>Shopify expert</h2>
-			<h2>E-commerce design and development</h2>
-			<h2>Social Media &amp; digital marketing</h2>
-
-	</div>
-
+<h1>Futureproofing your build</h1>
+<p>When building sites responsive or non-responsive, it's a good practice to use percentage widths instead of fixed widths for all elements. This is particularly important when building a non-responsive site as it allows for a quick changes to widths of elements without editing all the CSS, whilst alss allowing the transition to a responsive site to be much simpler. A good working example of this is when building a menu. Let's delve into some code - first some example HTML:</p>
+<pre><code>  &lt;ul&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;
+      &lt;li&gt;Item 2&lt;/li&gt;
+      &lt;li&gt;Item 3&lt;/li&gt;
+      &lt;li&gt;Item 4&lt;/li&gt;
+  &lt;/ul&gt;
+</code></pre>
+<p>Then some example CSS:</p>
+<pre><code>ul {
+  width: 60%;
+}
+.menulist li {
+  width: 25%;
+  text-align: center;
+  float: left;
+}
+.menulist a {
+  display: block;
+  width: 100%;
+}</code></pre>
+<p>Using these % widths means that this menu is fluid (note: NOT responsive). This means if your container is a fixed width, your menu will adjust if you need to change the width of the site. It also means that the transition to a responsive site is much simpler.</p>
             </div>
         
         <!-- Script block allowing child pages to inject their own scripts -->

@@ -61,23 +61,15 @@
 </script>
             <!-- Content block, child page inject content -->
             <div class="wrapper">
-             
-	<div class="homepage">
-		
-			
-			<h2>Shopify expert</h2>
-			<h2>E-commerce design and development</h2>
-			<h2>Social Media &amp; digital marketing</h2>
-			
-		
-	</div>
-	<div class="mobile-homepage">
+            
+<h1>Position Relative</h1>
+<p>Last night whilst building a slider that required the use of position absolute for the slides that were hidden. To ensure the slider all stayed in one place, this required a div to hold the slider content with the CSS property of <code>position:relative</code>. This stopped the hidden slides from jumping to the top left of the document.<br />
+However, when adding this CSS property to elements, it removes it from the DOM flow (a quick search of Stackoverflow shows this is a common problem). This causes the containing div to collapse and have no height or width. In a fixed width build, this would simply require the containing div to have a specified height, and be done with it.<br />
+My situation was a little more complex because its for a responsive build. The images in the slider therefore have no defined height, as this is dependent on the size of the browser.<br />
+A solution suggested to me was to give the holding element a height:0, and the padding-top a percentage. As I’m working with portrait images, I gave the holding div a padding-top of 150%. This takes the width, and makes the padding at the top of the image 150% of the width, allowing the slider to become fully responsive.<br />
+Keep an eye out for the full tutorial I’m going to post later.</p>
 
-			<h2>Shopify expert</h2>
-			<h2>E-commerce design and development</h2>
-			<h2>Social Media &amp; digital marketing</h2>
-
-	</div>
+<p>Thanks to Mark Skinner for his help with this.</p>
 
             </div>
         

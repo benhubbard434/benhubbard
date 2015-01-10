@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="google-site-verification" content="67Z8ZwoUGlKgXPYM1j1L1eBXa0bJ3fTUJNsn0nQayQ4" />
+        <!-- Title block allowing child pages to override -->
+        <title>Ben Hubbard | Shopify Expert | E-Commerce Whizz</title>
+        <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+        
+        <script type="text/javascript" src="//use.typekit.net/qqu0cvv.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        
+        <!-- Styles -->
+ 
+        <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="/assets/css/slicknav.min.css" rel="stylesheet" type="text/css" media="all"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        <script src="/assets/scripts/masonry.pkgd.min.js"></script>
+        <script src="/assets/scripts/jquery.slicknav.min.js"></script>
+
+        <!-- Style block allowing child pages to inject their own styles -->
+        
+    </head>
+    <body>
+        
+            <!-- Include -->
+            <div class="sidething"></div>
+<h1 class="mobile-head"><a href="/">Ben Hubbard</a></h1>
+<div class="header">
+	<div class="header-title">
+		<div class="title">
+			<h1><a href="/">Ben Hubbard</a></h1>
+			<ul class="menu">
+				<li><a href="/portfolio/all" >Websites</a></li>
+				<li><a href="/photography" >Photography</a></li>
+				<li><a href="/illustrations" >Illustrations &amp; Drawings</a></li>
+				<li><a href="/thoughts" >Thoughts</a></li>
+				<li><a href="/contact-me" >Contact Me</a></li>
+				<!--<li><a id="show" href="#">Contact Me</a></li>-->
+			</ul>
+		</div>
+	
+	
+		
+		<p class="footer">&copy; Ben Hubbard 2014</p>
+	</div>
+
+</div>
+
+
+
+<script>
+	$(function(){
+		$('.menu').slicknav({
+			label: '',
+	
+		});
+	});
+</script>
+            <!-- Content block, child page inject content -->
+            <div class="wrapper">
+            
+
+<h1>Customising Big Cartel - Part 2</h1>
+<p>The next step to customising the "Sexy" theme is to move the menu from the right. Most requests I have seen are to have the menu placed above the main content.</p>
+<p>The first step is to find the menu contents.</p>
+<pre><code>
+&lt;div id="navigation">
+
+      &lt;div id="minicart">
+        &lt;h3 class="minicart-title">&lt;span>Cart&lt;/span>&lt;/h3>
+        &lt;ul class="minicart-contents">
+          &lt;li class="minicart-items">&lt;span id="cart-count">&#123;&#123; cart.item_count | pluralize: 'item', 'items' &#125;&#125;&lt;/span>&lt;/li>
+          &lt;li class="minicart-total">&lt;span id="cart-total">&#123;&#123; cart.total | money_with_sign &#125;&#125;&lt;/span>&lt;/li>
+        &lt;/ul>
+        &lt;div class="minicart-options">
+          &lt;div class="minicart-view">&lt;a href="/cart" title="View Cart">&lt;span>View Cart&lt;/span>&lt;/a>&lt;/div>
+          &lt;div class="minicart-checkout">&lt;a href="/checkout" title="Checkout">&lt;span>Checkout&lt;/span>&lt;/a>&lt;/div>
+        &lt;/div>
+      &lt;/div>
+
+      &#123;% if theme.show_search %&#125;
+      &lt;div id="search" class="pod">
+        &lt;h3 class="search-title">&lt;span>Search&lt;/span>&lt;/h3>
+        &lt;form id="search-form" name="search" action="/products" method="get">
+          &lt;input id="search-input" name="search" type="text" />&lt;button id="search-submit" name="search-submit" type="submit" title="GO">&lt;span>GO&lt;/span>&lt;/button>
+        &lt;/form>
+      &lt;/div>
+      &#123;% endif %&#125;
+
+      &#123;% if artists.active != blank %&#125;
+      &lt;div id="artists" class="pod">
+        &lt;h3 class="artists-title">&lt;span>Artists&lt;/span>&lt;/h3>
+        &lt;form id="artists-form" name="artists" action="/" method="get">
+          &lt;select id="artists-select" name="artist" onchange="Store.selectArtist(this)">
+            &lt;option value="">Select an artist...&lt;/option>
+            &#123;% for artist in artists.active %&#125;
+            &lt;option value="&#123;&#123; artist.url &#125;&#125;">&#123;&#123; artist.name &#125;&#125;&lt;/option>
+            &#123;% endfor %&#125;
+          &lt;/select>
+        &lt;/form>
+      &lt;/div>
+      &#123;% endif %&#125;
+
+      &lt;div id="categories" class="pod">
+        &lt;h3 class="categories-title">&lt;span>Categories&lt;/span>&lt;/h3>
+        &lt;ul class="categories-list">
+          &lt;li>&lt;a href="/products" title="All">&lt;span>All&lt;/span>&lt;/a>&lt;/li>&#123;% for category in categories.active %&#125;&lt;li>&#123;&#123; category | link_to &#125;&#125;&lt;/li>&#123;% endfor %&#125;
+        &lt;/ul>
+      &lt;/div>
+
+      &#123;% if theme.show_newest %&#125;
+      &lt;div id="newest" class="pod">
+        &lt;h3 class="newest-title">&lt;span>Newest Products&lt;/span>&lt;/h3>
+        &lt;ul class="newest-list">
+        &#123;% get 5 products from products.all order:'newest' %&#125;
+          &#123;% for product in products %&#125;&lt;li>&#123;&#123; product | link_to &#125;&#125;&lt;/li>&#123;% endfor %&#125;
+        &#123;% endget %&#125;
+        &lt;/ul>
+      &lt;/div>
+      &#123;% endif %&#125;
+
+      &#123;% if theme.show_top_selling %&#125;
+      &lt;div id="top-selling" class="pod">
+        &lt;h3 class="top-selling-title">&lt;span>Top Selling&lt;/span>&lt;/h3>
+        &lt;ul class="top-selling-list">
+        &#123;% get 5 products from products.all order:'sales' %&#125;
+          &#123;% for product in products %&#125;&lt;li>&#123;&#123; product | link_to &#125;&#125;&lt;/li>&#123;% endfor %&#125;
+        &#123;% endget %&#125;
+        &lt;/ul>
+      &lt;/div>
+      &#123;% endif %&#125;
+
+      &lt;% if theme.show_products_feed %&#125;
+      &lt;div id="feed" class="pod">
+        &lt;h3 class="feed-title">&lt;span>Feed&lt;/span>&lt;/h3>
+        &lt;ul class="feed-list">
+           &lt;li class="li-1">&lt;a href="/products.rss" title="Product RSS Feed">&lt;span>Product RSS Feed&lt;/span>&lt;/a>&lt;/li>
+        &lt;/ul>
+      &lt;/div>
+      &#123;% endif %&#125;
+
+      &lt;div id="help" class="pod">
+        &lt;h3 class="help-title">&lt;span>Info&lt;/span>&lt;/h3>
+        &lt;ul class="help-list">
+          &#123;% for page in pages.all %&#125;&lt;li>&#123;&#123; page | link_to &#125;&#125;&lt;/li>&#123;% endfor %&#125;&lt;li>&#123;&#123; pages.contact | link_to &#125;&#125;&lt;/li>
+        &lt;/ul>
+      &lt;/div>
+
+      &lt;div id="badge">&lt;a href="http://bigcartel.com" title="Check out Big Cartel">&lt;span>Powered by Big Cartel&lt;/span>&lt;/a>&lt;/div>
+
+    &lt;/div>
+
+</code></pre>
+
+<p>This is the whole of the right side bar, and has quite a few customisable options. For my project, I only want one part - the bit that contains the link to all your pages, so delete the rest of the code. You can still work with it later.</p>
+<p>The below code outputs a list of links to all your pages.</p>
+<pre><code>
+&lt;div id="navigation">
+      &lt;div id="help" class="pod">
+        &lt;h3 class="help-title">&lt;span>Info&lt;/span>&lt;/h3>
+        &lt;ul class="help-list">
+          &#123;% for page in pages.all %&#125;&lt;li>&#123;&#123; page | link_to &#125;&#125;&lt;/li>&#123;% endfor %&#125;&lt;li>&#123;&#123; pages.contact | link_to &#125;&#125;&lt;/li>
+        &lt;/ul>
+      &lt;/div>
+&lt;/div></code></pre>
+<p>This will however miss out your products, and a link to your home page. I am going to assume that you will be using a separate "Home" and "Products" page.</p> 
+<pre><code>
+&lt;div id="navigation">
+      
+        
+        &lt;ul class="help-list">
+          &lt;li>&lt;a href="/">Home&lt;/a>&lt;/li>
+          &lt;li>&lt;a href="/products">Products&lt;/a>&lt;/li>
+          &#123;% for page in pages.all %&#125;&lt;li>&#123;&#123; page | link_to &#125;&#125;&lt;/li>&#123;% endfor %&#125;&lt;li>&#123;&#123; pages.contact | link_to &#125;&#125;&lt;/li>
+        &lt;/ul>
+      
+&lt;/div></code></pre>
+
+<p>By adding those in, you allow your user to navigate back to the home page, and to view a list of all your products. Place this code below the div with an id of "header".</p>
+<p>In the next article, I will focus on styling this so that it is a horizontal list.</p>
+            </div>
+        
+        <!-- Script block allowing child pages to inject their own scripts -->
+        
+        <script src="app.js"></script>
+        <script type="text/javascript">
+            $(document).ready(
+                function(){
+                    $("#show").click(function () {
+                        $("#contact-form").fadeToggle();
+                    });
+                });
+        </script>
+    </body>
+</html>
