@@ -426,6 +426,12 @@ p.footer {
 }
 
 
+.photos img {
+	width: 100%;
+	max-width: 1000px;
+	margin-bottom: 40px;
+}
+
 /*Masonary*/
 
 .item { width: 20%; margin-bottom: 1em;  }
