@@ -432,6 +432,10 @@ p.footer {
 	margin-bottom: 40px;
 }
 
+.last-photo {
+	margin-bottom: 0;
+}
+
 /*Masonary*/
 
 .item { width: 20%; margin-bottom: 1em;  }
