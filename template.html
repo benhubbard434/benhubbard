@@ -3,6 +3,9 @@
 <head>
 	<title></title>
 	<link href='http://fonts.googleapis.com/css?family=Alegreya|Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 	<style>
 		a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 		html {
@@ -105,6 +108,43 @@
 			margin-top: 0;
 			margin-bottom: 2px;
 		}
+		#modal-background {
+    		display: none;
+    		position: fixed;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    		background-color: white;
+    		opacity: .50;
+    		-webkit-opacity: .5;
+    		-moz-opacity: .5;
+    		filter: alpha(opacity=50);
+    		z-index: 1000;
+		}
+
+		#modal-content {
+   		 	background-color: white;
+    		border-radius: 10px;
+    		-webkit-border-radius: 10px;
+    		-moz-border-radius: 10px;
+    		box-shadow: 0 0 20px 0 #222;
+    		-webkit-box-shadow: 0 0 20px 0 #222;
+    		-moz-box-shadow: 0 0 20px 0 #222;
+    		display: none;
+    		height: 240px;
+    		left: 50%;
+    		margin: -120px 0 0 -160px;
+    		padding: 10px;
+    		position: fixed;
+    		top: 50%;
+    		width: 320px;
+    		z-index: 1000;
+		}
+
+		#modal-background.active, #modal-content.active {
+   		 	display: block;
+		}​
 
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
@@ -161,7 +201,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="/contact-me">
+					<a href="#" id="modal-launcher">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 80" enable-background="new 0 0 100 100" xml:space="preserve" class="contact"><g><rect x="-417.447" y="-166.859" display="none" fill="#000000" width="1296.13" height="1356.136"/><path d="M91.534,20.91H8.466c-1.638,0-2.966,1.327-2.966,2.966v52.25c0,1.638,1.329,2.964,2.966,2.964h83.068   c1.638,0,2.966-1.327,2.966-2.964v-52.25C94.5,22.236,93.171,20.91,91.534,20.91z M36.142,53.242   c3.497,2.954,5.895,4.957,6.499,5.408c3.363,2.516,5.98,2.855,8.097,2.855c3.922,0,6.593-1.831,7.833-2.922l6.028-5.276   l25.557,20.682l-0.012,1.021H9.859l-0.016-1.021L36.142,53.242z M9.583,67.939V30.646c1.289,1.099,2.861,2.44,4.586,3.91   c6.81,5.805,13.573,11.566,18.813,16.012L9.583,67.939z M67.915,50.409l22.501-19.683v37.095L67.915,50.409z M90.417,24.991v0.259   L55.416,54.57c-1.51,1.163-3.038,1.727-4.67,1.727c-1.65,0-3.379-0.609-5.083-1.76c-1.979-1.486-29.85-24.358-36.08-29.475v-0.072   H90.417z"/></g></svg>
 						<br>Contact
 					</a>
@@ -191,5 +231,18 @@
 	<div class="footer">
 		<p class="small center">&copy; 2015 - Ben Hubbard</p>
 	</div>
+
+	<!-- Modal -->
+	<div id="modal-background"></div>
+	<div id="modal-content">
+    	<a href="#" id="modal-close">x</a>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+    		$("#modal-launcher, #modal-background, #modal-close").click(function() {
+        	$("#modal-content, #modal-background").toggleClass("active");
+    	});
+});
+	</script>
 </body>
 </html>
