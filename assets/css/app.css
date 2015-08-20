@@ -93,11 +93,17 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		path {
 			fill: #2B2B2B;
 		}
-
 		svg {
 			width:50px;
 			margin-top: 0;
 			margin-bottom: 2px;
+		}
+		.butt {
+			background: #ffb300;
+			border: 0;
+			color: white;
+			display: block;
+			font-weight: 700;
 		}
 		#modal-background {
     		display: none;
@@ -136,14 +142,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		#modal-background.active, #modal-content.active {
    		 	display: block;
 		}​
-
-		.butt {
-			background: #ffb300;
-			border: 0;
-			color: white;
-			display: block;
-			font-weight: 700;
-		}
+		
 
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
