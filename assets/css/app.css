@@ -138,6 +138,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     		width: 320px;
     		z-index: 1000;
 		}
+		.field {
+			padding: 8px 12px;
+			width: 100%;
+			box-sizing: border-box;
+		}
 		#modal-close {
 			float: right;
 			display: block;
