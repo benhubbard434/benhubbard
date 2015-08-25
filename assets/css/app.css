@@ -143,6 +143,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
    		 	display: block;
 		}​
 		
+		#modal-close {
+			float: right;
+			display: block;
+		}
 
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
