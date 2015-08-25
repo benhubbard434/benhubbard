@@ -142,6 +142,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			padding: 8px 12px;
 			width: 100%;
 			box-sizing: border-box;
+			margin-bottom: 5px;
+			border: 1px solid #eaeaea;
 		}
 		#modal-close {
 			float: right;
