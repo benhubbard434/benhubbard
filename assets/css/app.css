@@ -138,15 +138,14 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     		width: 320px;
     		z-index: 1000;
 		}
-
-		#modal-background.active, #modal-content.active {
-   		 	display: block;
-		}​
-		
 		#modal-close {
 			float: right;
 			display: block;
 		}
+		#modal-background.active, #modal-content.active {
+   		 	display: block;
+		}​		
+		
 
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
