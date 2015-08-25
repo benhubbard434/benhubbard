@@ -129,9 +129,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     		-webkit-box-shadow: 0 0 20px 0 #222;
     		-moz-box-shadow: 0 0 20px 0 #222;
     		display: none;
-    		height: 240px;
+    		height: 280px;
     		left: 50%;
-    		margin: -120px 0 0 -160px;
+    		margin: -140px 0 0 -160px;
     		padding: 10px;
     		position: fixed;
     		top: 50%;
@@ -144,6 +144,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			box-sizing: border-box;
 			margin-bottom: 5px;
 			border: 1px solid #eaeaea;
+		}
+		#modal-content h2 {
+			margin-top: -18px;
+			margin-bottom: 25px;
 		}
 		#modal-close {
 			float: right;
