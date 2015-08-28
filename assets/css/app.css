@@ -40,8 +40,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			text-decoration: underline;
 		}
 		a:hover {
-			color: #ffb300;
-			fill: #ffb300;
+			color: #f6ef6c;
+			fill: #f6ef6c;
 		}
 
 		li a {
@@ -53,7 +53,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 
 		a:hover > svg path {
-			fill: #ffb300;
+			fill: #f6ef6c;
 		} 
 		.menu {
 			position: fixed;
@@ -99,7 +99,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin-bottom: 2px;
 		}
 		.butt {
-			background: #ffb300;
+			background: #f6ef6c;
 			border: 0;
 			color: white;
 			display: block;
