@@ -44,6 +44,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		a:hover {
 			color: #ff0084;
 			fill: #ff0084;
+			background: #232323;
 		}
 
 		li a {
