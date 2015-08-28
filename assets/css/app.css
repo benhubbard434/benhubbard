@@ -106,6 +106,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-weight: 700;
 			font-size: 18px;
 			padding: 12px 15px;
+			border-radius: 2px;
 		}
 		#modal-background {
     		display: none;
@@ -131,13 +132,13 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     		-webkit-box-shadow: 0 0 20px 0 #222;
     		-moz-box-shadow: 0 0 20px 0 #222;
     		display: none;
-    		height: 320px;
+    		height: 360px;
     		left: 50%;
-    		margin: -160px 0 0 -160px;
+    		margin: -180px 0 0 -260px;
     		padding: 40px;
     		position: fixed;
     		top: 50%;
-    		width: 320px;
+    		width: 520px;
     		z-index: 1000;
     		box-sizing: border-box;
 		}
@@ -145,7 +146,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			padding: 8px 12px;
 			width: 100%;
 			box-sizing: border-box;
-			margin-bottom: 5px;
+			margin-bottom: 10px;
 			border: 1px solid #eaeaea;
 		}
 		#modal-content h2 {
