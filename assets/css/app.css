@@ -42,8 +42,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			text-decoration: underline;
 		}
 		a:hover {
-			color: #fd0;
-			fill: #fd0;
+			color: #ff0084;
+			fill: #ff0084;
 		}
 
 		li a {
@@ -57,7 +57,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 
 		a:hover > svg path {
-			fill: #fd0;
+			fill: #ff0084;
 		} 
 		.menu {
 			position: fixed;
@@ -103,7 +103,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin-bottom: 2px;
 		}
 		.butt {
-			background: #fd0;
+			background: #ff0084;
 			border: 0;
 			color: white;
 			display: block;
