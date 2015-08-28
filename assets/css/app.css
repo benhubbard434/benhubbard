@@ -13,7 +13,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		h1, h2 {
 			font-size: 2em;
-			font-family: 'Alegreya', serif;
+			font-family: 'Source Sans Pro', sans-serif;
 			margin-bottom: 18px;
 			color: #2B2B2B;
 			line-height: 1.5;
@@ -22,7 +22,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 		p {
 			font-size: 18px;
-			font-family: 'Source Sans Pro', sans-serif;
+			font-family: 'Alegreya', serif;
 			line-height: 1.5;
 			margin-bottom: 18px;
 			color: #2B2B2B;
@@ -30,10 +30,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 
 		li {
-			font-family: 'Source Sans Pro', sans-serif;
+			
 			font-size: 12px;
 			text-align: center;
 			margin: 10px 0;
+
 		}
 		a {
 			color: #2B2B2B;
@@ -50,6 +51,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			display: block;
 			margin-top: 0;
 			margin-bottom: 15px;
+			text-transform: uppercase;
+			font-family: 'Source Sans Pro', sans-serif;
 		}
 
 		a:hover > svg path {
