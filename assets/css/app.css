@@ -128,8 +128,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
    		 	background-color: white;
     		border-radius: 5px;
     		box-shadow: 0 0 20px 0 #222;
-    		-webkit-box-shadow: 0 0 20px 0 #222;
-    		-moz-box-shadow: 0 0 20px 0 #222;
+    		/*-webkit-box-shadow: 0 0 20px 0 #222;
+    		-moz-box-shadow: 0 0 20px 0 #222;*/
     		display: none;
     		height: 360px;
     		left: 50%;
