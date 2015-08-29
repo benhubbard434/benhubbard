@@ -168,7 +168,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		#modal-background.active, #modal-content.active {
    		 	display: block;
-		}​		
+		}​
+		.footer p {
+			color: #ff0084;
+		}	
 		
 
 		/* Icon credit
@@ -180,4 +183,5 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		
 		About - Profile - Public Domain
 		Contact - Email by Leonides Delgado from the Noun Project
+		#0bfdfd
 		*/
