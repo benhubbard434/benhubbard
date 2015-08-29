@@ -54,6 +54,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin-bottom: 15px;
 			text-transform: uppercase;
 			font-family: 'Source Sans Pro', sans-serif;
+			letter-spacing: 0.25px;
 		}
 
 		a:hover > svg path {
@@ -111,6 +112,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			padding: 12px 15px;
 			border-radius: 2px;
 			cursor: pointer;
+			text-transform: uppercase;
+			letter-spacing: 0.25px;
 		}
 		#modal-background {
     		display: none;
