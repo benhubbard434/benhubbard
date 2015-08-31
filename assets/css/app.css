@@ -85,6 +85,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.white {
 			color: white;
 		}
+		.pink {
+			color: #2B2B2B;
+		}
 		.footer {
 			margin: 0 50px 25px 250px;
 		}
