@@ -35,7 +35,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-size: 12px;
 			text-align: center;
 			margin: 10px 0;
-
 		}
 		a {
 			color: #2B2B2B;
@@ -45,7 +44,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			color: #ff0084;
 			fill: #ff0084;
 		}
-
 		li a {
 			text-decoration: none;
 			font-weight: 700;
@@ -56,7 +54,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-family: 'Source Sans Pro', sans-serif;
 			letter-spacing: -0.25px;
 		}
-
 		a:hover > svg path {
 			fill: #ff0084;
 		} 
@@ -86,7 +83,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			color: white;
 		}
 		.pink {
-			color: #2B2B2B;
+			color: #ff0084;
 		}
 		.footer {
 			margin: 0 50px 25px 250px;
