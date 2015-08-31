@@ -82,7 +82,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			background: white;
 			padding: 50px;
 		}
-
+		.white {
+			color: white;
+		}
 		.footer {
 			margin: 0 50px 25px 250px;
 		}
@@ -116,13 +118,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			letter-spacing: 0.25px;
 		}
 		.thanks {
-			background-color: red;
+			/*background-color: red;*/
 		}
-		.thanks-container {
-			
+		.thanks-container {	
 			background: transparent;
 		}
-
 
 		#modal-background {
     		display: none;
