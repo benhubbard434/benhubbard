@@ -118,7 +118,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			letter-spacing: 0.25px;
 		}
 		.thanks {
-			/*background-color: red;*/
+			background-color: #232323;
 		}
 		.thanks-container {	
 			background: transparent;
