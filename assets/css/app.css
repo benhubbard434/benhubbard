@@ -16,7 +16,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-size: 1.5em;
 			font-family: 'Roboto Condensed', sans-serif;
 			margin-bottom: 18px;
-			color: #2B2B2B;
+			color: #404e5c;
 			line-height: 1.5;
 			padding-top: 18px;
 			text-transform: uppercase;
@@ -28,7 +28,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-family: 'Alegreya', serif;
 			line-height: 1.5;
 			margin-bottom: 18px;
-			color: #2B2B2B;
+			color: #404e5c;
 			font-weight: 400;
 		}
 
@@ -39,7 +39,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin: 10px 0;
 		}
 		a {
-			color: #2B2B2B;
+			color: #404e5c;
 			text-decoration: underline;
 		}
 		a:hover {
@@ -81,6 +81,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			background: white;
 			padding: 50px;
 		}
+		.containter.home {
+			padding: 0;
+		}
 		.white {
 			color: white;
 		}
@@ -100,7 +103,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			width: 100%;
 		}
 		path {
-			fill: #2B2B2B;
+			fill: #404e5c;
 		}
 		svg {
 			width:50px;
@@ -108,7 +111,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin-bottom: 2px;
 		}
 		.butt {
-			background: #ff0084;
+			background: #26a5a5;
 			border: 0;
 			color: white;
 			display: block;
@@ -125,7 +128,12 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.thanks-container {	
 			background: transparent;
 		}
-
+		.homepage-head {
+			padding-top: 200px;
+			padding-bottom: 200px;
+			background: #404e5c;
+		}
+		/*Modal*/
 		#modal-background {
     		display: none;
     		position: fixed;
@@ -166,11 +174,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin-bottom: 10px;
 			border: 1px solid #eaeaea;
 		}
-		.homepage-head {
-			padding-top: 150px;
-			padding-bottom: 150px;
-		}
-		/*Modal*/
 		#modal-content h2 {
 			margin-top: -18px;
 			margin-bottom: 25px;
