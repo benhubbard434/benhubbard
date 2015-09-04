@@ -136,11 +136,13 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			float: left;
 			width: 50%;
 			padding: 25px;
+			box-sizing: border-box;
 		}
 		.right-block {
 			float: right;
 			width: 50%;
 			padding: 25px;
+			box-sizing: border-box;
 		}
 		/*Modal*/
 		#modal-background {
