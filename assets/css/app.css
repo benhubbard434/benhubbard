@@ -166,6 +166,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin-bottom: 10px;
 			border: 1px solid #eaeaea;
 		}
+		.homepage-head {
+			padding-top: 150px;
+			padding-bottom: 150px;
+		}
+		/*Modal*/
 		#modal-content h2 {
 			margin-top: -18px;
 			margin-bottom: 25px;
@@ -183,10 +188,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		#modal-background.active, #modal-content.active {
    		 	display: block;
 		}​
-		.homepage-head {
-			padding-top: 150px;
-			padding-bottom: 150px;
-		}
+		
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
 		Thoughts - Thought Bubble by irene hoffman from the Noun Project
