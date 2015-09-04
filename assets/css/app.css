@@ -22,7 +22,16 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			text-transform: uppercase;
 			letter-spacing: 3px;
 		}
-
+		h3{
+			font-size: 1.2em;
+			font-family: 'Roboto Condensed', sans-serif;
+			margin-bottom: 18px;
+			color: #404e5c;
+			line-height: 1.5;
+			padding-top: 18px;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+		}
 		p {
 			font-size: 18px;
 			font-family: 'Alegreya', serif;
@@ -130,7 +139,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			padding-top: 200px;
 			padding-bottom: 200px;
 			background: #404e5c;
-			margin: -50px;
+			margin: -50px -50px 0 -50px;
 		}
 		.left-block {
 			float: left;
