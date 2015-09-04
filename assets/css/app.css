@@ -129,17 +129,17 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			text-transform: uppercase;
 			letter-spacing: 0.25px;
 		}
-		.thanks {
-			background-color: #232323;
-		}
-		.thanks-container {	
-			background: transparent;
-		}
-		.page-head {
-			padding-top: 200px;
-			padding-bottom: 200px;
+		.darkgreybg {
 			background: #404e5c;
-			margin: -50px -50px 0 -50px;
+		}
+		.lightgreybg {
+			background: #d1d1d1;
+		}
+		.bluebg {
+			background:#85c7f2;
+		}
+		.whitebg {
+			background: white;
 		}
 		.left-block {
 			float: left;
@@ -153,6 +153,33 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			padding: 25px;
 			box-sizing: border-box;
 		}
+		.fullwidth {
+			margin: 0 -50px;
+		}
+		.padding-top {
+			padding-top: 50px;
+		}
+		.padding-bottom {
+			padding-bottom: 50px;
+		}
+		.no-padding-top {
+			padding-top: 0;
+		}
+		.no-padding-bottom {
+			padding-bottom: 0;
+		}
+		.thanks {
+			background-color: #232323;
+		}
+		.thanks-container {	
+			background: transparent;
+		}
+		.page-head {
+			padding-top: 200px;
+			padding-bottom: 200px;
+			margin: -50px -50px 0 -50px;
+		}
+		
 		/*Modal*/
 		#modal-background {
     		display: none;
