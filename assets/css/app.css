@@ -132,6 +132,16 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			background: #404e5c;
 			margin: -50px;
 		}
+		.left-block {
+			float: left;
+			width: 50%;
+			padding: 25px;
+		}
+		.right-block {
+			float: right;
+			width: 50%;
+			padding: 25px;
+		}
 		/*Modal*/
 		#modal-background {
     		display: none;
