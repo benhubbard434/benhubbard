@@ -126,12 +126,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.thanks-container {	
 			background: transparent;
 		}
-		.homepage-head {
+		.page-head {
 			padding-top: 200px;
 			padding-bottom: 200px;
 			background: #404e5c;
-			margin-left: -50px;
-			margin-right: -50px;
+			margin: -50px;
 		}
 		/*Modal*/
 		#modal-background {
