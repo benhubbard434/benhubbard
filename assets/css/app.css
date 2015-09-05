@@ -159,6 +159,12 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.padding-top {
 			padding-top: 50px;
 		}
+		.double-padding-top {
+			padding-top: 100px;
+		}
+		.double-padding-bottom {
+			padding-bottom: 100px;
+		}
 		.padding-bottom {
 			padding-bottom: 50px;
 		}
