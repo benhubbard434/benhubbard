@@ -68,6 +68,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		a:hover > svg path {
 			fill: #ff0084;
 		} 
+		h2 a {
+			text-decoration: none;
+		}
 		.menu {
 			position: fixed;
 			width: 100px;
