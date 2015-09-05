@@ -88,6 +88,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			border-radius: 150px;
 			overflow: hidden;
 		}
+		.photos img {
+			max-width: 100%;
+			margin-bottom: 25px; 
+		}
 		.container {
 			margin: 50px 50px 50px 250px;
 			background: white;
