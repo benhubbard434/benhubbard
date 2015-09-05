@@ -89,7 +89,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			overflow: hidden;
 		}
 		.photos {
-			padding-top: 25px;
+			padding-top: 50px;
+			padding-bottom: 50px;
 		}
 		.photos img {
 			max-width: 100%;
