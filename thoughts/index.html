@@ -1,190 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
-	<style type="text/css">
-a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
-		html {
-			background: #FAFAFA;
-		}
-
-		body {
-			width: 100%;
-			max-width: 1200px;
-			margin: 0 auto;
-		}
-		.clear {
-			clear: both;
-		}
-		h1, h2 {
-			font-size: 2em;
-			font-family: 'Alegreya', serif;
-			margin-bottom: 18px;
-			color: #2B2B2B;
-			line-height: 1.5;
-			padding-top: 18px;
-		}
-
-		p {
-			font-size: 18px;
-			font-family: 'Source Sans Pro', sans-serif;
-			line-height: 1.5;
-			margin-bottom: 18px;
-			color: #2B2B2B;
-			font-weight: 400;
-		}
-
-		li {
-			font-family: 'Source Sans Pro', sans-serif;
-			font-size: 12px;
-			text-align: center;
-			margin: 10px 0;
-		}
-		a {
-			color: #2B2B2B;
-			text-decoration: underline;
-		}
-		a:hover {
-			color: #ffb300;
-			fill: #ffb300;
-		}
-
-		li a {
-			text-decoration: none;
-			font-weight: 700;
-			display: block;
-			margin-top: 0;
-			margin-bottom: 15px;
-		}
-
-		a:hover > svg path {
-			fill: #ffb300;
-		} 
-		.menu {
-			position: fixed;
-			width: 100px;
-			top: 0;
-			bottom: 0;
-			left: 50px;
-			background: white;
-		}
-		.photo {
-			width:150px;
-			background: white;
-			height: 150px; 
-			margin-left: -25px;
-			margin-top: 50px;
-			border-radius: 150px;
-			overflow: hidden;
-		}
-		.container {
-			margin: 50px 50px 50px 250px;
-			background: white;
-			padding: 50px;
-		}
-
-		.footer {
-			margin: 0 50px 25px 250px;
-		}
-		.center {
-			text-align: center;
-		}
-		.small {
-			font-size: 80%;
-		}
-		.profile-pic {
-			width: 100%;
-		}
-		path {
-			fill: #2B2B2B;
-		}
-		svg {
-			width:50px;
-			margin-top: 0;
-			margin-bottom: 2px;
-		}
-		.butt {
-			background: #ffb300;
-			border: 0;
-			color: white;
-			display: block;
-			font-weight: 700;
-			font-size: 18px;
-			padding: 12px 15px;
-			border-radius: 2px;
-			cursor: pointer;
-		}
-		#modal-background {
-    		display: none;
-    		position: fixed;
-    		top: 0;
-    		left: 0;
-    		width: 100%;
-    		height: 100%;
-    		background-color: white;
-    		opacity: .50;
-    		-webkit-opacity: .5;
-    		-moz-opacity: .5;
-    		filter: alpha(opacity=50);
-    		z-index: 1000;
-		}
-
-		#modal-content {
-   		 	background-color: white;
-    		border-radius: 5px;
-    		box-shadow: 0 0 20px 0 #222;
-    		/*-webkit-box-shadow: 0 0 20px 0 #222;
-    		-moz-box-shadow: 0 0 20px 0 #222;*/
-    		display: none;
-    		height: 360px;
-    		left: 50%;
-    		margin: -180px 0 0 -260px;
-    		padding: 40px;
-    		position: fixed;
-    		top: 50%;
-    		width: 520px;
-    		z-index: 1000;
-    		box-sizing: border-box;
-		}
-		.field {
-			padding: 8px 12px;
-			width: 100%;
-			box-sizing: border-box;
-			margin-bottom: 10px;
-			border: 1px solid #eaeaea;
-		}
-		#modal-content h2 {
-			margin-top: -18px;
-			margin-bottom: 25px;
-		}
-		#modal-close {
-			float: right;
-			display: block;
-		}
-		#modal-close svg {
-			width: 25px;
-			position: absolute;
-			top:10px;
-			right: 10px;
-		}
-		#modal-background.active, #modal-content.active {
-   		 	display: block;
-		}​		
-		
-
-		/* Icon credit
-		Home - Home by Calvin Goodman from the Noun Project
-		Thoughts - Thought Bubble by irene hoffman from the Noun Project
-		Website - Laptop by Ainsley Wagoner from the Noun Project
-		Photos - Camera by Pham Thi Dieu Linh from the Noun Project
-		
-		
-		About - Profile - Public Domain
-		Contact - Email by Leonides Delgado from the Noun Project
-		*/
-	</style>
-	<link href='http://fonts.googleapis.com/css?family=Alegreya|Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<title>Ben Hubbard - Customer Experience Creator - Thoughts</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Alegreya|Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 	
 	<link href="/assets/css/app.css" rel="stylesheet" type="text/css" media="all"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -242,15 +60,93 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			</ul>
 		</div>
 	</div>
-	<div class="container">
-		<h1>Ben Hubbard</h1> 
-		<p>Shopify expert</p>
-		<p>E-commerce design and development</p>
-		<p>Social Media &amp; digital marketing</p>
-
-
-
-
+	<div class="container home no-padding-bottom">
+		
+		<div class="page-head darkgreybg">
+			<h1 class="center white">Thoughts</p>
+		</div>
+		<article>
+				<a href="/article/creatingcontent1" class="portfolio-link article-link">
+					Creating Content: Standing out from the noise (Part 1)
+					<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Mon Aug 11 2014.</span> Tags: 
+<span><!--<a href="/tag/content marketing">-->Content Marketing<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/contentstrategy" class="portfolio-link article-link">
+	Having a content strategy is important
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Sun Jun 22 2014.</span> Tags: 
+<span><!--<a href="/tag/content marketing">-->Content Marketing<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/socialmediadoesntfix" class="portfolio-link article-link">
+	Social media doesn't fix anything.
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Wed Mar 19 2014.</span> Tags: 
+<span><!--<a href="/tag/social media">-->Social Media<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/defaultiosstyles" class="portfolio-link article-link">
+	Removing default iOS styles
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Wed May 29 2013.</span> Tags: 
+<span><!--<a href="/tag/css">-->CSS<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/position-relative-hack" class="portfolio-link article-link">
+	Position Relative
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Thu May 02 2013.</span> Tags: 
+<span><!--<a href="/tag/css">-->CSS<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/futureproofingyourbuild" class="portfolio-link article-link">
+	Futureproofing your build
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Wed May 01 2013.</span> Tags: 
+<span><!--<a href="/tag/css">-->CSS<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/overflow-hidden" class="portfolio-link article-link">
+	Overflow:hidden
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Sat Mar 02 2013.</span> Tags: 
+<span><!--<a href="/tag/css">-->CSS<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/customising-big-cartel-2" class="portfolio-link article-link">
+	Customising Big Cartel - Part 2
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Fri Mar 01 2013.</span> Tags: 
+<span><!--<a href="/tag/big cartel">-->Big Cartel<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article><article>
+	<a href="/article/customising-big-cartel-1" class="portfolio-link article-link">
+	Customising Big Cartel - Part 1
+	<div class="clear"></div>
+	
+	<div class="date">Posted: <span>Mon Feb 18 2013.</span> Tags: 
+<span><!--<a href="/tag/big cartel">-->Big Cartel<!--</a>--></span></div>
+	<span class="arrow"><img src="/assets/img/arrow.png"></span>
+	</a>
+</article>
 		
 	</div>
 	<div class="clear"></div>
