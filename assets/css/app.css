@@ -166,6 +166,12 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			padding-left: 50px;
 			padding-right: 50px;
 		}
+		.half-padding {
+			padding: 25px;
+		}
+		.quarter-padding {
+			padding:12px;
+		}
 		.no-padding-top {
 			padding-top: 0;
 		}
