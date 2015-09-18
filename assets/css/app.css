@@ -209,15 +209,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			padding-top: 200px;
 			padding-bottom: 200px;
 			margin: -50px -50px 0 -50px;
-		}
-		
+		}		
 		.portfolio-link {
 			display: block;
 			width: 100%;
 			padding: 40px 20px;
-			margin: 5px 0;
+			margin: 20px 0;
 			font-size: 1em;
 			font-family: 'Roboto Condensed', sans-serif;
+			text-decoration: none;
 		}
 		.portfolio-link:hover {
 			background:#85c7f2;
