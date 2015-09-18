@@ -240,11 +240,12 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 
 		#modal-content {
-   		 	background-color: white;
+			background: transparent;
+   		 	/*background-color: white;
     		opacity: .80;
-    		-webkit-opacity: .8;
-    		-moz-opacity: .8;
-    		filter: alpha(opacity=80);
+    		-webkit-opacity: .9;
+    		-moz-opacity: .9;
+    		filter: alpha(opacity=80);*/
     		z-index: 1000;
     		border-radius: 5px;
     		display: none;
