@@ -210,6 +210,16 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin: -50px -50px 0 -50px;
 		}
 		
+		.portfolio-link {
+			display: block;
+			width: 100%;
+			padding: 40px 20px;
+			margin: 5px 0;
+		}
+		.portfolio-link:hover {
+			background:#85c7f2;
+			color: #404e5c;
+		}
 		/*Modal*/
 		#modal-background {
     		display: none;
