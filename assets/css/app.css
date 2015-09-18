@@ -215,6 +215,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			width: 100%;
 			padding: 40px 20px;
 			margin: 5px 0;
+			font-size: 1em;
+			font-family: 'Roboto Condensed', sans-serif;
 		}
 		.portfolio-link:hover {
 			background:#85c7f2;
