@@ -145,6 +145,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		.butt:hover{
 			background: #069898;
+			color: white;
 		}
 		.darkgreybg {
 			background: #404e5c;
