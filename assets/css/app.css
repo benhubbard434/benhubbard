@@ -3,7 +3,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			box-sizing: border-box;
 		}
 		html {
-			background: #FAFAFA;	
+			background: #FAFAFA;
 		}
 		body {
 			width: 100%;
@@ -43,7 +43,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 
 		li {
-			
+
 			font-size: 12px;
 			text-align: center;
 			margin: 10px 0;
@@ -68,7 +68,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		a:hover > svg path {
 			fill: #ff0084;
-		} 
+		}
 		h2 a {
 			text-decoration: none;
 		}
@@ -83,7 +83,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.photo {
 			width:150px;
 			background: white;
-			height: 150px; 
+			height: 150px;
 			margin-left: -25px;
 			margin-top: 50px;
 			border-radius: 150px;
@@ -95,14 +95,14 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		.photography img {
 			max-width: 100%;
-			margin-bottom: 25px; 
+			margin-bottom: 25px;
 		}
 		.container {
 			margin: 50px 50px 50px 250px;
 			background: white;
 			padding: 50px;
 		}
-		
+
 		.white {
 			color: white;
 		}
@@ -133,13 +133,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			background: #26a5a5;
 			border: 0;
 			color: white;
-			display: block;
+			display: inline-block;
 			font-weight: 400;
 			padding: 12px 15px;
 			border-radius: 2px;
 			cursor: pointer;
 			text-transform: uppercase;
 			letter-spacing: 0.25px;
+			font-family: 'Roboto Condensed', sans-serif;
+		
 		}
 		.darkgreybg {
 			background: #404e5c;
@@ -202,14 +204,14 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.thanks {
 			background-color: #232323;
 		}
-		.thanks-container {	
+		.thanks-container {
 			background: transparent;
 		}
 		.page-head {
 			padding-top: 200px;
 			padding-bottom: 200px;
 			margin: -50px -50px 0 -50px;
-		}		
+		}
 		.portfolio-link {
 			display: block;
 			width: 100%;
@@ -283,14 +285,14 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		#modal-background.active, #modal-content.active {
    		 	display: block;
 		}​
-		
+
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
 		Thoughts - Thought Bubble by irene hoffman from the Noun Project
 		Website - Laptop by Ainsley Wagoner from the Noun Project
 		Photos - Camera by Pham Thi Dieu Linh from the Noun Project
-		
-		
+
+
 		About - Profile - Public Domain
 		Contact - Email by Leonides Delgado from the Noun Project
 		*/
