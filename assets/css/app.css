@@ -141,7 +141,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			text-transform: uppercase;
 			letter-spacing: 0.25px;
 			font-family: 'Roboto Condensed', sans-serif;
-		
+			text-decoration: none;
+		}
+		.butt:hover{
+			background: #069898;
 		}
 		.darkgreybg {
 			background: #404e5c;
