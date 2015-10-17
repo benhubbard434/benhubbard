@@ -234,7 +234,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		/*RESPONSIVE*/
 
-		@media only screen (max-width:700px){
+		@media only screen (min-width:700px){
 			html {background: red;}
 
 		}
