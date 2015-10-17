@@ -295,8 +295,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 		/*RESPONSIVE*/
 
-		@media (max-width:700px){
-			h1 {color: red;}
+		@media only screen (max-width:700px){
+			h1 {color: red !important;}
 
 		}
 
