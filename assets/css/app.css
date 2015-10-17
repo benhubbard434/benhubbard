@@ -235,10 +235,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		/*RESPONSIVE*/
 
 		@media only screen (max-width:700px){
-			h1 {color: red !important;}
+			html {background: red;}
 
 		}
-		
+
 		/*Modal*/
 		#modal-background {
     		display: none;
@@ -300,15 +300,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
    		 	display: block;
 		}​
 
-
-
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
 		Thoughts - Thought Bubble by irene hoffman from the Noun Project
 		Website - Laptop by Ainsley Wagoner from the Noun Project
 		Photos - Camera by Pham Thi Dieu Linh from the Noun Project
-
-
 		About - Profile - Public Domain
 		Contact - Email by Leonides Delgado from the Noun Project
 		*/
