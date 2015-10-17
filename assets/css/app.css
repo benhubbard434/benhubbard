@@ -233,8 +233,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			color: #404e5c;
 		}
 
-		@media all and (max-width: 520px) and (min-width: 0px) {
-				html {background: red;}
+		@media all and (max-width: 700px) and (min-width: 0px) {
+				
 		}
 
 		/*Modal*/
