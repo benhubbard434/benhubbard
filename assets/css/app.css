@@ -233,6 +233,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			color: #404e5c;
 		}
 
+		@media all and (max-width: 520px) and (min-width: 0px) {
+				html {background: red;}
+		}
+
 		/*Modal*/
 		#modal-background {
     		display: none;
@@ -276,12 +280,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			margin-bottom: 10px;
 			border: 1px solid #eaeaea;
 		}
-
-		@media all and (max-width: 520px) and (min-width: 0px) {
-				html {background: red;}
-		}
-
-		
 		#modal-content h2 {
 			margin-top: -18px;
 			margin-bottom: 25px;
