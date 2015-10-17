@@ -232,6 +232,13 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			background:#85c7f2;
 			color: #404e5c;
 		}
+		/*RESPONSIVE*/
+
+		@media only screen (max-width:700px){
+			h1 {color: red !important;}
+
+		}
+		
 		/*Modal*/
 		#modal-background {
     		display: none;
@@ -293,12 +300,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
    		 	display: block;
 		}​
 
-		/*RESPONSIVE*/
 
-		@media only screen (max-width:700px){
-			h1 {color: red !important;}
-
-		}
 
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
