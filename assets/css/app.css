@@ -278,17 +278,17 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background-color: #cc0000;
+    background-color: transparent;
 }
 /* Button Text */
 .slicknav_menu  .slicknav_menutxt {
-    color: #FFF;
+    color: #404e5c;
     font-weight: bold;
-    text-shadow: 0 1px 3px #000;
+
 }
 /* Button Lines */
 .slicknav_menu .slicknav_icon-bar {
-  background-color: transparent;
+  background-color: #404e5c;
 }
 .slicknav_menu {
     background:white;
