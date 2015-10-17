@@ -39,7 +39,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		p {
 			font-size: 18px;
 			font-family: 'Alegreya', serif;
-			line-height: 1.5;
+			line-height: 2;
 			margin-bottom: 18px;
 			color: #404e5c;
 			font-weight: 400;
@@ -292,6 +292,13 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		#modal-background.active, #modal-content.active {
    		 	display: block;
 		}​
+
+		/*RESPONSIVE*/
+
+		@media (max-width:499px){
+			html {border: 2px red solid;}
+
+		}
 
 		/* Icon credit
 		Home - Home by Calvin Goodman from the Noun Project
