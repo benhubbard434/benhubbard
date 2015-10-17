@@ -249,7 +249,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 .slicknav_nav .slicknav_arrow { font-size: 0.8em; margin: 0 0 0 0.4em; }
 .slicknav_nav .slicknav_item { cursor: pointer; }
 .slicknav_nav .slicknav_row { display: block; }
-.slicknav_nav a { display: block; font-family: 'Amatic SC', cursive; font-style: normal; font-weight: 700; font-size: 150%;}
+.slicknav_nav a { display: block; font-style: normal; font-weight: 700; font-size: 150%;}
 .slicknav_nav .slicknav_item a,
 .slicknav_nav .slicknav_parent-link a { display: inline }
 .slicknav_menu:before,
@@ -265,7 +265,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 .slicknav_menu {
     font-size:16px;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+		display: none;
+		position: absolute;
+		top: 0;
+		right:0;
 }
 /* Button */
 .slicknav_btn {
@@ -285,7 +288,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 }
 /* Button Lines */
 .slicknav_menu .slicknav_icon-bar {
-  background-color: white;
+  background-color: transparent;
 }
 .slicknav_menu {
     background:white;
@@ -341,7 +344,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 
 		@media all and (max-width: 700px) and (min-width: 0px) {
-
+			.slicknav_menu {
+				display: block;
+			}
 		}
 
 		/*Modal*/
