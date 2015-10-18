@@ -352,6 +352,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			.menu {
 				display: none;
 			}
+
+			.container {
+				margin: 60px 0 0 0;
+			}
 		}
 
 		/*Modal*/
