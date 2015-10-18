@@ -308,7 +308,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     margin:0 0 0 20px;
 }
 .slicknav_nav li {
-	background: white;
+	background: #FAFAFA;
+	margin: 0;
 }
 .slicknav_nav .slicknav_row {
     padding:5px 10px;
@@ -318,7 +319,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     padding:15px 20px;
     margin:0;
     text-decoration:none;
-    color:#fff;
+    color:#404e5c;
     font-size: 12px
 }
 .slicknav_nav .slicknav_item a,
@@ -354,7 +355,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			}
 
 			.container {
-				margin: 60px 0 0 0;
+				margin: 40px 0 0 0;
 			}
 		}
 
