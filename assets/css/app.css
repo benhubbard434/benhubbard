@@ -54,6 +54,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		a {
 			color: #404e5c;
 			text-decoration: underline;
+			cursor:pointer;
 		}
 		a:hover {
 			color: #ff0084;
@@ -310,6 +311,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 .slicknav_nav li {
 	background: #FAFAFA;
 	margin: 0;
+	cursor: pointer;
 }
 .slicknav_nav .slicknav_row {
     padding:5px 10px;
@@ -321,6 +323,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     text-decoration:none;
     color:#404e5c;
     font-size: 12px
+    cursor: pointer;
 }
 .slicknav_nav .slicknav_item a,
 .slicknav_nav .slicknav_parent-link a {
