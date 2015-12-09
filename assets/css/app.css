@@ -234,13 +234,16 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			color: #404e5c;
 		}
 		.date {
-			display: block;
+			display: inline-block;
 			background: #404e5c;
-			padding: 5px 8px;
+			padding: 3px 5px;
+			border-radius: 3px;
+			margin-bottom: 16px;
 		}
 		.date p {
 			color: white;
 			margin: 0;
+			font-size: 80%;
 		}
 		/*
     Mobile Menu Core Style
