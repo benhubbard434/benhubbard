@@ -254,6 +254,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			color: white;
 			margin: 0;
 			text-decoration: none;
+			font-family: 'Alegreya', serif;
 		}
 		/*
     Mobile Menu Core Style
