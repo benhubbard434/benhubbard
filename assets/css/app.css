@@ -248,12 +248,12 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.read-more {
 			display: inline-block;
 			background: #404e5c;
-			padding: 3px 5px;
+			padding: 5px 8px;
 			border-radius: 3px;
 			margin-bottom: 16px;
 			color: white;
 			margin: 0;
-			font-size: 80%;
+			text-decoration: none;
 		}
 		/*
     Mobile Menu Core Style
