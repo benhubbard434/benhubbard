@@ -116,7 +116,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			color: #ff0084;
 		}
 		.footer {
-			margin: 0 50px 25px 250px;
+			width:95%;
+			max-width: 800px;
+			margin: 10px auto 50px auto;
 		}
 		.center {
 			text-align: center;
