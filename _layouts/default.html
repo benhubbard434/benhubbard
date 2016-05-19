@@ -65,7 +65,7 @@
 					</a>
 				</li>
 				<li style="margin-top:-10px;">
-					<a href="#" class="modal-launcher" class="navlink contact">
+					<a href="/contact" class="navlink contact">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 80" enable-background="new 0 0 100 100" xml:space="preserve" class="contact"><g><rect x="-417.447" y="-166.859" display="none" fill="#000000" width="1296.13" height="1356.136"/><path d="M91.534,20.91H8.466c-1.638,0-2.966,1.327-2.966,2.966v52.25c0,1.638,1.329,2.964,2.966,2.964h83.068   c1.638,0,2.966-1.327,2.966-2.964v-52.25C94.5,22.236,93.171,20.91,91.534,20.91z M36.142,53.242   c3.497,2.954,5.895,4.957,6.499,5.408c3.363,2.516,5.98,2.855,8.097,2.855c3.922,0,6.593-1.831,7.833-2.922l6.028-5.276   l25.557,20.682l-0.012,1.021H9.859l-0.016-1.021L36.142,53.242z M9.583,67.939V30.646c1.289,1.099,2.861,2.44,4.586,3.91   c6.81,5.805,13.573,11.566,18.813,16.012L9.583,67.939z M67.915,50.409l22.501-19.683v37.095L67.915,50.409z M90.417,24.991v0.259   L55.416,54.57c-1.51,1.163-3.038,1.727-4.67,1.727c-1.65,0-3.379-0.609-5.083-1.76c-1.979-1.486-29.85-24.358-36.08-29.475v-0.072   H90.417z"/></g></svg>
 						<br>Contact
 					</a>
@@ -82,32 +82,8 @@
 		<p class="small center">&copy; 2015 - Ben Hubbard &#8226; <a href="http://www.twitter.com/benhubbard434">Twitter</a> &#8226; <a href="https://uk.linkedin.com/in/benhubbard434">LinkedIn</a> &#8226; <a href="/colophon">Colophon</a></p>
 	</div>
 
-	<!-- Modal -->
-	<div id="modal-background"></div>
-	<div id="modal-content">
-    	<a href="#" id="modal-close">
-    		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 85 85" enable-background="new 0 0 85 85" xml:space="preserve"><path d="M42.04,82c-10.236,0.004-20.507-3.902-28.324-11.719l0,0C5.919,62.485,1.999,52.241,2,42.023l0,0  C1.997,31.79,5.905,21.526,13.717,13.715l0,0C21.52,5.912,31.772,1.997,42,2l0,0c10.227-0.003,20.48,3.912,28.283,11.715l0,0  l-2.133,2.134l-2.133,2.133C59.379,11.344,50.701,8.039,42,8.036l0,0c-8.702,0.004-17.378,3.309-24.017,9.946l0,0  C11.34,24.628,8.038,33.31,8.035,42.023l0,0c0.002,8.689,3.315,17.355,9.948,23.991l0,0c6.648,6.647,15.336,9.945,24.056,9.948l0,0  c8.687-0.002,17.349-3.315,23.981-9.946l0,0c6.627-6.631,9.941-15.292,9.943-23.981l0,0c-0.002-8.718-3.301-17.407-9.945-24.054l0,0  l2.133-2.133l2.135-2.135C78.1,21.527,82.006,31.799,82,42.035l0,0c0.002,10.219-3.92,20.456-11.715,28.249l0,0  c-7.791,7.788-18.023,11.715-28.24,11.715l0,0C42.043,82,42.04,82,42.04,82L42.04,82z M57.613,57.612  c1.129-1.129,1.129-2.96,0-4.089L46.088,42l11.525-11.524c1.129-1.127,1.129-2.958,0-4.084c-1.131-1.13-2.961-1.13-4.088-0.001  L42.002,37.915L30.478,26.39c-1.129-1.13-2.959-1.129-4.086,0c-1.13,1.128-1.13,2.958,0,4.086L37.915,42L26.389,53.524  c-1.129,1.13-1.13,2.961,0,4.091c1.127,1.127,2.959,1.128,4.087-0.002L42.002,46.09l11.523,11.523  C54.654,58.742,56.484,58.742,57.613,57.612z"/></svg>
-    	</a>
-    	<div class="contact-main">
-    	<h2>Get in touch</h2>
-		<form method="post" action="//formspree.io/ben@benhubbard.co.uk" id="contact">
-    			<input type="text" name="name" class="field" placeholder="Your Name"><br>
-    			<input type="email" name="_replyto" class="field" placeholder="Your Email"><br>
-    			<textarea name="message" class="field" placeholder="Your Message" rows="3"></textarea>
-    			<input type="hidden" name="_subject" value="benhubbard.co.uk form submission" />
-    			<input type="text" name="_gotcha" style="display:none" />
-    			<input type="hidden" name="_next" value="//benhubbard.co.uk/thanks" />
-    			<input type="submit" value="Send message" class="butt">
-			</form>
-</div>
-	</div>
-	<script type="text/javascript">
-		$(function(){
-    		$(".modal-launcher, #modal-background, #modal-close").click(function() {
-        	$("#modal-content, #modal-background").toggleClass("active");
-    	});
-});
-	</script>
+	
+    	
 
 
 	<script>
