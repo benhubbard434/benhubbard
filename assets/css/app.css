@@ -83,6 +83,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			bottom: 0;
 			left: 50px;
 			background: white;
+			display: none;
 		}
 		.photo {
 			width:150px;
@@ -292,7 +293,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 .slicknav_menu {
     font-size:16px;
-		display: none;
+		/*display: none;*/
 		position: absolute;
 		top: 0;
 		right:0;
