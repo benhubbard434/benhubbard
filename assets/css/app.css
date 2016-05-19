@@ -361,11 +361,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     color:#fff;
 }
 .slicknav_nav a:hover{
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    background:#ccc;
-    color:#222;
+    color:#ff0084;
 }
 .slicknav_nav .slicknav_txtnode {
      margin-left:15px;
