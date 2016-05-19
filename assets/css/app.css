@@ -221,7 +221,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.thanks-container {
 			background: transparent;
 		}
-		.post {margin-bottom: 20px;}
+		.post {
+			margin-bottom: 40px;
+			
+		}
 		.page-head {
 			padding-top: 200px;
 			padding-bottom: 200px;
