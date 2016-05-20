@@ -245,7 +245,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		.date {
 			display: inline-block;
-			background: #404e5c;
+			border-bottom: 3px solid #404e5c;
 			padding: 3px 5px;
 			border-radius: 3px;
 			margin-bottom: 16px;
