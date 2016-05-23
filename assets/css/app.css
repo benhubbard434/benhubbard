@@ -106,7 +106,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			width:95%;
 			max-width: 800px;
 			background: white;
-			padding: 50px;
+			padding: 50px 50px 0 50px;
 			margin: 50px auto 20px auto;
 		}
 
