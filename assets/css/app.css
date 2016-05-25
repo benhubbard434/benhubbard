@@ -54,6 +54,12 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		a {
 			color: #404e5c;
 			text-decoration: underline;
+			-webkit-touch-callout: none;
+    			-webkit-user-select: none;
+    			-khtml-user-select: none;
+    			-moz-user-select: none;
+    			-ms-user-select: none;
+    			user-select: none;
 
 		}
 		a:hover {
@@ -69,12 +75,26 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			text-transform: uppercase;
 			font-family: 'Roboto Condensed', sans-serif;
 			letter-spacing: -0.25px;
+			-webkit-touch-callout: none;
+    			-webkit-user-select: none;
+    			-khtml-user-select: none;
+    			-moz-user-select: none;
+    			-ms-user-select: none;
+    			user-select: none;
 		}
 		a:hover > svg path {
 			fill: #ff0084;
 		}
 		h2 a {
 			text-decoration: none;
+		}
+		.navlink {
+			-webkit-touch-callout: none;
+    			-webkit-user-select: none;
+    			-khtml-user-select: none;
+    			-moz-user-select: none;
+    			-ms-user-select: none;
+    			user-select: none;
 		}
 		.menu {
 			position: fixed;
