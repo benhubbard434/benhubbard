@@ -23,7 +23,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			clear: both;
 		}
 		h1, h2 {
-			font-size: 4em;
+			
 			font-family:SharpUnity,sans-serif;
 			margin-bottom: 18px;
 			color: #404e5c;
@@ -32,23 +32,26 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-weight: 800;
 			letter-spacing: 1px;
 		}
+		h1 {font-size: 4em;}
+		h2 {font-size: 3em;}
 		h3{
-			font-size: 1em;
-			font-family: 'Roboto Condensed', sans-serif;
+			font-family:SharpUnity,sans-serif;
 			margin-bottom: 18px;
 			color: #404e5c;
 			line-height: 1.5;
 			padding-top: 18px;
-			text-transform: uppercase;
-			letter-spacing: 3px;
+			font-weight: 400;
+			
+			font-size: 2.5em;
 		}
 		p {
-			font-size: 18px;
-			font-family: 'Alegreya', serif;
-			line-height: 2;
+			font-family:SharpUnity,sans-serif;
 			margin-bottom: 18px;
 			color: #404e5c;
-			font-weight: 400;
+			line-height: 1.5;
+			padding-top: 18px;
+			font-weight: 100;
+			font-size: 1.2em;
 		}
 
 		li {
