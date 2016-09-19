@@ -412,6 +412,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 				width: 100%;
 				padding: 25px;
 			}
+			h1 {font-size: 3.5em;}
 		}
 
 	
