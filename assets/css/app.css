@@ -1,3 +1,18 @@
+/*@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(//a.hrc.onl/secretary/fonts/SharpUnity-Book.ttf) format("truetype"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Book.woff) format("woff"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Book.woff2) format("woff2")}
+
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(//a.hrc.onl/secretary/fonts/SharpUnity-Semibold.ttf) format("truetype"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Semibold.woff) format("woff"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Semibold.woff2) format("woff2")}
+
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.ttf) format("truetype"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.woff) format("woff"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.woff2) format("woff2")}
+*/
+
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(http://benhubbard434.github.io/assets/css/SharpUnity-Book.ttf) format("truetype")}
+
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(http://benhubbard434.github.io/assets/css/SharpUnity-Semibold.ttf) format("truetype")}
+
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(http://benhubbard434.github.io/assets/css/SharpUnity-Extrabold.ttf) format("truetype")}
+
+
+
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 		img {
 			max-width: 100%;
