@@ -33,7 +33,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		h1, h2 {
 			font-size: 1.5em;
-			font-family:SharpUnity;
+			font-family:sans-serif, SharpUnity;
 			margin-bottom: 18px;
 			color: #404e5c;
 			line-height: 1.5;
