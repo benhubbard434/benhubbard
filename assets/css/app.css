@@ -27,7 +27,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-family:SharpUnity,sans-serif;
 			margin-bottom: 18px;
 			color: #404e5c;
-			line-height: 1.5;
+			line-height: 1.75;
 			padding-top: 18px;
 			font-weight: 800;
 			letter-spacing: 1px;
@@ -38,7 +38,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-family:SharpUnity,sans-serif;
 			margin-bottom: 18px;
 			color: #404e5c;
-			line-height: 1.5;
+			line-height: 1.75;
 			padding-top: 18px;
 			font-weight: 400;
 			
@@ -48,10 +48,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-family:SharpUnity,sans-serif;
 			margin-bottom: 18px;
 			color: #404e5c;
-			line-height: 1.5;
+			line-height: 1.75;
 			padding-top: 18px;
 			font-weight: 100;
-			font-size: 1.2em;
+			font-size: 0.9em;
 		}
 
 		li {
