@@ -5,11 +5,11 @@
 @font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.ttf) format("truetype"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.woff) format("woff"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.woff2) format("woff2")}
 */
 
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(http://benhubbard434.github.io/assets/css/SharpUnity-Book.ttf) format("truetype")}
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(/assets/css/SharpUnity-Book.ttf) format("truetype")}
 
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(http://benhubbard434.github.io/assets/css/SharpUnity-Semibold.ttf) format("truetype")}
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(/assets/css/SharpUnity-Semibold.ttf) format("truetype")}
 
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(http://benhubbard434.github.io/assets/css/SharpUnity-Extrabold.ttf) format("truetype")}
+@font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(/assets/css/SharpUnity-Extrabold.ttf) format("truetype")}
 
 
 
