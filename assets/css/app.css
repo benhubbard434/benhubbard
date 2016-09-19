@@ -1,14 +1,5 @@
-/*@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(//a.hrc.onl/secretary/fonts/SharpUnity-Book.ttf) format("truetype"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Book.woff) format("woff"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Book.woff2) format("woff2")}
-
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(//a.hrc.onl/secretary/fonts/SharpUnity-Semibold.ttf) format("truetype"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Semibold.woff) format("woff"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Semibold.woff2) format("woff2")}
-
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.ttf) format("truetype"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.woff) format("woff"),url(//a.hrc.onl/secretary/fonts/SharpUnity-Extrabold.woff2) format("woff2")}
-*/
-
 @font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(/assets/css/SharpUnity-Book.ttf) format("truetype")}
-
 @font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(/assets/css/SharpUnity-Semibold.ttf) format("truetype")}
-
 @font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(/assets/css/SharpUnity-Extrabold.ttf) format("truetype")}
 
 
@@ -33,13 +24,13 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		}
 		h1, h2 {
 			font-size: 1.5em;
-			font-family:sans-serif, SharpUnity;
+			font-family:SharpUnity,sans-serif;
 			margin-bottom: 18px;
 			color: #404e5c;
 			line-height: 1.5;
 			padding-top: 18px;
-			text-transform: uppercase;
-			letter-spacing: 3px;
+			font-weight: 800;
+			letter-spacing: 1px;
 		}
 		h3{
 			font-size: 1em;
