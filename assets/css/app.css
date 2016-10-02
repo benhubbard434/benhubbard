@@ -244,6 +244,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.no-margin {
 			margin: 0;
 		}
+.section {overflow: hidden}
 		.thanks {
 			background-color: #232323;
 		}
