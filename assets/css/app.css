@@ -232,6 +232,12 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		.half-padding {
 			padding: 25px;
 		}
+		.half-padding-top {
+			padding-top: 25px;
+		}
+		.half-padding-bottom {
+			padding-bottom: 25px;
+		}
 		.quarter-padding {
 			padding:12px;
 		}
