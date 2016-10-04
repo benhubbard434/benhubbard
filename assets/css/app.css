@@ -77,8 +77,8 @@ h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 18px;color: #404e5c;
     			-ms-user-select: none;
     			user-select: none;
 		}
-.menu-text h1 {float: left}
-.menu-text li {float: left; margin-right: 10px;}
+.menu-text h1 {float: left; font-size: 36px; line-height: 40px;}
+.menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 24px; line-height: 40px;}
 		h2 a {
 			text-decoration: none;
 		}
