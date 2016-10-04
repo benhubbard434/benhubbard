@@ -193,7 +193,7 @@ h2 a {text-decoration: none;}
 		}
 
 #contact {width: 100%; padding: 50px;}
-#contact .field {width: 100%; padding: 8px 12px; border-radius: 2px; font-family:SharpUnity,sans-serif; font-size: 12px; }
+#contact .field {width: 100%; padding: 8px 12px; border-radius: 2px; font-family:SharpUnity,sans-serif; font-size: 12px; border: 1px solid #404e5c; }
 		/*
     Mobile Menu Core Style
 */
