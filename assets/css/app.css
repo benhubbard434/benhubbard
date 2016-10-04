@@ -22,8 +22,8 @@ li {font-size: 12px;text-align: center;margin: 10px 0;margin-right: 10px;}
 a {color: #404e5c;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {color: #ff0084;fill: #ff0084;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
-.menu-text h1 {float: left; font-size: 36px; line-height: 40px;}
-.menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 24px; line-height: 40px;}
+.menu-text h1 {float: left; font-size: 24px; line-height: 36px; text-decoration: none}
+.menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 24px; line-height: 36px;}
 		h2 a {
 			text-decoration: none;
 		}
