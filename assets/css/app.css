@@ -5,28 +5,14 @@
 
 
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
-		img {
-			max-width: 100%;
-		}
-		*{
-			box-sizing: border-box;
-		}
-		html {
-			background: #FAFAFA;
-		}
-		body {
-			width: 100%;
-			max-width: 1200px;
-			margin: 0 auto;
-		}
-		.clear {
-			clear: both;
-		}
-		h1, h2 {
-			
-			font-family:SharpUnity,sans-serif;
-			margin-bottom: 18px;
-			color: #404e5c;
+img {max-width: 100%;}
+*{box-sizing: border-box;}
+html {background: #FAFAFA;}
+body {width: 100%;max-width: 1200px;margin: 0 auto;}
+
+.clear {clear: both;}
+
+h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 18px;color: #404e5c;
 			line-height: 1.75;
 			padding-top: 18px;
 			font-weight: 800;
@@ -59,6 +45,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 			font-size: 12px;
 			text-align: center;
 			margin: 10px 0;
+			float: left;
+			margin-right: 10px;
 		}
 		a {
 			color: #404e5c;
@@ -78,11 +66,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 		li a {
 			text-decoration: none;
 			font-weight: 400;
-			display: block;
-			margin-top: 0;
-			margin-bottom: 15px;
+
+
 			text-transform: uppercase;
-			font-family: 'Roboto Condensed', sans-serif;
+			
 			letter-spacing: -0.25px;
 			-webkit-touch-callout: none;
     			-webkit-user-select: none;
@@ -91,9 +78,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     			-ms-user-select: none;
     			user-select: none;
 		}
-		a:hover > svg path {
-			fill: #ff0084;
-		}
+		
 		h2 a {
 			text-decoration: none;
 		}
