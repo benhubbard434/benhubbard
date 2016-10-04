@@ -62,13 +62,8 @@ h2 a {
 			max-width: 100%;
 			margin-bottom: 25px;
 		}
-		.container {
-			width:95%;
-			max-width: 800px;
-			background: white;
-			padding: 50px 50px 0 50px;
-			margin: 50px auto 20px auto;
-		}
+.container {width:95%;max-width: 800px;background: white;padding: 50px 50px 0 50px;margin: 50px auto 20px auto;}
+.menu-container {width:95%;max-width: 800px;}
 
 		.white {
 			color: white;
