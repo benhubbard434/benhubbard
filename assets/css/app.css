@@ -67,11 +67,11 @@ h2 a {text-decoration: none;}
 			padding: 12px 15px;
 			border-radius: 2px;
 			cursor: pointer;
-			text-transform: uppercase;
 			letter-spacing: 0.25px;
 			font-family: 'Roboto Condensed', sans-serif;
 			text-decoration: none;
 			-webkit-appearance: none;
+			font-size: 14px;
 		}
 		.butt:hover{
 			background: #069898;
