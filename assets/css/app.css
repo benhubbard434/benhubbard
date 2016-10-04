@@ -25,43 +25,8 @@ li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-tou
 .menu-text h1 {float: left; font-size: 24px; line-height: 36px; text-decoration: none; padding-top: 18px; margin-right: 10px; margin-bottom: 0;}
 .menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 24px; line-height: 36px;padding-top: 18px; }
 		
-h2 a {
-			text-decoration: none;
-		}
-		.navlink {
-			-webkit-touch-callout: none;
-    			-webkit-user-select: none;
-    			-khtml-user-select: none;
-    			-moz-user-select: none;
-    			-ms-user-select: none;
-    			user-select: none;
-		}
-		.menu {
-			position: fixed;
-			width: 100px;
-			top: 0;
-			bottom: 0;
-			left: 50px;
-			background: white;
-			display: none;
-		}
-		.photo {
-			width:150px;
-			background: white;
-			height: 150px;
-			margin-left: -25px;
-			margin-top: 50px;
-			border-radius: 150px;
-			overflow: hidden;
-		}
-		.photography {
-			padding-top: 50px;
-			padding-bottom: 50px;
-		}
-		.photography img {
-			max-width: 100%;
-			margin-bottom: 25px;
-		}
+h2 a {text-decoration: none;}
+
 .container {width:95%;max-width: 800px;background: white;padding: 50px 50px 0 50px;margin: 50px auto 20px auto;}
 .menu-container {width:95%;max-width: 800px;margin: 0 auto;}
 
