@@ -45,7 +45,6 @@ h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 18px;color: #404e5c;
 			font-size: 12px;
 			text-align: center;
 			margin: 10px 0;
-			float: left;
 			margin-right: 10px;
 		}
 		a {
@@ -78,7 +77,8 @@ h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 18px;color: #404e5c;
     			-ms-user-select: none;
     			user-select: none;
 		}
-		
+.menu-text h1 {float: left}
+.menu-text li {float: left; margin-right: 10px;}
 		h2 a {
 			text-decoration: none;
 		}
