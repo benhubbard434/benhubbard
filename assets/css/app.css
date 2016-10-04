@@ -63,7 +63,7 @@ h2 a {
 			margin-bottom: 25px;
 		}
 .container {width:95%;max-width: 800px;background: white;padding: 50px 50px 0 50px;margin: 50px auto 20px auto;}
-.menu-container {width:95%;max-width: 800px;}
+.menu-container {width:95%;max-width: 800px;margin: 0 auto;}
 
 		.white {
 			color: white;
