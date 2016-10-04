@@ -191,6 +191,9 @@ h2 a {text-decoration: none;}
 			text-decoration: none;
 			font-family: 'Alegreya', serif;
 		}
+
+#contact {width: 100%; padding: 50px;}
+#contact .field {width: 100%; padding: 8px 12px; border-radius: 2px; font-family:SharpUnity,sans-serif; font-size: 12px; }
 		/*
     Mobile Menu Core Style
 */
