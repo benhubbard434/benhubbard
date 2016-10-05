@@ -30,35 +30,18 @@ h2 a {text-decoration: none;}
 .container {width:95%;max-width: 800px;background: white;padding: 50px 50px 0 50px;margin: 50px auto 20px auto;}
 .menu-container {width:95%;max-width: 800px;margin: 0 auto;}
 
+.footer {width:95%;max-width: 800px;margin: 10px auto 50px auto;}
 
-		.white {
-			color: white;
-		}
-		.pink {
-			color: #ff0084;
-		}
-		.footer {
-			width:95%;
-			max-width: 800px;
-			margin: 10px auto 50px auto;
-		}
+.white {color: white;}
+.pink {color: #ff0084;}
+
 		.center {
 			text-align: center;
 		}
 		.small {
 			font-size: 80%;
 		}
-		.profile-pic {
-			width: 100%;
-		}
-		path {
-			fill: #404e5c;
-		}
-		svg {
-			width:50px;
-			margin-top: 0;
-			margin-bottom: 2px;
-		}
+
 		.butt {
 			background: #26a5a5;
 			border: 0;
@@ -189,13 +172,13 @@ h2 a {text-decoration: none;}
  
 
 
-		@media all and (max-width: 700px) and (min-width: 0px) {
+@media all and (max-width: 700px) and (min-width: 0px) {
 			.slicknav_menu {display: block;}
 			.menu {display: none;}
-			.container {width: 100%;padding: 25px;}
+			.container {width: 100%;padding: 25px;margin-top: 25px;}
 			h1 {font-size: 3.25em;}
 			.page-head {margin-top: -30px;}
 			.mobile-break {clear: both}
-		}
+}
 
 	
