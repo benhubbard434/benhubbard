@@ -3,13 +3,14 @@ layout: default
 ---
 
 
-        {% for category in site.categories %}
-        "{{ category | first }}"{% unless forloop.last %},{% endunless %}
-        {% endfor %}
+        
 
 
 <div class="posts">
   {% for post in site.posts %}
+        {% for category in site.categories %}
+        "{{ category | first }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
     <article class="post">
 
       <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
