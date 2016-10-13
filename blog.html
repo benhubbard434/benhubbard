@@ -2,11 +2,11 @@
 layout: default
 ---
 
-{% comment %}
+
         {% for category in site.categories %}
         "{{ category | first }}"{% unless forloop.last %},{% endunless %}
         {% endfor %}
-{% endcomment %}
+
 
 <div class="posts">
   {% for post in site.posts %}
