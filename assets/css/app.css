@@ -101,23 +101,23 @@ h2 a {text-decoration: none;}
 .page-head {padding-top: 200px;padding-bottom: 200px;}		
 
 /*blog*/
-.posts {padding: 50px;}
+.posts {padding: 25px;}
 .post {margin-bottom: 40px;}
 .date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
 .date p {margin: 0;font-size: 80%;}
 .read-more {display: inline-block;background: #404e5c;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
-.sub-post {padding: 50px;}
+.sub-post {padding: 25px;}
 
 /*portflio-page*/
 .portfolio-link {font-family:Whitney,sans-serif;display: block;width: 100%;padding: 40px 20px;margin: 20px 0;font-size: 1em;text-decoration: none;}
 .portfolio-link:hover {background:#85c7f2;color: #404e5c;}
 
 /*project-sub-page*/
-.project-desc {padding: 0 50px;}
+.project-desc {padding: 25px;}
 .screenshot-holder, .secondary-screen {padding: 0 50px;}
 
 /*contact-page*/
-.contact-holder {padding: 50px;}
+.contact-holder {padding: 25px;}
 #contact {width: 100%; padding: 50px 100px 50px 0;}
 #contact .field {width: 100%; padding: 12px 16px; border-radius: 1px; font-family:SharpUnity,sans-serif; font-size: 14px; border: 1px solid #404e5c; margin-bottom: 20px;}
 		
