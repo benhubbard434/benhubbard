@@ -179,7 +179,9 @@ h2 a {text-decoration: none;}
 	h2 {font-size: 2.25em}
 	h3 {font-size: 1.75em}
 	.page-head {margin-top: -30px;}
-	.mobile-break {clear: both}
+	.menu-text {position: fixed; background: white; bottom: 0; right: 0; left: 0;}
+	.menu-text li {margin: 0; padding: 9px 0; width: 33.333333%; border-top: 1px solid #d1d1d1;}
+	.menu-text li a {display: block; width: 100%; text-align: center;}
 	#contact {padding: 25px 0}
 	
 }
