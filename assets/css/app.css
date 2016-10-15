@@ -12,6 +12,7 @@ body {width: 100%;max-width: 1200px;margin: 0 auto;}
 
 .clear {clear: both;}
 
+/*arcitecture*/
 h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 1em;color: #404e5c;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 4em;}
 h2 {font-size: 3em;}
@@ -27,6 +28,7 @@ li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-tou
 		
 h2 a {text-decoration: none;}
 
+/*structure*/
 .container {width:95%;max-width: 800px;background: white;padding: 0;margin: 18px auto;}
 .menu-container {width:95%;max-width: 800px;margin: 0 auto;}
 
@@ -95,50 +97,36 @@ h2 a {text-decoration: none;}
 			margin: 0;
 		}
 .section {overflow: hidden}
-		.thanks {
+
+.page-head {padding-top: 200px;padding-bottom: 200px;}		
+
+/*blog*/
+.posts {padding: 50px;}
+.post {margin-bottom: 40px;}
+.date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
+.date p {margin: 0;font-size: 80%;}
+.read-more {display: inline-block;background: #404e5c;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
+.sub-post {padding: 50px;}
+
+/*portflio-page*/
+.portfolio-link {font-family:Whitney,sans-serif;display: block;width: 100%;padding: 40px 20px;margin: 20px 0;font-size: 1em;text-decoration: none;}
+.portfolio-link:hover {background:#85c7f2;color: #404e5c;}
+
+/*project-sub-page*/
+.project-desc {padding: 0 50px;}
+.screenshot-holder, .secondary-screen {padding: 0 50px;}
+
+/*contact-page*/
+.contact-holder {padding: 50px;}
+#contact {width: 100%; padding: 50px 100px 50px 0;}
+#contact .field {width: 100%; padding: 12px 16px; border-radius: 1px; font-family:SharpUnity,sans-serif; font-size: 14px; border: 1px solid #404e5c; margin-bottom: 20px;}
+		
+.thanks {
 			background-color: #232323;
 		}
 		.thanks-container {
 			background: transparent;
 		}
-		.post {
-			margin-bottom: 40px;
-			
-		}
-		.page-head {
-			padding-top: 200px;
-			padding-bottom: 200px;
-			
-		}
-		.portfolio-link {
-			display: block;
-			width: 100%;
-			padding: 40px 20px;
-			margin: 20px 0;
-			font-size: 1em;
-			font-family: 'Roboto Condensed', sans-serif;
-			text-decoration: none;
-		}
-		.portfolio-link:hover {
-			background:#85c7f2;
-			color: #404e5c;
-		}
-		.date {
-			display: inline-block;
-			border-bottom: 2px solid #404e5c;
-			padding: 2px 5px;
-			margin-bottom: 16px;
-		}
-		.date p {
-			margin: 0;
-			font-size: 80%;
-		}
-.read-more {display: inline-block;background: #404e5c;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
-
-#contact {width: 100%; padding: 50px 100px 50px 0;}
-#contact .field {width: 100%; padding: 12px 16px; border-radius: 1px; font-family:SharpUnity,sans-serif; font-size: 14px; border: 1px solid #404e5c; margin-bottom: 20px;}
-		
- 
 
 
 @media all and (max-width: 700px) and (min-width: 0px) {
