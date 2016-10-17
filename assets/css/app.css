@@ -32,11 +32,20 @@ h2 a {text-decoration: none;}
 .container {width:95%;max-width: 800px;background: white;padding: 0;margin: 18px auto;}
 .menu-container {width:95%;max-width: 800px;margin: 0 auto;}
 
+.center {text-align: center;}
+.small {font-size: 80%;}
+.left-block {float: left;width: 50%;padding: 25px;box-sizing: border-box;}
+.right-block {float: right;width: 50%;padding: 25px;box-sizing: border-box;}
+.section {overflow: hidden}
+.page-head {padding-top: 200px;padding-bottom: 200px;}
+
 .footer {width:95%;max-width: 800px;margin: 10px auto 50px auto;}
 
+/*button*/
 .butt {font-family:Whitney,sans-serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
 .butt:hover{background: #069898;color: white;}
 
+/*colours*/
 .white {color: white;}
 .pink {color: #ff0084;}
 .darkgreybg {background: #404e5c;}
@@ -44,61 +53,19 @@ h2 a {text-decoration: none;}
 .bluebg {background:#85c7f2;}
 .whitebg {background: white;}
 
-.center {text-align: center;}
-.small {font-size: 80%;}
-		.left-block {
-			float: left;
-			width: 50%;
-			padding: 25px;
-			box-sizing: border-box;
-		}
-		.right-block {
-			float: right;
-			width: 50%;
-			padding: 25px;
-			box-sizing: border-box;
-		}
-		
-		.padding-top {
-			padding-top: 50px;
-		}
-		.double-padding-top {
-			padding-top: 100px;
-		}
-		.double-padding-bottom {
-			padding-bottom: 100px;
-		}
-		.padding-bottom {
-			padding-bottom: 50px;
-		}
-		.padding-side {
-			padding-left: 50px;
-			padding-right: 50px;
-		}
-		.half-padding {
-			padding: 25px;
-		}
-		.half-padding-top {
-			padding-top: 25px;
-		}
-		.half-padding-bottom {
-			padding-bottom: 25px;
-		}
-		.quarter-padding {
-			padding:12px;
-		}
-		.no-padding-top {
-			padding-top: 0;
-		}
-		.no-padding-bottom {
-			padding-bottom: 0;
-		}
-		.no-margin {
-			margin: 0;
-		}
-.section {overflow: hidden}
-
-.page-head {padding-top: 200px;padding-bottom: 200px;}		
+/*padding*/
+.padding-top {padding-top: 50px;}
+.double-padding-top {padding-top: 100px;}
+.double-padding-bottom {padding-bottom: 100px;}
+.padding-bottom {padding-bottom: 50px;}
+.padding-side {padding-left: 50px;padding-right: 50px;}
+.half-padding {padding: 25px;}
+.half-padding-top {padding-top: 25px;}
+.half-padding-bottom {padding-bottom: 25px;}
+.quarter-padding {padding:12px;}
+.no-padding-top {padding-top: 0;}
+.no-padding-bottom {padding-bottom: 0;}
+.no-margin {margin: 0;}	
 
 /*blog*/
 .posts {padding: 25px;}
@@ -120,17 +87,13 @@ h2 a {text-decoration: none;}
 .contact-holder {padding: 25px;}
 #contact {width: 100%; padding: 50px 100px 50px 0;}
 #contact .field {width: 100%; padding: 12px 16px; border-radius: 1px; font-family:SharpUnity,sans-serif; font-size: 14px; border: 1px solid #404e5c; margin-bottom: 20px;}
-		
-.thanks {
-			background-color: #232323;
-		}
-		.thanks-container {
-			background: transparent;
-		}
 
+/*thanks*/
+.thanks {background-color: #232323;}
+.thanks-container {background: transparent;}
 
+/*responsive stuff*/
 @media all and (max-width: 500px) and (min-width: 0px) {
-	
 	.container {width: 100%;padding: 25px 0;margin-top: 25px;}
 	h1 {font-size: 3.25em;}
 	h2 {font-size: 2.25em}
