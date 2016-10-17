@@ -129,7 +129,7 @@ h2 a {text-decoration: none;}
 		}
 
 
-@media all and (max-width: 700px) and (min-width: 0px) {
+@media all and (max-width: 500px) and (min-width: 0px) {
 	
 	.container {width: 100%;padding: 25px 0;margin-top: 25px;}
 	h1 {font-size: 3.25em;}
