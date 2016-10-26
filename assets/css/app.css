@@ -70,7 +70,7 @@ h2 a {text-decoration: none;}
 .no-margin {margin: 0;}	
 
 /*index*/
-.profile-face {object-fit: cover;border-radius: 50%;}
+.profile-face {object-fit: cover;border-radius: 50%;display: block; margin: 0 auto;}
 
 /*blog*/
 .posts {padding: 25px;}
