@@ -69,6 +69,9 @@ h2 a {text-decoration: none;}
 .no-padding-bottom {padding-bottom: 0;}
 .no-margin {margin: 0;}	
 
+/*index*/
+.profile-face {object-fit: cover;border-radius: 50%;}
+
 /*blog*/
 .posts {padding: 25px;}
 .post {margin-bottom: 40px;}
