@@ -39,6 +39,8 @@ h2 a {text-decoration: none;}
 .section {overflow: hidden}
 .page-head {padding-top: 200px;padding-bottom: 200px;}
 
+.half {width: 50%;float:left}
+
 .footer {width:95%;max-width: 800px;margin: 10px auto 50px auto;}
 
 /*button*/
