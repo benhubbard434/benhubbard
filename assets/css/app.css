@@ -23,7 +23,20 @@ li {}
 a {color: #404e5c;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {color: #ff0084;fill: #ff0084;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
-.logo-text {float: left; font-size: 1.5em; line-height: 36px; text-decoration: none; padding-top: 18px; margin-right: 10px; margin-bottom: 0;}
+.logo-text {float: left; font-size: 1.5em; line-height: 36px; text-decoration: none; padding-top: 18px; margin-right: 10px; margin-bottom: 0;
+text-shadow: 0 1px 0 #ccc,
+0 2px 0 #c9c9c9,
+0 3px 0 #bbb,
+0 4px 0 #b9b9b9,
+0 5px 0 #aaa,
+0 6px 1px rgba(0,0,0,.1),
+0 0 5px rgba(0,0,0,.1),
+0 1px 3px rgba(0,0,0,.3),
+0 3px 5px rgba(0,0,0,.2),
+0 5px 10px rgba(0,0,0,.25),
+0 10px 10px rgba(0,0,0,.2),
+0 20px 20px rgba(0,0,0,.15);
+}
 .menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 1.5em; line-height: 36px;padding-top: 18px; }
 		
 h2 a {text-decoration: none;}
