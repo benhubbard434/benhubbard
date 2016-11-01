@@ -29,8 +29,9 @@ li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-tou
 h2 a {text-decoration: none;}
 
 /*structure*/
-.container {width:95%;max-width: 800px;background: white;padding: 0;margin: 18px auto;}
-.menu-container {width:95%;max-width: 800px;margin: 0 auto;}
+.container {width:95%;max-width: 900px;background: white;padding: 0;margin: 18px auto;}
+.menu-container {width:95%;max-width: 900px;margin: 0 auto;}
+.footer {width:95%;max-width: 900px;margin: 10px auto 50px auto;}
 
 .center {text-align: center;}
 .small {font-size: 80%;}
@@ -40,8 +41,6 @@ h2 a {text-decoration: none;}
 .page-head {padding-top: 200px;padding-bottom: 200px;}
 
 .half {width: 50%;float:left}
-
-.footer {width:95%;max-width: 800px;margin: 10px auto 50px auto;}
 
 /*button*/
 .butt {font-family:Whitney,sans-serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
