@@ -35,7 +35,7 @@ h2 a {text-decoration: none;}
 
 .center {text-align: center;}
 .small {font-size: 80%;}
-.h3small {font-size: 1.5em;}
+.h3small {font-size: 1.5em;margin-bottom: -1em;}
 .left-block {float: left;width: 50%;padding: 25px;box-sizing: border-box;}
 .right-block {float: right;width: 50%;padding: 25px;box-sizing: border-box;}
 .section {overflow: hidden}
