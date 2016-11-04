@@ -76,6 +76,8 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 /*index*/
 .profile-face {object-fit: cover;border-radius: 50%;display: block; margin: 0 auto;}
+.mini-container:before {width: 2px; background: red;}
+.mini-container {padding-left: 4em;}
 
 /*blog*/
 .posts {padding: 25px;}
