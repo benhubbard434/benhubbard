@@ -17,12 +17,12 @@ layout: default
   <div class="clear"></div>
 </div>
 <div class="clear"></div>
-<div class="section whitebg padding-side">
+<div class="section whitebg padding-side half-padding-top half-padding-bottom">
     {% for post in site.posts limit:1 %}
         
     <article class="post">
 
-      <h4 class="nomargin"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <h3 class="nomargin"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 
       <div class="entry">
        {{ post.content | truncatewords: 50 }}
