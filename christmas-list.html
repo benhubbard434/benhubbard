@@ -13,6 +13,14 @@ layout: bare
   .list-item-link {width: 15%;}
   h4 {margin-top: 0; padding-top: 0;}
   h4 a {cursor: pointer}
+  
+  @media only screen and (max-width: 500px) {
+    .left {float: none}
+    .list-item-image {width: 100%}
+    .list-item-title {width: 100%;}
+    .list-item-price {width: 100%}
+    .list-item-link {width: 100%;}
+  }
 </style>
 <h1>Christmas list</h1>
 <!--begin list item-->
@@ -184,3 +192,24 @@ layout: bare
   <div class="clear"></div>
 </div>
 <!--end list item-->
+
+
+<!--begin list item-->
+<div class="list-item">
+  <div class="list-item-image left">
+    <img src="http://johnlewis.scene7.com/is/image/JohnLewis/235958355?$prod_main$" class="item-image">
+  </div>
+  <div class="list-item-title left">
+    <h4>John Lewis Fusion Grey Tile In Bath Mat</h4>
+  </div>
+  <div class="list-item-price left">
+    <h4>£15</h4>
+  </div>
+  <div class="list-item-link left">
+    <h4><a href="http://www.johnlewis.com/john-lewis-fusion-grey-tile-in-bath-mat/p2649771" target="blank">John Lewis</a></h4>
+  </div>
+  <div class="clear"></div>
+</div>
+<!--end list item-->
+
+
