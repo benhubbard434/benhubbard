@@ -101,7 +101,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 /*contact-page*/
 .contact-holder {padding: 25px;}
-#contact {width: 100%; padding: 50px 100px 50px 0;}
+#contact {width: 100%; padding: 50px 100px 50px 0;max-width: 700px;}
 #contact .field {width: 100%; padding: 12px 16px; border-radius: 1px; font-family:SharpUnity,sans-serif; font-size: 14px; border: 1px solid #404e5c; margin-bottom: 20px;}
 
 /*thanks*/
