@@ -23,7 +23,7 @@ p {font-family:Whitney,sans-serif;margin-bottom:1em;color: #404e5c;line-height: 
 
 li {}
 a {color: #404e5c;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
-a:hover {color: #ff0084;fill: #ff0084;}
+a:hover {color: #ea5439;fill: #ea5439;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 .logo-text {float: left; font-size: 1.5em; line-height: 36px; text-decoration: none; padding-top: 18px; margin-right: 10px; margin-bottom: 0;}
 .menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 1.5em; line-height: 36px;padding-top: 18px; }
@@ -52,12 +52,12 @@ h2 a {text-decoration: none;}
 
 /*colours*/
 .white {color: white;}
-.pink {color: #ff0084;}
+.pink {color: #ea5439;}
 .darkgreybg {background: #404e5c;}
 .lightgreybg {background: #d1d1d1;}
 .bluebg {background:#85c7f2;}
 .whitebg {background: white;}
-.pinkbg {background: #ff0084;}
+.pinkbg {background: #ea5439;}
 h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 /*padding*/
