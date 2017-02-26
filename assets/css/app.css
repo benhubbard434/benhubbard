@@ -25,16 +25,21 @@ li {}
 a {color: #404e5c;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {color: #ff0084;fill: #ff0084;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
-.logo-text {float: left; font-size: 1.5em; line-height: 36px; text-decoration: none; padding-top: 18px; margin-right: 10px; margin-bottom: 0;}
-.menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 1.5em; line-height: 36px;padding-top: 18px; }
+
+
 		
 h2 a {text-decoration: none;}
 
 
-/*structure*/
+/*header&structure*/
 .container {width:95%;max-width: 1000px;background: white;padding: 0;margin: 18px auto;}
-.menu-container {width:95%;max-width: 1000px;margin: 0 auto;}
+.menu-container {width:100%;padding: 20px;}
+.logo-header {background: #F4E409; padding: 20px; width: 100%;}
+.logo-text {float: left; font-size: 1.5em; line-height: 36px; text-decoration: none; padding-top: 18px; margin-right: 10px; margin-bottom: 0;}
+.menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 1.5em; line-height: 36px;padding-top: 18px; }
+
 .footer {width:95%;max-width: 1000px;margin: 10px auto 50px auto;}
+
 
 .center {text-align: center;}
 .small {font-size: 80%;}
