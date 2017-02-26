@@ -13,16 +13,16 @@ body {width: 100%; margin: 0 auto;}
 .clear {clear: both;}
 
 /*arcitecture*/
-h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 1em;color: #404e5c;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
+h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 1em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 3em; letter-spacing: 2px;}
 h2 {font-size: 2.5em;letter-spacing: 2px;}
-h3{font-family:SharpUnity,sans-serif;margin-bottom: 1em;color: #404e5c;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 2.5em;}
-h4{font-family:SharpUnity,sans-serif;margin-bottom: 0.5em;color: #404e5c;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
-h5{font-family:SharpUnity,sans-serif;margin-bottom: 0.25em;color: #404e5c;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1em;}
-p {font-family:Whitney,sans-serif;margin-bottom:1em;color: #404e5c;line-height: 1.8em;font-size: 1em;}
+h3{font-family:SharpUnity,sans-serif;margin-bottom: 1em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 2.5em;}
+h4{font-family:SharpUnity,sans-serif;margin-bottom: 0.5em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
+h5{font-family:SharpUnity,sans-serif;margin-bottom: 0.25em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1em;}
+p {font-family:Whitney,sans-serif;margin-bottom:1em;color: #595959;line-height: 1.8em;font-size: 1em;}
 
 li {}
-a {color: #404e5c;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+a {color: #595959;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {color: #ff0084;fill: #ff0084;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}		
 h2 a {text-decoration: none;}
@@ -55,7 +55,7 @@ h2 a {text-decoration: none;}
 /*colours*/
 .white {color: white;}
 .pink {color: #ff0084;}
-.darkgreybg {background: #404e5c;}
+.darkgreybg {background: #595959;}
 .lightgreybg {background: #d1d1d1;}
 .bluebg {background:#85c7f2;}
 .whitebg {background: white;}
