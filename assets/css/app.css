@@ -32,8 +32,8 @@ h2 a {text-decoration: none;}
 .container {width:95%;max-width: 1000px;background: white;padding: 0;margin: 18px auto;}
 .menu-container {width:100%;padding: 20px;}
 .logo-header {background: #F4E409; padding: 20px; width: 100%;}
-.logo-text {float: left; font-size: 2.5em; line-height: 36px; text-decoration: none; color: #FF0084;margin:0;}
-.logo-text a {text-decoration: none;color: #FF0084;}
+.logo-text {float: left; font-size: 2.5em; text-decoration: none; margin:0; padding: 0;}
+.logo-text a {text-decoration: none;color: #FF0084; padding: 0; margin: 0;}
 .menu-text li {float: left; margin-right: 10px; font-family:SharpUnity,sans-serif; font-size: 1.5em; line-height: 36px;padding-top: 18px; }
 
 .footer {width:95%;max-width: 1000px;margin: 10px auto 50px auto;}
