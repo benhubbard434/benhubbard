@@ -38,7 +38,7 @@ h2 a {text-decoration: none;}
 
 .footer {width:95%;max-width: 1000px;margin: 10px auto 50px auto;}
 
-.section-header {border-bottom: 4px solid #CC5803;}
+.section-header {border-bottom: 4px solid #F75C03; padding-left: 5px; margin-left: 5px;}
 
 
 .center {text-align: center;}
