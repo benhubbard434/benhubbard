@@ -38,7 +38,7 @@ h2 a {text-decoration: none;}
 
 .footer {width:95%;max-width: 1000px;margin: 10px auto 50px auto;}
 
-.section-header {border-bottom: 4px solid #F75C03; padding-left: 5px;display: inline-block;}
+.section-header {border-bottom: 20px solid #F75C03; padding-left: 5px;display: inline-block; line-height:0;}
 .section {overflow: hidden}
 
 .half {width: 50%;float:left}
