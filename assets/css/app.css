@@ -44,6 +44,22 @@ h2 a {text-decoration: none;}
 .half {width: 50%;float:left}
 .third {width: 33.33333333333333332%; float: left;}
 
+/*button*/
+.butt {font-family:Whitney,sans-serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
+.butt:hover{background: #069898;color: white;}
+
+
+/*index*/
+.home-article {padding: 0 10px;}
+
+.profile-face {object-fit: cover;border-radius: 50%;display: block; margin: 0 auto;}
+
+.mini-container {padding-left: 4em; position: relative;}
+.mini-container:before {content:""; width: 2px; background: #85c7f2; position: absolute; top: 22px; bottom: 0; left: 0.5em;z-index: 1}
+.job {position: relative;}
+.job:before {content:""; position: absolute; width: 20px; height: 20px; border-radius:20px; background: red; z-index: 2;top: 22px; left: -65px;background: #85c7f2;}
+.past {font-style: italic; font-size: 12px}
+
 
 /*below here needs checking*/
 .center {text-align: center;}
@@ -55,9 +71,7 @@ h2 a {text-decoration: none;}
 .page-head {padding-top: 200px;padding-bottom: 200px;}
 
 
-/*button*/
-.butt {font-family:Whitney,sans-serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
-.butt:hover{background: #069898;color: white;}
+
 
 /*colours*/
 .white {color: white;}
@@ -83,14 +97,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .no-padding-bottom {padding-bottom: 0;}
 .no-margin {margin: 0;}	
 
-/*index*/
-.profile-face {object-fit: cover;border-radius: 50%;display: block; margin: 0 auto;}
 
-.mini-container {padding-left: 4em; position: relative;}
-.mini-container:before {content:""; width: 2px; background: #85c7f2; position: absolute; top: 22px; bottom: 0; left: 0.5em;z-index: 1}
-.job {position: relative;}
-.job:before {content:""; position: absolute; width: 20px; height: 20px; border-radius:20px; background: red; z-index: 2;top: 22px; left: -65px;background: #85c7f2;}
-.past {font-style: italic; font-size: 12px}
 
 /*blog*/
 .posts {padding: 25px;}
