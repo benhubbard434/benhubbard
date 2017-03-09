@@ -50,6 +50,7 @@ h2 a {text-decoration: none;}
 
 .big-button {padding: 10px 25%;}
 .big-button h4 {text-align: center;}
+.big-button h4 a {display:block; padding: 10px 0;}
 .big-button h4 a:hover {background: #F4E409; color: #FF0084;}
 
 /*index*/
