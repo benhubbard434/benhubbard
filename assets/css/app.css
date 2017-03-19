@@ -130,7 +130,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 /*responsive stuff*/
 @media all and (max-width: 500px) and (min-width: 0px) {
-	.container {width: 100%;padding: 25px 0;margin-top: 25px;}
+	.container {width: auto;padding: 25px 0;margin-top: 25px;}
 	h1 {font-size: 3.25em;}
 	h2 {font-size: 2.25em}
 	h3 {font-size: 1.75em}
@@ -141,7 +141,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	.link-border {border-right: 2px solid #d1d1d1;}
 	#contact {padding: 25px 0}
 	.footer {padding-bottom: 20px;}
-	.half {width: 100%; float: none;}
+	.third, .half {width: auto%; float: none;}
 }
 
 	
