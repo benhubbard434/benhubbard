@@ -64,6 +64,15 @@ h2 a {text-decoration: none;}
 .job:before {content:""; position: absolute; width: 20px; height: 20px; border-radius:20px; background: red; z-index: 2;top: 22px; left: -65px;background: #85c7f2;}
 .past {font-style: italic; font-size: 12px}
 
+/*blog*/
+.posts {padding: 25px;}
+.post {margin-bottom: 40px;}
+.date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
+.date p {margin: 0;font-size: 80%;}
+.read-more {display: inline-block;background: #404e5c;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
+.sub-post {padding: 25px 100px;}
+
+
 
 /*below here needs checking*/
 .center {text-align: center;}
@@ -103,13 +112,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 
 
-/*blog*/
-.posts {padding: 25px;}
-.post {margin-bottom: 40px;}
-.date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
-.date p {margin: 0;font-size: 80%;}
-.read-more {display: inline-block;background: #404e5c;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
-.sub-post {padding: 25px;}
+
 
 /*portflio-page*/
 .portfolio-link {font-family:Whitney,sans-serif;display: block;width: 100%;padding: 40px 20px;margin: 20px 0;font-size: 1em;text-decoration: none;}
