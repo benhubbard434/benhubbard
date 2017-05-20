@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+{% for post in site.categories.customer-success %}
+    <article class="post">
+
+      <h1><a href="{{ site.baseurl }}/blog{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+{% endfor %}
