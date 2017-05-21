@@ -139,7 +139,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	h3 {font-size: 1.75em}
 	.page-head {margin-top: -30px;}
 	.menu-text {position: fixed; background: white; bottom: 0; right: 0; left: 0;z-index: 10;}
-	.menu-text li {margin: 0; padding: 9px 0; width: 33.333333%; border-top: 2px solid #d1d1d1;}
+	.menu-text li {margin: 0; padding: 9px 0; width: 50%; border-top: 2px solid #d1d1d1;}
 	.menu-text li a {display: block; width: 100%; text-align: center;}
 	.link-border {border-right: 2px solid #d1d1d1;}
 	#contact {padding: 25px 0}
