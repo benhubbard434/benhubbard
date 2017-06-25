@@ -91,11 +91,13 @@ h2 a {text-decoration: none;}
 .pink {color: #ff0084;}
 .blue {color:#7724f8;}
 .yellow: {color:#F4E409;}
+
 .darkgreybg {background: #595959;}
 .lightgreybg {background: #d1d1d1;}
 .bluebg {background:#7724f8;}
 .whitebg {background: white;}
 .pinkbg {background: #ff0084;}
+.yellowbg {background: #F4E409;}
 h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 /*padding*/
