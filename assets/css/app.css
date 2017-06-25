@@ -117,7 +117,6 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 /*portflio-page*/
 .portfolio-link {font-family:Whitney,sans-serif;display: block;width: 100%;padding: 40px 20px;margin: 20px 0;font-size: 1em;text-decoration: none;}
-.portfolio-link:hover {background:#85c7f2;color: #404e5c;}
 
 /*project-sub-page*/
 .project-desc {padding: 25px;}
