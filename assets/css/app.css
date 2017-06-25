@@ -148,8 +148,8 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	.third, .half {width: auto; float: none;}
 	.hide-mobile {display:none !important}
 	.sub-post {padding: 10px;}
-	.screenshot-holder {padding-left:0;padding-right:0}
-	.side-padding {padding-left:0;padding-right:0}
+	.screenshot-holder, .secondary-screen {padding-left:0;padding-right:0}
+	.padding-side {padding-left:0;padding-right:0}
 }
 
 	
