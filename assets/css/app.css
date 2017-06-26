@@ -119,7 +119,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 /*portflio-page*/
 .portfolio-link {font-family:Whitney,sans-serif;display: block;width: 50%;padding: 40px 20px;margin: 40px auto 80px auto;font-size: 1em;text-decoration: none;}
-.tag {display:inline-block; padding: 2px 3px; border-radius: 2px}
+.tag {display:inline-block; padding: 2px 4px; border-radius: 3px}
 .work-header {text-align: center;}
 .work-header h2 {display:block;}
 
