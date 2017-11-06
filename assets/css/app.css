@@ -23,7 +23,7 @@ p {font-family:Whitney,sans-serif;margin-bottom:1em;color: #595959;line-height: 
 
 li {}
 a {color: #595959;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
-a:hover {color: #ff0084;fill: #ff0084;cursor:pointer;}
+a:hover {color: #FFA737;fill: #FFA737;cursor:pointer;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}		
 h2 a {text-decoration: none;}
 
@@ -46,12 +46,12 @@ h2 a {text-decoration: none;}
 
 /*button*/
 .butt {font-family:Whitney,sans-serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
-.butt:hover{background: #069898;color: white;}
+.butt:hover{background: #FFA737;color: white;}
 
 .big-button {padding: 10px 25%;margin-bottom: 20px;}
 .big-button h4 {text-align: center;}
 .big-button h4 a {display:block; padding: 10px 0;}
-.big-button h4 a:hover {background: #F4E409; color: #FF0084;}
+.big-button h4 a:hover {background: #FFA737; color: white;}
 
 /*index*/
 .home-article {padding: 0 10px;}
@@ -87,17 +87,17 @@ h2 a {text-decoration: none;}
 
 /*colours*/
 .white {color: white;}
-.pink {color: #ff0084;}
-.blue {color:#7724f8;}
-.yellow {color:#F4E409;}
+.pink {color: #FFA737;}
+.blue {color:#061A40;}
+.yellow {color:#FFA737;}
 .orange {color: #F75C03;}
 
-.darkgreybg {background: #595959;}
+.darkgreybg {background: #343330;}
 .lightgreybg {background: #d1d1d1;}
-.bluebg {background:#7724f8;}
+.bluebg {background:#061A40;}
 .whitebg {background: white;}
-.pinkbg {background: #ff0084;}
-.yellowbg {background: #F4E409;}
+.pinkbg {background: #B9D6F2;}
+.yellowbg {background: #FFA737;}
 .orangebg {background: #F75C03;}
 
 h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
