@@ -141,8 +141,8 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 @media all and (max-width: 500px) and (min-width: 0px) {
 	.container {width: auto;padding: 25px 0;margin-top: 25px;}
 	h1 {font-size: 3.25em;line-height:1}
-	h2 {font-size: 2.25em}
-	h3 {font-size: 1.75em}
+	h2 {font-size: 2.25em;line-height:1}
+	h3 {font-size: 1.75em;line-height:1}
 	.page-head {margin-top: -30px;}
 	.menu-text {position: fixed; background: white; bottom: 0; right: 0; left: 0;z-index: 10;}
 	.menu-text li {margin: 0; padding: 9px 0; width: 50%; border-top: 2px solid #d1d1d1;}
