@@ -67,7 +67,7 @@ h2 a {text-decoration: none;}
 
 /*blog*/
 .posts {padding: 25px;}
-.post {margin-bottom: 40px;}
+.post {margin: 0 auto 40px auto;max-width: 800px;}
 .date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
 .date p {margin: 0;font-size: 80%;}
 .read-more {display: inline-block;background: #F75C03;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
