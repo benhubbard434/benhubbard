@@ -56,6 +56,7 @@ h2 a {text-decoration: none;}
 /*index*/
 .home-article {padding: 0 10px;}
 .home-article:nth-child(6) {clear:both;}
+.home-head: {padding: 40px;}
 
 .profile-face {object-fit: cover;border-radius: 50%;display: block; margin: 0 auto;}
 
