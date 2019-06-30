@@ -3,17 +3,14 @@ layout: default
 ---
 
 
+<div class="posts">
+  {% for post in site.posts %}
+        {% for category in posts.categories %}
+        "{{ category | first }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    <article class="post">
 
-
-<div class="clear"></div>
-<div class="section whitebg">
-    <h3 class="section-header">Latest articles</h3>
-    <div class="clear"></div>
-    {% for post in site.posts limit:6 %}
-        
-    <article class="home-article">
-
-      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 
       <div class="entry">
        {{ post.content | truncatewords: 50 }}
@@ -22,6 +19,7 @@ layout: default
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &#8594;</a>
     </article>
   {% endfor %}
+
     <div class="clear"></div>
     <div class="button-holder">
         <div class="big-button"><h4><a href="http://benhubbard.co.uk/blog/">Read all posts &#8594;</a></h4></div>
