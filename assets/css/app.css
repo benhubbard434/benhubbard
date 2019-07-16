@@ -1,8 +1,8 @@
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(/assets/css/SharpUnity-Book.ttf) format("truetype")}
+/*@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(/assets/css/SharpUnity-Book.ttf) format("truetype")}
 @font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(/assets/css/SharpUnity-Semibold.ttf) format("truetype")}
 @font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(/assets/css/SharpUnity-Extrabold.ttf) format("truetype")}
 
-@font-face {font-family:Whitney;font-weight:300;src: url("/assets/css/WhitneySSm-Book-Bas.otf") format("opentype");}
+@font-face {font-family:Whitney;font-weight:300;src: url("/assets/css/WhitneySSm-Book-Bas.otf") format("opentype");}*/
 
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 img {max-width: 100%;}
@@ -13,13 +13,13 @@ body {width: 100%; margin: 0 auto;}
 .clear {clear: both;}
 
 /*arcitecture*/
-h1, h2 {font-family:SharpUnity,sans-serif;margin-bottom: 1em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
+h1, h2 {font-family:'Fira Sans', sans-serif;margin-bottom: 1em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 3em; letter-spacing: 2px;}
 h2 {font-size: 2.5em;letter-spacing: 2px;}
-h3{font-family:SharpUnity,sans-serif;margin-bottom: 0.5em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
-h4{font-family:SharpUnity,sans-serif;margin-bottom: 0.5em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
-h5{font-family:SharpUnity,sans-serif;margin-bottom: 0.25em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1em;}
-p {font-family:Whitney,sans-serif;margin-bottom:1em;color: #595959;line-height: 1.8em;font-size: 1em;}
+h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
+h4{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
+h5{font-family:'Fira Sans', sans-serif;margin-bottom: 0.25em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1em;}
+p {font-family:'Merriweather', serif; margin-bottom:1em;color: #595959;line-height: 1.8em;font-size: 1em;}
 
 li {}
 a {color: #595959;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
@@ -34,7 +34,7 @@ h2 a {text-decoration: none;}
 .logo-header {background: #efefef; padding: 20px 40px; width: 100%;}
 .logo-text {float: left; font-size: 4em; text-decoration: none; margin:0; padding: 0;}
 .logo-text a {text-decoration: none;color: #F75C03; padding: 0; margin: 0;}
-.menu-text li {float: left; margin-right: 20px; font-family:SharpUnity,sans-serif; font-size: 1.25em; line-height: 36px; }
+.menu-text li {float: left; margin-right: 20px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; }
 
 .footer {width:95%;margin: 10px auto 50px auto;}
 
@@ -45,7 +45,7 @@ h2 a {text-decoration: none;}
 .third {width: 33.33333333333333332%; float: left;}
 
 /*button*/
-.butt {font-family:Whitney,sans-serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
+.butt {font-family:'Merriweather', serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
 .butt:hover{background: #FFA737;color: white;}
 
 .big-button {padding: 10px 25%;margin-bottom: 20px;}
@@ -120,7 +120,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .no-margin {margin: 0;}	
 
 /*portflio-page*/
-.portfolio-link {font-family:Whitney,sans-serif;display: block;width: 50%;padding: 40px 20px;margin: 40px auto 80px auto;font-size: 1em;text-decoration: none;}
+.portfolio-link {font-family:'Merriweather', serif; display: block;width: 50%;padding: 40px 20px;margin: 40px auto 80px auto;font-size: 1em;text-decoration: none;}
 .tag {display:inline-block; padding: 2px 4px; border-radius: 3px}
 .work-header {text-align: center;}
 .work-header h2 {display:block;}
@@ -133,7 +133,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 /*contact-page*/
 .contact-holder {padding: 25px;}
 #contact {width: 100%; padding: 50px 100px 50px 0;max-width: 700px;}
-#contact .field {width: 100%; padding: 12px 16px; border-radius: 1px; font-family:SharpUnity,sans-serif; font-size: 14px; border: 1px solid #404e5c; margin-bottom: 20px;}
+#contact .field {width: 100%; padding: 12px 16px; border-radius: 1px; font-family:'Fira Sans', sans-serif; font-size: 14px; border: 1px solid #404e5c; margin-bottom: 20px;}
 
 /*thanks*/
 .thanks {background-color: #232323;}
