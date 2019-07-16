@@ -28,7 +28,7 @@ h2 a {text-decoration: none;}
 .menu-container {width:100%;padding: 10px 40px;}
 .logo-header {background: #efefef; padding: 20px 40px; width: 100%;}
 .logo-text {font-size: 4em; text-decoration: none; margin:0; padding: 0;width: 100%; text-align: center;}
-.logo-text a {text-decoration: none;color: #F75C03; padding: 0; margin: 0;}
+.logo-text a {text-decoration: none;color: #FF6978; padding: 0; margin: 0;}
 .menu-text {width: 250px; margin: 0 auto;}
 .menu-text li {float: left; padding: 0 10px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; text-align: center; }
 
@@ -41,13 +41,13 @@ h2 a {text-decoration: none;}
 .third {width: 33.33333333333333332%; float: left;}
 
 /*button*/
-.butt {font-family:'Merriweather', serif;background: #26a5a5;border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
-.butt:hover{background: #FFA737;color: white;}
+.butt {font-family:'Merriweather', serif;background: #87F5FB; border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
+.butt:hover{background: #7BDFE5; text-decoration: none; }
 
-.big-button {padding: 10px 25%;margin-bottom: 20px;}
+.big-button {padding: 10px 25%; margin-bottom: 20px; background: #87F5FB;}
 .big-button h4 {text-align: center;}
 .big-button h4 a {display:block; padding: 10px 0;}
-.big-button h4 a:hover {background: #FFA737; color: white;}
+.big-button h4 a:hover {background: #7BDFE5;text-decoration: none;}
 
 /*index*/
 .home-article {padding: 0 10px;}
