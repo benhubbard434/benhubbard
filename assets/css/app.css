@@ -1,9 +1,4 @@
-/*@font-face{font-family:SharpUnity;font-style:normal;font-weight:100;src:url(/assets/css/SharpUnity-Book.ttf) format("truetype")}
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:400;src:url(/assets/css/SharpUnity-Semibold.ttf) format("truetype")}
-@font-face{font-family:SharpUnity;font-style:normal;font-weight:800;src:url(/assets/css/SharpUnity-Extrabold.ttf) format("truetype")}
-
-@font-face {font-family:Whitney;font-weight:300;src: url("/assets/css/WhitneySSm-Book-Bas.otf") format("opentype");}*/
-
+/* Reset & Standards */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 img {max-width: 100%;}
 *{box-sizing: border-box;}
@@ -23,7 +18,7 @@ p {font-family:'Merriweather', serif; margin-bottom:1em;color: #595959;line-heig
 
 li {}
 a {color: #595959;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
-a:hover {color: #FFA737;fill: #FFA737;cursor:pointer;}
+a:hover {cursor:pointer; text-decoration: underline;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}		
 h2 a {text-decoration: none;}
 
@@ -32,7 +27,7 @@ h2 a {text-decoration: none;}
 .container {background: white;padding: 20px;margin: 18px 20px;}
 .menu-container {width:100%;padding: 10px 40px;}
 .logo-header {background: #efefef; padding: 20px 40px; width: 100%;}
-.logo-text {float: left; font-size: 4em; text-decoration: none; margin:0; padding: 0;}
+.logo-text {font-size: 4em; text-decoration: none; margin:0; padding: 0;width: 100%; text-align: center;}
 .logo-text a {text-decoration: none;color: #F75C03; padding: 0; margin: 0;}
 .menu-text li {float: left; margin-right: 20px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; }
 
