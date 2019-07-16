@@ -29,7 +29,8 @@ h2 a {text-decoration: none;}
 .logo-header {background: #efefef; padding: 20px 40px; width: 100%;}
 .logo-text {font-size: 4em; text-decoration: none; margin:0; padding: 0;width: 100%; text-align: center;}
 .logo-text a {text-decoration: none;color: #F75C03; padding: 0; margin: 0;}
-.menu-text li {float: left; margin-right: 20px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; }
+.menu-text {width: 250px; margin: 0 auto;}
+.menu-text li {float: left; padding: 0 10px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; text-align: center; }
 
 .footer {width:95%;margin: 10px auto 50px auto;}
 
