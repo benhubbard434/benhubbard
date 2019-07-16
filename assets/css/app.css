@@ -38,7 +38,6 @@ h2 a {text-decoration: none;}
 .section {overflow: hidden}
 
 .half {width: 50%;float:left}
-.third {width: 33.33333333333333332%; float: left;}
 
 /*button*/
 .butt {font-family:'Merriweather', serif;background: #87F5FB; border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
@@ -68,8 +67,8 @@ h2 a {text-decoration: none;}
 .post {margin: 0 auto 40px auto;max-width: 800px;}
 .date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
 .date p {margin: 0;font-size: 80%;}
-.read-more {display: inline-block;background: #F75C03;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
-.read-more:hover {color:#FF0084; background:#F4E409;}
+.read-more {display: inline-block;background: #87F5FB;padding: 5px 8px;border-radius: 3px;margin-bottom: 16px;color: white;margin: 0;text-decoration: none;font-family:SharpUnity,sans-serif;margin-bottom: 18px;}
+.read-more:hover {text-decoration: none; background: #7BDFE5;}
 .sub-post {padding: 25px 100px;}
 
 
