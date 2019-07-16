@@ -8,16 +8,16 @@ body {width: 100%; margin: 0 auto;}
 .clear {clear: both;}
 
 /*arcitecture*/
-h1, h2 {font-family:'Fira Sans', sans-serif;margin-bottom: 1em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
+h1, h2 {font-family:'Fira Sans', sans-serif;margin-bottom: 1em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 3em; letter-spacing: 2px;}
 h2 {font-size: 2.5em;letter-spacing: 2px;}
-h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
-h4{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
-h5{font-family:'Fira Sans', sans-serif;margin-bottom: 0.25em;color: #595959;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1em;}
-p {font-family:'Merriweather', serif; margin-bottom:1em;color: #595959;line-height: 1.8em;font-size: 1em;}
+h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
+h4{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
+h5{font-family:'Fira Sans', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1em;}
+p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
 li {}
-a {color: #595959;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+a {color: #373F51;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {cursor:pointer; text-decoration: underline;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}		
 h2 a {text-decoration: none;}
