@@ -13,9 +13,9 @@ body {width: 100%; margin: 0 auto;}
 h1, h2 {font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 1.5em; letter-spacing: 1px;}
 h2 {font-size: 1.25em;}
-h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
-h4{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.5em;}
-h5{font-family:'Fira Sans', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1em;}
+h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
+h4{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
+h5{font-family:'Fira Sans', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.1em;}
 p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
 li {}
