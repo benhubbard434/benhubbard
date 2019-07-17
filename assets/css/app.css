@@ -152,7 +152,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	.screenshot-holder, .secondary-screen {padding-left:0;padding-right:0}
 	.extrapadding-side {padding-left:5px;padding-right:5px}
 	.portfolio-link {width:100%;}
-	.work-header h2 {font-size: 2em;}
+	.work-header h2 {font-size: 1em;}
 	.screenshot-holder img, .secondary-screen img {max-width: 100%;}
 }
 
