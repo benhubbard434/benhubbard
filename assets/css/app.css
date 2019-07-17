@@ -7,6 +7,8 @@ body {width: 100%; margin: 0 auto;}
 
 .clear {clear: both;}
 
+/*colour scheme here: https://coolors.co/efefef-ffffff-87f5fb-373f51-ff6978*/
+
 /*arcitecture*/
 h1, h2 {font-family:'Fira Sans', sans-serif;margin-bottom: 1em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 3em; letter-spacing: 2px;}
@@ -82,7 +84,7 @@ h2 a {text-decoration: none;}
 .page-head {padding-top: 200px;padding-bottom: 200px;}
 
 
-/*colours*/
+/*colours for portfolio page */
 .white {color: white;}
 .pink {color: #FFA737;}
 .blue {color:#061A40;}
