@@ -47,7 +47,7 @@ h2 a {text-decoration: none;}
 
 .big-button {padding: 10px 0; margin-bottom: 20px;}
 .big-button h4 {text-align: center;}
-.big-button h4 a {display:block; padding: 10px 0; background: #87F5FB; margin: 0 auto}
+.big-button h4 a {display:block; padding: 10px 0; background: #87F5FB; margin: 0 auto; width: 40%;}
 .big-button h4 a:hover {background: #7BDFE5;text-decoration: none;}
 
 /*index*/
