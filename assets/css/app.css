@@ -42,7 +42,7 @@ h2 a {text-decoration: none;}
 .half {width: 50%;float:left}
 
 /*button*/
-.butt {font-family:'Merriweather', serif;background: #87F5FB; border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
+.butt {font-family:'Merriweather', serif;background: #87F5FB; border: 0; display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
 .butt:hover{background: #7BDFE5; text-decoration: none; }
 
 .big-button {padding: 10px 0; margin-bottom: 20px;}
