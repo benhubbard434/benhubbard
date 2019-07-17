@@ -29,7 +29,7 @@ h2 a {text-decoration: none;}
 .container {background: white;padding: 20px;margin: 18px 20px;}
 .menu-container {width:100%;padding: 10px 40px;}
 .logo-header {background: #efefef; padding: 20px 40px; width: 100%;}
-.logo-text {font-size: 4em; text-decoration: none; margin:0; padding: 0;width: 100%; text-align: center;}
+.logo-text {font-size: 3em; text-decoration: none; margin:0; padding: 0;width: 100%; text-align: center;}
 .logo-text a {text-decoration: none;color: #FF6978; padding: 0; margin: 0;}
 .menu-text {width: 250px; margin: 0 auto;}
 .menu-text li {float: left; padding: 0 10px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; text-align: center; }
