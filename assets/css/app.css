@@ -45,9 +45,9 @@ h2 a {text-decoration: none;}
 .butt {font-family:'Merriweather', serif;background: #87F5FB; border: 0;color: white;display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
 .butt:hover{background: #7BDFE5; text-decoration: none; }
 
-.big-button {padding: 10px 25%; margin-bottom: 20px; background: #87F5FB;}
+.big-button {padding: 10px 0; margin-bottom: 20px;}
 .big-button h4 {text-align: center;}
-.big-button h4 a {display:block; padding: 10px 0;}
+.big-button h4 a {display:block; padding: 10px 0; background: #87F5FB; margin: 0 auto}
 .big-button h4 a:hover {background: #7BDFE5;text-decoration: none;}
 
 /*index*/
