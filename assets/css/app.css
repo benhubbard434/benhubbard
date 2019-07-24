@@ -11,14 +11,14 @@ body {width: 100%; margin: 0 auto;}
 
 /*arcitecture*/
 h1, h2 {font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
-h1 {font-size: 1.5em; letter-spacing: 1px;}
-h2 {font-size: 1.25em;}
-h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
+h1 {font-size: 1.8em; letter-spacing: 1px;}
+h2 {font-size: 1.6em;}
+h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.4em;}
 h4{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
 h5{font-family:'Fira Sans', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.1em;}
 p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
-li {font-family:'Merriweather', serif; margin-bottom: 0.2em;color: #373F51;line-height: 1.8em;font-size: 1em;}
+li {}
 a {color: #373F51;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {cursor:pointer; text-decoration: underline;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}		
@@ -135,6 +135,10 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 /*thanks*/
 .thanks {background-color: #232323;}
 .thanks-container {background: transparent;}
+
+.spotify-list {margin-bottom: 1em;}
+.spotify-list li {font-family:'Merriweather', serif; margin-bottom: 0.2em;color: #373F51;line-height: 1.8em;font-size: 1em;}
+
 
 /*responsive stuff*/
 @media all and (max-width: 500px) and (min-width: 0px) {
