@@ -31,6 +31,7 @@ h2 a {text-decoration: none;}
 .logo-header {background: #efefef; padding: 40px 20px 20px 20px; width: 100%; }
 .logo-holder {width: 50%; float: left;}
 .menu-container {width:40%; float:right;}
+.menu-holder {float:right}
 .logo-text {font-size: 3em; text-decoration: none; margin:0; padding: 0; width: 100%;}
 .logo-text a {text-decoration: none;color: #FF6978; padding: 0; margin: 0;}
 .menu-text {width: 250px; margin: 0 auto;}
