@@ -28,8 +28,8 @@ h2 a {text-decoration: none;}
 /*header&structure*/
 .container {background: white;padding: 20px;margin: 18px 20px;}
 .menu-container {width:40%; float:right;}
-.logo-header {background: #efefef; padding: 40px 20px 20px 20px; width: 50%;}
-.logo-text {font-size: 3em; text-decoration: none; margin:0; padding: 0; width: 50%; float: left;}
+.logo-header {background: #efefef; padding: 40px 20px 20px 20px; width: 50%; float:left;}
+.logo-text {font-size: 3em; text-decoration: none; margin:0; padding: 0; width: 100%;}
 .logo-text a {text-decoration: none;color: #FF6978; padding: 0; margin: 0;}
 .menu-text {width: 250px; margin: 0 auto;}
 .menu-text li {float: left; padding: 0 10px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; text-align: center; }
