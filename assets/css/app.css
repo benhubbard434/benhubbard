@@ -1,3 +1,15 @@
+/*Fonts*/
+
+
+@font-face {
+  font-family: "Recoleta-SemiBold";
+
+  src: url("https://benhubbard.co.uk/assets/css/Recoleta-SemiBold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /* Reset & Standards */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 img {max-width: 100%;}
@@ -10,12 +22,12 @@ body {width: 100%; margin: 0 auto;}
 /*colour scheme here: https://coolors.co/efefef-ffffff-87f5fb-373f51-ff6978*/
 
 /*arcitecture*/
-h1, h2 {font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
+h1, h2 {font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 1.8em; letter-spacing: 1px;}
 h2 {font-size: 1.6em;}
-h3{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.4em;}
-h4{font-family:'Fira Sans', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
-h5{font-family:'Fira Sans', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.1em;}
+h3{font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.4em;}
+h4{font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
+h5{font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.1em;}
 p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
 li {}
