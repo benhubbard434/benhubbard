@@ -3,7 +3,6 @@
 
 @font-face {
   font-family: "Recoleta-Black";
-
   src: url("https://benhubbard.co.uk/assets/css/Recoleta-Black.woff2") format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
@@ -83,6 +82,7 @@ h2 a {text-decoration: none;}
 .posts {padding: 25px;}
 .home-posts {padding: 25px;width:50%;float:right;}
 .featured-posts {padding:25px;width:50%;float:left}
+.featured-posts img {max-width:100%;}
 .post {margin: 0 auto 40px auto;max-width: 800px;}
 .date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
 .date p {margin: 0;font-size: 80%;}
