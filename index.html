@@ -20,20 +20,7 @@ layout: default
     </article>
   {% endfor %}
 
-  <!-- Sticky content -->
-  <!-- Not ready yet
-  {% for post in site.categories.sticky %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt | truncatewords: 50 }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+ 
   
   <!-- next 2 posts - offset of 1-->
   {% for post in site.posts | limit: 2 | offset: 1 %}
