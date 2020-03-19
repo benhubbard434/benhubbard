@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="featured-posts">
-  <h3>Featured article</h3>
+  <h4>Featured article</h4>
   {% for post in site.posts | limit: 1 %}
         {% for category in posts.categories %}
         "{{ category | first }}"{% unless forloop.last %},{% endunless %}
