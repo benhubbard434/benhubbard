@@ -2,9 +2,9 @@
 
 
 @font-face {
-  font-family: "Recoleta-SemiBold";
+  font-family: "Recoleta-Black";
 
-  src: url("https://benhubbard.co.uk/assets/css/Recoleta-SemiBold.woff2") format("woff2"); /* Modern Browsers */
+  src: url("https://benhubbard.co.uk/assets/css/Recoleta-Black.woff2") format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
@@ -22,12 +22,12 @@ body {width: 100%; margin: 0 auto;}
 /*colour scheme here: https://coolors.co/efefef-ffffff-87f5fb-373f51-ff6978*/
 
 /*arcitecture*/
-h1, h2 {font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
+h1, h2 {font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;padding-top: 18px;font-weight: 800;letter-spacing: 1px;}
 h1 {font-size: 1.8em; letter-spacing: 1px;}
 h2 {font-size: 1.6em;}
-h3{font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.4em;}
-h4{font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
-h5{font-family:'Recoleta-SemiBold', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.1em;}
+h3{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.4em;}
+h4{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.2em;}
+h5{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;padding-top: 18px;font-weight: 400;font-size: 1.1em;}
 p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
 li {}
