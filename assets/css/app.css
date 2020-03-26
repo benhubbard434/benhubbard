@@ -73,19 +73,17 @@ h2 a {text-decoration: none;}
 .home-article:nth-child(6) {clear:both;}
 .home-head {padding: 40px 0;}
 .home-img {float: left; max-width: 300px; width: 50%;}
-
-.profile-face {object-fit: cover;border-radius: 50%;display: block; margin: 0 auto;}
+.instagram-home {background: #f09433; background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );}
 
 .mini-container {padding-left: 4em; position: relative;}
 .mini-container:before {content:""; width: 2px; background: #85c7f2; position: absolute; top: 22px; bottom: 0; left: 0.5em;z-index: 1}
 .job {position: relative;}
 .job:before {content:""; position: absolute; width: 20px; height: 20px; border-radius:20px; background: red; z-index: 2;top: 22px; left: -65px;background: #85c7f2;}
 .past {font-style: italic; font-size: 12px}
-
-/*blog*/
 .posts {padding: 25px;}
 .home-posts {padding: 25px 25px 25px 50px;width:50%;float:right;}
-.featured-posts {padding:25px;width:50%;float:left;border:2px solid #FABC3C}
+.featured-posts-container {width:50%;float:left;}
+.featured-posts {padding:25px;border:2px solid #FABC3C}
 .featured-posts img {width:50%;padding-right:25px;float:left;}
 .featured-posts .post {margin-bottom: 0;}
 .featured-posts h4, .home-posts h4 {padding-top: 0; color: #FABC3C;}
