@@ -162,6 +162,9 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .spotify-list li {font-family:'Merriweather', serif; margin-bottom: 0.2em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
 
+
+.fourohfourimage {display: block;margin: 0 auto;}
+
 /*responsive stuff*/
 @media all and (max-width: 800px) and (min-width: 501px) {
   .featured-posts img {width:100%;padding-right:0;float:none;}
