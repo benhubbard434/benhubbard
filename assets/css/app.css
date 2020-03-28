@@ -1,7 +1,7 @@
 /*Fonts*/
 @font-face {
   font-family: "Recoleta-Black";
-	
+
   src: url("https://benhubbard.co.uk/assets/css/Recoleta-Black.eot"); /* IE9 Compat Modes */
   src: url("https://benhubbard.co.uk/assets/css/Recoleta-Black.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
     url("https://benhubbard.co.uk/assets/css/Recoleta-Black.otf") format("opentype"), /* Open Type Font */
@@ -36,7 +36,7 @@ p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-heig
 li {}
 a {color: #373F51;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {cursor:pointer; text-decoration: underline;}
-li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}		
+li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 h2 a {text-decoration: none;}
 
 
@@ -51,12 +51,9 @@ h2 a {text-decoration: none;}
 .logo-text a {text-decoration: none; padding: 0; margin: 0; color: #F45B69}
 .menu-text {width: 250px; margin: 0 auto;}
 .menu-text li {float: left; padding: 0 10px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; text-align: center; }
-
 .footer {width:95%;margin: 10px auto 50px auto;}
-
 .section-header {border-bottom: 20px solid #F75C03; padding-left: 5px;display: inline-block; line-height:0;}
 .section {overflow: hidden}
-
 .half {width: 50%;float:left}
 
 /*button*/
@@ -139,7 +136,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .quarter-padding {padding:12px;}
 .no-padding-top {padding-top: 0;}
 .no-padding-bottom {padding-bottom: 0;}
-.no-margin {margin: 0;}	
+.no-margin {margin: 0;}
 
 /*portflio-page*/
 .portfolio-link {font-family:'Merriweather', serif; display: block;width: 50%;padding: 40px 20px;margin: 40px auto 80px auto;font-size: 1em;text-decoration: none;}
@@ -191,6 +188,5 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	.logo-holder {width: 100%; float:none;}
 	.menu-container {width: 0%;}
 	.home-social {margin-top:0;}
+  .big-button h4 a {width: 80%;}
 }
-
-	
