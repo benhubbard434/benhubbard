@@ -78,6 +78,7 @@ h2 a {text-decoration: none;}
 .instagram-home a {color: white; font-family:'Recoleta-Black', sans-serif; line-height: 1.75;font-weight: 400;font-size: 1.2em;text-decoration:none;display:block;}
 .spotify-home {padding:25px; background:#191414}
 .spotify-home a {color: #1db954; font-family:'Recoleta-Black', sans-serif; line-height: 1.75;font-weight: 400;font-size: 1.2em;text-decoration:none;display:block;}
+.social-icon-home {height:35px;}
 .mini-container {padding-left: 4em; position: relative;}
 .mini-container:before {content:""; width: 2px; background: #85c7f2; position: absolute; top: 22px; bottom: 0; left: 0.5em;z-index: 1}
 .job {position: relative;}
