@@ -66,6 +66,14 @@ h2 a {text-decoration: none;}
 .big-button h4 a:hover {background: #7BDFE5;text-decoration: none;}
 
 /*index*/
+
+.home-posts {padding: 25px 25px 25px 50px;width:50%;float:right;}
+.featured-posts-container {width:50%;float:left;}
+.featured-posts {padding:25px 50px 25px 25px;border:2px solid #FABC3C}
+.featured-posts img {width:50%;padding-right:25px;float:left;}
+.featured-posts .post {margin-bottom: 0;}
+.featured-posts h4, .home-posts h4 {padding-top: 0; color: #FABC3C;}
+
 .home-article {padding: 0 10px;}
 .home-article:nth-child(6) {clear:both;}
 .home-head {padding: 40px 0;}
@@ -82,12 +90,7 @@ h2 a {text-decoration: none;}
 .job:before {content:""; position: absolute; width: 20px; height: 20px; border-radius:20px; background: red; z-index: 2;top: 22px; left: -65px;background: #85c7f2;}
 .past {font-style: italic; font-size: 12px}
 .posts {padding: 25px;}
-.home-posts {padding: 25px 25px 25px 50px;width:50%;float:right;}
-.featured-posts-container {width:50%;float:left;}
-.featured-posts {padding:25px;border:2px solid #FABC3C}
-.featured-posts img {width:50%;padding-right:25px;float:left;}
-.featured-posts .post {margin-bottom: 0;}
-.featured-posts h4, .home-posts h4 {padding-top: 0; color: #FABC3C;}
+
 .post {margin: 0 auto 40px auto;max-width: 800px;}
 .date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
 .date p {margin: 0;font-size: 80%;}
