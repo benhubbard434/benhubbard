@@ -37,9 +37,7 @@ layout: default
   
   <!-- next 2 posts - offset of 1-->
   {% for post in site.posts | limit: 2 | offset: 1 %}
-        {% for category in posts.categories %}
-        "{{ category | first }}"{% unless forloop.last %},{% endunless %}
-        {% endfor %}
+        
     <article class="post">
 
       <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
