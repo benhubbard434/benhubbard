@@ -163,6 +163,11 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 
 
 /*responsive stuff*/
+@media all and (max-width: 800px) and (min-width: 501px) {
+  .featured-posts img {width:100%;padding-right:0;float:none;}
+  .home-social .half {width: auto; float: none;}
+}
+
 @media all and (max-width: 500px) and (min-width: 0px) {
 	.container {width: auto;padding: 25px 0;margin-top: 25px;}
 	.page-head {margin-top: -30px;}
@@ -184,9 +189,10 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	.home-posts {padding: 25px;width:auto;float:none;}
 	.featured-posts {padding:25px; border:0px; background: #efefef;}
 	.featured-posts-container {margin-top: -25px; width:auto;float:none;}
-	.featured-posts img {width:100%;padding-right:0;float:none;}
+
 	.logo-holder {width: 100%; float:none;}
 	.menu-container {width: 0%;}
 	.home-social {margin-top:0;}
   .big-button h4 a {width: 80%;}
+  .logo-text {text-align:center}
 }
