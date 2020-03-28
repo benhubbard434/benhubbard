@@ -189,7 +189,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	.home-posts {padding: 25px;width:auto;float:none;}
 	.featured-posts {padding:25px; border:0px; background: #efefef;}
 	.featured-posts-container {margin-top: -25px; width:auto;float:none;}
-
+  .featured-posts img {width:100%;padding-right:0;float:none;}
 	.logo-holder {width: 100%; float:none;}
 	.menu-container {width: 0%;}
 	.home-social {margin-top:0;}
