@@ -33,7 +33,7 @@ h4{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;
 h5{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;font-weight: 400;font-size: 1.1em;}
 p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
-li {}
+li {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 a {color: #373F51;text-decoration: underline;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 a:hover {cursor:pointer; text-decoration: underline;}
 li a {text-decoration: none;font-weight: 400;letter-spacing: -0.25px;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
