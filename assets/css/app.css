@@ -97,9 +97,6 @@ h2 a {text-decoration: none;}
 .read-more {display: inline-block;background: #87F5FB;padding: 5px 8px;border-radius: 3px; margin-bottom: 16px; margin: 0;text-decoration: none; font-family:'Merriweather', serif; margin-bottom: 18px;}
 .read-more:hover {text-decoration: none; background: #7BDFE5;}
 .sub-post {padding: 25px 100px;}
-
-
-/*below here needs checking*/
 .center {text-align: center;}
 .small {font-size: 80%;}
 .h3small {font-size: 1.5em;margin-bottom: -1em;}
@@ -171,7 +168,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .category-button-out {display:block;float:left;margin: 0 5px 5px 0;}
 .category-button-out .butt {font-size: 12px; padding: 6px 8px;}
 .category-title-link {margin-bottom:0px}
-
+.category-page {padding: 25px;}
 
 /*404*/
 .fourohfourimage {display: block;margin: 0 auto;}
