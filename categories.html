@@ -27,7 +27,7 @@ layout: default
       {% if post.title != null %}
       {% if group == null or group == post.group %}
       <div class="category-link">
-        <p><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
+        <p class="category-title-link"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
         <p class="category-time"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></p>
 
       </div>
