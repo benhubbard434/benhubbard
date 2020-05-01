@@ -170,6 +170,8 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 /*Categories page*/
 .category-button-out {display:block;float:left;margin: 0 5px 5px 0;}
 .category-button-out .butt {font-size: 12px; padding: 6px 8px;}
+.category-time {font-size: 12px;}
+
 /*404*/
 .fourohfourimage {display: block;margin: 0 auto;}
 
