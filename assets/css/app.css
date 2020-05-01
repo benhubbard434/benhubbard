@@ -92,7 +92,7 @@ h2 a {text-decoration: none;}
 .posts {padding: 25px;}
 
 .post {margin: 0 auto 40px auto;max-width: 800px;}
-.date {display: inline-block;border-bottom: 2px solid #404e5c;padding: 2px 5px;margin-bottom: 16px;}
+.date {display: inline-block;padding: 2px 5px;margin-bottom: 16px;background: #FABC3;border-radius: 3px;}
 .date p {margin: 0;font-size: 80%;}
 .read-more {display: inline-block;background: #87F5FB;padding: 5px 8px;border-radius: 3px; margin-bottom: 16px; margin: 0;text-decoration: none; font-family:'Merriweather', serif; margin-bottom: 18px;}
 .read-more:hover {text-decoration: none; background: #7BDFE5;}
