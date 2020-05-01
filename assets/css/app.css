@@ -168,6 +168,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .category-button-out {display:block;float:left;margin: 0 5px 5px 0;}
 .category-button-out .butt {font-size: 12px; padding: 6px 8px;}
 .category-title-link {margin-bottom:0px}
+.category-title-link .date p {font-size: 60%}
 .category-page {padding: 25px;}
 
 /*404*/
