@@ -25,12 +25,12 @@ body {width: 100%; margin: 0 auto;}
 /*colour scheme here: https://coolors.co/efefef-ffffff-87f5fb-373f51-ff6978*/
 
 /*arcitecture*/
-h1, h2 {font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;font-weight: 800;letter-spacing: 1px;}
-h1 {font-size: 1.8em; letter-spacing: 1px;}
+h1, h2 {font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;font-weight: 800;letter-spacing: -1px;}
+h1 {font-size: 1.8em;}
 h2 {font-size: 1.6em;}
-h3{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;font-weight: 400;font-size: 1.4em;}
-h4{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;font-weight: 400;font-size: 1.2em;}
-h5{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;font-weight: 400;font-size: 1.1em;}
+h3{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;font-weight: 400;font-size: 1.4em;letter-spacing: -1px;}
+h4{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.75;font-weight: 400;font-size: 1.2em;letter-spacing: -1px;}
+h5{font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.25em;color: #373F51;line-height: 1.75;font-weight: 400;font-size: 1.1em;letter-spacing: -1px;}
 p {font-family:'Merriweather', serif; margin-bottom:1em;color: #373F51;line-height: 1.8em;font-size: 1em;}
 
 li {font-family:'Merriweather', serif; color: #373F51;line-height: 1.8em;font-size: 1em;}
