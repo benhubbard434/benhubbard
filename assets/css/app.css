@@ -56,6 +56,7 @@ h2 a {text-decoration: none;}
 .section {overflow: hidden}
 .half {width: 50%;float:left}
 
+.bio {margin-bottom: 25px;}
 .profile-pic {width: 33%; float:left; border-radius:300px; margin-right:25px;}
 
 /*button*/
