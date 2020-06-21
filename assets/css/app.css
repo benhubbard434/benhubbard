@@ -91,7 +91,8 @@ h2 a {text-decoration: none;}
 .social-icon-home {width:100%;}
 .bio {margin-bottom: 25px;}
 .profile-pic {width: 33%; float:left; border-radius:300px; margin-right:25px;}
-.social-icon-holder {width: 25%; float: left; border-radius: 200px;}
+.social-icon-holder {width: 75%; margin: 0 auto; border-radius: 200px;}
+.social-wrapper {width:25%; float:left;}
 
 .mini-container {padding-left: 4em; position: relative;}
 .mini-container:before {content:""; width: 2px; background: #85c7f2; position: absolute; top: 22px; bottom: 0; left: 0.5em;z-index: 1}
