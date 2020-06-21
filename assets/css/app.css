@@ -93,7 +93,7 @@ h2 a {text-decoration: none;}
 .social-icon-home {width:100%;}
 .bio {margin-bottom: 25px;}
 .profile-pic {width: 33%; float:left; border-radius:300px; margin-right:25px;}
-.social-icon-holder {width: 75%; margin: 0 auto; border-radius: 200px; padding:20px;}
+.social-icon-holder {width: 75%; margin: 0 auto; border-radius: 200px; padding:19px 20px;}
 .social-wrapper {width:20%; float:left;}
 
 .mini-container {padding-left: 4em; position: relative;}
