@@ -56,8 +56,6 @@ h2 a {text-decoration: none;}
 .section {overflow: hidden}
 .half {width: 50%;float:left}
 
-.bio {margin-bottom: 25px;}
-.profile-pic {width: 33%; float:left; border-radius:300px; margin-right:25px;}
 
 /*button*/
 .butt {font-family:'Merriweather', serif;background: #87F5FB; border: 0; display: inline-block;font-weight: 400;padding: 12px 15px;border-radius: 2px;cursor: pointer;letter-spacing: 0.25px;text-decoration: none;-webkit-appearance: none;font-size: 14px;}
@@ -81,12 +79,20 @@ h2 a {text-decoration: none;}
 .home-article:nth-child(6) {clear:both;}
 .home-head {padding: 40px 0;}
 .home-img {float: left; max-width: 300px; width: 50%;}
+
 .home-social {margin-top: 25px;}
 .instagram-home {background: #f09433;padding: 25px; background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );}
 .instagram-home a {color: white; font-family:'Recoleta-Black', sans-serif; line-height: 1.75;font-weight: 400;font-size: 1.2em;text-decoration:none;display:block;}
 .spotify-home {padding:25px; background:#191414}
 .spotify-home a {color: #1db954; font-family:'Recoleta-Black', sans-serif; line-height: 1.75;font-weight: 400;font-size: 1.2em;text-decoration:none;display:block;}
+.twitter-home {padding:25px; background:#1da1f2}
+.twitter-home a {color: #1db954; font-family:'Recoleta-Black', sans-serif; line-height: 1.75;font-weight: 400;font-size: 1.2em;text-decoration:none;display:block;}
+.linkedin-home {padding:25px; background:#0077b5}
+.linkedin-home a {color: #1db954; font-family:'Recoleta-Black', sans-serif; line-height: 1.75;font-weight: 400;font-size: 1.2em;text-decoration:none;display:block;}
 .social-icon-home {height:40px;float: left;margin-top: -6px;margin-right: 10px;}
+.bio {margin-bottom: 25px;}
+.profile-pic {width: 33%; float:left; border-radius:300px; margin-right:25px;}
+
 .mini-container {padding-left: 4em; position: relative;}
 .mini-container:before {content:""; width: 2px; background: #85c7f2; position: absolute; top: 22px; bottom: 0; left: 0.5em;z-index: 1}
 .job {position: relative;}
