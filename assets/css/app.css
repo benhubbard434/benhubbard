@@ -201,7 +201,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 	.work-header h2 {font-size: 1em;}
 	.screenshot-holder img, .secondary-screen img {max-width: 100%;}
 	.home-posts {padding: 25px;width:auto;float:none;}
-	.featured-posts {padding:25px; border:0px; background: #efefef;}
+	.featured-posts {padding:25px; border:0px; background: white;}
 	.featured-posts-container {margin-top: -25px; width:auto;float:none;padding: 0;}
   .featured-posts img {width:100%;padding-right:0;float:none;}
 	.logo-holder {width: 100%; float:none;}
