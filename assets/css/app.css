@@ -50,7 +50,7 @@ h2 a {text-decoration: none;}
 .logo-text {font-size: 3em; text-decoration: none; margin:0; padding: 0; width: 100%;}
 .logo-text a {text-decoration: none; padding: 0; margin: 0; color: #F45B69}
 .menu-text {width: 250px; margin: 0 auto;}
-.menu-text li {float: left; padding: 0 10px; font-family:'Fira Sans', sans-serif; font-size: 1.25em; line-height: 36px; text-align: center; }
+.menu-text li {float: left; padding: 0 10px; font-family:'Recoleta-Black', sans-serif; font-size: 1.1em; font-weight: 400; line-height: 36px; text-align: center; }
 .footer {width:95%;margin: 10px auto 50px auto;}
 .section-header {border-bottom: 20px solid #F75C03; padding-left: 5px;display: inline-block; line-height:0;}
 .section {overflow: hidden}
