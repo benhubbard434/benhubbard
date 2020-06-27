@@ -81,15 +81,15 @@ h2 a {text-decoration: none;}
 
 .home-social {margin-top: 25px;}
 .instagram-home {background: #f09433; background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );}
-.instagram-home a {color: white; font-family:'Recoleta-Black', sans-serif; font-weight: 400;font-size: 1.2em;text-decoration:none;display:block;}
+.instagram-home a {display:block; line-height:0;}
 .spotify-home {background:#191414}
-.spotify-home a {display:block;}
+.spotify-home a {display:block; line-height:0;}
 .twitter-home { background:#1da1f2}
-.twitter-home a {display:block;}
+.twitter-home a {display:block; line-height:0;}
 .linkedin-home { background:#0077b5}
-.linkedin-home a {display:block;}
+.linkedin-home a {display:block; line-height:0;}
 .strava-home { background:#fc4c02}
-.strava-home a {display:block;}
+.strava-home a {display:block; line-height:0;}
 .social-icon-home {width:100%;}
 .bio {margin-bottom: 25px;}
 .profile-pic {width: 33%; float:left; border-radius:300px; margin-right:25px;}
