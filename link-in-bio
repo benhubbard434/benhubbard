@@ -1,0 +1,9 @@
+---
+layout:bare
+---
+<div class="logo-header">
+  <div class="logo-holder">
+    <h1 class="logo-text"><a href="http://www.benhubbard.co.uk">Ben Hubbard</a> // Link in bio</h1>
+  </div>
+</div>
+  
