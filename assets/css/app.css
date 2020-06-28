@@ -186,6 +186,7 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .category-page {padding: 25px;}
 
 /*link in bio*/
+.linkinbio-subhead {text-align: center}
 .linkinbio-link-wrapper {width: 90%; margin: 25px auto; border: 3px solid #373F51; border-radius: 6px;}
 .linkinbio-link {display: block; padding: 5px 8px;}
 .linkinbio-text {margin-bottom: 0;}
