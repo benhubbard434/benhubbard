@@ -183,8 +183,14 @@ h3.pinkbg {margin-bottom: 10px; padding: 5px 10px; display: inline;}
 .category-title-link .date p {font-size: 12px}
 .category-page {padding: 25px;}
 
+/*link in bio*/
+.linkinbio-link-wrapper {width: 90%; margin: 25px auto; border: 3px solid #373F51; border-radius: 2px;}
+.linkinbio-link {display: block; padding: 5px 8px;}
+..linkinbio-text {}
+
 /*404*/
 .fourohfourimage {display: block;margin: 0 auto;}
+
 
 /*responsive stuff*/
 @media all and (max-width: 800px) and (min-width: 501px) {
