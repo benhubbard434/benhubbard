@@ -19,10 +19,12 @@ img {max-width: 100%;}
 *{box-sizing: border-box;}
 html {background: #efefef;}
 body {width: 100%; margin: 0 auto;}
+::-moz-selection { background: #f9a620; }
+::selection { background: #f9a620; }
 
 .clear {clear: both;}
 
-/*colour scheme here: https://coolors.co/efefef-ffffff-87f5fb-373f51-ff6978*/
+/*colour scheme here: https://coolors.co/efefef-ffffff-87f5fb-373f51-ff6978-f9a620 */
 
 /*arcitecture*/
 h1, h2 {font-family:'Recoleta-Black', sans-serif;margin-bottom: 0.5em;color: #373F51;line-height: 1.5;font-weight: 800;letter-spacing: -1px;}
