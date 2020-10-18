@@ -3,5 +3,5 @@
 {% endcapture %}
   {{ words | plus: 250 | append: " words" }}
 {% unless words contains "-" %}
-  , which is a {{ words | plus: 250 | divided_by: 180 | append: " minute read" }}
+  , {{ words | plus: 250 | divided_by: 180 | append: " minute read" }}
 {% endunless %}
