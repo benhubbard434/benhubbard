@@ -10,7 +10,7 @@ layout: default
     <article class="post">
 
       <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-      <p>Published {{ post.date | date: "%B %e, %Y" }}</p>
+      <p class="date">Published {{ post.date | date: "%B %e, %Y" }}</p>
       <div class="entry">
        {{ post.content | truncatewords: 50 }}
       </div>
