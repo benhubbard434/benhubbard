@@ -5,7 +5,10 @@ layout: default
 <article class="post">
   <h2>{{ page.title }}</h2>
   <div class="sub-head">
-    <p><span class="date">Written on {{ page.date | date: "%B %e, %Y" }}</span></p>
+    <p>
+        <span class="date">Written on {{ page.date | date: "%B %e, %Y" }}</span>
+        {% include 'word-count' %}
+    </p>
   </div>
   <div class="header-image">
     <img src="{{ post.headerimg }}">
