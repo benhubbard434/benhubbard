@@ -2,4 +2,4 @@
   {{ page.content | number_of_words | minus: 250 }}
 {% endcapture %}
 
-{{ words | plus: 250 | append: " words" }}{% unless words contains "-" %}, {{ words | plus: 250 | divided_by: 180 | append: " minute read" }}{% endunless %}
+{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 180 | append: " minute read" }}{% endunless %}
