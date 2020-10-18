@@ -106,8 +106,9 @@ h2 a {text-decoration: none;}
 .posts {padding: 25px;}
 
 .post {margin: 0 auto 40px auto;max-width: 800px;}
-.date {display: inline-block;padding: 2px 5px;margin-bottom: 16px;background: #FABC3C;border-radius: 3px;}
-.date p {margin: 0;font-size: 80%;}
+.sub-head p {margin: 0;font-size: 80%;margin-bottom: 16px;}
+.date {display: inline-block;padding: 2px 5px;background: #FABC3C;border-radius: 3px;}
+
 .read-more {font-family:'Recoleta-Black', sans-serif; display: inline-block;background: #87F5FB;padding: 5px 8px;border-radius: 3px; margin-bottom: 16px; margin: 0;text-decoration: none; margin-bottom: 18px;}
 .read-more:hover {text-decoration: none; background: #7BDFE5;}
 .sub-post {padding: 25px 100px;}
