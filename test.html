@@ -1,3 +1,33 @@
 ---
 layout: new
 ---
+<div class="home-block">
+  <h2>Customer Success Academy</h2>
+</div>
+<div class="home-block">
+  <h2>Tech Thoughts</h2>
+</div>
+<div class="home-block">
+  <h2>Notebook</h2>
+</div>
+<div class="home-block">
+  <h2>About me</h2>
+</div>
+<div class="home-block">
+<h4>Featured article</h4>
+  {% for post in site.categories.featured | limit: 1 %}
+        {% for category in posts.categories %}
+        "{{ category | first }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    <article class="post">
+      <img src="{{ post.headerimg }}">
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+
+      <div class="entry">
+       {{ post.content | truncatewords: 40 }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read the article &#8594;</a>
+    </article>
+  {% endfor %}
+  </div>
