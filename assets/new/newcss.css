@@ -49,7 +49,9 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block;}
 
 /*button*/
-.button {border: 3px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c;}    
+.button {border: 2px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; color: #8f2d56;}
+.button:hover {box-shadow: 0;}
+
 /*footer*/
 .footer {background: #1e5d84; padding: 25px 0 50px 0; text-align: center;}
 .footermenu {padding-bottom: 10px;}
