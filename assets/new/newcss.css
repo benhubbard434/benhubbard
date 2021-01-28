@@ -61,6 +61,7 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 
 /*homepage*/
 .home-block {padding: 20px;}
+.home-block h2 {font-size: 40px;}
 
 /*content*/
 .content {width: 95%;}
