@@ -15,14 +15,14 @@ html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-
 
 /*main arcitecture*/
 html {background:#ffe180;}
-h1 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-h2 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-h3 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-h4 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-h5 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+h1 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+h2 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+h3 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+h4 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+h5 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
 
 /*header*/
 
@@ -32,4 +32,4 @@ li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
 .menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block;}
 
 /*footer*/
-.footer {background: #1e5d84;}
+.footer {background: #1e5d84; padding: 25px 0 50px 0;}
