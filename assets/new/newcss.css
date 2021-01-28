@@ -59,6 +59,12 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .footermenu ul li {margin-bottom: 10px;}
 .footermenu ul li a {text-decoration: none; font-size: 20px;}
 
+/*homepage*/
+.home-block {padding: 20px;}
+
+/*content*/
+.content {width: 95%;}
+
 /*form*/
 #revue-embed label {display:none;}
 .revue-form-footer p {font-size: 80%}
