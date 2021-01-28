@@ -42,9 +42,9 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .small {font-size: 80%}
 
 /*header*/
-
+.header {margin-bottom: 20px}
 .logo img {height: 150px; margin: 0 auto; display:block;}
-.logo {margin-bottom: 15px;}
+.logo {margin-bottom: 10px;}
 .menu-outer li {width: 100%; text-align: center; margin: 5px 0;}
 .menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block; padding: 5px;}
 
@@ -53,7 +53,7 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;}
 
 /*footer*/
-.footer {background: #1e5d84; padding: 25px 0 50px 0; text-align: center;}
+.footer {background: #1e5d84; padding: 20px 0 40px 0; text-align: center;}
 .footermenu {padding-bottom: 20px;}
 .footermenu ul li {margin-bottom: 10px;}
 .footermenu ul li a {text-decoration: none; font-size: 20px;}
