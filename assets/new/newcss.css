@@ -49,8 +49,9 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block;}
 
 /*footer*/
-.footer {background: #1e5d84; padding: 25px 0 50px 0; text-align: center;}
+.footer {background: #1e5d84; padding: 25px 0 50px 0; text-align: center; font-size: 80%;}
 .footermenu {padding-bottom: 10px;}
 .footermenu ul li {margin-bottom: 10px;}
-.footermenu ul li a {text-decoration: none;}
+.footermenu ul li a {text-decoration: none; font-size: 20px;}
 #revue-embed label {display:none;}
+.revue-form-footer p {font-size: 80%}
