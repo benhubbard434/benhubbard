@@ -47,8 +47,9 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .logo {margin-bottom: 15px;}
 .menu-outer li {width: 100%; text-align: center; padding: 10px; margin: 10px 0;}
 .menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block;}
+
 /*button*/
-.button {}
+.button {border: 3px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c;}    
 /*footer*/
 .footer {background: #1e5d84; padding: 25px 0 50px 0; text-align: center;}
 .footermenu {padding-bottom: 10px;}
