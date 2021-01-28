@@ -34,11 +34,12 @@ h1 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e
 h2 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
 h3 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
 h4 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
-h5 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
-p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
-a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+h5 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
+p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
+a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; }
 li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
 strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
+.small {font-size: 80%}
 
 /*header*/
 
