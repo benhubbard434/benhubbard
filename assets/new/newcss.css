@@ -13,8 +13,14 @@ html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-
 
 /*main arcitecture*/
 html {background:#ffe180;}
-* {font-family: 'gt_walsheim_promedium';}
-
+h1 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+h2 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+h3 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+h4 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+h5 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
 
 /*header*/
 
