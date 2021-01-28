@@ -12,17 +12,25 @@ html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'gt_walsheimbold';
+    src: url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-bold-webfont.woff2') format('woff2'),
+         url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
+}
 /*main arcitecture*/
 html {background:#ffe180;}
-h1 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
-h2 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
-h3 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
-h4 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
-h5 {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+h1 {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif; color: #e66c55;}
+h2 {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif; color: #e66c55;}
+h3 {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif; color: #e66c55;}
+h4 {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif; color: #e66c55;}
+h5 {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif; color: #e66c55;}
 p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
 a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
 li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 
 /*header*/
 
