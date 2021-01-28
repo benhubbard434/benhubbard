@@ -27,4 +27,5 @@ li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
 /*header*/
 
 .logo img {height: 150px;}
-.menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px;}
+.menu-outer li {width: 100%; text-align: center; padding: 5px;}
+.menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block;}
