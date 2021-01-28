@@ -9,12 +9,11 @@ html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-
          url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-pro-medium-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 /*main arcitecture*/
 html {background:#ffe180;}
-
+* {font-family: 'gt_walsheim_promedium';}
 
 
 /*header*/
