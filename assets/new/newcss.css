@@ -34,13 +34,14 @@ html {background:#ffe180;}
 h1 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
 h2 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
 h3 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
-h4 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55;}
+h4 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
 h5 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
 p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
 a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; }
 li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
 strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .small {font-size: 80%}
+h4 a {text-decoration: none;}
 
 /*header*/
 .header {margin-bottom: 20px}
@@ -64,6 +65,7 @@ strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .home-block h2 {font-size: 40px;}
 .white {background: #f7f5f3;}
 .white h2 {color: #11151c;}
+.white h4 {color: #11151c;}
 .white p {color: #11151c;}
 
 
