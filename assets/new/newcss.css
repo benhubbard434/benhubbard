@@ -67,6 +67,9 @@ h4 a {text-decoration: none;}
 .white h2 {color: #11151c;}
 .white h4 {color: #11151c;}
 .white p {color: #11151c;}
+.pink {background: #f2c4c4} 
+.pink h2 {color: #1e5d84;}
+.pink p {color: #1e5d84;}
 
 /*feed*/
 .entry {margin-bottom: 30px;}
