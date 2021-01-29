@@ -21,9 +21,9 @@ layout: new
     <h2>About me</h2>
   </div>
 </div>
-<div class="home-block">
+<div class="home-block white">
   <div class="content">
-  <h4>Featured article</h4>
+  <h2>Featured article</h2>
   {% for post in site.categories.featured | limit: 1 %}
         {% for category in posts.categories %}
         "{{ category | first }}"{% unless forloop.last %},{% endunless %}
