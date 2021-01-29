@@ -70,6 +70,9 @@ h4 a {text-decoration: none;}
 .pink {background: #f2c4c4} 
 .pink h2 {color: #1e5d84;}
 .pink p {color: #1e5d84;}
+.orange {background: #e66c55}
+.orange h2 {color: #ffe180;}
+.orange p {color: #ffe180;}
 
 /*feed*/
 .entry {margin-bottom: 30px;}
