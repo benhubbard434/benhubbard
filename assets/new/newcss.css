@@ -68,6 +68,9 @@ h4 a {text-decoration: none;}
 .white h4 {color: #11151c;}
 .white p {color: #11151c;}
 
+/*feed*/
+.entry {margin-bottom: 10px;}
+article.post {padding: 10px 0;}
 
 /*content*/
 .content {width: 95%;}
