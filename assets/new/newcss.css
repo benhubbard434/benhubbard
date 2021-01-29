@@ -89,7 +89,7 @@ h4 a {text-decoration: none;}
 article.post {padding: 10px 0 30px 0;}
 
 /*content*/
-.content {width: 95%; margin-right: auto; margin-left: auto}
+.content {width: 95%; margin: 0 auto;}
 
 /*form*/
 #revue-embed label {display:none;}
