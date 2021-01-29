@@ -30,13 +30,13 @@ layout: new
         {% endfor %}
     <article class="post">
       <img src="{{ post.headerimg }}">
-      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
 
       <div class="entry">
        {{ post.content | truncatewords: 40 }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read the article &#8594;</a>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="button">Read the article &#8594;</a>
     </article>
   {% endfor %}
   </div>
