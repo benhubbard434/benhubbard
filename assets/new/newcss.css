@@ -42,6 +42,8 @@ li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #
 strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
 .small {font-size: 80%}
 h4 a {text-decoration: none;}
+::-moz-selection { background: #fe5349;}
+::selection { background: #fe5349;}
 
 /*header*/
 .header {margin-bottom: 20px}
@@ -79,6 +81,7 @@ h4 a {text-decoration: none;}
 .blue {background: #1e5d84;}
 .blue h2 {color: #ffe180;}
 .blue p {color: #ffe180;}
+.avatar {float: left;}
 
 /*feed*/
 .entry {margin-bottom: 30px;}
