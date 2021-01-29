@@ -81,7 +81,7 @@ h4 a {text-decoration: none;}
 .blue {background: #1e5d84;}
 .blue h2 {color: #ffe180;}
 .blue p {color: #ffe180;}
-.avatar {float: left; margin-bottom: -20px;}
+.avatar {float: left; margin-bottom: -20px; max-width: 50%;}
 
 
 /*feed*/
