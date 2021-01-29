@@ -30,7 +30,7 @@ layout: new
         {% endfor %}
     <article class="post">
       <img src="{{ post.headerimg }}">
-      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+      <h4>{{ post.title }}</h4>
 
       <div class="entry">
        {{ post.content | truncatewords: 40 }}
