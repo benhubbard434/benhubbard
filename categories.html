@@ -22,7 +22,7 @@ layout: new
 </div>
 
 {% for category in site.categories %}
-  <h3 id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | capitalize }}</h3>
+  <h3 id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | titlecase }}</h3>
   
     {% assign pages_list = category[1] %}
     {% for post in pages_list %}
