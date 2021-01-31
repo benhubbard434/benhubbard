@@ -12,10 +12,10 @@ layout: new
       <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 
       <div class="entry">
-       {{ post.content | truncatewords: 40 }}
+       {{ post.content | truncatewords: 50 }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read the article &#8594;</a>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more button">Read the article &#8594;</a>
     </article>
 </div>
   {% endfor %}
