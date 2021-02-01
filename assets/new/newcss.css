@@ -45,6 +45,10 @@ h4 a {text-decoration: none;}
 ::-moz-selection { background: #fe5349;}
 ::selection { background: #fe5349;}
 
+/*content*/
+.content {width: 95%; margin: 0 auto; padding: 10px 0; overflow: hidden;}
+.content-alt {width: 95%; margin: 0 auto; padding: 10px 0;}
+
 /*header*/
 .header {margin-bottom: 20px}
 .logo img {height: 150px; margin: 0 auto; display:block;}
@@ -88,8 +92,7 @@ h4 a {text-decoration: none;}
 .entry {margin-bottom: 30px;}
 article.post {padding: 10px 0 30px 0;}
 
-/*content*/
-.content {width: 95%; margin: 0 auto; padding: 10px 0; overflow: hidden;}
+
 
 /*form*/
 #revue-embed label {display:none;}
