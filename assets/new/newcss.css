@@ -1,13 +1,127 @@
 /*reset*/
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
-html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*,*:before,*:after{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}
+html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*,*:before,*:after{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit;-webkit-appearance: none;}
+input[type="text"], input[type="password"], textarea, select {outline: none;}
+.clear {clear:both;}
+* {max-width: 100%;}
 
+/*fonts*/
+@font-face {
+    font-family: 'gt_walsheim_promedium';
+    src: url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-pro-medium-webfont.woff2') format('woff2'),
+         url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-pro-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gt_walsheimbold';
+    src: url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-bold-webfont.woff2') format('woff2'),
+         url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
+}
+@font-face {
+    font-family: 'gt_walsheim_problack';
+    src: url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-pro-black-webfont.woff2') format('woff2'),
+         url('https://www.benhubbard.co.uk/assets/new/fonts/gt-walsheim-pro-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 /*main arcitecture*/
 html {background:#ffe180;}
+h1 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 52px; line-height: 60px; margin-bottom: 10px;}
+h2 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 44px; line-height: 52px; margin-bottom: 10px;}
+h3 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 36px; line-height: 44px; margin-bottom: 10px;}
+h4 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 28px; line-height: 36px; margin-bottom: 10px;}
+h5 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
+p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
+a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; }
+li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
+strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
+.small {font-size: 80%}
+h4 a {text-decoration: none;}
+::-moz-selection { background: #fe5349;}
+::selection { background: #fe5349;}
 
-
+/*content*/
+.content {width: 95%; margin: 0 auto; padding: 10px 0; overflow: hidden;}
+.content-alt {width: 95%; margin: 0 auto; padding: 10px 0;}
 
 /*header*/
+.header {margin-bottom: 0;}
+.logo img {height: 150px; margin: 0 auto; display:block;}
+.logo {margin-bottom: 10px;}
 
-.logo img {height: 150px;}
+/*desktop menu*/
+.menu {display: none;}
+.menu-outer li {width: 100%; text-align: left; margin: 5px 0;}
+.menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block; padding: 5px;}
+
+/*mobile menu*/
+#mobilemenu h3 {font-size: 20px; line-height: 28px; outline: none; margin: 20px 0 0 0;}
+.mobile-menu-outer li {width: 100%; text-align: left; margin: 5px 0;}
+.mobile-menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block; padding: 5px;}
+
+/*button*/
+.button {border: 2px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; color: #8f2d56; border-radius: 5px; position: relative; top: 0px;left; 0px; text-decoration: none; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+.button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;left: 5px; box-shadow: 2px 2px #8f2d56, 2px 2px 0 1px #11151c;}
+
+/*footer*/
+.footer {background: #1e5d84; padding: 20px 0 40px 0; text-align: left;}
+.footermenu {padding-bottom: 20px;}
+.footermenu ul li {margin-bottom: 10px;}
+.footermenu ul li a {text-decoration: none; font-size: 20px;}
+
+/*homepage*/
+.home-block {padding: 20px;}
+/*.home-block h2 {font-size: 40px;}*/
+.white {background: #f7f5f3;}
+.white h2 {color: #11151c;}
+.white h4 {color: #11151c;}
+.white p {color: #11151c;}
+.pink {background: #f2c4c4} 
+.pink h2 {color: #1e5d84;}
+.pink p {color: #1e5d84;}
+.orange {background: #e66c55}
+.orange h2 {color: #ffe180;}
+.orange p {color: #ffe180;}
+.purple {background: #8F2D56}
+.purple h2 {color: #05a8aa}
+.purple p {color: #05a8aa}
+.blue {background: #1e5d84;}
+.blue h2 {color: #ffe180;}
+.blue p {color: #ffe180;}
+.avatar {max-width: 300px; width: 100%; margin: 10px auto -30px auto;display:block;}
+
+
+/*feed*/
+.entry {margin-bottom: 30px;}
+article.post {padding: 10px 0 30px 0;}
+
+
+
+/*form*/
+#revue-embed label {display:none;}
+.revue-form-footer p {font-size: 80%}
+.revue-form-field {background: #1e5d84; border: 3px solid #05a8aa; border-radius: 3px; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #05a8aa; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 75%; max-width: 100%; min-width:300px;}
+.revue-form-field::placeholder {color: #05a8aa; opacity: 1;}
+.revue-form-actions {margin-bottom: 20px;}
+.signupholder h5 {margin-bottom:0;}
+
+
+
+
+/*media queries*/
+
+@media screen and (min-width: 500px) {
+    .logo img {margin: 0 0 20px 0;}
+    .header {margin-bottom: 20px}
+    #mobilemenu {display:none}
+    .menu {display:initial}
+}
+
+@media screen and (min-width: 1000px) {
+    .logo img {}
+}

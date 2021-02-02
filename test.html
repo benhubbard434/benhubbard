@@ -1,3 +1,47 @@
 ---
 layout: new
 ---
+<div class="home-block blue">
+  <div class="content">
+    <h2>Customer Success Academy</h2>
+  </div>
+</div>
+<div class="home-block purple">
+  <div class="content">
+    <h2>Tech Thoughts</h2>
+  </div>
+</div>
+<div class="home-block pink">
+  <div class="content">
+    <h2>Notebook</h2>
+  </div>
+</div>
+<div class="home-block orange">
+  <div class="content-alt">
+    <h2>About me</h2>
+    
+    <p>I'm Ben. By day I do customer success at Taxi for Email, working with the #emailgeek community. By night, I run, I eat, and I make stuff.</p>
+    <img src="https://www.benhubbard.co.uk/assets/new/profilepic-removebg-preview.png" class="avatar" alt="A picture of Ben Hubbard">
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="home-block white">
+  <div class="content">
+  <h2>Featured article</h2>
+  {% for post in site.categories.featured | limit: 1 %}
+        {% for category in posts.categories %}
+        "{{ category | first }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    <article class="post">
+      <img src="{{ post.headerimg }}">
+      <h4>{{ post.title }}</h4>
+
+      <div class="entry">
+       {{ post.content | truncatewords: 40 }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="button">Read the article &#8594;</a>
+    </article>
+  {% endfor %}
+  </div>
+</div>

@@ -1,8 +1,8 @@
 ---
-layout: default
+layout: new
 ---
 
-<div class="category-page">
+<div class="content">
 <div class="all-categories">
 <h2>Categories</h2>
 <div class="category-button-holder">
@@ -22,7 +22,7 @@ layout: default
 </div>
 
 {% for category in site.categories %}
-  <h3 id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | capitalize }}</h3>
+  <h3 id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | titlecase }}</h3>
   
     {% assign pages_list = category[1] %}
     {% for post in pages_list %}
