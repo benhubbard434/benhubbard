@@ -75,7 +75,7 @@ h4 a {text-decoration: none;}
 .footermenu ul li a {text-decoration: none; font-size: 20px;}
 
 /*homepage*/
-.home-block {padding: 20px;}
+.home-block {padding: 20px 0;}
 /*.home-block h2 {font-size: 40px;}*/
 .white {background: #f7f5f3;}
 .white h2 {color: #11151c;}
