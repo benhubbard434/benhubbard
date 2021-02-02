@@ -106,7 +106,7 @@ article.post {padding: 10px 0 30px 0;}
 /*form*/
 #revue-embed label {display:none;}
 .revue-form-footer p {font-size: 80%}
-.revue-form-field {background: #1e5d84; border: 3px solid #05a8aa; border-radius: 3px; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #05a8aa; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 75%; max-width: 100%; min-width:300px;}
+.revue-form-field {background: #1e5d84; border: 3px solid #05a8aa; border-radius: 3px; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #05a8aa; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 100%; max-width: 100%; min-width:300px;}
 .revue-form-field::placeholder {color: #05a8aa; opacity: 1;}
 .revue-form-actions {margin-bottom: 20px;}
 .signupholder h5 {margin-bottom:0;}
