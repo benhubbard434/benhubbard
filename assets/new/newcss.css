@@ -116,7 +116,7 @@ article.post {padding: 10px 0 30px 0;}
 /*bigslide*/
 .panel {position: fixed; right: -100%; width: 100%; background: #e66c55;}
 .new-menu-link {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 28px; line-height: 36px; text-decoration: none; color: #ffe180;}
-.new-menu-button {position: absolute; top: 20px; right: 20px;}
+.new-menu-button {position: absolute; top: 20px; right: 20px; display: block; background: #e66c55;}
 .wrap {position: relative;}
 
 /*media queries*/
