@@ -114,14 +114,12 @@ article.post {padding: 10px 0 30px 0;}
 
 
 /*bigslide*/
-.panel {
-    position: fixed;
+.panel {position: fixed;
     left: -15.625em; /*left or right and the width of your navigation panel*/
     width: 15.625em; /*should match the above value*/
 }
-.wrap {
-    position: relative;
-}
+.new-menu-ink {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 36px; line-height: 44px;}
+.wrap {position: relative;}
 
 /*media queries*/
 
