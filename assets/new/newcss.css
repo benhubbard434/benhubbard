@@ -57,7 +57,7 @@ h4 a {text-decoration: none;}
 /*desktop menu - bigslide*/
 .panel {position: fixed; right: -100%; width: 100%; background: #e66c55; padding: 20px;}
 .panel ul li {width: 100%; margin-bottom: 10px;}
-.panel ul li a {color: #e66c55; text-decoration: none; padding: 8px 12px; font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px;}
+.panel ul li a {color: #ffe180; text-decoration: none; padding: 8px 12px; font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px;}
 .new-menu-link {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px; text-decoration: none; color: #ffe180;}
 .new-menu-button {position: absolute; top: 20px; right: 20px; display: block; background: #e66c55; padding: 5px; border-radius: 3px;}
 .wrap {position: relative;}
