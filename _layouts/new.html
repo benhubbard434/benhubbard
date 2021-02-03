@@ -6,10 +6,12 @@
 	{% include newscripts.html %}	
 </head>
 <body>
-{% include newheader.html %}
+	<div class="push">
+		{% include newheader.html %}
 
-{{ content }}
+		{{ content }}
 
-{% include newfooter.html %}
+		{% include newfooter.html %}
+	</div>
 </body>
 </html>
