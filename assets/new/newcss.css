@@ -122,6 +122,7 @@ article.post {padding: 10px 0 30px 0;}
     
 }
 
-@media screen and (min-width: 1000px) {
-    .logo img {}
+@media screen and (min-width: 900px) {
+    .footermenu {float: left; width: 25%;}
+    .signupholder {float: left; width: 25%;}
 }
