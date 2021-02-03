@@ -46,7 +46,7 @@ h4 a {text-decoration: none;}
 ::selection { background: #fe5349;}
 
 /*content*/
-.content {width: 95%; margin: 0 auto; padding: 10px 0; overflow: hidden;}
+.content {width: 95%; margin: 0 auto; padding: 10px 0;}
 .content-alt {width: 95%; margin: 0 auto; padding: 10px 0;}
 
 /*header*/
