@@ -60,7 +60,7 @@ h4 a {text-decoration: none;}
 .menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block; padding: 5px 0;}
 
 /*mobile menu*/
-#mobilemenu h3 {font-size: 20px; line-height: 28px; outline: none; margin: 20px 0 0 0;}
+#mobilemenu h3 {font-size: 20px; line-height: 28px; outline: none; margin: 30px 0 10px 0;}
 .mobile-menu-outer li {width: 100%; text-align: left; margin: 5px 0;}
 .mobile-menu-outer li a {color: #e66c55; text-decoration: none; font-size: 20px; display: block; padding: 5px 0;}
 .menu-button {background: #e66c55; color: #ffe180; border-radius: 3px; margin-right: 5px; padding: 5px;}
@@ -77,7 +77,7 @@ h4 a {text-decoration: none;}
 
 /*homepage*/
 .home-block {padding: 20px 0;}
-.home-block-entry {padding-bottom: 20px;margin-bottom: 10px;}
+.home-block-entry {padding-bottom: 20px;}
 .home-block-block {margin-bottom: 20px;}
 .white {background: #f7f5f3;}
 .white h2 {color: #11151c;}
