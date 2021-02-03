@@ -77,7 +77,8 @@ h4 a {text-decoration: none;}
 
 /*homepage*/
 .home-block {padding: 20px 0;}
-/*.home-block h2 {font-size: 40px;}*/
+.home-block-entry {padding-bottom: 20px;margin-bottom: 10px;}
+
 .white {background: #f7f5f3;}
 .white h2 {color: #11151c;}
 .white h4 {color: #11151c;}
