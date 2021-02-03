@@ -51,7 +51,7 @@ h4 a {text-decoration: none;}
 
 /*header*/
 .header {margin-bottom: 0;}
-.logo img {height: 150px; margin: 0 auto; display:block;}
+.logo img {height: 150px; margin: 0 auto 20px auto; display:block;}
 .logo {margin-bottom: 10px;}
 
 /* menu - bigslide*/
