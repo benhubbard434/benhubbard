@@ -95,7 +95,7 @@ h4 a {text-decoration: none;}
 .blue h2 {color: #ffe180;}
 .blue p {color: #ffe180;}
 .avatar {max-width: 300px; width: 100%; margin: 10px auto -30px auto;display:block;}
-.avatartwo {max-width: 300px; width: 100%; margin: 10px auto -10px auto;display:block;}
+.avatartwo {max-width: 250px; width: 100%; margin: 10px auto -10px auto;display:block;}
 
 /*feed*/
 .entry {margin-bottom: 30px;}
