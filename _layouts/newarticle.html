@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% include head.html %}
+	{% include analytics.html %}
+	{% include newscripts.html %}	
+</head>
+<body>
+	<div class="push wrap">
+		{% include newheader.html %}
+      <div class="white">
+        <div class="content">
+		      {{ content }}
+        </div>
+      </div>
+
+		{% include newfooter.html %}
+	</div>
+</body>
+</html>
