@@ -64,10 +64,6 @@ h4 a {text-decoration: none;}
 .socials {position: absolute; bottom: 40px;}
 .socials li {width: 48px!important; margin-right: 10px; float: left; }
 
-/*button*/
-.button {border: 2px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; color: #8f2d56; border-radius: 5px; position: relative; top: 0px;left; 0px; text-decoration: none; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
-.button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;left: 5px; box-shadow: 2px 2px #8f2d56, 2px 2px 0 1px #11151c;}
-
 /*footer*/
 .footer {background: #1e5d84; padding: 20px 0 40px 0; text-align: left;}
 .footermenu {padding-bottom: 20px;}
@@ -101,7 +97,9 @@ h4 a {text-decoration: none;}
 .entry {margin-bottom: 30px;}
 article.post {padding: 10px 0 30px 0;}
 
-
+/*button*/
+.button {border: 2px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; color: #8f2d56; border-radius: 5px; position: relative; top: 0px;left; 0px; text-decoration: none; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+.button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;left: 5px; box-shadow: 2px 2px #8f2d56, 2px 2px 0 1px #11151c;}
 
 /*form*/
 #revue-embed label {display:none;}
