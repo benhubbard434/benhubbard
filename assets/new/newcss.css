@@ -98,7 +98,7 @@ h4 a {text-decoration: none;}
 article.post {padding: 10px 0 30px 0;}
 
 /*button*/
-.button {border: 2px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; color: #8f2d56; border-radius: 5px; position: relative; top: 0px;left; 0px; text-decoration: none; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
+.button {border: 2px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; color: #8f2d56 !important; border-radius: 5px; position: relative; top: 0px;left; 0px; text-decoration: none; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
 .button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;left: 5px; box-shadow: 2px 2px #8f2d56, 2px 2px 0 1px #11151c;}
 
 /*form*/
