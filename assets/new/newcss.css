@@ -81,19 +81,19 @@ h4 a {text-decoration: none;}
 .white {background: #f7f5f3;}
 .white h2 {color: #11151c;}
 .white h4 {color: #11151c;}
-.white p {color: #11151c;}
+.white p, .white a {color: #11151c;}
 .pink {background: #f2c4c4} 
 .pink h2 {color: #1e5d84;}
-.pink p {color: #1e5d84;}
+.pink p, .pink a {color: #1e5d84;}
 .orange {background: #e66c55}
 .orange h2 {color: #ffe180;}
-.orange p {color: #ffe180;}
+.orange p, .orange a {color: #ffe180;}
 .purple {background: #8F2D56}
 .purple h2 {color: #05a8aa}
-.purple p {color: #05a8aa}
+.purple p, .purple a {color: #05a8aa}
 .blue {background: #1e5d84;}
 .blue h2 {color: #ffe180;}
-.blue p {color: #ffe180;}
+.blue p, .blue a {color: #ffe180;}
 .avatar {max-width: 300px; width: 100%; margin: 10px auto -30px auto;display:block;}
 .avatartwo {width: 100%; margin: 10px auto -10px auto;display:block;}
 
