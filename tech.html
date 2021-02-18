@@ -2,6 +2,14 @@
 layout: new
 ---
 <div class="purple">
+        <div class="content">
+                <h1>Tech Thoughts</h1>
+                <p>Sometimes I write about the world of the tech industry, marketing, Saas startups and remote working.</p>
+                <p>I'm really interested in the tools which help us to work, particuarly since the world had to transition to working remotely.</p>
+        </div>
+</div>
+
+<div class="purple">
 {% for post in site.categories.tech %}
         {% for category in posts.categories %}
         "{{ category | first }}"{% unless forloop.last %},{% endunless %}
