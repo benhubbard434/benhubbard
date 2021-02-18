@@ -75,20 +75,20 @@ h4 a {text-decoration: none;}
 .home-block-entry {padding-bottom: 20px;}
 .home-block-block {margin-bottom: 20px;}
 .white {background: #f7f5f3;}
-.white h2 {color: #11151c;}
+.white h1, .white h2, .white h3, .white h4, .white h5 {color: #11151c;}
 .white h4 {color: #11151c;}
 .white p, .white a {color: #11151c;}
 .pink {background: #f2c4c4} 
-.pink h2 {color: #1e5d84;}
+.pink h1, .pink h2, .pink h3, .pink h4, .pink h5 {color: #1e5d84;}
 .pink p, .pink a {color: #1e5d84;}
 .orange {background: #e66c55}
-.orange h2 {color: #ffe180;}
+.orange h1, .orange h2, .orange h3, .orange h4, .orange h5 {color: #ffe180;}
 .orange p, .orange a {color: #ffe180;}
 .purple {background: #8F2D56}
-.purple h2 {color: #05a8aa}
+.purple h1, .purple h2, .purple h3, .purple h4, .purple h5 {color: #05a8aa}
 .purple p, .purple a {color: #05a8aa}
 .blue {background: #1e5d84;}
-.blue h2 {color: #ffe180;}
+.blue h1, .blue h2, .blue h3, .blue h4, .blue h5 {color: #ffe180;}
 .blue p, .blue a {color: #ffe180;}
 .avatar {max-width: 300px; width: 100%; margin: 10px auto -30px auto;display:block;}
 .avatartwo {width: 100%; margin: 10px auto -10px auto;display:block;}
