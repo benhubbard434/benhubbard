@@ -2,6 +2,13 @@
 layout: new
 ---
 <div class="pink">
+        <div class="content">
+                <h2>Notebook</h2>
+                <p>A collection of my thoughts - a sporadic stream of conciousness if you will.</p>
+        </div>
+</div>
+
+<div class="pink">
 {% for post in site.categories.notebook %}
         {% for category in posts.categories %}
         "{{ category | first }}"{% unless forloop.last %},{% endunless %}
