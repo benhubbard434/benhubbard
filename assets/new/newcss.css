@@ -48,6 +48,7 @@ h4 a {text-decoration: none;}
 /*content*/
 .content {width: 95%; margin: 0 auto; padding: 10px 0;}
 .content-alt {width: 95%; margin: 0 auto; padding: 10px 0;}
+.centre {text-align:center;}
 
 /*header*/
 .header {margin-bottom: 0;}
