@@ -31,12 +31,12 @@ input[type="text"], input[type="password"], textarea, select {outline: none;}
 }
 /*main arcitecture*/
 html {background:#ffe180;}
-h1 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 52px; line-height: 60px; margin-bottom: 10px;}
-h2 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 44px; line-height: 52px; margin-bottom: 10px;}
-h3 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 36px; line-height: 44px; margin-bottom: 10px;}
-h4 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 28px; line-height: 36px; margin-bottom: 10px;}
-h5 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
-p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom: 10px;}
+h1 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 52px; line-height: 60px; margin-top:10px; margin-bottom: 20px;}
+h2 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 44px; line-height: 52px; margin-top:10px; margin-bottom: 20px;}
+h3 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 36px; line-height: 44px; margin-top:10px; margin-bottom: 20px;}
+h4 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 28px; line-height: 36px; margin-top:10px; margin-bottom: 20px;}
+h5 {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-top:10px; margin-bottom: 20px;}
+p {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 20px; line-height: 28px; margin-bottom:10px;}
 a {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55; }
 li {font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #e66c55;}
 strong {font-family: 'gt_walsheimbold', Helvetica, Arial, sans-serif;}
