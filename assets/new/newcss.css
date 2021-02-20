@@ -103,11 +103,6 @@ article.post {padding: 10px 0 30px 0;}
 .button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;left: 5px; box-shadow: 2px 2px #8f2d56, 2px 2px 0 1px #11151c;}
 
 /*form*/
-#revue-embed label {display:none;}
-.revue-form-footer p {font-size: 80%}
-.revue-form-field {background: #1e5d84; border: 3px solid #05a8aa; border-radius: 3px; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #05a8aa; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 100%; max-width: 100%; min-width:300px;}
-.revue-form-field::placeholder {color: #05a8aa; opacity: 1;}
-.revue-form-actions {margin-bottom: 20px;}
 .signupholder h5 {margin-bottom:0;}
 
 .emailoctopus-form-row input  {background: #1e5d84; border: 3px solid #05a8aa; border-radius: 3px; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #05a8aa; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 100%; max-width: 100%; min-width:300px;}
@@ -118,6 +113,7 @@ input:focus {outline: none;}
 /*landing page*/
 .landing h2 {margin-top: 50px; margin-bottom: 50px;}
 .landing p { margin-bottom: 25px;}
+.landing-footer li {width: 48px!important; margin-right: 10px; float: left;}
 .big-bottom {margin-bottom:50px;}
 
 /*media queries*/
