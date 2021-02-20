@@ -114,7 +114,7 @@ input:focus {outline: none;}
 .landing h2 {margin-top: 50px; margin-bottom: 50px;}
 .landing p { margin-bottom: 25px;}
 .landing-footer {margin: 20px auto; display: block; width: 320px;}
-.landing-footer li {width: 48px!important; margin-right: 10px; float: left; font-size: 28px;}
+.landing-footer li {width: 64px!important; float: left; font-size: 28px; text-align: center;}
 .big-bottom {margin-bottom:50px;}
 
 /*media queries*/
