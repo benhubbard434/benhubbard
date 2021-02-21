@@ -116,7 +116,7 @@ input:focus {outline: none;}
 .landing-footer {margin: 20px auto; display: block; width: 320px;}
 .landing-footer li {width: 64px!important; float: left; font-size: 28px; text-align: center;}
 .big-bottom {margin-bottom:50px;}
-.landing-holder p {max-width: 700px; margin-left: auto; margin-right: auto;}
+.landing-holder p, .landing-holder h1, .landing-holder h2, .landing-holder h3, .landing-holder h4, .landing-holder h5 {max-width: 700px; margin-left: auto; margin-right: auto;}
 
 /*media queries*/
 
