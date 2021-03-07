@@ -4,6 +4,12 @@
 	{% include head.html %}
 	{% include analytics.html %}
 	{% include newscripts.html %}	
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary"></meta>
+	<meta name="twitter:site" content="@benhubbard434"></meta>
+	<meta name=”twitter:title” content=”{{ page.title }}” /> 
+	<meta name=”twitter:description” content=”{{ post.content | truncatewords: 50 }}” /> 
+	<meta name=”twitter:image” content=”https://www.benhubbard.co.uk/assets/new/profilepic-removebg-preview.png” />
 </head>
 <body>
 	<div class="push wrap">
