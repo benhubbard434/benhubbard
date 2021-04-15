@@ -46,8 +46,8 @@ h4 a {text-decoration: none;}
 ::selection { background: #fe5349;}
 
 /*content*/
-.content {width: 95%; margin: 0 auto; padding: 10px 0;}
-.content-alt {width: 95%; margin: 0 auto; padding: 10px 0;}
+.content {width: 95%; max-width:900px; margin: 0 auto; padding: 10px 0;}
+.content-alt {width: 95%; max-width:900px; margin: 0 auto; padding: 10px 0;}
 .centre {text-align:center;}
 
 /*header*/
