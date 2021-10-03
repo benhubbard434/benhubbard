@@ -3,7 +3,7 @@ layout: new
 ---
 
 
-<div class="home-block white">
+<div class="home-block blue">
   <div class="content-alt">
     <h2>Hey! I'm Ben.</h2>
     
@@ -13,59 +13,23 @@ layout: new
     <div class="clear"></div>
   </div>
 </div>
-<div class="home-block blue">
-  <div class="content">
-    <div class="home-block-block">
-      <div class="home-block-entry">
-      <h2>Customer Success Handbook</h2>
-      <p>The best way to learn is to teach, so I figured why not go all in and build out a handbook for people to learn the ins and outs of how to be good at Customer Success. Learning as I go! One of the key concepts that fascinates me is the commonalities between relationship based Customer Success, and marketing - particualrly the customer focused part of it.</p>
-    </div>
-    <a href="https://www.benhubbard.co.uk/bootcamp" class="button">Read the articles <i class="far fa-hand-point-right"></i></a>
-    </div>
-  </div>
-</div>
-<div class="home-block purple">
-  <div class="content">
-    <div class="home-block-block">
-    <div class="home-block-entry">
-      <h2>Tech Thoughts</h2>
-      <p>Sometimes I write about the world of the tech industry, marketing, Saas startups and remote working.</p>
-      <p>I'm really interested in the tools which help us to work, particuarly since the world had to transition to working remotely.</p>
-    </div>
-    <a href="https://www.benhubbard.co.uk/tech" class="button">Read the articles <i class="far fa-hand-point-right"></i></a>
-    </div>
-  </div>
-</div>
-<div class="home-block pink">
-  <div class="content">
-    <div class="home-block-block">
-    <div class="home-block-entry">
-      <h2>Notebook</h2>
-      <p>A collection of my thoughts - a sporadic stream of conciousness if you will.</p>
-    </div>
-    <a href="https://www.benhubbard.co.uk/notebook" class="button">Read the articles <i class="far fa-hand-point-right"></i></a>
-  </div>
-  </div>
-</div>
-
 <div class="home-block white">
-  <div class="content">
-  <h2>Featured article</h2>
-  {% for post in site.categories.featured | limit: 1 %}
+  <div class="posts">
+  {% for post in site.posts %}
         {% for category in posts.categories %}
         "{{ category | first }}"{% unless forloop.last %},{% endunless %}
         {% endfor %}
     <article class="post">
-      <!--<img src="{{ post.headerimg }}">-->
-      <h4>{{ post.title }}</h4>
 
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <p class="date" style="font-size: 80%;">Published {{ post.date | date: "%B %e, %Y" }}</p>
       <div class="entry">
-       {{ post.content | truncatewords: 40 }}
+       {{ post.content | truncatewords: 50 }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="button">Read the article &#8594;</a>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &#8594;</a>
     </article>
   {% endfor %}
-  </div>
+</div>
 </div>
 
