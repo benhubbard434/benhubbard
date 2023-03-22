@@ -123,23 +123,25 @@ input:focus {outline: none;}
 
 /*media queries*/
 
+@media screen and (min-width: 300px) {
+    .logotype a h1 {font-size: 50px; letter-spacing: -4px; line-height: 50px;}
+}
+
 @media screen and (min-width: 500px) {
     .logo img {margin: 0 0 20px 0;}
     .footermenu {float: left; width: 50%;}
     .signupholder {float: left; width: 50%;}
-    .logotype a h1 {font-size: 50px; letter-spacing: -4px;}
 }
 
 @media screen and (min-width: 750px) {
     .logo img {margin: 0 0 20px 0;}
     .footermenu {float: left; width: 50%;}
     .signupholder {float: left; width: 50%;}
-    .logotype a h1 {font-size: 80px; letter-spacing: -5px;}
+    .logotype a h1 {font-size: 80px; letter-spacing: -5px; line-height: 80px;}
 }
 
 @media screen and (min-width: 900px) {
     .footermenu {float: left; width: 25%;}
     .signupholder {float: left; width: 25%;}
     .panel ul li a {padding: 8px 12px;}
-    .logotype a h1 {font-size: 120px; letter-spacing: -6px;}
 }
