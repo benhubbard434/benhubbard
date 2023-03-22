@@ -29,7 +29,7 @@ input[type="text"], input[type="password"], textarea, select {outline: none;}
 
 /*main arcitecture*/
 html {background:#fcf7ff;}
-a {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #e66c55; font-weight: 300;}
+a {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #f26419; font-weight: 300;}
 h1 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 52px; line-height: 60px; margin-top:20px; margin-bottom: 20px;}
 h2 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 44px; line-height: 52px; margin-top:20px; margin-bottom: 20px;}
 h3 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: #e66c55; font-size: 36px; line-height: 44px; margin-top:20px; margin-bottom: 20px;}
@@ -55,9 +55,9 @@ h4 a {text-decoration: none;}
 .logo {margin-bottom: 10px;}
 
 /* menu - bigslide*/
-.panel {position: fixed; right: -100%; width: 100%; background: #e66c55; padding: 20px;}
+.panel {position: fixed; right: -100%; width: 100%; background: #f26419; padding: 20px;}
 .panel ul li {width: 100%; margin-bottom: 10px;}
-.panel ul li a {color: #ffe180; text-decoration: none; padding: 8px 0; font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px;}
+.panel ul li a {color: #F6AE2D; text-decoration: none; padding: 8px 0; font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px;}
 .new-menu-link {font-family: 'gt_walsheim_problack', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; text-decoration: none; color: #ffe180;}
 .new-menu-button {position: absolute; top: 10px; right: 10px; display: block; background: #e66c55; padding: 5px; border-radius: 3px;}
 .wrap {position: relative;}
