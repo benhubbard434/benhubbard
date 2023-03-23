@@ -69,7 +69,7 @@ h4 a {text-decoration: none;}
 .socials li {width: 48px!important; margin-right: 10px; float: left; }
 
 /*footer*/
-.footer {background: #1e5d84; padding: 20px 0 40px 0; text-align: left;}
+.footer {background: #3B4859; padding: 20px 0 40px 0; text-align: left; margin-top: 25px;}
 .footermenu {padding-bottom: 20px;}
 .footermenu ul li {margin-bottom: 10px;}
 .footermenu ul li a {text-decoration: none; font-size: 20px;}
@@ -132,7 +132,6 @@ input:focus {outline: none;}
 /* Contact Page */
 
 
-
 /*media queries*/
 
 @media screen and (min-width: 300px) {
@@ -147,13 +146,13 @@ input:focus {outline: none;}
 
 @media screen and (min-width: 750px) {
     .logo img {margin: 0 0 20px 0;}
-    .footermenu {float: left; width: 50%;}
+    .footermenu {float: left; width: 33%;}
     .signupholder {float: left; width: 50%;}
     .logotype a h1 {font-size: 80px; letter-spacing: -5px; line-height: 80px;}
 }
 
 @media screen and (min-width: 900px) {
-    .footermenu {float: left; width: 25%;}
+    .footermenu {float: left; width: 33%;}
     .signupholder {float: left; width: 25%;}
     .panel ul li a {padding: 8px 12px;}
 }
