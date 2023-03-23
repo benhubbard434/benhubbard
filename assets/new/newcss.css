@@ -53,7 +53,7 @@ h4 a {text-decoration: none;}
 .header {margin-bottom: 0;}
 .logotype a {text-decoration: none;}
 .logotype a h1 {color: #2F4858; margin-left: 20px; font-size: 150px; line-height: 150px; letter-spacing: -9px;margin-top: 40px;}
-.logotypebackground {background: #fcf7ff; animation: fadein 2s;}
+.logotypebackground {background: #fcf7ff; animation: fadeIn; animation-duration: 2s;}
 
 /*old logo css*/
 .logo img {height: 150px; margin: 0 auto 20px auto; display:block;}
