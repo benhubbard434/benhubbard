@@ -111,8 +111,8 @@ article.post {padding: 10px 0 30px 0;}
 .button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;left: 5px; box-shadow: 2px 2px #8f2d56, 2px 2px 0 1px #11151c;}
 
 /*forms*/
-.revue-form-field {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300; background:transparent; padding: 3px;margin-bottom: 10px; width: 75%; max-width: 400px; border-radius: 2px; border: 3px solid #3B4859;}
-label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300;}
+.revue-form-field {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300; background:transparent; padding: 12px 8px;margin-bottom: 20px; width: 75%; max-width: 400px; border-radius: 2px; border: 3px solid #3B4859;}
+label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300; padding-right: 10px;}
 
 .signupholder h5 {margin-bottom:0;}
 
