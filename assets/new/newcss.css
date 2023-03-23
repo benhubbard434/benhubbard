@@ -85,10 +85,12 @@ h4 a {text-decoration: none;}
 .small-right-card {float: right; width: 40%; margin: 20px 0; padding: 50px;}
 
 /* homepage*/
+.about-home-block {padding: 20px; background: #3B4859;}
+.about-home-block p, .about-home-block h2 {color: #F6AE2D}
+
 .home-block {padding: 20px 0;}
 .home-block-entry {padding-bottom: 20px;}
 .home-block-block {margin-bottom: 20px;}
-
 .avatar {max-width: 300px; width: 100%; margin: 10px auto -30px auto;display:block;}
 .avatartwo {width: 100%; margin: 10px auto -10px auto;display:block;}
 
@@ -141,6 +143,7 @@ input:focus {outline: none;}
     .signupholder {float: left; width: 50%;}
     .logotype a h1 {font-size: 80px; letter-spacing: -5px; line-height: 80px;}
     .menu-button-fixed {position:fixed; bottom:auto; right: 20px; top: 20px;}
+    .about-home-block {positon: fixed; top: 100px; left: 0; width: 50%;}
 }
 
 @media screen and (min-width: 900px) {
