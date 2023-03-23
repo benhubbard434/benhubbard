@@ -145,6 +145,7 @@ input:focus {outline: none;}
     .menu-button-fixed {position:fixed; bottom:auto; right: 20px; top: 20px;}
     .about-home-block {positon: fixed; top: 150px; left: 0; bottom: 0; width: 50%; border-top-right-radius: 10px;}
     .avatar {position: fixed; bottom: 0;}
+    .home-block .content {width: 46%; margin:0 0 0 52%}
 }
 
 @media screen and (min-width: 900px) {
