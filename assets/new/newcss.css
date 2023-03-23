@@ -95,6 +95,7 @@ h4 a {text-decoration: none;}
 .home-block-block {margin-bottom: 20px;}
 .avatar {max-width: 300px; width: 100%; margin: 10px auto -30px auto;display:block;}
 .avatartwo {width: 100%; margin: 10px auto -10px auto;display:block;}
+.specialavatar {position: fixed: bottom 0; right: 0; width: 100px;}
 .read-more {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif;}
 
 /*feed*/
