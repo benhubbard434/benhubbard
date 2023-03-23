@@ -1,4 +1,4 @@
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
  
   <script src="https://www.benhubbard.co.uk/assets/new/bigslide.js"></script>
 <script>
@@ -11,7 +11,15 @@
         });
     });
 </script>
+<script>
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
 
-
-
+    if (scroll >= 500) {
+        $(".logotype").addClass("logotypebackground");
+    } else {
+        $(".logotype").removeClass("logotypebackground");
+    }
+});
+</script>
 
