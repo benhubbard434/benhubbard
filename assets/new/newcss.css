@@ -144,7 +144,7 @@ input:focus {outline: none;}
 @media screen and (min-width: 750px) {
     .logo img {margin: 0 0 20px 0;}
     .footermenu {float: left; width: 33%;}
-    .signupholder {float: left; width: 50%;}
+    .signupholder {float: left; width: 33%;}
     .logotype a h1 {font-size: 80px; letter-spacing: -5px; line-height: 80px;}
     .menu-button-fixed {position:fixed; bottom:auto; right: 20px; top: 20px;}
     .about-home-block {position: fixed; top: 150px; left: 0; bottom: 0; width: 50%; border-top-right-radius: 25px;z-index:-3;}
@@ -153,10 +153,11 @@ input:focus {outline: none;}
     .logotype {position: fixed; top: 0; right: 0; left: 0;}
     .big-left-card {float: left; width: 60%; margin: 20px 0; background: #55DDE0; border-radius: 10px; padding: 50px;}
     .small-right-card {float: right; width: 40%; margin: 20px 0; padding: 50px;}
+    .index .footer {width: 40%; margin-left: 60%;}
+    .index .footer .footermenu {float: none; width: 100%}
+    .index .footer .signupholder {float: none; width: 100%}
 }
 
 @media screen and (min-width: 900px) {
-    .footermenu {float: left; width: 33%;}
-    .signupholder {float: left; width: 25%;}
     .panel ul li a {padding: 8px 12px;}
 }
