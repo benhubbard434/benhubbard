@@ -69,10 +69,12 @@ h4 a {text-decoration: none;}
 .socials li {width: 48px!important; margin-right: 10px; float: left; }
 
 /*footer*/
-.footer {background: #3B4859; padding: 20px 0 40px 0; text-align: left; margin-top: 25px;}
+.footer {background: #3B4859; padding: 40px; text-align: left; margin-top: 25px;}
 .footermenu {padding-bottom: 20px;}
 .footermenu ul li {margin-bottom: 10px;}
 .footermenu ul li a {text-decoration: none; font-size: 20px;}
+.footermenu h5 {color: #f26419;}
+.footer .small {color: #F6AE2D;}
 
 /* Strcuture */
 
