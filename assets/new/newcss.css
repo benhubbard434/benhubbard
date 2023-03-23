@@ -125,6 +125,7 @@ label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; f
 .emailoctopus-form-row input::placeholder {color: #55DDE0; opacity: 1;}
 .emailoctopus-form-row-hp {display:none;}
 input:focus {outline: none;}
+.emailoctopus-success-message {background: #BF446B; display: inline-block;}
 
 /*landing page*/
 .landing h2 {margin-top: 50px; margin-bottom: 50px;}
