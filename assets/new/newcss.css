@@ -36,6 +36,8 @@ h3 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: 
 h4 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: #364858; font-size: 28px; line-height: 36px; margin-bottom: 20px; letter-spacing: -2px;}
 h5 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; margin-bottom: 20px; letter-spacing: -2px;}
 p {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; margin-bottom:20px; font-weight: 300;}
+label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300;}
+
 
 li {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #e66c55;font-weight: 300;}
 strong {font-family: 'Work Sans', Helvetica, Arial, sans-serif; font-weight: 500}
