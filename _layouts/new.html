@@ -5,7 +5,7 @@
 	{% include analytics.html %}
 	{% include newscripts.html %}	
 </head>
-<body class="{{page.name}}">
+<body class="{{page.name | remove: ".html"}}">
 	<div class="push wrap">
 		{% include twenty-three-header.html %}
 
