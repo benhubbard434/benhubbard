@@ -59,7 +59,7 @@ h4 a {text-decoration: none;}
 .logo {margin-bottom: 10px;}
 
 /* menu - bigslide*/
-.panel {position: fixed; right: -100%; width: 100%; background: #f26419; padding: 20px;}
+.panel {position: fixed; right: -100%; width: 100%; background: #f26419; padding: 20px; z-index:5;}
 .panel ul li {width: 100%; margin-bottom: 10px;}
 .panel ul li a {color: #F6AE2D; text-decoration: none; padding: 8px 0; font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px; letter-spacing:-1px;}
 .new-menu-link {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; text-decoration: none; color: #F6AE2D; letter-spacing:-1px;}
@@ -143,8 +143,8 @@ input:focus {outline: none;}
     .signupholder {float: left; width: 50%;}
     .logotype a h1 {font-size: 80px; letter-spacing: -5px; line-height: 80px;}
     .menu-button-fixed {position:fixed; bottom:auto; right: 20px; top: 20px;}
-    .about-home-block {position: fixed; top: 130px; left: 0; bottom: 0; width: 50%; border-top-right-radius: 25px;}
-    .avatar {position: fixed; bottom: 0;}
+    .about-home-block {position: fixed; top: 130px; left: 0; bottom: 0; width: 50%; border-top-right-radius: 25px;z-index:3;}
+    .avatar {position: fixed; bottom: 0; z-index:4;}
     .home-block .content {width: 46%; margin:150px 0 0 52%}
     .logotype {position: fixed; top: 0; right: 0; left: 0;}
 }
