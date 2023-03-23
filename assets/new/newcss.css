@@ -112,7 +112,7 @@ article.post {padding: 10px 0 30px 0;}
 
 /*forms*/
 .revue-form-field {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300; background:transparent; padding: 12px 8px;margin-bottom: 20px; width: 75%; max-width: 400px; border-radius: 2px; border: 3px solid #3B4859;}
-label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300; padding-right: 10px;}
+label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300; padding-right: 10px; display: inline-block; width: 100px;}
 
 .signupholder h5 {margin-bottom:0;}
 
