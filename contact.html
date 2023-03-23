@@ -6,12 +6,17 @@ layout: new
 	<h2>Contact me</h2>
 	<p>Get in touch, lets work together</p>
 	<form method="post" action="//formspree.io/ben@benhubbard.co.uk" id="contact">
-    			<input type="text" name="name" class="revue-form-field" placeholder="Your Name"><br>
-    			<input type="email" name="_replyto" class="revue-form-field" placeholder="Your Email"><br>
-    			<textarea name="message" class="revue-form-field" placeholder="Your Message" rows="3"></textarea>
+		<label for="label-name">Name: </label>
+    			<input type="text" id="label-name" name="name" class="revue-form-field" placeholder="Your Name"><br>
+		<label for="label-email">E-Mail: </label>
+    			<input type="email" id="label-email" name="_replyto" class="revue-form-field" placeholder="Your Email"><br>
+		<label for="label-message">Your Message: </label>
+    			<textarea name="message" id="label-message" class="revue-form-field" placeholder="Your Message" rows="3"></textarea>
+		<!--Hidden fields-->
     			<input type="hidden" name="_subject" value="benhubbard.co.uk form submission" />
     			<input type="text" name="_gotcha" style="display:none" />
     			<input type="hidden" name="_next" value="//benhubbard.co.uk/thanks" />
+		<!-- Button -->
     			<input type="submit" value="Send message" class="button">
 	</form>
 </div>
