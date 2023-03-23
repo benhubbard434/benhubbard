@@ -36,8 +36,6 @@ h3 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: 
 h4 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: #364858; font-size: 28px; line-height: 36px; margin-bottom: 20px; letter-spacing: -2px;}
 h5 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; margin-bottom: 20px; letter-spacing: -2px;}
 p {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; margin-bottom:20px; font-weight: 300;}
-label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300;}
-
 
 li {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #e66c55;font-weight: 300;}
 strong {font-family: 'Work Sans', Helvetica, Arial, sans-serif; font-weight: 500}
@@ -112,7 +110,10 @@ article.post {padding: 10px 0 30px 0;}
 .button {border: 2px solid #11151c; background: #05a8aa; padding: 12px 8px; box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; color: #8f2d56 !important; border-radius: 5px; position: relative; top: 0px;left; 0px; text-decoration: none; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif;}
 .button:hover {box-shadow: 5px 5px #8f2d56, 5px 5px 0 2px #11151c; cursor:pointer; top: 5px;left: 5px; box-shadow: 2px 2px #8f2d56, 2px 2px 0 1px #11151c;}
 
-/*form*/
+/*forms*/
+.revue-form-field {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300; background:transparent; padding: 3px;margin-bottom: 10px; width: 75%; max-width: 400px; border-radius: 2px; border: 3px solid #3B4859;}
+label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; font-weight: 300;}
+
 .signupholder h5 {margin-bottom:0;}
 
 .emailoctopus-form-row input  {background: #1e5d84; border: 3px solid #05a8aa; border-radius: 3px; font-family: 'gt_walsheim_promedium', Helvetica, Arial, sans-serif; color: #05a8aa; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 100%; max-width: 100%; min-width:300px;}
