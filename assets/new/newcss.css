@@ -140,7 +140,7 @@ input:focus {outline: none;}
 
 @media screen and (min-width: 500px) {
     .logo img {margin: 0 0 20px 0;}
-    .footermenu {float: left; width: 50%;}
+    .footermenu {float: left; width: 100%;}
     .signupholder {float: left; width: 50%;}
 }
 
