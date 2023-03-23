@@ -32,5 +32,16 @@
 
 		{% include newfooter.html %}
 	</div>
+	<script>
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 130) {
+        $(".logotype").addClass("logotypebackground");
+    } else {
+        $(".logotype").removeClass("logotypebackground");
+    }
+});
+</script>
 </body>
 </html>
