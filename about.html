@@ -30,3 +30,14 @@ layout: new
     <p>The majority of my career has been spent working for marketing technology platforms, in both marketing and customer success roles. Previous roles have been at GatherContent, and PAYMILL.</p>
   </div>
 </div>
+<script>
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 130) {
+        $(".logotype").addClass("logotypebackground");
+    } else {
+        $(".logotype").removeClass("logotypebackground");
+    }
+});
+</script>
