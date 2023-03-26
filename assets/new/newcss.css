@@ -87,7 +87,7 @@ h4 a {text-decoration: none;}
 .small-right-card {float: none; width: 100%; margin: 20px 0; padding: 50px;}
 
 /* homepage*/
-.about-home-block {padding: 20px; background: #55DDE0;padding-bottom:40px;}
+.about-home-block {padding: 50px; background: #55DDE0;}
 .about-home-block p, .about-home-block h2 {color: #364858}
 
 .home-block {padding: 20px 0;}
