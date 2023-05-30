@@ -64,6 +64,8 @@ h4 a {text-decoration: none;}
 .logotypebackground {background: #3B4859; animation: fadeIn; animation-duration: 0.3s;}
 .logotypebackground a h1 {color:#55DDE0}
 
+.new-head {background: white;}
+
 /*old logo css*/
 .logo img {height: 150px; margin: 0 auto 20px auto; display:block;}
 .logo {margin-bottom: 10px;}
@@ -101,7 +103,7 @@ h4 a {text-decoration: none;}
 .home-block {padding: 20px 0;}
 .home-block-entry {padding-bottom: 20px;}
 .home-block-block {margin-bottom: 20px;}
-.avatar {max-width: 300px; width: 100%; margin: 10px auto -30px auto;display:block;}
+.avatar {width: 75px; margin: 10px;}
 .avatartwo {width: 100%; margin: 10px auto -10px auto;display:block;}
 .specialavatar {position: fixed; bottom 0; right: 0; width: 100px;}
 .read-more {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif;}
