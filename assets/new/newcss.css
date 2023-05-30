@@ -38,7 +38,7 @@ input[type="text"], input[type="password"], textarea, select {outline: none;}
 /*main arcitecture*/
 html {background:#fcf7ff;}
 a {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #f26419; font-weight: 300;}
-h1 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #364858; font-size: 36px; line-height: 36px; margin-bottom: 20px; letter-spacing: -4px;}
+h1 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #364858; font-size: 36px; line-height: 70px; margin-bottom: 20px; letter-spacing: -4px;}
 h2 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #364858; font-size: 44px; line-height: 52px; margin-bottom: 20px; letter-spacing: -3px;}
 h3 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: #364858; font-size: 36px; line-height: 44px; margin-bottom: 20px; letter-spacing: -3px;}
 h4 {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; color: #364858; font-size: 28px; line-height: 36px; margin-bottom: 20px; letter-spacing: -2px;}
@@ -62,7 +62,7 @@ h4 a {text-decoration: none;}
 
 
 .new-head {background: white;}
-.avatar {height: 36px; margin: 10px;}
+.avatar {height: 50px; margin: 10px; float:left;}
 
 /*old logo css*/
 .logo img {height: 150px; margin: 0 auto 20px auto; display:block;}
