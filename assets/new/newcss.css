@@ -59,10 +59,7 @@ h4 a {text-decoration: none;}
 
 /*header*/
 .header {margin-bottom: 0;}
-.logotype a {text-decoration: none;}
-.logotype a h1 {color: #2F4858; margin-left: 20px; font-size: 150px; line-height: 150px; letter-spacing: -9px;margin-top: 40px;}
-.logotypebackground {background: #3B4859; animation: fadeIn; animation-duration: 0.3s;}
-.logotypebackground a h1 {color:#55DDE0}
+
 
 .new-head {background: white;}
 .avatar {height: 36px; margin: 10px;}
