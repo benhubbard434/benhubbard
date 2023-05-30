@@ -36,7 +36,7 @@ input[type="text"], input[type="password"], textarea, select {outline: none;}
 
 
 /*main arcitecture*/
-html {background:#fcf7ff;}
+html {background:white;}
 a {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #f26419; font-weight: 300;}
 h1 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #364858; font-size: 36px; line-height: 70px; letter-spacing: -4px;}
 h2 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
