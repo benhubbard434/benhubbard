@@ -64,7 +64,7 @@ h4 a {text-decoration: none;}
 .logotypebackground {background: #3B4859; animation: fadeIn; animation-duration: 0.3s;}
 .logotypebackground a h1 {color:#55DDE0}
 
-.new-header {background: white;}
+.new-head {background: white;}
 
 /*old logo css*/
 .logo img {height: 150px; margin: 0 auto 20px auto; display:block;}
