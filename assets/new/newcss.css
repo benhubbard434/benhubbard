@@ -37,20 +37,20 @@ input[type="text"], input[type="password"], textarea, select {outline: none;}
 
 /*main arcitecture*/
 html {background:white;}
-a {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #f26419; font-weight: 300;}
-h1 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #364858; font-size: 36px; line-height: 70px; letter-spacing: -4px;}
-h2 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
-h3 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
-h4 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
-h5 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
-p {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; font-size: 20px; line-height: 28px; margin-bottom:20px; font-weight: 300;}
-h2 a {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #364858;}
-li {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #e66c55;font-weight: 300;}
+a {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #e34a6f; font-weight: 300;}
+h1 {font-family: 'freigeistxwide_bold', Helvetica, Arial, sans-serif; color: #016fb9; font-size: 36px; line-height: 70px; letter-spacing: -4px;}
+h2 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
+h3 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
+h4 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
+h5 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
+p {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 20px; line-height: 28px; margin-bottom:20px; font-weight: 300;}
+h2 a {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #e34a6f;}
+li {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37;font-weight: 300;}
 strong {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; font-weight: 500}
 .small {font-size: 80%}
 h4 a {text-decoration: none;}
-::-moz-selection { background: #BF446B;}
-::selection { background: #BF446B;}
+::-moz-selection { background: #ffbe0b;}
+::selection { background: #ffbe0b;}
 
 /*content*/
 .content {width: 95%; max-width:900px; margin: 0 auto; padding: 10px 0 20px 0;}
@@ -69,9 +69,9 @@ h4 a {text-decoration: none;}
 .logo {margin-bottom: 10px;}
 
 /* menu - bigslide*/
-.panel {position: fixed; right: -100%; width: 100%; background: #f26419; padding: 20px; z-index:5;}
+.panel {position: fixed; right: -100%; width: 100%; background: #e34a6f; padding: 20px; z-index:5;}
 .panel ul li {width: 100%; margin-bottom: 10px;}
-.panel ul li a {color: #F6AE2D; text-decoration: none; padding: 8px 0; font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px; letter-spacing:-1px;}
+.panel ul li a {color: white; text-decoration: none; padding: 8px 0; font-family: 'circular', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px; letter-spacing:-1px;}
 .new-menu-link {font-family: 'freigeistxwide_regular', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; text-decoration: none; color: #F6AE2D; letter-spacing:-1px;}
 .new-menu-button {display: block; background: transparent; padding: 5px; border-radius: 3px;}
 .menu-button-absolute {position: absolute; top: 20px; right: 20px;}
