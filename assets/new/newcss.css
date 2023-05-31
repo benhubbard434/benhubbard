@@ -120,8 +120,8 @@ label {font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #364858; f
 
 .signupholder h5 {margin-bottom:0;}
 
-.emailoctopus-form-row input  {background: #33658A; border: 3px solid #55DDE0; border-radius: 3px; font-family: 'Work Sans', Helvetica, Arial, sans-serif; color: #55DDE0; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 100%; max-width: 100%; min-width:300px;}
-.emailoctopus-form-row input::placeholder {color: #55DDE0; opacity: 1;}
+.emailoctopus-form-row input  {background: #01568e; border: 3px solid #55DDE0; border-radius: 3px; font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #e34a6f; font-size: 20px; padding: 8px 5px; margin-bottom: 10px; width: 100%; max-width: 100%; min-width:300px;}
+.emailoctopus-form-row input::placeholder {color: #e34a6f; opacity: 1;}
 .emailoctopus-form-row-hp {display:none;}
 input:focus {outline: none;}
 .emailoctopus-success-message {background: #BF446B; display: inline-block;}
