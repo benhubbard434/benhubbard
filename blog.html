@@ -1,7 +1,7 @@
 ---
 layout: new
 ---
-
+<div class="content">
 <div class="posts">
   {% for post in site.posts %}
         {% for category in posts.categories %}
@@ -18,4 +18,5 @@ layout: new
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More &#8594;</a>
     </article>
   {% endfor %}
+</div>
 </div>
