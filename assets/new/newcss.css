@@ -81,12 +81,12 @@ h4 a {text-decoration: none;}
 .socials li {width: 48px!important; margin-right: 10px; float: left; }
 
 /*footer*/
-.footer {background: #3B4859; padding: 40px; text-align: left; margin-top: 25px;}
+.footer {background: #016FB6; padding: 40px; text-align: left; margin-top: 25px;}
 .footermenu {padding-bottom: 20px;}
 .footermenu ul li {margin-bottom: 10px;}
 .footermenu ul li a {text-decoration: none; font-size: 20px;}
-.footermenu h4, .footermenu .small, .signupholder h4, .signupholder .small {color: #f26419;}
-.footer .copy {color: #F6AE2D;}
+.footermenu h4, .footermenu .small, .signupholder h4, .signupholder .small {color: #e34a6f;}
+.footer .copy {color: #ffbe0b;}
 .signupholder {margin-bottom: 10px;}
 
 /* Strcuture */
