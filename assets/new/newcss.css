@@ -43,7 +43,7 @@ h2 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #
 h3 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
 h4 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
 h5 {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 24px; line-height: 32px; margin-bottom:20px; font-weight: 300;}
-p {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 20px; line-height: 28px; margin-bottom:20px; font-weight: 300;}
+p {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37; font-size: 16px; line-height: 28px; margin-bottom:20px; font-weight: 300;}
 h2 a {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #e34a6f;}
 li {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; color: #342e37;font-weight: 300;}
 strong {font-family: 'circular', 'Work Sans', Helvetica, Arial, sans-serif; font-weight: 500}
@@ -53,7 +53,7 @@ h4 a {text-decoration: none;}
 ::selection { background: #ffbe0b;}
 
 /*content*/
-.content {width: 95%; max-width:900px; margin: 0 auto; padding: 10px 0 20px 0;}
+.content {width: 95%; max-width:800px; margin: 0 auto; padding: 10px 0 20px 0;}
 .content-alt {width: 95%; max-width:900px; margin: 0 auto; padding: 10px 0 20px 0;}
 .centre {text-align:center;}
 
