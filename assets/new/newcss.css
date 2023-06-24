@@ -176,8 +176,7 @@ input:focus {outline: none;}
     .logotype {position: fixed; top: 0; right: 0; left: 0;}
     .big-left-card {float: left; width: 58%; margin: 20px 0; margin-left: 2%; background: #55DDE0; border-radius: 25px; padding: 50px;}
     .small-right-card {float: right; width: 40%; margin: 20px 0; padding: 50px;}
-    .index .footer .footermenu {float: none; width: 100%}
-    .index .footer .signupholder {float: none; width: 100%}
+   
     .mobile-hide {display: block;}
 }
 
