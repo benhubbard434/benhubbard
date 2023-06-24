@@ -68,6 +68,8 @@ h4 a {text-decoration: none;}
 .new-head a {text-decoration: none;}
 .avatar {height: 50px; margin: 10px; float:left; background:rgb(227,74,111);border-radius: 50px;}
 
+
+
 /*old logo css*/
 .logo img {height: 150px; margin: 0 auto 20px auto; display:block;}
 .logo {margin-bottom: 10px;}
@@ -100,6 +102,12 @@ h4 a {text-decoration: none;}
 .small-right-card {float: none; width: 100%; margin: 20px 0; padding: 50px;}
 
 /* homepage*/
+.button-holder {}
+.home-buttons {width: 25%;background: red;}
+.home-buttons:after {content: "";display: block;padding-bottom: 100%;}
+
+
+
 .about-home-block {padding: 50px; background: #55DDE0;}
 .about-home-block p, .about-home-block h2 {color: #364858}
 
