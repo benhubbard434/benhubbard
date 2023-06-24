@@ -91,7 +91,7 @@ h4 a {text-decoration: none;}
 .footermenu {padding-bottom: 20px;}
 .footermenu ul li {margin-bottom: 10px;}
 .footermenu ul li a {text-decoration: none; font-size: 20px; color: #ffbe0b;}
-.footermenu h4 {padding:2px 5px; background:#ffbe0b; display:inline-block; }
+.footermenu h4 {padding:2px 5px; background:#ffbe0b; display:inline-block; border-radius: 1px;}
 .footermenu h4, .footermenu .small, .signupholder h4, .signupholder .small {color: #e34a6f;}
 .footer .copy {color: #ffbe0b;}
 .signupholder {margin-bottom: 10px;}
