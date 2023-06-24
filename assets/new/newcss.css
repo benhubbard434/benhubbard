@@ -34,6 +34,7 @@ input[type="text"], input[type="password"], textarea, select {outline: none;}
 /*New 2023 body*/
   @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap');
 
+/* Colour scheme https://coolors.co/ff4242-33ca7f-016fb9-ffbe0b-e34a6f */
 
 /*main arcitecture*/
 html {background:white;}
