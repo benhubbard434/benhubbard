@@ -59,6 +59,7 @@ h4 a {text-decoration: none;}
 
 /*header*/
 .header {margin-bottom: 0;}
+.hero {background: rgb(227,74,111); background: linear-gradient(76deg, rgba(227,74,111,1) 10%, rgba(255,66,66,1) 30%, rgba(255,190,11,1) 50%, rgba(51,202,127,1) 70%, rgba(1,111,185,1) 90%);}
 
 .new-head {background: white;}
 .new-head a {text-decoration: none;}
