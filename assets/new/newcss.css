@@ -65,7 +65,7 @@ h4 a {text-decoration: none;}
 
 .new-head {background: white;}
 .new-head a {text-decoration: none;}
-.avatar {height: 50px; margin: 10px; float:left;}
+.avatar {height: 50px; margin: 10px; float:left; background:rgb(227,74,111);border-radius: 50px;}
 
 /*old logo css*/
 .logo img {height: 150px; margin: 0 auto 20px auto; display:block;}
@@ -87,7 +87,8 @@ h4 a {text-decoration: none;}
 .footer {background: #016FB6; padding: 40px; text-align: left; margin-top: 25px;}
 .footermenu {padding-bottom: 20px;}
 .footermenu ul li {margin-bottom: 10px;}
-.footermenu ul li a {text-decoration: none; font-size: 20px;}
+.footermenu ul li a {text-decoration: none; font-size: 20px; color: #ffbe0b;}
+.footermenu h4 {padding:2px 5px; background:#ffbe0b }
 .footermenu h4, .footermenu .small, .signupholder h4, .signupholder .small {color: #e34a6f;}
 .footer .copy {color: #ffbe0b;}
 .signupholder {margin-bottom: 10px;}
