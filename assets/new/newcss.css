@@ -102,7 +102,7 @@ h4 a {text-decoration: none;}
 .small-right-card {float: none; width: 100%; margin: 20px 0; padding: 50px;}
 
 /* homepage*/
-.button-holder {border-top: 2px solid #342e37; border-bottom: 2px solid #342e37; background: rgb(227,74,111); background: linear-gradient(76deg, rgba(227,74,111,1) 10%, rgba(255,66,66,1) 30%, rgba(255,190,11,1) 50%, rgba(51,202,127,1) 70%, rgba(1,111,185,1) 90%);}
+.button-holder {border-top: 2px solid #342e37; border-bottom: 2px solid #342e37; background: rgb(227,74,111); background: linear-gradient(76deg, rgba(227,74,111,1) 18%, rgba(255,66,66,1) 38%, rgba(255,190,11,1) 58%, rgba(51,202,127,1) 78%, rgba(1,111,185,1) 98%);}
 .home-buttons {width: 12.5%; background: white;position: relative; float: left;}
 .home-buttons:after {content: "";display: block;padding-bottom: 100%;}
 .home-buttons-content {position: absolute; width: 100%; height: 100%;}
