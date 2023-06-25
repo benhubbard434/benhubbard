@@ -152,7 +152,7 @@ input:focus {outline: none;}
 
 
 /* site page */
-.half {width: 50%;}
+.half {width: 100%;}
 .left {float:left;}
 .right {float:right;}
 .site-pink-bg {background:#e34a6f}
@@ -198,9 +198,10 @@ input:focus {outline: none;}
     .small-right-card {float: right; width: 40%; margin: 20px 0; padding: 50px;}
    
     .mobile-hide {display: block;}
-    .half {width: 100%;}
+    
 }
 
 @media screen and (min-width: 900px) {
     .panel ul li a {padding: 8px 12px;}
+    .half {width: 50%;}
 }
