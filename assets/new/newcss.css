@@ -163,6 +163,7 @@ input:focus {outline: none;}
 .square:after {content: "";display: block;padding-bottom: 100%;}
 .rectangle {width: 100%; position: relative; float: left;}
 .rectangle:after {content: "";display: block;padding-bottom: 50%;}
+.site-page-content {position: absolute;}
 
 /*media queries*/
 
