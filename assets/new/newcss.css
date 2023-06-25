@@ -169,7 +169,7 @@ input:focus {outline: none;}
 .site .footer {margin-top: 0;}
 .site-colour-block {width: 25%; position: relative; float: left;}
 .site-colour-block:after {content: "";display: block;padding-bottom: 100%;}
-.site-colour-block .site-page-content p {margin-bottom: 0; position: absolute; bottom: 0; right: 2px; font-size: 10px;}
+.site-colour-block .site-page-content p {margin-bottom: 0; position: absolute; bottom: 0; right: 10px; font-size: 10px;}
 
 /*media queries*/
 
