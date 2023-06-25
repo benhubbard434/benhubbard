@@ -199,6 +199,8 @@ input:focus {outline: none;}
     .small-right-card {float: right; width: 40%; margin: 20px 0; padding: 50px;}
    
     .mobile-hide {display: block;}
+
+    .site-colour-block .site-page-content p {font-size: 14px;}
     
 }
 
