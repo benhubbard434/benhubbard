@@ -79,7 +79,7 @@ h4 a {text-decoration: none;}
 .panel {position: fixed; right: -100%; width: 100%; background: #e34a6f; padding: 20px; z-index:5;}
 .panel ul li {width: 100%; margin-bottom: 10px;}
 .panel ul li a {color: white; text-decoration: none; padding: 8px 0; font-family: 'circular', Helvetica, Arial, sans-serif; font-size: 28px; line-height: 36px; letter-spacing:-1px;}
-.new-menu-link {font-family: 'circular', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; text-decoration: none; color: #ffbe0b; letter-spacing:-1px;}
+.new-menu-link {font-family: 'circular', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; text-decoration: none; color: #ffbe0b; letter-spacing:-1px;z-index: 999999999}
 .new-menu-button {display: block; background: transparent; padding: 5px; border-radius: 3px;}
 .menu-button-absolute {position: absolute; top: 20px; right: 20px;}
 .menu-button-fixed {position:fixed; bottom:20px; right: 20px;}
