@@ -15,20 +15,23 @@
 <body>
 	<div class="push wrap">
 		{% include twenty-three-header.html %}
-      <div class="white">
-        <div class="content">
-		<article class="post">
-  		<h2>{{ page.title }}</h2>
-  		<div class="sub-head">
-    			<p class="small"><span class="date">Written on {{ page.date | date: "%B %e, %Y" }}</span> - {% include word-count.html %}</p>
+      	<div class="hero">
+        	<div class="content">
+  				<h2>{{ page.title }}</h2>
+  				<div class="sub-head">
+    				<p class="small"><span class="date">Written on {{ page.date | date: "%B %e, %Y" }}</span> - {% include word-count.html %}</p>
+  				</div>
+  			</div>
   		</div>
-  	<div class="header-image">
-    		<img src="{{ post.headerimg }}">
-  	</div>
-		  {{ content }}
-		</article>
+  		<div class="content">
+  			<article class="post">
+  				<div class="header-image">
+    				<img src="{{ post.headerimg }}">
+  				</div>
+		  		{{ content }}
+			</article>
         </div>
-      </div>
+      
 
 		{% include newfooter.html %}
 	</div>
