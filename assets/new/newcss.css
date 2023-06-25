@@ -196,6 +196,7 @@ input:focus {outline: none;}
     .small-right-card {float: right; width: 40%; margin: 20px 0; padding: 50px;}
    
     .mobile-hide {display: block;}
+    .half {width: 100%;}
 }
 
 @media screen and (min-width: 900px) {
