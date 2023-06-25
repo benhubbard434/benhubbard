@@ -154,11 +154,11 @@ input:focus {outline: none;}
 .half {width: 50%;}
 .left {float:left;}
 .right {float:right;}
-.site-pink-bg {}
-.site-red-bg {}
-.site-yellow-bg {}
-.site-green-bg {}
-.site-blue-bg {}
+.site-pink-bg {background:#e34a6f}
+.site-red-bg {background: #ff4242}
+.site-yellow-bg {background:#ffbe0b}
+.site-green-bg {background: #33ca7f}
+.site-blue-bg {background: #016FB6;}
 .square {width: 100%;position: relative; float: left;}
 .square:after {content: "";display: block;padding-bottom: 100%;}
 .rectangle {width: 100%; position: relative; float: left;}
