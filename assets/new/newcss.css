@@ -173,7 +173,10 @@ input:focus {outline: none;}
 
 /* About Page */
 .about-block {position: relative; padding: 0 20px;}
-.messagebird {background: #0089FF}
+.messagebird {background: #0089FF;}
+
+.about .footer {margin-top: 0;}
+
 
 /*media queries*/
 
