@@ -171,6 +171,10 @@ input:focus {outline: none;}
 .site-colour-block:after {content: "";display: block;padding-bottom: 100%;}
 .site-colour-block .site-page-content p {margin-bottom: 0; position: absolute; bottom: 0; right: 10px; font-size: 10px;}
 
+/* About Page */
+.about-block {position: relative; padding: 0 20px;}
+.messagebird {background: #0089FF}
+
 /*media queries*/
 
 .mobile-hide {display: none;}
