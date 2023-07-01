@@ -174,7 +174,7 @@ input:focus {outline: none;}
 /* About Page */
 .about-block {position: relative; padding: 0 20px;}
 .messagebird {background: #0089FF;}
-.taxitomessagebird {background: hsla(208, 100%, 50%, 1);background: linear-gradient(180deg, hsla(208, 100%, 50%, 1) 0%, hsla(49, 100%, 50%, 1) 100%);background: -moz-linear-gradient(180deg, hsla(208, 100%, 50%, 1) 0%, hsla(49, 100%, 50%, 1) 100%);background: -webkit-linear-gradient(180deg, hsla(208, 100%, 50%, 1) 0%, hsla(49, 100%, 50%, 1) 100%);filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0089FF", endColorstr="#FFD101", GradientType=1 );}
+.taxitomessagebird {background: linear-gradient(0deg, rgba(255, 209, 1, 1) 7%, rgba(0, 137, 255, 1) 89%);}
 .taxiforemail {background: #ffd101;}
 
 .about .footer {margin-top: 0;}
