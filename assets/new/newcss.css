@@ -174,7 +174,7 @@ input:focus {outline: none;}
 /* About Page */
 .about-block {padding: 0 20px;}
 .messagebird {background: #0089FF;}
-.taxitomessagebird {background: linear-gradient(0deg, rgba(255, 209, 1, 1) 10%, rgba(0, 137, 255, 1) 90%);}
+.taxitomessagebird {background: linear-gradient(0deg, rgba(255, 209, 1, 1) 10%, rgba(0, 137, 255, 1) 90%); height: 200px;}
 .taxiforemail {background: #ffd101;}
 
 .about .footer {margin-top: 0;}
