@@ -172,7 +172,7 @@ input:focus {outline: none;}
 .site-colour-block .site-page-content p {margin-bottom: 0; position: absolute; bottom: 0; right: 10px; font-size: 10px;}
 
 /* About Page */
-.about-block {position: relative; padding: 0 20px;}
+.about-block {padding: 0 20px;}
 .messagebird {background: #0089FF;}
 .taxitomessagebird {background: linear-gradient(0deg, rgba(255, 209, 1, 1) 10%, rgba(0, 137, 255, 1) 90%);}
 .taxiforemail {background: #ffd101;}
@@ -211,7 +211,7 @@ input:focus {outline: none;}
 
     .site-colour-block .site-page-content p {font-size: 14px;}
     
-    .about-logo {width: 200px; position: absolute; top: 20px; left: 20px;}
+   
 }
 
 @media screen and (min-width: 900px) {
