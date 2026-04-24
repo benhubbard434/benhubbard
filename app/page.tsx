@@ -11,8 +11,8 @@ export default function Home() {
         priority
         className="object-cover object-center"
       />
-      {/* Fallback background while image loads */}
-      <div className="absolute inset-0 bg-gray-200" aria-hidden />
+      {/* Fallback background behind image */}
+      <div className="absolute inset-0 bg-gray-200 -z-10" aria-hidden />
     </main>
   );
 }

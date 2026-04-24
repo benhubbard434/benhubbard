@@ -45,9 +45,12 @@ export async function GET() {
         }).length
       : 0;
 
+    const ytd = stats.ytd_run_totals?.distance;
+    const allTime = stats.all_run_totals?.distance;
+
     return NextResponse.json({
-      ytd_distance_km: (stats.ytd_run_totals?.distance / 1000).toFixed(2),
-      all_time_distance_km: (stats.all_run_totals?.distance / 1000).toFixed(2),
+      ytd_distance_km: ytd != null ? (ytd / 1000).toFixed(2) : null,
+      all_time_distance_km: allTime != null ? (allTime / 1000).toFixed(2) : null,
       races_this_year: racesThisYear,
       all_time_races: stats.all_run_totals?.count ?? 0,
     });

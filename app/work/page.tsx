@@ -167,7 +167,7 @@ export default function WorkPage() {
         <div className="shrink-0 mr-6 mt-1">
           <div className="w-14 h-14 rounded-full overflow-hidden bg-gray-300">
             <Image
-              src="/images/avatar.jpg"
+              src="/images/avatar.png"
               alt="Ben Hubbard"
               width={56}
               height={56}

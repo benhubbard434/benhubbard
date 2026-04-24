@@ -17,14 +17,14 @@ const qaItems = [
 
 // Add your running photos to public/images/running/ and list filenames here
 const runningPhotos = [
-  "/images/running/1.jpg",
-  "/images/running/2.jpg",
-  "/images/running/3.jpg",
-  "/images/running/4.jpg",
-  "/images/running/5.jpg",
-  "/images/running/6.jpg",
-  "/images/running/7.jpg",
-  "/images/running/8.jpg",
+  "/images/running-1.jpg",
+  "/images/running-2.jpg",
+  "/images/running-3.jpg",
+  "/images/running-4.jpg",
+  "/images/running-5.jpg",
+  "/images/running-6.jpg",
+  "/images/running-7.jpg",
+  "/images/running-8.jpg",
 ];
 
 export default function RunningPage() {
