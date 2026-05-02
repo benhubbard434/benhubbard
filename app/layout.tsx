@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className="min-h-full flex flex-col pb-[60px]">
+      <body className="min-h-full flex flex-col pb-24">
         {children}
         <BottomNav />
       </body>

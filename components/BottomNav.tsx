@@ -1,9 +1,114 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import MenuOverlay from "./MenuOverlay";
 
+// ── Cursor position hook ──────────────────────────────────────────────────────
+function useCursorPosition() {
+  const [pos, setPos] = useState({ x: -9999, y: -9999 });
+  useEffect(() => {
+    const handler = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", handler);
+    return () => window.removeEventListener("mousemove", handler);
+  }, []);
+  return pos;
+}
+
+// ── Single eye ────────────────────────────────────────────────────────────────
+function Eye({
+  cursorX,
+  cursorY,
+  blinking,
+}: {
+  cursorX: number;
+  cursorY: number;
+  blinking: boolean;
+}) {
+  const eyeRef = useRef<HTMLDivElement>(null);
+  const [pupil, setPupil] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    if (!eyeRef.current) return;
+    const rect = eyeRef.current.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = cursorX - cx;
+    const dy = cursorY - cy;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const maxTravel = 3.5;
+    if (dist < 0.5) {
+      setPupil({ x: 0, y: 0 });
+    } else {
+      const t = Math.min(dist, maxTravel) / dist;
+      setPupil({ x: dx * t, y: dy * t });
+    }
+  }, [cursorX, cursorY]);
+
+  return (
+    <div
+      ref={eyeRef}
+      className="relative overflow-hidden bg-white border border-gray-800 rounded-full"
+      style={{
+        width: 20,
+        height: 15,
+        transform: blinking ? "scaleY(0.05)" : "scaleY(1)",
+        transition: "transform 70ms ease-in-out",
+      }}
+    >
+      {/* Iris */}
+      <div
+        className="absolute rounded-full bg-gray-700"
+        style={{
+          width: 9,
+          height: 9,
+          top: "50%",
+          left: "50%",
+          transform: `translate(calc(-50% + ${pupil.x}px), calc(-50% + ${pupil.y}px))`,
+        }}
+      >
+        {/* Pupil */}
+        <div
+          className="absolute rounded-full bg-black"
+          style={{ width: 5, height: 5, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
+// ── Eyes logo (two eyes that blink together) ──────────────────────────────────
+function EyesLogo() {
+  const cursor = useCursorPosition();
+  const [blinking, setBlinking] = useState(false);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    function scheduleNextBlink() {
+      const delay = 1800 + Math.random() * 3500;
+      timeout = setTimeout(() => {
+        setBlinking(true);
+        setTimeout(() => {
+          setBlinking(false);
+          scheduleNextBlink();
+        }, 150);
+      }, delay);
+    }
+
+    scheduleNextBlink();
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <div className="flex items-center gap-1.5">
+      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} />
+      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} />
+    </div>
+  );
+}
+
+// ── Social links ──────────────────────────────────────────────────────────────
 const socialLinks = [
   {
     label: "LinkedIn",
@@ -43,19 +148,24 @@ const socialLinks = [
   },
 ];
 
+// ── Nav ───────────────────────────────────────────────────────────────────────
 export default function BottomNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      <nav className="fixed bottom-0 left-0 right-0 h-[60px] bg-white border-t border-gray-200 flex items-center px-6 z-50">
-        {/* Logo */}
-        <div className="flex items-center gap-1 shrink-0">
-          <svg width="36" height="20" viewBox="0 0 36 20" fill="none">
-            <circle cx="10" cy="10" r="9" stroke="#111" strokeWidth="2" />
-            <circle cx="26" cy="10" r="9" stroke="#111" strokeWidth="2" />
-          </svg>
-        </div>
+      <nav
+        className="
+          fixed bottom-5 left-1/2 -translate-x-1/2
+          w-[95vw] sm:w-[75vw]
+          h-[60px] bg-white
+          flex items-center px-5
+          rounded-full shadow-lg border border-gray-200
+          z-50
+        "
+      >
+        {/* Eyes logo */}
+        <EyesLogo />
 
         {/* Divider */}
         <div className="w-px h-5 bg-gray-300 mx-4 shrink-0" />
@@ -75,9 +185,6 @@ export default function BottomNav() {
 
         {/* Spacer */}
         <div className="flex-1" />
-
-        {/* Divider */}
-        <div className="w-px h-5 bg-gray-300 mx-4 shrink-0 hidden sm:block" />
 
         {/* Social icons */}
         <div className="items-center gap-4 hidden sm:flex shrink-0">

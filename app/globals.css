@@ -26,16 +26,6 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Red page-frame border */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  border: 5px solid var(--color-red);
-  z-index: 9999;
-  pointer-events: none;
-}
-
 .font-inktrap {
   font-family: "ABCWhyteInktrap", system-ui, sans-serif;
   font-weight: 900;
