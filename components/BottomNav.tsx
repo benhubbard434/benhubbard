@@ -45,7 +45,7 @@ function Eye({
     }
   }, [cursorX, cursorY]);
 
-  const SIZE = 25;
+  const SIZE = 24;
 
   return (
     <div
