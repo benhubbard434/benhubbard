@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="relative w-full" style={{ height: "calc(100vh - 60px)" }}>
+    <main className="relative w-full h-screen -mb-24">
       {/* Hero image — replace hero.jpg with your photo */}
       <Image
         src="/images/hero.jpg"
