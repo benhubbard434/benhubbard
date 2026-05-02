@@ -172,9 +172,10 @@ export default function BottomNav() {
           w-[95vw] sm:w-[75vw]
           h-[60px] bg-white
           flex items-center px-5
-          rounded-full shadow-lg border-2 border-black
+          shadow-lg border-2 border-black
           z-50
         "
+        style={{ borderRadius: "2px" }}
       >
         {/* Eyes logo */}
         <EyesLogo />
