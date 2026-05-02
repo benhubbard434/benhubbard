@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+// Cache the route response for 6 hours — playlist updates are infrequent
+export const revalidate = 21600;
+
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID!;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET!;
 const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN!;
@@ -39,13 +42,16 @@ export async function GET() {
 
     const playlist = await playlistRes.json();
 
-    return NextResponse.json({
-      name: playlist.name ?? null,
-      description: playlist.description ?? null,
-      url: playlist.external_urls?.spotify ?? `https://open.spotify.com/playlist/${PLAYLIST_ID}`,
-      image: playlist.images?.[0]?.url ?? null,
-      embedUrl: `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}?utm_source=generator&theme=0`,
-    });
+    return NextResponse.json(
+      {
+        name: playlist.name ?? null,
+        description: playlist.description ?? null,
+        url: playlist.external_urls?.spotify ?? `https://open.spotify.com/playlist/${PLAYLIST_ID}`,
+        image: playlist.images?.[0]?.url ?? null,
+        embedUrl: `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}?utm_source=generator&theme=0`,
+      },
+      { headers: { "Cache-Control": "public, s-maxage=21600, stale-while-revalidate=43200" } }
+    );
   } catch (err) {
     console.error("Spotify API error:", err);
     return NextResponse.json({ error: "Failed to fetch Spotify data" }, { status: 500 });

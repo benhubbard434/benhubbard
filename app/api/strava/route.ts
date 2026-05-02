@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+// Cache the route response for 1 hour — Strava stats don't need to be real-time
+export const revalidate = 3600;
+
 const STRAVA_CLIENT_ID = process.env.STRAVA_CLIENT_ID!;
 const STRAVA_CLIENT_SECRET = process.env.STRAVA_CLIENT_SECRET!;
 const STRAVA_REFRESH_TOKEN = process.env.STRAVA_REFRESH_TOKEN!;
@@ -48,12 +51,15 @@ export async function GET() {
     const ytd = stats.ytd_run_totals?.distance;
     const allTime = stats.all_run_totals?.distance;
 
-    return NextResponse.json({
-      ytd_distance_km: ytd != null ? (ytd / 1000).toFixed(2) : null,
-      all_time_distance_km: allTime != null ? (allTime / 1000).toFixed(2) : null,
-      races_this_year: racesThisYear,
-      all_time_races: stats.all_run_totals?.count ?? 0,
-    });
+    return NextResponse.json(
+      {
+        ytd_distance_km: ytd != null ? (ytd / 1000).toFixed(2) : null,
+        all_time_distance_km: allTime != null ? (allTime / 1000).toFixed(2) : null,
+        races_this_year: racesThisYear,
+        all_time_races: stats.all_run_totals?.count ?? 0,
+      },
+      { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=7200" } }
+    );
   } catch (err) {
     console.error("Strava API error:", err);
     return NextResponse.json({ error: "Failed to fetch Strava data" }, { status: 500 });
