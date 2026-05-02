@@ -45,7 +45,7 @@ function Eye({
     }
   }, [cursorX, cursorY]);
 
-  const SIZE = 30;
+  const SIZE = 25;
 
   return (
     <div
@@ -184,7 +184,7 @@ export default function BottomNav() {
         <div className="w-px h-5 bg-gray-300 mx-4 shrink-0" />
 
         {/* Name */}
-        <Link href="/" className="font-inktrap text-sm tracking-wide shrink-0">
+        <Link href="/" className="font-inktrap tracking-wide shrink-0" style={{ fontSize: "24px" }}>
           BEN HUBBARD
         </Link>
 
