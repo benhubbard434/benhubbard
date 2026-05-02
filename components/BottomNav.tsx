@@ -188,8 +188,8 @@ export default function BottomNav() {
           BEN HUBBARD
         </Link>
 
-        {/* Divider */}
-        <div className="w-px h-5 bg-gray-300 mx-4 shrink-0" />
+        {/* Divider — hidden below 400px */}
+        <div className="hidden min-[400px]:block w-px h-5 bg-gray-300 mx-4 shrink-0" />
 
         {/* Tagline */}
         <span className="text-sm text-gray-600 hidden sm:block truncate">
