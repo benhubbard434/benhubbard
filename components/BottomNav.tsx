@@ -36,7 +36,7 @@ function Eye({
     const dx = cursorX - cx;
     const dy = cursorY - cy;
     const dist = Math.sqrt(dx * dx + dy * dy);
-    const maxTravel = 3.5;
+    const maxTravel = 4;
     if (dist < 0.5) {
       setPupil({ x: 0, y: 0 });
     } else {
@@ -45,34 +45,46 @@ function Eye({
     }
   }, [cursorX, cursorY]);
 
+  const SIZE = 30;
+
   return (
     <div
       ref={eyeRef}
-      className="relative overflow-hidden bg-white border border-gray-800 rounded-full"
+      className="relative"
       style={{
-        width: 20,
-        height: 15,
+        width: SIZE,
+        height: SIZE,
         transform: blinking ? "scaleY(0.05)" : "scaleY(1)",
         transition: "transform 70ms ease-in-out",
       }}
     >
-      {/* Iris */}
+      {/* Outer ring */}
+      <svg
+        width={SIZE}
+        height={SIZE}
+        viewBox={`0 0 ${SIZE} ${SIZE}`}
+        className="absolute inset-0"
+      >
+        <circle
+          cx={SIZE / 2}
+          cy={SIZE / 2}
+          r={SIZE / 2 - 1.5}
+          stroke="black"
+          strokeWidth="2.5"
+          fill="white"
+        />
+      </svg>
+      {/* Pupil — filled circle that tracks cursor */}
       <div
-        className="absolute rounded-full bg-gray-700"
+        className="absolute rounded-full bg-black"
         style={{
-          width: 9,
-          height: 9,
+          width: 11,
+          height: 11,
           top: "50%",
           left: "50%",
           transform: `translate(calc(-50% + ${pupil.x}px), calc(-50% + ${pupil.y}px))`,
         }}
-      >
-        {/* Pupil */}
-        <div
-          className="absolute rounded-full bg-black"
-          style={{ width: 5, height: 5, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-        />
-      </div>
+      />
     </div>
   );
 }
@@ -160,7 +172,7 @@ export default function BottomNav() {
           w-[95vw] sm:w-[75vw]
           h-[60px] bg-white
           flex items-center px-5
-          rounded-full shadow-lg border border-gray-200
+          rounded-full shadow-lg border-2 border-black
           z-50
         "
       >
