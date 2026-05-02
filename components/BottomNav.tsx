@@ -222,7 +222,7 @@ export default function BottomNav() {
         <button
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
-          className="flex flex-col gap-1.5 shrink-0 p-1"
+          className="flex flex-col gap-1.5 shrink-0 p-1 max-[400px]:ml-5"
         >
           <span className="block w-5 h-0.5 bg-black" />
           <span className="block w-5 h-0.5 bg-black" />
