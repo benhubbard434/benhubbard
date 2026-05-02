@@ -177,11 +177,11 @@ export default function BottomNav() {
         "
         style={{ borderRadius: "2px" }}
       >
-        {/* Eyes logo */}
-        <EyesLogo />
-
-        {/* Divider */}
-        <div className="w-px h-5 bg-gray-300 mx-4 shrink-0" />
+        {/* Eyes logo — hidden below 400px */}
+        <div className="hidden min-[400px]:flex items-center shrink-0">
+          <EyesLogo />
+          <div className="w-px h-5 bg-gray-300 mx-4" />
+        </div>
 
         {/* Name */}
         <Link href="/" className="font-inktrap tracking-wide shrink-0" style={{ fontSize: "24px" }}>
