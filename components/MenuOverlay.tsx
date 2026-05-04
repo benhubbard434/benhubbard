@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -27,6 +27,13 @@ type Props = {
 
 export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
   const pathname = usePathname();
+  // Tracks whether the panel has been mounted at least once — avoids rendering
+  // it in the DOM on the initial page load before it's ever been opened.
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (open) setMounted(true);
+  }, [open]);
 
   // Close on route change
   useEffect(() => {
@@ -45,15 +52,19 @@ export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
     };
   }, [open]);
 
-  if (!open) return null;
+  if (!mounted) return null;
 
   return (
     <div
       className="fixed inset-0 z-[100] flex flex-col"
-      style={{ backgroundColor: "#c4392c" }}
+      style={{
+        backgroundColor: "#c4392c",
+        transform: open ? "translateX(0)" : "translateX(100%)",
+        transition: "transform 550ms cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
     >
       {/* Close button */}
-      <div className="flex justify-end p-6">
+      <div className="flex justify-end p-4">
         <button
           onClick={onClose}
           aria-label="Close menu"
@@ -66,13 +77,13 @@ export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
       </div>
 
       {/* Nav links */}
-      <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
+      <nav className="flex-1 flex flex-col justify-center px-8 gap-1">
         {navLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
             className="font-inktrap text-white leading-none hover:opacity-70 transition-opacity"
-            style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
+            style={{ fontSize: "clamp(2rem, 7vh, 5rem)" }}
           >
             {link.label}
           </Link>
@@ -80,7 +91,7 @@ export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
       </nav>
 
       {/* Footer */}
-      <div className="px-8 pb-8 flex flex-col gap-4">
+      <div className="px-8 pb-4 flex flex-col gap-3">
         <div className="flex gap-5">
           {socialLinks.map((link) => (
             <a
