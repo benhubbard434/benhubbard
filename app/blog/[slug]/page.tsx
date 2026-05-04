@@ -67,16 +67,16 @@ export default async function BlogPostPage({ params }: Props) {
         {post.title}
       </h1>
 
-      <p className="text-sm text-gray-400 mb-6">{formatDate(post.date)}</p>
-
-      {post.photo_credit && (
-        <p className="text-sm text-gray-400 italic mb-8">{post.photo_credit}</p>
-      )}
+      <p className="text-sm text-gray-400 mb-10">{formatDate(post.date)}</p>
 
       <div
         className="prose prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
+
+      {post.photo_credit && (
+        <p className="text-sm text-gray-400 italic mt-4">{post.photo_credit}</p>
+      )}
     </main>
   );
 }

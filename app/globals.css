@@ -32,6 +32,17 @@ button {
   cursor: pointer;
 }
 
+.blog-hero-image {
+  margin: 0 0 2rem 0;
+}
+
+.blog-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
