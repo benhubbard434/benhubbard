@@ -245,7 +245,7 @@ export default function WorkPage() {
   const [textColor, setTextColor] = useState(companyGroups[0].textColor);
   const [activeCompanyId, setActiveCompanyId] = useState(companyGroups[0].id);
 
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   // IntersectionObserver — sync sidebar + colours as user snaps between sections
