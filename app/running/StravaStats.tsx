@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ArrowClockwise } from "@phosphor-icons/react";
 
 type Stats = {
   ytd_distance_km: string;
@@ -17,7 +18,8 @@ export default function StravaStats() {
   async function load(showRefresh = false) {
     if (showRefresh) setRefreshing(true);
     try {
-      const res = await fetch("/api/strava");
+      const url = showRefresh ? `/api/strava?_t=${Date.now()}` : "/api/strava";
+      const res = await fetch(url, showRefresh ? { cache: "no-store" } : {});
       if (res.ok) setStats(await res.json());
     } finally {
       setLoading(false);
@@ -80,20 +82,11 @@ export default function StravaStats() {
           aria-label="Refresh stats"
           className="w-9 h-9 border border-white/20 rounded flex items-center justify-center hover:border-white/40 transition-colors disabled:opacity-50"
         >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
+          <ArrowClockwise
+            size={16}
+            weight="light"
             className={refreshing ? "animate-spin" : ""}
-          >
-            <path
-              d="M4 12a8 8 0 018-8V2l4 4-4 4V8a6 6 0 100 6"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
+          />
         </button>
       </div>
     </section>

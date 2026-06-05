@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.15.9",
+    "@phosphor-icons/react": "^2.1.10",
     "@supabase/supabase-js": "^2.104.1",
     "@tailwindcss/typography": "^0.5.19",
     "next": "16.2.4",
