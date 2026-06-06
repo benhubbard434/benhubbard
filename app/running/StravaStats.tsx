@@ -32,74 +32,74 @@ export default function StravaStats() {
   }, []);
 
   const currentYear = new Date().getFullYear();
+  const val = (v: string | number | null | undefined): string =>
+    loading ? "—" : v != null ? String(v) : "—";
 
   return (
-    <section className="px-8 py-16 bg-black text-white border-b border-white/10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
-        <StatBlock
-          label="Distance This Year"
-          value={loading ? "—" : `${stats?.ytd_distance_km ?? "—"}`}
-          unit="km"
-        />
-        <StatBlock
-          label="Total Distance — All Time"
-          value={loading ? "—" : `${stats?.all_time_distance_km ?? "—"}`}
-          unit="km"
-        />
+    <section style={{ background: "#fff", borderTop: "1px solid rgba(0,0,0,0.08)", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+      <div className="grid grid-cols-2 md:grid-cols-4">
+        <StatCell label="Distance this year" value={val(stats?.ytd_distance_km)} unit="km" />
+        <StatCell label="All-time distance" value={val(stats?.all_time_distance_km)} unit="km" border />
+        <StatCell label={`Races in ${currentYear}`} value={val(stats?.races_this_year)} unit="races" border />
+        <StatCell label="Races all time" value={val(stats?.all_time_races)} unit="races" border />
       </div>
 
-      <div className="w-full h-px bg-[#e55012] mb-10" />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
-        <StatBlock
-          label={`Races in ${currentYear}`}
-          value={loading ? "—" : String(stats?.races_this_year ?? "—")}
-          unit="races"
-        />
-        <StatBlock
-          label="Races — All Time"
-          value={loading ? "—" : String(stats?.all_time_races ?? "—")}
-          unit="races"
-        />
-      </div>
-
-      <div className="flex items-center gap-3">
-        <a
-          href="https://www.strava.com/athletes/938645"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded text-white text-sm font-medium transition-opacity hover:opacity-80"
-          style={{ backgroundColor: "#fc4c02" }}
-        >
-          View on Strava
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.599h4.172L10.463 0l-7 13.828h4.169" />
-          </svg>
-        </a>
+      <div
+        className="px-8 py-3 flex items-center justify-between"
+        style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}
+      >
+        <p className="text-xs uppercase tracking-[0.15em]" style={{ color: "rgba(0,0,0,0.35)" }}>
+          Via Strava
+        </p>
         <button
           onClick={() => load(true)}
           disabled={refreshing}
           aria-label="Refresh stats"
-          className="w-9 h-9 border border-white/20 rounded flex items-center justify-center hover:border-white/40 transition-colors disabled:opacity-50"
+          className="flex items-center gap-1.5 text-xs transition-opacity hover:opacity-60 disabled:opacity-30"
+          style={{ color: "rgba(0,0,0,0.45)" }}
         >
           <ArrowClockwise
-            size={16}
+            size={12}
             weight="light"
             className={refreshing ? "animate-spin" : ""}
           />
+          Refresh
         </button>
       </div>
     </section>
   );
 }
 
-function StatBlock({ label, value, unit }: { label: string; value: string; unit: string }) {
+function StatCell({
+  label,
+  value,
+  unit,
+  border,
+}: {
+  label: string;
+  value: string;
+  unit: string;
+  border?: boolean;
+}) {
   return (
-    <div>
-      <p className="text-xs tracking-[0.2em] uppercase text-white/50 mb-2">{label}</p>
-      <p className="font-inktrap leading-none" style={{ fontSize: "clamp(4rem, 12vw, 8rem)" }}>
+    <div
+      className="px-8 py-10"
+      style={{ borderLeft: border ? "1px solid rgba(0,0,0,0.08)" : undefined }}
+    >
+      <p
+        className="text-xs uppercase tracking-[0.2em] mb-3"
+        style={{ color: "rgba(0,0,0,0.4)" }}
+      >
+        {label}
+      </p>
+      <p className="font-inktrap leading-none" style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}>
         {value}
-        <span className="text-4xl md:text-5xl text-white/50 ml-2">{unit}</span>
+        <span
+          className="text-lg ml-2"
+          style={{ color: "rgba(0,0,0,0.35)" }}
+        >
+          {unit}
+        </span>
       </p>
     </div>
   );
