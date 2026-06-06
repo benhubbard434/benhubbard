@@ -63,9 +63,8 @@ const challenges = [
     tag: "Milestone",
     stat: "100",
     title: "100 races before 30",
-    meta: "Parkruns, halfs, ultras · crossed the line August 2024",
-    description:
-      "Set the target at 18 with no real plan. Somehow the miles kept adding up — parkrun Saturdays, half marathons on a whim, one or two things that probably counted as poor decisions. Hit 100 with a few months to spare.",
+    meta: "Parkruns, halfs, ultras · crossed the line March 2020",
+    description: "",
   },
 ];
 
