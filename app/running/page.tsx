@@ -38,8 +38,8 @@ const alphabetData: { letter: string; location: string | null }[] = [
   { letter: "U", location: "University of Northampton" },
   { letter: "V", location: "Victoria Dock" },
   { letter: "W", location: "Wimpole Estate" },
-  { letter: "X", location: null },
   { letter: "Y", location: null },
+  { letter: "Z", location: null },
 ];
 
 const challenges = [
