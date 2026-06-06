@@ -54,18 +54,18 @@ const challenges = [
   {
     tag: "Race",
     stat: "DNF",
-    title: "North Downs Way ultra",
+    title: "Isle of Wight Ultra",
     meta: "73.7km covered · 12h 23m · May 2025",
     description:
       "Signed up for 100km. Made it to 73.7. Still proud of every single one of them.",
   },
   {
-    tag: "Race",
-    stat: "2:31",
-    title: "Cambridge Half Marathon",
-    meta: "21.4km · 34 course records · March 2025",
+    tag: "Milestone",
+    stat: "100",
+    title: "100 races before 30",
+    meta: "Parkruns, halfs, ultras · crossed the line August 2024",
     description:
-      "First half of 2025. Thirty-four personal course records on the day, which felt like enough.",
+      "Set the target at 18 with no real plan. Somehow the miles kept adding up — parkrun Saturdays, half marathons on a whim, one or two things that probably counted as poor decisions. Hit 100 with a few months to spare.",
   },
 ];
 
