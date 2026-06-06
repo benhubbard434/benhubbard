@@ -6,7 +6,7 @@ const STRAVA_CLIENT_ID = process.env.STRAVA_CLIENT_ID!;
 const STRAVA_CLIENT_SECRET = process.env.STRAVA_CLIENT_SECRET!;
 const STRAVA_REFRESH_TOKEN = process.env.STRAVA_REFRESH_TOKEN!;
 const ATHLETE_ID = "938645";
-const API_BASE = "https://www.api-v3.strava.com";
+const API_BASE = "https://www.strava.com/api/v3";
 
 async function getAccessToken(): Promise<string> {
   const res = await fetch("https://www.strava.com/oauth/token", {
