@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -27,13 +27,6 @@ type Props = {
 
 export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
   const pathname = usePathname();
-  // Tracks whether the panel has been mounted at least once — avoids rendering
-  // it in the DOM on the initial page load before it's ever been opened.
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    if (open) setMounted(true);
-  }, [open]);
 
   // Close on route change
   useEffect(() => {
@@ -52,10 +45,10 @@ export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
     };
   }, [open]);
 
-  if (!mounted) return null;
-
   return (
     <div
+      inert={!open}
+      aria-hidden={!open}
       className="fixed inset-0 z-[100] flex flex-col"
       style={{
         backgroundColor: "#c4392c",
@@ -82,7 +75,7 @@ export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
           <Link
             key={link.href}
             href={link.href}
-            className="font-inktrap text-white leading-none hover:opacity-70 transition-opacity"
+            className="font-display text-white leading-none hover:opacity-70 transition-opacity"
             style={{ fontSize: "clamp(2rem, 7vh, 5rem)" }}
           >
             {link.label}
