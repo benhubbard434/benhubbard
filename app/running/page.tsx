@@ -81,13 +81,13 @@ export default function RunningPage() {
       {/* Hero */}
       <section className="px-8 pt-20 pb-10">
         <h1
-          className="font-inktrap leading-none"
-          style={{ fontSize: "clamp(5rem, 18vw, 14rem)" }}
+          className="font-display leading-none"
+          style={{ fontSize: "clamp(3.5rem, 17vw, 14rem)" }}
         >
           Running
         </h1>
         <p
-          className="font-inktrap mt-3"
+          className="font-display mt-3"
           style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)", color: "#fc4c02" }}
         >
           Fuelled by Margaritas
@@ -119,7 +119,7 @@ export default function RunningPage() {
         style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}
       >
         <div className="flex items-baseline justify-between mb-3">
-          <h2 className="font-inktrap text-4xl md:text-5xl">Parkrun alphabet</h2>
+          <h2 className="font-display text-4xl md:text-5xl">Parkrun alphabet</h2>
           <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
             20 of 25
           </span>
@@ -148,7 +148,7 @@ export default function RunningPage() {
                 }}
               >
                 <span
-                  className="font-inktrap text-3xl md:text-4xl leading-none"
+                  className="font-display text-3xl md:text-4xl leading-none"
                   style={{ color: done ? "#fc4c02" : "rgba(0,0,0,0.18)" }}
                 >
                   {letter}
@@ -184,7 +184,7 @@ export default function RunningPage() {
         </div>
         <div className="relative z-10 px-8 py-12">
           <h2
-            className="font-inktrap leading-none text-white"
+            className="font-display leading-none text-white"
             style={{ fontSize: "clamp(3rem, 10vw, 9rem)" }}
           >
             Ben Hubbard
@@ -213,7 +213,7 @@ export default function RunningPage() {
       {/* Notable runs */}
       <section className="px-8 py-16" style={{ background: "#111", color: "#fff" }}>
         <h2
-          className="font-inktrap text-white mb-12"
+          className="font-display text-white mb-12"
           style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
         >
           Notable runs
@@ -228,7 +228,7 @@ export default function RunningPage() {
                 {c.tag}
               </p>
               <p
-                className="font-inktrap leading-none mb-5"
+                className="font-display leading-none mb-5"
                 style={{ fontSize: "clamp(3rem, 8vw, 5rem)", color: "#fc4c02" }}
               >
                 {c.stat}

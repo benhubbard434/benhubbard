@@ -184,7 +184,7 @@ export default function BottomNav() {
         </div>
 
         {/* Name */}
-        <Link href="/" className="font-inktrap tracking-wide shrink-0" style={{ fontSize: "24px" }}>
+        <Link href="/" className="font-display text-2xl shrink-0">
           BEN HUBBARD
         </Link>
 

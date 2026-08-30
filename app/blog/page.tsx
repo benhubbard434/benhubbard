@@ -37,7 +37,7 @@ export default async function BlogPage() {
 
   return (
     <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-16 pb-8">
-      <h1 className="font-inktrap text-5xl mb-12">Blog</h1>
+      <h1 className="font-display text-h1 mb-12">Blog</h1>
 
       <ul className="divide-y divide-gray-200">
         {posts.length === 0 && (

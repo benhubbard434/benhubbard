@@ -83,7 +83,7 @@ function StatCell({
 }) {
   return (
     <div
-      className="px-8 py-10"
+      className="px-5 md:px-8 py-10"
       style={{ borderLeft: border ? "1px solid rgba(0,0,0,0.08)" : undefined }}
     >
       <p
@@ -92,12 +92,12 @@ function StatCell({
       >
         {label}
       </p>
-      <p className="font-inktrap leading-none" style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}>
+      <p
+        className="font-display leading-none flex flex-wrap items-baseline gap-x-2"
+        style={{ fontSize: "clamp(1.75rem, 6vw, 4rem)" }}
+      >
         {value}
-        <span
-          className="text-lg ml-2"
-          style={{ color: "rgba(0,0,0,0.35)" }}
-        >
+        <span className="text-lg" style={{ color: "rgba(0,0,0,0.35)" }}>
           {unit}
         </span>
       </p>

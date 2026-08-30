@@ -53,10 +53,7 @@ export default function MusicClient() {
           </div>
         )}
 
-        <h1
-          className="font-inktrap text-white leading-none mb-3"
-          style={{ fontSize: "clamp(2rem, 7vw, 5rem)" }}
-        >
+        <h1 className="font-display text-h1 text-white mb-3">
           {data?.name ?? "BEN'S TEN OF THE MONTH"}
         </h1>
         <p className="text-black/60 text-lg mb-8 max-w-md">

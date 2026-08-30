@@ -378,7 +378,7 @@ export default function WorkPage() {
                 <div className="mx-auto w-full max-w-2xl">
                   {/* Company heading */}
                   <div className="mb-8 flex items-center gap-3">
-                    <h2 className="text-3xl font-bold tracking-tight">{group.name}</h2>
+                    <h2 className="font-display text-h2">{group.name}</h2>
                     {group.entries[0]?.url && (
                       <a
                         href={group.entries[0].url}

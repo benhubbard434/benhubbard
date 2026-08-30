@@ -60,12 +60,7 @@ export default async function BlogPostPage({ params }: Props) {
         Back to blog
       </Link>
 
-      <h1
-        className="font-inktrap leading-tight mb-4"
-        style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
-      >
-        {post.title}
-      </h1>
+      <h1 className="font-display text-h1 mb-4">{post.title}</h1>
 
       <p className="text-sm text-gray-400 mb-10">{formatDate(post.date)}</p>
 
