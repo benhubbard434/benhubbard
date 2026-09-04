@@ -38,7 +38,9 @@ export function aiRailItem(provenance: AiProvenance): RailItem {
           What AI did on this page
         </p>
 
-        <ul className="grid gap-5">
+        {/* Subgrid so the level and note rows stay aligned across columns
+            however far a label wraps at narrow widths. */}
+        <ul className="grid grid-cols-4 grid-rows-[auto_auto_auto] gap-x-3 gap-y-1.5 sm:gap-x-6 md:gap-x-8">
           {AI_CATEGORIES.map(({ key, label }) => {
             const { level, note } = provenance[key];
             // Categories AI stayed out of recede, so the eye lands on the
@@ -47,17 +49,17 @@ export function aiRailItem(provenance: AiProvenance): RailItem {
             return (
               <li
                 key={key}
-                className="pt-2.5"
+                className="grid grid-rows-subgrid row-span-3 pt-2.5"
                 style={{ borderTop: `2px solid ${used ? BRAND : "#e5e7eb"}` }}
               >
                 <p
-                  className="font-display mb-1.5"
+                  className="font-display"
                   style={{ ...LABEL_TYPE, color: used ? BRAND : "#9ca3af" }}
                 >
                   {label}
                 </p>
                 <p
-                  className={`text-sm font-medium mb-1 ${
+                  className={`text-sm font-medium ${
                     used ? "text-black" : "text-gray-400"
                   }`}
                 >
