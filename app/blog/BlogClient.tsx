@@ -4,15 +4,15 @@ import { useState, useMemo, type CSSProperties } from "react";
 import Link from "next/link";
 import { BLOG_CATEGORIES, type BlogPost } from "@/lib/supabase";
 import CategoryPill from "@/components/CategoryPill";
-import TabRail, { TAB_BASE, TAB_SHAPE, type RailItem } from "@/components/TabRail";
+import TabRail, { TAB_BASE, TAB_SHAPE, TAB_TYPE, type RailItem } from "@/components/TabRail";
 import { aiRailItem } from "@/components/AiTab";
 
 const BRAND = "#470FF4";
 const ALL = "All";
 
-// Shared by the category items and the tab that opens them, so the two stay
-// identical. Half the h3 display step, with caps tracking opened back up from
-// the display face's -0.06em.
+// The category list inside the sheet. The tab that opens it is set smaller,
+// from TAB_TYPE. Half the h3 display step, with caps tracking opened back up
+// from the display face's -0.06em.
 const CATEGORY_TYPE: CSSProperties = {
   fontSize: "clamp(0.75rem, 0.65rem + 0.5vw, 0.9375rem)",
   textTransform: "uppercase",
@@ -103,7 +103,7 @@ export default function BlogClient({
         aria-expanded={open}
         aria-controls="blog-categories"
         className={`${TAB_BASE} text-white`}
-        style={{ ...CATEGORY_TYPE, ...TAB_SHAPE, backgroundColor: BRAND }}
+        style={{ ...TAB_TYPE, ...TAB_SHAPE, backgroundColor: BRAND }}
       >
         Categories
       </button>

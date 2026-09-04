@@ -9,7 +9,16 @@ import {
 } from "react";
 
 export const TAB_BASE =
-  "font-display pointer-events-auto px-5 py-2.5 shadow-lg flex items-center";
+  "font-display pointer-events-auto px-3.5 py-2 shadow-lg flex items-center";
+
+/** Tab labels sit a step below the sheet's own type, so the rail stays quiet. */
+export const TAB_TYPE: CSSProperties = {
+  fontSize: "clamp(0.6875rem, 0.6rem + 0.3vw, 0.8125rem)",
+  textTransform: "uppercase",
+  // Small caps need the display face's -0.06em opened back up further than
+  // the larger type does.
+  letterSpacing: "0.04em",
+};
 
 /** Tabs hang off the top edge, so only the bottom corners are rounded. */
 export const TAB_SHAPE: CSSProperties = {
