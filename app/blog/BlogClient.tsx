@@ -6,6 +6,7 @@ import { BLOG_CATEGORIES, type BlogPost } from "@/lib/supabase";
 import CategoryPill from "@/components/CategoryPill";
 import TabRail, { TAB_BASE, TAB_SHAPE, TAB_TYPE, type RailItem } from "@/components/TabRail";
 import { aiRailItem } from "@/components/AiTab";
+import { provenanceFor } from "@/lib/ai-provenance";
 
 const BRAND = "#470FF4";
 const ALL = "All";
@@ -115,7 +116,7 @@ export default function BlogClient({
   return (
     <>
       {/* The AI tab joins the rail here so the two descend together */}
-      <TabRail items={[categoriesItem, aiRailItem]} />
+      <TabRail items={[categoriesItem, aiRailItem(provenanceFor("/blog"))]} />
 
       <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-16 pb-8">
         <h1 className="font-display text-h1 mb-12">Blog</h1>
