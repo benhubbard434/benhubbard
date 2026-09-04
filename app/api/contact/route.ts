@@ -28,7 +28,9 @@ export async function POST(req: NextRequest) {
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY!);
-  await resend.emails.send({
+  // The SDK reports failures on the result rather than throwing, so an
+  // unchecked call reports success however the send actually went.
+  const { error: mailError } = await resend.emails.send({
     from: "Ben Hubbard <hello@email.benhubbard.co.uk>",
     to: process.env.CONTACT_EMAIL!,
     subject: `New contact: ${topic} from ${name}`,
@@ -42,5 +44,12 @@ export async function POST(req: NextRequest) {
     `,
   });
 
-  return NextResponse.json({ ok: true });
+  // The message is already saved, so the sender is told it arrived either
+  // way — but the failure needs to reach the logs rather than vanish.
+  if (mailError) {
+    console.error("Resend send error:", mailError);
+    return NextResponse.json({ ok: true, emailed: false });
+  }
+
+  return NextResponse.json({ ok: true, emailed: true });
 }
