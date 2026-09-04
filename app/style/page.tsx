@@ -39,11 +39,14 @@ const typefaces = [
 
 // Rendered through the real utility classes, not a var() lookup — @theme inline
 // bakes these values into the utilities rather than emitting custom properties.
+// Each step carries the face it actually renders in: h1/h2 take the display
+// face, h3 and h4 take the serif, matching the element rules in globals.css.
 const scale = [
-  { token: "text-display", cls: "text-display", sample: "Ben", clamp: "clamp(3.5rem, 2rem + 8vw, 8rem)", leading: "0.95", use: "Hero" },
-  { token: "text-h1", cls: "text-h1", sample: "Ben Hubbard", clamp: "clamp(2.5rem, 1.5rem + 4vw, 4.5rem)", leading: "1.05", use: "Page title" },
-  { token: "text-h2", cls: "text-h2", sample: "Ben Hubbard", clamp: "clamp(1.875rem, 1.5rem + 1.9vw, 3rem)", leading: "1.1", use: "Section" },
-  { token: "text-h3", cls: "text-h3", sample: "Ben Hubbard", clamp: "clamp(1.5rem, 1.3rem + 1vw, 1.875rem)", leading: "1.15", use: "Subsection" },
+  { token: "text-display", cls: "text-display", face: "font-display", faceName: "Archivo", sample: "Ben", clamp: "clamp(3.5rem, 2rem + 8vw, 8rem)", leading: "0.95", use: "Hero" },
+  { token: "text-h1", cls: "text-h1", face: "font-display", faceName: "Archivo", sample: "Ben Hubbard", clamp: "clamp(2.5rem, 1.5rem + 4vw, 4.5rem)", leading: "1.05", use: "Page title" },
+  { token: "text-h2", cls: "text-h2", face: "font-display", faceName: "Archivo", sample: "Ben Hubbard", clamp: "clamp(1.875rem, 1.5rem + 1.9vw, 3rem)", leading: "1.1", use: "Section" },
+  { token: "text-h3", cls: "text-h3", face: "font-subhead", faceName: "Instrument Serif", sample: "Ben Hubbard", clamp: "clamp(1.5rem, 1.3rem + 1vw, 1.875rem)", leading: "1.15", use: "Subsection" },
+  { token: "text-h4", cls: "text-h4", face: "font-subhead", faceName: "Instrument Serif", sample: "Ben Hubbard", clamp: "clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem)", leading: "1.2", use: "Minor heading" },
 ];
 
 const motion = [
@@ -141,9 +144,11 @@ export default function StylePage() {
       <section className="max-w-3xl mx-auto w-full px-6 mb-20">
         <SectionHeading>Scale</SectionHeading>
         <p className="text-sm text-gray-600 mb-8 max-w-[60ch]">
-          Four fluid display steps, roughly a 1.33&ndash;1.6 ratio apart. Each is set
-          so its smallest size clears a 375px viewport without overflowing. Resize the
-          window and the specimens below move with it.
+          Five fluid steps, roughly a 1.25&ndash;1.6 ratio apart, each set so its
+          smallest size clears a 375px viewport without overflowing. The top three
+          take the display face; h3 and h4 switch to the serif, which is where the
+          hierarchy changes voice rather than just size. Resize the window and the
+          specimens below move with it.
         </p>
         <ul className="flex flex-col gap-8">
           {scale.map((s) => (
@@ -151,11 +156,12 @@ export default function StylePage() {
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-3">
                 <code className="text-sm text-gray-700">{s.token}</code>
                 <span className="text-xs text-gray-400">{s.use}</span>
+                <span className="text-xs text-gray-400">{s.faceName}</span>
                 <span className="text-xs text-gray-400 ml-auto">
                   line-height {s.leading}
                 </span>
               </div>
-              <p className={`font-display ${s.cls}`}>{s.sample}</p>
+              <p className={`${s.face} ${s.cls}`}>{s.sample}</p>
               <code className="block text-xs text-gray-400 mt-3">{s.clamp}</code>
             </li>
           ))}
