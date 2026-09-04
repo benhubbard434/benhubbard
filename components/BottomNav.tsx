@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { Plus } from "@phosphor-icons/react";
 import MenuOverlay from "./MenuOverlay";
 
 // ── Cursor position hook ──────────────────────────────────────────────────────
@@ -164,70 +165,186 @@ const socialLinks = [
 export default function BottomNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Disclosure for the details panel. Hover previews it on mouse devices;
+  // click/tap pins it open so touch and keyboard get the same feature.
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const pinned = useRef(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  }, []);
+
+  const close = useCallback(() => {
+    cancelClose();
+    pinned.current = false;
+    setDetailsOpen(false);
+  }, [cancelClose]);
+
+  // Hover applies to the trigger and the panel together, so travelling from
+  // one to the other doesn't collapse the links before they can be clicked.
+  const handleEnter = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    cancelClose();
+    setDetailsOpen(true);
+  };
+
+  const handleLeave = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    cancelClose();
+    closeTimer.current = setTimeout(() => {
+      if (!pinned.current) setDetailsOpen(false);
+    }, 150);
+  };
+
+  const toggleDetails = () => {
+    cancelClose();
+    pinned.current = !pinned.current;
+    setDetailsOpen(pinned.current);
+  };
+
+  useEffect(() => () => cancelClose(), [cancelClose]);
+
+  useEffect(() => {
+    if (!detailsOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [detailsOpen, close]);
+
   return (
     <>
       <nav
         className="
           fixed bottom-5 left-1/2 -translate-x-1/2
           w-[95vw] sm:w-[75vw]
-          h-[60px] bg-white
-          flex items-center px-5
+          bg-white
+          flex flex-col
           shadow-lg border-2 border-black
           z-50
         "
         style={{ borderRadius: "2px" }}
       >
-        {/* Eyes logo — hidden below 400px */}
-        <div className="hidden min-[400px]:flex items-center shrink-0">
-          <EyesLogo />
-          <div className="w-px h-5 bg-gray-300 mx-4" />
-        </div>
-
-        {/* Name */}
-        <Link href="/" className="font-display text-2xl shrink-0">
-          BEN HUBBARD
-        </Link>
-
-        {/* Divider — shown with the tagline it separates */}
-        <div className="hidden xl:block w-px h-5 bg-gray-300 mx-4 shrink-0" />
-
-        {/* Tagline — needs ~390px, so only from xl up */}
-        <span className="text-sm text-gray-600 hidden xl:block truncate">
-          Customer Success leader, runner/part time triathlete &amp; maker.
-        </span>
-
-        {/* Spacer */}
-        <div className="flex-1" />
-
-        {/* Social icons — drop out before the logo does */}
-        <div className="items-center gap-4 hidden md:flex shrink-0">
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.label}
-              className="text-gray-700 hover:text-black transition-colors"
-            >
-              {link.icon}
-            </a>
-          ))}
-        </div>
-
-        {/* Divider — shown with the social icons it separates */}
-        <div className="w-px h-5 bg-gray-300 mx-4 shrink-0 hidden md:block" />
-
-        {/* Hamburger */}
-        <button
-          onClick={() => setMenuOpen(true)}
-          aria-label="Open menu"
-          className="flex flex-col gap-1.5 shrink-0 p-1 max-[400px]:ml-5"
+        {/* Details panel — grows upward, since the bar is bottom-anchored */}
+        <div
+          id="nav-details"
+          inert={!detailsOpen}
+          onPointerEnter={handleEnter}
+          onPointerLeave={handleLeave}
+          className="nav-disclosure grid xl:hidden"
+          style={{
+            gridTemplateRows: detailsOpen ? "1fr" : "0fr",
+            transitionDuration: detailsOpen ? "380ms" : "285ms",
+          }}
         >
-          <span className="block w-5 h-0.5 bg-black" />
-          <span className="block w-5 h-0.5 bg-black" />
-          <span className="block w-5 h-0.5 bg-black" />
-        </button>
+          <div className="overflow-hidden">
+            <div
+              className="nav-disclosure flex flex-col gap-3 px-5 pt-4 pb-3"
+              style={{
+                opacity: detailsOpen ? 1 : 0,
+                transitionDuration: detailsOpen ? "380ms" : "190ms",
+              }}
+            >
+              <p className="text-sm text-gray-600 xl:hidden">
+                Customer Success leader, runner/part time triathlete &amp; maker.
+              </p>
+              <div className="flex items-center gap-5 md:hidden">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    className="text-gray-700 hover:text-black transition-colors"
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
+              <div className="h-px bg-gray-200" />
+            </div>
+          </div>
+        </div>
+
+        {/* Main row */}
+        <div className="h-[60px] flex items-center px-5">
+          {/* Eyes logo — hidden below 400px */}
+          <div className="hidden min-[400px]:flex items-center shrink-0">
+            <EyesLogo />
+            <div className="w-px h-5 bg-gray-300 mx-4" />
+          </div>
+
+          {/* Name */}
+          <Link href="/" onClick={close} className="font-display text-2xl shrink-0">
+            BEN HUBBARD
+          </Link>
+
+          {/* Divider — shown with the tagline it separates */}
+          <div className="hidden xl:block w-px h-5 bg-gray-300 mx-4 shrink-0" />
+
+          {/* Tagline — needs ~390px, so only from xl up */}
+          <span className="text-sm text-gray-600 hidden xl:block truncate">
+            Customer Success leader, runner/part time triathlete &amp; maker.
+          </span>
+
+          {/* Spacer */}
+          <div className="flex-1" />
+
+          {/* Social icons — drop out before the logo does */}
+          <div className="items-center gap-4 hidden md:flex shrink-0">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="text-gray-700 hover:text-black transition-colors"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
+
+          {/* Details toggle — only where something is actually hidden */}
+          <button
+            onClick={toggleDetails}
+            onPointerEnter={handleEnter}
+            onPointerLeave={handleLeave}
+            aria-expanded={detailsOpen}
+            aria-controls="nav-details"
+            aria-label={detailsOpen ? "Hide details" : "Show details"}
+            className="xl:hidden shrink-0 ml-4 p-1 text-gray-700 hover:text-black transition-colors"
+          >
+            <Plus
+              size={18}
+              weight="bold"
+              className="nav-disclosure"
+              style={{
+                transform: detailsOpen ? "rotate(45deg)" : "rotate(0deg)",
+                transitionDuration: detailsOpen ? "380ms" : "285ms",
+              }}
+            />
+          </button>
+
+          {/* Divider */}
+          <div className="w-px h-5 bg-gray-300 mx-4 shrink-0" />
+
+          {/* Hamburger */}
+          <button
+            onClick={() => { close(); setMenuOpen(true); }}
+            aria-label="Open menu"
+            className="flex flex-col gap-1.5 shrink-0 p-1"
+          >
+            <span className="block w-5 h-0.5 bg-black" />
+            <span className="block w-5 h-0.5 bg-black" />
+            <span className="block w-5 h-0.5 bg-black" />
+          </button>
+        </div>
       </nav>
 
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} socialLinks={socialLinks} />

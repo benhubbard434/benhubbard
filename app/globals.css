@@ -73,6 +73,19 @@ button {
   border-radius: 4px;
 }
 
+/* Bottom-nav details disclosure. Animates grid-template-rows rather than
+   height, so the panel expands without a layout-property transition. */
+.nav-disclosure {
+  transition-property: grid-template-rows, opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-disclosure {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Damped spring wiggle — pivots at the neck like a flicked bobblehead */
 .head-spring {
   transform-origin: 50% 85%;
