@@ -352,11 +352,12 @@ export default function BottomNav() {
           <button
             onClick={() => { close(); setMenuOpen(true); }}
             aria-label="Open menu"
-            className="flex flex-col gap-1.5 shrink-0 p-1"
+            className="squircle flex flex-col items-center justify-center gap-1.5 shrink-0 w-9 h-9 transition-opacity hover:opacity-80"
+            style={{ backgroundColor: "var(--color-tomato-jam)" }}
           >
-            <span className="block w-5 h-0.5 bg-black" />
-            <span className="block w-5 h-0.5 bg-black" />
-            <span className="block w-5 h-0.5 bg-black" />
+            <span className="block w-5 h-0.5 bg-white" />
+            <span className="block w-5 h-0.5 bg-white" />
+            <span className="block w-5 h-0.5 bg-white" />
           </button>
         </div>
       </nav>
