@@ -87,30 +87,38 @@ export default function TabRail({ items }: { items: RailItem[] }) {
       {/* Out of flow, so a sheet moves only the tab that opened it, and above
           the tabs so a closed one is covered by the sheet rather than
           floating over it. The open tab clears the sheet's bottom edge, so it
-          stays visible either way. */}
+          stays visible either way. Sheets overlay rather than stack, since
+          only one is ever down. */}
       <div className="absolute top-0 left-0 right-0 z-10">
         {items.map((item) => {
           const open = openId === item.id;
+          const height = heights[item.id] ?? 0;
           return (
             <div
               key={item.id}
               id={item.id}
               inert={!open}
-              className="disclosure-motion grid w-full pointer-events-auto"
-              style={{
-                gridTemplateRows: open ? "1fr" : "0fr",
-                transitionDuration: open ? "420ms" : "315ms",
-              }}
+              className="absolute top-0 left-0 right-0 overflow-hidden"
+              style={{ height, pointerEvents: open ? "auto" : "none" }}
             >
-              <div className="overflow-hidden">
-                <div
-                  ref={(el) => {
-                    if (el) contentRefs.current.set(item.id, el);
-                    else contentRefs.current.delete(item.id);
-                  }}
-                >
-                  {item.renderPanel({ close })}
-                </div>
+              {/* The sheet slides out from behind the top edge rather than
+                  being uncovered by a growing box. Transitioning a box's size
+                  in fr units moves the clip that hides the sheet out of step
+                  with the height the tab is following, which left the sheet's
+                  painted edge trailing the tab by ~20px mid-unroll. Two
+                  transforms on one timing cannot drift like that. */}
+              <div
+                ref={(el) => {
+                  if (el) contentRefs.current.set(item.id, el);
+                  else contentRefs.current.delete(item.id);
+                }}
+                className="disclosure-motion"
+                style={{
+                  transform: open ? "translateY(0)" : "translateY(-100%)",
+                  transitionDuration: open ? "420ms" : "315ms",
+                }}
+              >
+                {item.renderPanel({ close })}
               </div>
             </div>
           );
