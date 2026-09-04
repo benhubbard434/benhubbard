@@ -82,7 +82,7 @@ export default function TabRail({ items }: { items: RailItem[] }) {
   return (
     <div
       ref={railRef}
-      className="fixed top-0 left-0 right-0 z-40 pointer-events-none"
+      className="fixed top-0 left-0 right-0 z-[60] pointer-events-none"
     >
       {/* Out of flow, so a sheet moves only the tab that opened it, and above
           the tabs so a closed one is covered by the sheet rather than
