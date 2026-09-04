@@ -80,16 +80,18 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
         >
           <div className="overflow-hidden">
             <div style={{ backgroundColor: BRAND }} className="px-6 pt-16 pb-8">
-              <div className="max-w-3xl mx-auto w-full">
+              {/* Full-bleed rather than the post list's max-w-3xl, so the row
+                  has the whole screen to stay on one line. */}
+              <div className="w-full">
                 <p className="text-xs uppercase tracking-[0.25em] text-white/60 mb-5">
                   Filter by category
                 </p>
-                <ul className="flex flex-col gap-1 md:flex-row md:flex-nowrap md:items-baseline md:gap-x-7">
+                <ul className="flex flex-col gap-1 sm:flex-row sm:flex-nowrap sm:items-baseline sm:gap-x-7">
                   {[ALL, ...BLOG_CATEGORIES].map((category) => {
                     const isActive = category === active;
                     const count = category === ALL ? posts.length : counts.get(category) ?? 0;
                     return (
-                      <li key={category} className="md:whitespace-nowrap">
+                      <li key={category} className="sm:whitespace-nowrap">
                         <button
                           onClick={() => choose(category)}
                           aria-current={isActive ? "true" : undefined}
