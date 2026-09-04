@@ -289,8 +289,8 @@ export default function WorkPage() {
         transition: "background-color 700ms ease-in-out, color 700ms ease-in-out",
       }}
     >
-      {/* Avatar — fixed top-left, rotated */}
-      <div className="fixed z-50" style={{ top: 20, left: 20 }}>
+      {/* Avatar — fixed top-left, rotated; springs when hovered */}
+      <div className="fixed z-50 head-spring" style={{ top: 20, left: 20 }}>
         <Image
           src="/images/avatar.png"
           alt="Ben Hubbard"
