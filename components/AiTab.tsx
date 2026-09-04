@@ -5,10 +5,6 @@ import { TAB_BASE, TAB_SHAPE, type RailItem } from "./TabRail";
 
 const BRAND = "#470FF4";
 
-// A tint of the brand blue rather than a new hue, so the mark reads as light
-// without stepping outside the palette.
-const LIGHT_BLUE = "#AC93FA";
-
 export const AI_PANEL_ID = "site-ai";
 
 /** Defined once and shared, so the tab is identical on every page. */
@@ -37,7 +33,7 @@ export const aiRailItem: RailItem = {
         borderTop: "none",
       }}
     >
-      <Sparkle size={12} weight="fill" color={LIGHT_BLUE} />
+      <Sparkle size={12} weight="fill" color={BRAND} />
     </button>
   ),
 };
