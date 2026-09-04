@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabase, type BlogPost } from "@/lib/supabase";
 import CategoryPill, { categoryHref } from "@/components/CategoryPill";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export const dynamic = "force-dynamic";
 
@@ -66,6 +67,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-12 pb-16">
+      <ScrollProgress />
+
       <Link
         href="/blog"
         className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors mb-10"
