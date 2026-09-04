@@ -93,11 +93,11 @@ export default function NotFound() {
   }, []);
 
   return (
-    // -mb-24 cancels the body padding that clears the floating nav, so the
-    // green runs to the very bottom edge, and dvh keeps it there when a
+    // -mb-24 cancels the body padding that reserves room for the floating
+    // nav, which this page does without, and dvh holds the bottom edge when a
     // phone's URL bar collapses.
     <main
-      data-no-rail
+      data-no-chrome
       className="w-full min-h-dvh -mb-24 flex flex-col items-center justify-center gap-10 overflow-hidden"
       style={{ backgroundColor: GREEN }}
     >

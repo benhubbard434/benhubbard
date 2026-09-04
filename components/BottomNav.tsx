@@ -232,6 +232,7 @@ export default function BottomNav() {
   return (
     <>
       <nav
+        data-site-nav
         className="
           fixed bottom-5 left-1/2 -translate-x-1/2
           w-[95vw] sm:w-[75vw]

@@ -95,9 +95,11 @@ button {
   border-radius: 4px;
 }
 
-/* The tab rail is rendered by the layout, above the pages in the tree, so a
-   page cannot decline it by not rendering it. Marking the page opts it out. */
-body:has([data-no-rail]) [data-tab-rail] {
+/* The rail and the nav are rendered by the layout, above the pages in the
+   tree, so a page cannot decline them by not rendering them. Marking the page
+   opts it out of both. */
+body:has([data-no-chrome]) [data-tab-rail],
+body:has([data-no-chrome]) [data-site-nav] {
   display: none;
 }
 
