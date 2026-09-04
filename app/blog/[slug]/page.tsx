@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSupabase, type BlogPost } from "@/lib/supabase";
+import CategoryPill, { categoryHref } from "@/components/CategoryPill";
 
 export const dynamic = "force-dynamic";
 
@@ -62,7 +63,12 @@ export default async function BlogPostPage({ params }: Props) {
 
       <h1 className="font-display text-h1 mb-4">{post.title}</h1>
 
-      <p className="text-sm text-gray-400 mb-10">{formatDate(post.date)}</p>
+      <div className="flex flex-wrap items-center gap-3 mb-10">
+        <p className="text-sm text-gray-400">{formatDate(post.date)}</p>
+        {post.category && (
+          <CategoryPill category={post.category} href={categoryHref(post.category)} />
+        )}
+      </div>
 
       <div
         className="prose prose-lg max-w-none"

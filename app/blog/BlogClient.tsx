@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo, useRef, type CSSProperties } from "react";
 import Link from "next/link";
 import { BLOG_CATEGORIES, type BlogPost } from "@/lib/supabase";
+import CategoryPill from "@/components/CategoryPill";
 
 const BRAND = "#470FF4";
 const ALL = "All";
@@ -30,9 +31,15 @@ function formatDate(dateStr: string) {
   return `${day}${suffix} ${date.toLocaleString("en-GB", { month: "long" })} ${date.getFullYear()}`;
 }
 
-export default function BlogClient({ posts }: { posts: BlogPost[] }) {
+export default function BlogClient({
+  posts,
+  initialCategory,
+}: {
+  posts: BlogPost[];
+  initialCategory?: string;
+}) {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<string>(ALL);
+  const [active, setActive] = useState<string>(initialCategory ?? ALL);
   const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -178,7 +185,10 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
                 <p className="text-xl font-medium text-black group-hover:underline">
                   {post.title}
                 </p>
-                <p className="text-sm text-gray-400 mt-1">{formatDate(post.date)}</p>
+                <div className="flex flex-wrap items-center gap-3 mt-2">
+                  <p className="text-sm text-gray-400">{formatDate(post.date)}</p>
+                  {post.category && <CategoryPill category={post.category} />}
+                </div>
               </Link>
             </li>
           ))}
