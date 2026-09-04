@@ -14,9 +14,12 @@ export const AI_PANEL_ID = "site-ai";
 /** Defined once and shared, so the tab is identical on every page. */
 export const aiRailItem: RailItem = {
   id: AI_PANEL_ID,
+  // Rides up over the sheet's bottom edge by its own border width, so the two
+  // read as one white shape joined at the seam rather than as separate pieces.
+  seam: 2,
   renderPanel: () => (
-    <div style={{ backgroundColor: BRAND }} className="px-6 py-8">
-      <p className="text-sm text-white/70">Nothing wired up in here yet.</p>
+    <div className="bg-white px-6 py-8" style={{ borderBottom: `2px solid ${BRAND}` }}>
+      <p className="text-sm text-gray-600">Nothing wired up in here yet.</p>
     </div>
   ),
   renderTab: ({ open, toggle }) => (

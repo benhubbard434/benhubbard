@@ -19,6 +19,11 @@ export const TAB_SHAPE: CSSProperties = {
 
 export type RailItem = {
   id: string;
+  /**
+   * Pixels the tab rides up into its own sheet, so a sheet with a drawn edge
+   * can have that edge broken where the tab joins it.
+   */
+  seam?: number;
   renderPanel: (state: { close: () => void }) => ReactNode;
   renderTab: (state: { open: boolean; toggle: () => void }) => ReactNode;
 };
@@ -119,10 +124,15 @@ export default function TabRail({ items }: { items: RailItem[] }) {
           return (
             <div
               key={item.id}
-              className="disclosure-motion flex"
+              className="disclosure-motion relative flex"
               style={{
-                transform: `translateY(${open ? heights[item.id] ?? 0 : 0}px)`,
+                transform: `translateY(${
+                  open ? (heights[item.id] ?? 0) - (item.seam ?? 0) : 0
+                }px)`,
                 transitionDuration: open ? "420ms" : "315ms",
+                // Above its own sheet once open, so it can cover the seam;
+                // behind it when closed, so the sheet hides it.
+                zIndex: open ? 20 : 0,
               }}
             >
               {item.renderTab({
