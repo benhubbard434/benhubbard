@@ -126,27 +126,11 @@ function EyesLogo({ confused }: { confused: boolean }) {
     return () => clearTimeout(timeout);
   }, []);
 
-  // Held shut while the cursor is on them, however the blink timer is
-  // running underneath. Mouse only: a touch would shut them on tap with
-  // nothing to reopen them.
-  const [shut, setShut] = useState(false);
-  const onEnter = (e: React.PointerEvent) => {
-    if (e.pointerType === "mouse") setShut(true);
-  };
-  const onLeave = (e: React.PointerEvent) => {
-    if (e.pointerType === "mouse") setShut(false);
-  };
-
   return (
-    <div
-      className="flex items-center gap-1.5"
-      onPointerEnter={onEnter}
-      onPointerLeave={onLeave}
-      onPointerCancel={onLeave}
-    >
+    <div className="flex items-center gap-1.5">
       {/* Mismatched spin speeds keep the two eyes drifting out of phase */}
-      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking || shut} confused={confused} spinMs={900} />
-      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking || shut} confused={confused} spinMs={1150} />
+      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} confused={confused} spinMs={900} />
+      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} confused={confused} spinMs={1150} />
     </div>
   );
 }
