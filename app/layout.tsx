@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Google_Sans_Flex, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
+import GlobalTabRail from "@/components/GlobalTabRail";
 
 const googleSansFlex = Google_Sans_Flex({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${googleSansFlex.variable} ${archivo.variable} ${instrumentSerif.variable}`}>
       <body className="min-h-screen pb-24">
+        <GlobalTabRail />
         {children}
         <BottomNav />
       </body>
