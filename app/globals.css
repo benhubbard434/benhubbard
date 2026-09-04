@@ -44,6 +44,16 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
+/* Page titles and section headings are set in caps */
+h1, h2 {
+  text-transform: uppercase;
+}
+
+/* Article body headings keep the case they were written in */
+.prose h1, .prose h2 {
+  text-transform: none;
+}
+
 /* Subheadings (h3/h4) are Instrument Serif regular */
 h3, h4 {
   font-family: var(--font-instrument-serif), Georgia, serif;
