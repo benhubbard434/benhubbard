@@ -91,6 +91,7 @@ export default function TabRail({ items }: { items: RailItem[] }) {
   return (
     <div
       ref={railRef}
+      data-tab-rail
       className="fixed top-0 left-0 right-0 z-[60] pointer-events-none"
     >
       {/* Out of flow, so a sheet moves only the tab that opened it, and above

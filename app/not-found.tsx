@@ -93,9 +93,13 @@ export default function NotFound() {
   }, []);
 
   return (
+    // -mb-24 cancels the body padding that clears the floating nav, so the
+    // green runs to the very bottom edge, and dvh keeps it there when a
+    // phone's URL bar collapses.
     <main
-      className="w-full flex flex-col items-center justify-center gap-10 overflow-hidden"
-      style={{ backgroundColor: GREEN, minHeight: "calc(100vh - 6rem)" }}
+      data-no-rail
+      className="w-full min-h-dvh -mb-24 flex flex-col items-center justify-center gap-10 overflow-hidden"
+      style={{ backgroundColor: GREEN }}
     >
       <div className="flex gap-8">
         <Eye target={target} delay={0} />

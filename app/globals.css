@@ -95,6 +95,12 @@ button {
   border-radius: 4px;
 }
 
+/* The tab rail is rendered by the layout, above the pages in the tree, so a
+   page cannot decline it by not rendering it. Marking the page opts it out. */
+body:has([data-no-rail]) [data-tab-rail] {
+  display: none;
+}
+
 /* Squircle — a superellipse, not a rounded rectangle. Browsers with
    corner-shape draw the real curve; the rest fall back to the closest
    rounded rect, which reads near enough at chip size. */
