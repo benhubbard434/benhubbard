@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Reading progress for the page, pinned across the top. The fill is anchored
- * to the right edge and grows leftward, so it closes in on the left as you
- * reach the end.
+ * Reading progress for the page, pinned across the bottom. The fill is
+ * anchored to the right edge and grows leftward, so it closes in on the left
+ * as you reach the end.
  *
  * Written straight to the node's transform rather than through state: this
  * runs on every scroll frame, and re-rendering the tree that often to move one
@@ -54,7 +54,7 @@ export default function ScrollProgress() {
   return (
     <div
       aria-hidden="true"
-      className="fixed top-0 left-0 right-0 z-[70] pointer-events-none"
+      className="fixed bottom-0 left-0 right-0 z-[70] pointer-events-none"
       style={{ height: 5 }}
     >
       <div
