@@ -5,7 +5,6 @@ import { useState } from "react";
 const topics = [
   "Content Collaboration",
   "CX Consulting",
-  "AI Workflow",
   "Let's Work Together",
 ];
 
@@ -94,7 +93,7 @@ export default function ContactForm() {
         {/* Step 2 — name + email */}
         {step === 2 && (
           <div>
-            <h3 className="font-subhead text-h3 mb-6">We&apos;ll need a few details first...</h3>
+            <h3 className="font-subhead text-h3 mb-6">I&apos;ll need a few details first...</h3>
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
@@ -130,7 +129,7 @@ export default function ContactForm() {
         {/* Step 3 — topic */}
         {step === 3 && (
           <div>
-            <h3 className="font-subhead text-h3 mb-6">What can we help you with?</h3>
+            <h3 className="font-subhead text-h3 mb-6">What shall we work together on?</h3>
             <div className="flex flex-col gap-3">
               {topics.map((t) => (
                 <button
