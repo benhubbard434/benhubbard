@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Fragment,
   useEffect,
   useRef,
   useState,
@@ -34,6 +33,8 @@ export type RailItem = {
 export default function TabRail({ items }: { items: RailItem[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
   const railRef = useRef<HTMLDivElement>(null);
+  const [heights, setHeights] = useState<Record<string, number>>({});
+  const contentRefs = useRef(new Map<string, HTMLDivElement>());
 
   useEffect(() => {
     if (!openId) return;
@@ -50,41 +51,84 @@ export default function TabRail({ items }: { items: RailItem[] }) {
     };
   }, [openId]);
 
+  // Each tab rides its own sheet down and ignores the others. The sheets are
+  // out of flow, so nothing is pushed by default; instead a tab offsets itself
+  // by the height of its own sheet. Measuring the content, whose height only
+  // changes on resize, means the tab can run the same transition as the sheet
+  // and stay in lockstep with it rather than chasing it a frame behind.
+  useEffect(() => {
+    const observers: ResizeObserver[] = [];
+    for (const [id, content] of contentRefs.current) {
+      const measure = new ResizeObserver(() => {
+        setHeights((current) =>
+          current[id] === content.offsetHeight
+            ? current
+            : { ...current, [id]: content.offsetHeight }
+        );
+      });
+      measure.observe(content);
+      observers.push(measure);
+    }
+    return () => observers.forEach((o) => o.disconnect());
+  }, [items]);
+
   const close = () => setOpenId(null);
 
   return (
     <div
       ref={railRef}
-      className="fixed top-0 left-0 right-0 z-40 flex flex-col items-end pointer-events-none"
+      className="fixed top-0 left-0 right-0 z-40 pointer-events-none"
     >
-      {items.map((item) => {
-        const open = openId === item.id;
-        return (
-          <div
-            key={item.id}
-            id={item.id}
-            inert={!open}
-            className="disclosure-motion grid w-full pointer-events-auto"
-            style={{
-              gridTemplateRows: open ? "1fr" : "0fr",
-              transitionDuration: open ? "420ms" : "315ms",
-            }}
-          >
-            <div className="overflow-hidden">{item.renderPanel({ close })}</div>
-          </div>
-        );
-      })}
+      {/* Out of flow, so a sheet moves only the tab that opened it */}
+      <div className="absolute top-0 left-0 right-0">
+        {items.map((item) => {
+          const open = openId === item.id;
+          return (
+            <div
+              key={item.id}
+              id={item.id}
+              inert={!open}
+              className="disclosure-motion grid w-full pointer-events-auto"
+              style={{
+                gridTemplateRows: open ? "1fr" : "0fr",
+                transitionDuration: open ? "420ms" : "315ms",
+              }}
+            >
+              <div className="overflow-hidden">
+                <div
+                  ref={(el) => {
+                    if (el) contentRefs.current.set(item.id, el);
+                    else contentRefs.current.delete(item.id);
+                  }}
+                >
+                  {item.renderPanel({ close })}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
 
       {/* Stretched so tabs of differing content stay the same height */}
-      <div className="flex items-stretch gap-2 mr-6">
-        {items.map((item) => (
-          <Fragment key={item.id}>
-            {item.renderTab({
-              open: openId === item.id,
-              toggle: () => setOpenId((current) => (current === item.id ? null : item.id)),
-            })}
-          </Fragment>
-        ))}
+      <div className="relative flex items-stretch justify-end gap-2 mr-6">
+        {items.map((item) => {
+          const open = openId === item.id;
+          return (
+            <div
+              key={item.id}
+              className="disclosure-motion flex"
+              style={{
+                transform: `translateY(${open ? heights[item.id] ?? 0 : 0}px)`,
+                transitionDuration: open ? "420ms" : "315ms",
+              }}
+            >
+              {item.renderTab({
+                open,
+                toggle: () => setOpenId((current) => (current === item.id ? null : item.id)),
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
