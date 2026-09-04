@@ -19,6 +19,25 @@ function formatDate(dateStr: string) {
   return `${day}${suffix} ${date.toLocaleString("en-GB", { month: "long" })} ${date.getFullYear()}`;
 }
 
+const WORDS_PER_MINUTE = 200;
+
+/**
+ * Word count and reading estimate for a post's stored HTML. Tags collapse to
+ * spaces so adjacent blocks don't merge into one word, and a token only counts
+ * if it holds a letter or digit — that drops stray dashes and bare entities.
+ */
+function readingStats(html: string) {
+  const text = html
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&[a-z]+;|&#\d+;/gi, "");
+
+  const words = text.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+
+  return { words, minutes: Math.max(1, Math.round(words / WORDS_PER_MINUTE)) };
+}
+
 async function getPost(slug: string): Promise<BlogPost | null> {
   try {
     const { data } = await getSupabase()
@@ -42,6 +61,8 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getPost(slug);
 
   if (!post) notFound();
+
+  const { words, minutes } = readingStats(post.content);
 
   return (
     <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-12 pb-16">
@@ -68,6 +89,9 @@ export default async function BlogPostPage({ params }: Props) {
         {post.category && (
           <CategoryPill category={post.category} href={categoryHref(post.category)} />
         )}
+        <p className="text-sm text-gray-400">
+          {words.toLocaleString("en-GB")} words &middot; {minutes} min read
+        </p>
       </div>
 
       <div
