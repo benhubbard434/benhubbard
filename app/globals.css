@@ -31,16 +31,31 @@ body {
   font-family: var(--font-sans);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
-/* Display face is Archivo Black Italic with tightened tracking */
+/* Subheadings (h3/h4) are Instrument Serif regular */
+h3, h4 {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Display face (h1/h2, logo, nav) is Archivo Black Italic with tightened tracking */
 @utility font-display {
   font-family: var(--font-display);
   font-weight: 900;
   font-style: italic;
   letter-spacing: -1px;
+}
+
+/* Explicit subheading utility for non-heading elements */
+@utility font-subhead {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
 }
 
 button {

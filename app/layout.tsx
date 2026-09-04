@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Google_Sans_Flex } from "next/font/google";
+import { Archivo, Google_Sans_Flex, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 
@@ -17,6 +17,14 @@ const archivo = Archivo({
   display: "swap",
 });
 
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Ben Hubbard",
   description: "Customer Success leader, runner/part time triathlete & maker.",
@@ -28,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${googleSansFlex.variable} ${archivo.variable}`}>
+    <html lang="en" className={`${googleSansFlex.variable} ${archivo.variable} ${instrumentSerif.variable}`}>
       <body className="min-h-screen pb-24">
         {children}
         <BottomNav />

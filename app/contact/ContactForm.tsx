@@ -94,7 +94,7 @@ export default function ContactForm() {
         {/* Step 2 — name + email */}
         {step === 2 && (
           <div>
-            <h2 className="font-display text-h3 mb-6">We&apos;ll need a few details first...</h2>
+            <h3 className="font-subhead text-h3 mb-6">We&apos;ll need a few details first...</h3>
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
@@ -130,7 +130,7 @@ export default function ContactForm() {
         {/* Step 3 — topic */}
         {step === 3 && (
           <div>
-            <h2 className="font-display text-h3 mb-6">What can we help you with?</h2>
+            <h3 className="font-subhead text-h3 mb-6">What can we help you with?</h3>
             <div className="flex flex-col gap-3">
               {topics.map((t) => (
                 <button
@@ -159,7 +159,7 @@ export default function ContactForm() {
         {/* Step 4 — message */}
         {step === 4 && (
           <div>
-            <h2 className="font-display text-h3 mb-2">Tell me more</h2>
+            <h3 className="font-subhead text-h3 mb-2">Tell me more</h3>
             <p className="text-gray-500 text-sm mb-6">
               What&apos;s on your mind? The more detail, the better.
             </p>
@@ -185,7 +185,7 @@ export default function ContactForm() {
         {step === 5 && (
           <div className="text-center py-4">
             <div className="text-4xl mb-4">👋</div>
-            <h2 className="font-display text-h3 mb-3">Message sent!</h2>
+            <h3 className="font-subhead text-h3 mb-3">Message sent!</h3>
             <p className="text-gray-500">
               Thanks {form.name ? form.name.split(" ")[0] : ""}! I&apos;ll be in touch soon.
             </p>

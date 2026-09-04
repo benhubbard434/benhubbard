@@ -422,7 +422,7 @@ export default function WorkPage() {
                         <span className="text-xs font-medium uppercase tracking-widest opacity-60">
                           {entry.period}
                         </span>
-                        <h3 className="mt-1 text-lg font-semibold tracking-tight">{entry.role}</h3>
+                        <h3 className="mt-1 text-2xl">{entry.role}</h3>
                         <div className="mt-0.5 flex items-center gap-1.5">
                           <span className="text-sm opacity-60">{entry.company}</span>
                           {entry.tooltip && <InfoTooltip text={entry.tooltip} />}
@@ -452,7 +452,7 @@ export default function WorkPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{quest.emoji}</span>
                   <div>
-                    <h3 className="font-semibold tracking-tight text-gray-900">{quest.title}</h3>
+                    <h3 className="text-2xl text-gray-900">{quest.title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-gray-500">{quest.description}</p>
                   </div>
                 </div>
