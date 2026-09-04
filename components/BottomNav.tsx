@@ -21,16 +21,22 @@ function Eye({
   cursorX,
   cursorY,
   blinking,
+  confused,
+  spinMs,
 }: {
   cursorX: number;
   cursorY: number;
   blinking: boolean;
+  confused: boolean;
+  spinMs: number;
 }) {
   const eyeRef = useRef<HTMLDivElement>(null);
   const [pupil, setPupil] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (!eyeRef.current) return;
+    // While spinning the pupil orbits on its own, so skip cursor tracking —
+    // the last tracked position is kept for the handoff back.
+    if (confused || !eyeRef.current) return;
     const rect = eyeRef.current.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
@@ -44,7 +50,7 @@ function Eye({
       const t = Math.min(dist, maxTravel) / dist;
       setPupil({ x: dx * t, y: dy * t });
     }
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, confused]);
 
   const SIZE = 24;
 
@@ -75,23 +81,30 @@ function Eye({
           fill="white"
         />
       </svg>
-      {/* Pupil — filled circle that tracks cursor */}
+      {/* Pupil — tracks the cursor, or orbits when confused */}
       <div
-        className="absolute rounded-full bg-black"
-        style={{
-          width: 11,
-          height: 11,
-          top: "50%",
-          left: "50%",
-          transform: `translate(calc(-50% + ${pupil.x}px), calc(-50% + ${pupil.y}px))`,
-        }}
-      />
+        className={confused ? "absolute inset-0 eye-confused" : "absolute inset-0"}
+        style={confused ? { animationDuration: `${spinMs}ms` } : undefined}
+      >
+        <div
+          className="absolute rounded-full bg-black"
+          style={{
+            width: 11,
+            height: 11,
+            top: "50%",
+            left: "50%",
+            transform: confused
+              ? "translate(-50%, calc(-50% - 4px))"
+              : `translate(calc(-50% + ${pupil.x}px), calc(-50% + ${pupil.y}px))`,
+          }}
+        />
+      </div>
     </div>
   );
 }
 
 // ── Eyes logo (two eyes that blink together) ──────────────────────────────────
-function EyesLogo() {
+function EyesLogo({ confused }: { confused: boolean }) {
   const cursor = useCursorPosition();
   const [blinking, setBlinking] = useState(false);
 
@@ -115,8 +128,9 @@ function EyesLogo() {
 
   return (
     <div className="flex items-center gap-1.5">
-      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} />
-      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} />
+      {/* Mismatched spin speeds keep the two eyes drifting out of phase */}
+      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} confused={confused} spinMs={900} />
+      <Eye cursorX={cursor.x} cursorY={cursor.y} blinking={blinking} confused={confused} spinMs={1150} />
     </div>
   );
 }
@@ -274,7 +288,7 @@ export default function BottomNav() {
         <div className="h-[60px] flex items-center px-5">
           {/* Eyes logo — hidden below 400px */}
           <div className="hidden min-[400px]:flex items-center shrink-0">
-            <EyesLogo />
+            <EyesLogo confused={detailsOpen} />
             <div className="w-px h-5 bg-gray-300 mx-4" />
           </div>
 
@@ -318,7 +332,7 @@ export default function BottomNav() {
             aria-expanded={detailsOpen}
             aria-controls="nav-details"
             aria-label={detailsOpen ? "Hide details" : "Show details"}
-            className="xl:hidden shrink-0 ml-4 p-1 text-gray-700 hover:text-black transition-colors"
+            className="xl:hidden shrink-0 ml-4 p-1 text-gray-500 hover:text-gray-800 transition-colors"
           >
             <Plus
               size={18}

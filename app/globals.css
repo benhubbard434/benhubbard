@@ -73,6 +73,24 @@ button {
   border-radius: 4px;
 }
 
+/* Googly eyes — pupils orbit while the details panel is open */
+.eye-confused {
+  animation-name: eye-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes eye-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eye-confused {
+    animation: none;
+  }
+}
+
 /* Bottom-nav details disclosure. Animates grid-template-rows rather than
    height, so the panel expands without a layout-property transition. */
 .nav-disclosure {
