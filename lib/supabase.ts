@@ -1,4 +1,5 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import type { AiLevel } from "./ai-provenance";
 
 let _client: SupabaseClient | null = null;
 
@@ -22,6 +23,16 @@ export type BlogPost = {
   published: boolean;
   // Optional until every row is tagged; posts without one show only under "All".
   category?: string | null;
+  // AI provenance. Null on any of these means "inherit the sitewide claim",
+  // not "no AI involvement" — see lib/ai-provenance.ts.
+  ai_code_level?: AiLevel | null;
+  ai_code_note?: string | null;
+  ai_words_level?: AiLevel | null;
+  ai_words_note?: string | null;
+  ai_media_level?: AiLevel | null;
+  ai_media_note?: string | null;
+  ai_other_level?: AiLevel | null;
+  ai_other_note?: string | null;
 };
 
 export const BLOG_CATEGORIES = [

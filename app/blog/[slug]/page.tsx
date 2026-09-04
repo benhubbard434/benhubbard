@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getSupabase, type BlogPost } from "@/lib/supabase";
 import CategoryPill, { categoryHref } from "@/components/CategoryPill";
 import ScrollProgress from "@/components/ScrollProgress";
+import PostTabRail from "@/components/PostTabRail";
+import { provenanceFor, provenanceFromRow } from "@/lib/ai-provenance";
 
 export const dynamic = "force-dynamic";
 
@@ -68,6 +70,9 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main className="flex-1 max-w-3xl mx-auto w-full px-6 pt-12 pb-16">
       <ScrollProgress />
+      <PostTabRail
+        provenance={provenanceFor(`/blog/${slug}`, provenanceFromRow(post))}
+      />
 
       <Link
         href="/blog"

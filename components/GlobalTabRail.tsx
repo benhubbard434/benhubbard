@@ -6,15 +6,12 @@ import { aiRailItem } from "./AiTab";
 import { provenanceFor } from "@/lib/ai-provenance";
 
 /**
- * The AI tab everywhere except the blog index, which builds its own rail so
- * the tab can sit beside Categories and the two descend together.
- *
- * Posts still come through here for now, on the sitewide claims. Once posts
- * carry their own provenance they will render their own rail too, and this
- * will need to stand aside for them the way it does for the index.
+ * The AI tab everywhere except the blog, which builds its own rails: the
+ * index so the tab can sit beside Categories, and each post so it can read
+ * the claims off its own row.
  */
 export default function GlobalTabRail() {
   const pathname = usePathname();
-  if (pathname === "/blog") return null;
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) return null;
   return <TabRail items={[aiRailItem(provenanceFor(pathname))]} />;
 }

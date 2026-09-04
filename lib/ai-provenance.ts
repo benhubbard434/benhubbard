@@ -48,14 +48,7 @@ const SITEWIDE: AiProvenance = {
 };
 
 /** Only pages that differ from the sitewide claims above. */
-const PAGES: Record<string, Partial<AiProvenance>> = {
-  "/blog/an-ode-to-yorkshire-pudding": {
-    media: {
-      level: "all",
-      note: "Header image made with DALL·E. The prompt is in the credit below the post.",
-    },
-  },
-};
+const PAGES: Record<string, Partial<AiProvenance>> = {};
 
 /**
  * A page's provenance, falling back to the sitewide claims. Posts pass their
@@ -67,4 +60,26 @@ export function provenanceFor(
 ): AiProvenance {
   const page = PAGES[pathname] ?? {};
   return { ...SITEWIDE, ...page, ...(overrides ?? {}) };
+}
+
+/** The provenance columns as stored on a post row. */
+type AiProvenanceRow = {
+  [K in `ai_${keyof AiProvenance}_level`]?: AiLevel | null;
+} & {
+  [K in `ai_${keyof AiProvenance}_note`]?: string | null;
+};
+
+/**
+ * A post's own claims, taken off its row. A category is only included when
+ * both halves are present — a null level means the post makes no claim of its
+ * own there and should inherit, rather than assert that AI did nothing.
+ */
+export function provenanceFromRow(row: AiProvenanceRow): Partial<AiProvenance> {
+  const claims: Partial<AiProvenance> = {};
+  for (const { key } of AI_CATEGORIES) {
+    const level = row[`ai_${key}_level`];
+    const note = row[`ai_${key}_note`];
+    if (level && note) claims[key] = { level, note };
+  }
+  return claims;
 }
