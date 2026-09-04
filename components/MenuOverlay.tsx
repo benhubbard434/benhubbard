@@ -108,6 +108,10 @@ export default function MenuOverlay({ open, onClose, socialLinks }: Props) {
           <Link href="/ai-usage" className="hover:text-white transition-colors">
             AI Usage
           </Link>
+          &nbsp;·&nbsp;{" "}
+          <Link href="/style" className="hover:text-white transition-colors">
+            Style
+          </Link>
         </p>
       </div>
     </div>

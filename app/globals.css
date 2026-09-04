@@ -17,8 +17,15 @@
   --text-h3--line-height: 1.15;
 }
 
+/* Brand palette — documented at /style */
 :root {
-  --color-red: #c4392c;
+  --color-tomato-jam: #c4392c;
+  --color-onyx: #111111;
+  --color-white: #ffffff;
+  --color-spring-green: #04f06a;
+  --color-blue: #470ff4;
+
+  --color-red: var(--color-tomato-jam); /* legacy alias */
 }
 
 * {
