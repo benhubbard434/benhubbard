@@ -37,7 +37,7 @@ export const aiRailItem: RailItem = {
         borderTop: "none",
       }}
     >
-      <Sparkle size={14} weight="fill" color={LIGHT_BLUE} />
+      <Sparkle size={12} weight="fill" color={LIGHT_BLUE} />
     </button>
   ),
 };
