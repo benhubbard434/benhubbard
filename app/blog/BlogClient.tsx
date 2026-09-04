@@ -81,7 +81,9 @@ export default function BlogClient({
                       className="font-display"
                       style={{
                         ...CATEGORY_TYPE,
-                        textDecoration: isActive ? "underline" : "none",
+                        // Longhand: React warns when the shorthand is updated
+                        // on a rerender beside the longhand thickness below.
+                        textDecorationLine: isActive ? "underline" : "none",
                         textUnderlineOffset: "5px",
                         textDecorationThickness: "2px",
                       }}
