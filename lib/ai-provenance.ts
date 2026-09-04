@@ -47,17 +47,8 @@ const SITEWIDE: AiProvenance = {
   other: { level: "some", note: "TODO — anything else AI touched." },
 };
 
-const PAGES: Record<string, Partial<AiProvenance>> = {
-  "/": {},
-  "/blog": {},
-  "/work": {},
-  "/running": {},
-  "/music": {},
-  "/contact": {},
-  "/style": {},
-  "/privacy": {},
-  "/ai-usage": {},
-};
+/** Only pages that differ from the sitewide claims above. */
+const PAGES: Record<string, Partial<AiProvenance>> = {};
 
 /**
  * A page's provenance, falling back to the sitewide claims. Posts pass their
