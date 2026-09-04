@@ -41,14 +41,21 @@ export const AI_LEVEL_LABEL: Record<AiLevel, string> = {
  * claim that holds everywhere is stated once.
  */
 const SITEWIDE: AiProvenance = {
-  code: { level: "mostly", note: "TODO — how the site itself was built." },
-  words: { level: "none", note: "TODO — who writes the page copy." },
-  media: { level: "none", note: "TODO — where the images come from." },
-  other: { level: "some", note: "TODO — anything else AI touched." },
+  code: { level: "mostly", note: "Built by pairing with Claude Code." },
+  words: { level: "none", note: "Written start to finish by me." },
+  media: { level: "none", note: "My own photography, or credited stock." },
+  other: { level: "some", note: "Alt text and page metadata." },
 };
 
 /** Only pages that differ from the sitewide claims above. */
-const PAGES: Record<string, Partial<AiProvenance>> = {};
+const PAGES: Record<string, Partial<AiProvenance>> = {
+  "/blog/an-ode-to-yorkshire-pudding": {
+    media: {
+      level: "all",
+      note: "Header image made with DALL·E. The prompt is in the credit below the post.",
+    },
+  },
+};
 
 /**
  * A page's provenance, falling back to the sitewide claims. Posts pass their
