@@ -79,8 +79,11 @@ export default function TabRail({ items }: { items: RailItem[] }) {
       ref={railRef}
       className="fixed top-0 left-0 right-0 z-40 pointer-events-none"
     >
-      {/* Out of flow, so a sheet moves only the tab that opened it */}
-      <div className="absolute top-0 left-0 right-0">
+      {/* Out of flow, so a sheet moves only the tab that opened it, and above
+          the tabs so a closed one is covered by the sheet rather than
+          floating over it. The open tab clears the sheet's bottom edge, so it
+          stays visible either way. */}
+      <div className="absolute top-0 left-0 right-0 z-10">
         {items.map((item) => {
           const open = openId === item.id;
           return (
