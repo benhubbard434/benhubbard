@@ -38,7 +38,7 @@ export function aiRailItem(provenance: AiProvenance): RailItem {
           What AI did on this page
         </p>
 
-        <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2 md:grid-cols-4">
+        <ul className="grid gap-5">
           {AI_CATEGORIES.map(({ key, label }) => {
             const { level, note } = provenance[key];
             // Categories AI stayed out of recede, so the eye lands on the
