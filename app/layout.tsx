@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Google_Sans_Flex } from "next/font/google";
-import localFont from "next/font/local";
+import { Archivo, Google_Sans_Flex } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 
@@ -10,9 +9,11 @@ const googleSansFlex = Google_Sans_Flex({
   display: "swap",
 });
 
-const abrah = localFont({
-  src: "../public/fonts/Abrah.woff2",
-  variable: "--font-abrah",
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: "900",
+  style: "italic",
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${googleSansFlex.variable} ${abrah.variable}`}>
+    <html lang="en" className={`${googleSansFlex.variable} ${archivo.variable}`}>
       <body className="min-h-screen pb-24">
         {children}
         <BottomNav />

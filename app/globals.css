@@ -3,10 +3,10 @@
 
 @theme inline {
   --font-sans: var(--font-google-sans-flex), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: var(--font-abrah), var(--font-google-sans-flex), system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-google-sans-flex), system-ui, sans-serif;
 
-  /* Display scale: fluid steps at ~1.33-1.6 ratio.
-     Mins sized so "Running" (4.67em in Abrah) clears a 375px viewport with page padding. */
+  /* Display scale: fluid steps at ~1.33-1.6 ratio,
+     mins sized to clear a 375px viewport with page padding. */
   --text-display: clamp(3.5rem, 2rem + 8vw, 8rem);
   --text-display--line-height: 0.95;
   --text-h1: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
@@ -33,6 +33,14 @@ body {
 
 h1, h2, h3 {
   text-wrap: balance;
+}
+
+/* Display face is Archivo Black Italic with tightened tracking */
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1px;
 }
 
 button {
