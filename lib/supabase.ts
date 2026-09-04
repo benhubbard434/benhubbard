@@ -20,7 +20,16 @@ export type BlogPost = {
   content: string;
   photo_credit: string | null;
   published: boolean;
+  // Optional until every row is tagged; posts without one show only under "All".
+  category?: string | null;
 };
+
+export const BLOG_CATEGORIES = [
+  "Customer Success",
+  "Work",
+  "Making",
+  "Life",
+] as const;
 
 export type ContactSubmission = {
   id?: string;

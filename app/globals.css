@@ -48,6 +48,9 @@ h3, h4 {
   font-weight: 900;
   font-style: italic;
   letter-spacing: -0.06em;
+  /* Archivo Black's space is narrow (~0.16em); the tight tracking above eats
+     most of it, so multi-word headings need the gap put back. */
+  word-spacing: 0.12em;
 }
 
 /* Explicit subheading utility for non-heading elements */
@@ -91,15 +94,16 @@ button {
   }
 }
 
-/* Bottom-nav details disclosure. Animates grid-template-rows rather than
-   height, so the panel expands without a layout-property transition. */
-.nav-disclosure {
+/* Shared disclosure motion (bottom-nav details, blog categories drawer).
+   Animates grid-template-rows rather than height, so panels expand
+   without transitioning a layout property. */
+.disclosure-motion {
   transition-property: grid-template-rows, opacity, transform;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav-disclosure {
+  .disclosure-motion {
     transition-duration: 0.01ms !important;
   }
 }

@@ -248,7 +248,7 @@ export default function BottomNav() {
           inert={!detailsOpen}
           onPointerEnter={handleEnter}
           onPointerLeave={handleLeave}
-          className="nav-disclosure grid xl:hidden"
+          className="disclosure-motion grid xl:hidden"
           style={{
             gridTemplateRows: detailsOpen ? "1fr" : "0fr",
             transitionDuration: detailsOpen ? "380ms" : "285ms",
@@ -256,7 +256,7 @@ export default function BottomNav() {
         >
           <div className="overflow-hidden">
             <div
-              className="nav-disclosure flex flex-col gap-3 px-5 pt-4 pb-3"
+              className="disclosure-motion flex flex-col gap-3 px-5 pt-4 pb-3"
               style={{
                 opacity: detailsOpen ? 1 : 0,
                 transitionDuration: detailsOpen ? "380ms" : "190ms",
@@ -337,7 +337,7 @@ export default function BottomNav() {
             <Plus
               size={18}
               weight="bold"
-              className="nav-disclosure"
+              className="disclosure-motion"
               style={{
                 transform: detailsOpen ? "rotate(45deg)" : "rotate(0deg)",
                 transitionDuration: detailsOpen ? "380ms" : "285ms",
