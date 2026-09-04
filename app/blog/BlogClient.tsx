@@ -1,11 +1,20 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef, type CSSProperties } from "react";
 import Link from "next/link";
 import { BLOG_CATEGORIES, type BlogPost } from "@/lib/supabase";
 
 const BRAND = "#470FF4";
 const ALL = "All";
+
+// Shared by the category items and the tab that opens them, so the two stay
+// identical. Half the h3 display step, with caps tracking opened back up from
+// the display face's -0.06em.
+const CATEGORY_TYPE: CSSProperties = {
+  fontSize: "clamp(0.75rem, 0.65rem + 0.5vw, 0.9375rem)",
+  textTransform: "uppercase",
+  letterSpacing: "0.02em",
+};
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -79,13 +88,10 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
           }}
         >
           <div className="overflow-hidden">
-            <div style={{ backgroundColor: BRAND }} className="px-6 pt-16 pb-8">
+            <div style={{ backgroundColor: BRAND }} className="px-6 py-8">
               {/* Full-bleed rather than the post list's max-w-3xl, so the row
                   has the whole screen to stay on one line. */}
               <div className="w-full">
-                <p className="text-xs uppercase tracking-[0.25em] text-white/60 mb-5">
-                  Filter by category
-                </p>
                 <ul className="flex flex-col gap-1 sm:flex-row sm:flex-nowrap sm:items-baseline sm:gap-x-7">
                   {[ALL, ...BLOG_CATEGORIES].map((category) => {
                     const isActive = category === active;
@@ -101,11 +107,7 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
                           <span
                             className="font-display"
                             style={{
-                              // Half the h3 display step, with caps tracking
-                              // opened back up from the display face's -0.06em.
-                              fontSize: "clamp(0.75rem, 0.65rem + 0.5vw, 0.9375rem)",
-                              textTransform: "uppercase",
-                              letterSpacing: "0.02em",
+                              ...CATEGORY_TYPE,
                               textDecoration: isActive ? "underline" : "none",
                               textUnderlineOffset: "5px",
                               textDecorationThickness: "2px",
@@ -129,11 +131,12 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
           aria-controls="blog-categories"
-          className="pointer-events-auto mr-6 px-5 py-2.5 text-sm font-medium text-white shadow-lg"
+          className="font-display pointer-events-auto mr-6 px-5 py-2.5 text-white shadow-lg"
           style={{
+            ...CATEGORY_TYPE,
             backgroundColor: BRAND,
-            borderBottomLeftRadius: 4,
-            borderBottomRightRadius: 4,
+            borderBottomLeftRadius: 8,
+            borderBottomRightRadius: 8,
           }}
         >
           Categories
