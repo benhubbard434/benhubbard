@@ -84,29 +84,34 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
                 <p className="text-xs uppercase tracking-[0.25em] text-white/60 mb-5">
                   Filter by category
                 </p>
-                <ul className="flex flex-col gap-1">
+                <ul className="flex flex-col gap-1 md:flex-row md:flex-nowrap md:items-baseline md:gap-x-7">
                   {[ALL, ...BLOG_CATEGORIES].map((category) => {
                     const isActive = category === active;
                     const count = category === ALL ? posts.length : counts.get(category) ?? 0;
                     return (
-                      <li key={category}>
+                      <li key={category} className="md:whitespace-nowrap">
                         <button
                           onClick={() => choose(category)}
                           aria-current={isActive ? "true" : undefined}
-                          className="group flex items-baseline gap-3 py-1 text-left transition-opacity hover:opacity-70"
+                          className="group flex items-baseline gap-2 py-1 text-left transition-opacity hover:opacity-70"
                           style={{ color: "#fff" }}
                         >
                           <span
-                            className="font-display text-h3"
+                            className="font-display"
                             style={{
+                              // Half the h3 display step, with caps tracking
+                              // opened back up from the display face's -0.06em.
+                              fontSize: "clamp(0.75rem, 0.65rem + 0.5vw, 0.9375rem)",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.02em",
                               textDecoration: isActive ? "underline" : "none",
-                              textUnderlineOffset: "6px",
-                              textDecorationThickness: "3px",
+                              textUnderlineOffset: "5px",
+                              textDecorationThickness: "2px",
                             }}
                           >
                             {category}
                           </span>
-                          <span className="text-sm text-white/50 tabular-nums">{count}</span>
+                          <span className="text-xs text-white/50 tabular-nums">{count}</span>
                         </button>
                       </li>
                     );
