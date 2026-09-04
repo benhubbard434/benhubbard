@@ -188,19 +188,19 @@ export default function BottomNav() {
           BEN HUBBARD
         </Link>
 
-        {/* Divider — hidden below 400px */}
-        <div className="hidden min-[400px]:block w-px h-5 bg-gray-300 mx-4 shrink-0" />
+        {/* Divider — shown with the tagline it separates */}
+        <div className="hidden xl:block w-px h-5 bg-gray-300 mx-4 shrink-0" />
 
-        {/* Tagline */}
-        <span className="text-sm text-gray-600 hidden sm:block truncate">
+        {/* Tagline — needs ~390px, so only from xl up */}
+        <span className="text-sm text-gray-600 hidden xl:block truncate">
           Customer Success leader, runner/part time triathlete &amp; maker.
         </span>
 
         {/* Spacer */}
         <div className="flex-1" />
 
-        {/* Social icons */}
-        <div className="items-center gap-4 hidden sm:flex shrink-0">
+        {/* Social icons — drop out before the logo does */}
+        <div className="items-center gap-4 hidden md:flex shrink-0">
           {socialLinks.map((link) => (
             <a
               key={link.label}
@@ -215,8 +215,8 @@ export default function BottomNav() {
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="w-px h-5 bg-gray-300 mx-4 shrink-0 hidden sm:block" />
+        {/* Divider — shown with the social icons it separates */}
+        <div className="w-px h-5 bg-gray-300 mx-4 shrink-0 hidden md:block" />
 
         {/* Hamburger */}
         <button
