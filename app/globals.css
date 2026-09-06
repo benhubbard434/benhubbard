@@ -282,3 +282,17 @@ body:has([data-no-chrome]) [data-site-nav] {
   background: var(--ink);
   border: 3px solid var(--ground);
 }
+
+/* The root layout pads the body to clear the floating nav. On a full-bleed
+   coloured page that padding reads as a white strip along the bottom, so it
+   moves inside the coloured element instead. The body is painted from
+   --page-ground, which MusicClient keeps in step with the playing track; the
+   fallback is track one's colour, which is what renders before hydration. */
+body:has(.music-page) {
+  padding-bottom: 0;
+  background: var(--page-ground, #04f06a);
+}
+
+.music-page {
+  padding-bottom: 6rem; /* the pb-24 the layout would have applied */
+}
