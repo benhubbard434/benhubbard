@@ -313,7 +313,7 @@ export default function MusicClient({
       {/* ---------------------------------------------------------------- */}
       <section className="px-6 md:px-8 pt-24 pb-10">
         <p className="text-xs uppercase tracking-[0.3em] mb-8" style={{ opacity: 0.65 }}>
-          Curated by hand · Updated monthly
+          Curated by Ben · updated monthly(ish)
         </p>
 
         {/* Explicit lines that will not re-break: the global `text-wrap: balance`
@@ -333,8 +333,7 @@ export default function MusicClient({
             <Stat label="Followers" value={String(playlist.followers)} />
           )}
           <p className="max-w-xs text-sm leading-relaxed" style={{ opacity: 0.7 }}>
-            Ten favourites, on repeat, every month(ish). Hit any row — this runs
-            on my own player, not Spotify&apos;s.
+            Ten favourites, on repeat, every month(ish).
           </p>
         </div>
       </section>
