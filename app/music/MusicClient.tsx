@@ -5,8 +5,27 @@ import Image from "next/image";
 import type { SpotifyPlaylist, SpotifyTrack } from "@/lib/spotify";
 import { PLAYLIST_EMBED_URL, PLAYLIST_URL } from "@/lib/spotify";
 
-/** Spotify green, on the same logic as the running page taking Strava orange. */
-const ACCENT = "#1db954";
+/**
+ * One ground colour per track, so the page repaints itself as the playlist
+ * moves. Anchored on the three brand colours from /style (Spring Green,
+ * Blue, Tomato Jam) and extended with seven that hold the same saturation.
+ *
+ * `ink` is chosen per ground for contrast, the way the palette swatches on
+ * /style carry their own. Indexed by track position, so a given track always
+ * gets the same colour rather than flickering between renders.
+ */
+const PALETTE: { bg: string; ink: string }[] = [
+  { bg: "#04F06A", ink: "#111111" }, // Spring Green — brand
+  { bg: "#470FF4", ink: "#FFFFFF" }, // Blue — brand
+  { bg: "#FFD400", ink: "#111111" }, // Acid yellow
+  { bg: "#C4392C", ink: "#FFFFFF" }, // Tomato Jam — brand
+  { bg: "#00D9E0", ink: "#111111" }, // Cyan
+  { bg: "#FF4FD8", ink: "#111111" }, // Magenta
+  { bg: "#7B2FF7", ink: "#FFFFFF" }, // Violet
+  { bg: "#C8FF00", ink: "#111111" }, // Lime
+  { bg: "#FF6B00", ink: "#111111" }, // Orange
+  { bg: "#FF3366", ink: "#111111" }, // Coral
+];
 
 /* -------------------------------------------------------------------------- */
 /*  Spotify iframe API                                                        */
@@ -229,28 +248,33 @@ export default function MusicClient({
     select(i);
   };
 
+
+  const theme = PALETTE[index % PALETTE.length];
+
   /* ---------------------------------------------------------------------- */
   /*  Fallback: no credentials, or Spotify unreachable at build time.       */
   /* ---------------------------------------------------------------------- */
   if (!playlist || !hasTracks) {
     return (
-      <main className="flex flex-col min-h-screen" style={{ background: "#111", color: "#fff" }}>
-        <section className="px-8 pt-24 pb-10">
-          <h1 className="font-display leading-none" style={{ fontSize: "clamp(3rem, 12vw, 10rem)" }}>
+      <main
+        className="flex flex-col min-h-screen"
+        style={{ background: PALETTE[0].bg, color: PALETTE[0].ink }}
+      >
+        <section className="px-6 md:px-8 pt-24 pb-10">
+          <h1 className="font-display leading-[0.85]" style={{ fontSize: "clamp(3rem, 12vw, 10rem)" }}>
             Ten of the Month
           </h1>
-          <p className="mt-4 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="mt-4 text-sm" style={{ opacity: 0.6 }}>
             Every month(ish), I curate my ten favourite tracks on repeat.
           </p>
         </section>
-        <section className="px-8 pb-20 max-w-2xl w-full">
+        <section className="px-6 md:px-8 pb-20 max-w-2xl w-full">
           <iframe
             src={`${PLAYLIST_EMBED_URL}?utm_source=generator&theme=0`}
             width="100%"
             height="500"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
-            className="rounded-xl"
             title="Spotify playlist"
             style={{ border: 0 }}
           />
@@ -264,323 +288,282 @@ export default function MusicClient({
      whole track. Trust what the player reports over the catalogue length. */
   const isPreview = duration > 0 && current != null && duration < current.durationMs - 5000;
   const scrubMax = duration > 0 ? duration : (current?.durationMs ?? 0);
+  const shownPos = scrubValue ?? Math.min(position, scrubMax || 1);
+  const playedPct = scrubMax > 0 ? (shownPos / scrubMax) * 100 : 0;
+
+  /* The marquee translates -50%, so the strip has to be exactly two identical
+     halves for the loop to be seamless. */
+  const marqueeWord = `${current?.name ?? ""} — ${current?.artists ?? ""}`;
+  const marqueeHalf = Array.from({ length: 3 }, (_, i) => i);
 
   return (
-    <main className="flex flex-col min-h-screen" style={{ background: "#111", color: "#fff" }}>
+    <main
+      className="music-page flex flex-col min-h-screen"
+      style={
+        {
+          "--ground": theme.bg,
+          "--ink": theme.ink,
+          background: "var(--ground)",
+          color: "var(--ink)",
+        } as React.CSSProperties
+      }
+    >
       {/* ---------------------------------------------------------------- */}
       {/* Hero                                                             */}
       {/* ---------------------------------------------------------------- */}
-      <section className="px-6 md:px-8 pt-24 pb-12">
-        <p
-          className="text-xs uppercase tracking-[0.25em] mb-6"
-          style={{ color: "rgba(255,255,255,0.35)" }}
-        >
+      <section className="px-6 md:px-8 pt-24 pb-10">
+        <p className="text-xs uppercase tracking-[0.3em] mb-8" style={{ opacity: 0.65 }}>
           Curated by hand · Updated monthly
         </p>
 
+        {/* Explicit lines that will not re-break: the global `text-wrap: balance`
+            on h1 otherwise rebalances these into an orphaned "THE". */}
         <h1
-          className="font-display leading-none"
-          style={{ fontSize: "clamp(3rem, 13vw, 11rem)" }}
+          className="font-display leading-[0.82] -ml-1"
+          style={{ fontSize: "clamp(2.75rem, 13vw, 13rem)", textWrap: "nowrap" }}
         >
-          Ten of the
-          <br />
-          <span style={{ color: ACCENT }}>Month</span>
+          <span className="block">Ten of the</span>
+          <span className="block">Month</span>
         </h1>
 
-        <p className="mt-6 max-w-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-          Every month(ish), I curate my ten favourite tracks on repeat. Press play
-          on any row — the whole thing runs on my own player.
-        </p>
-
-        <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+        <div className="mt-10 flex flex-wrap items-end gap-x-12 gap-y-6">
           <Stat label="Tracks" value={String(tracks.length)} />
           <Stat label="Runtime" value={formatTotal(totalMs)} />
           {playlist.followers != null && (
             <Stat label="Followers" value={String(playlist.followers)} />
           )}
-        </dl>
+          <p className="max-w-xs text-sm leading-relaxed" style={{ opacity: 0.7 }}>
+            Ten favourites, on repeat, every month(ish). Hit any row — this runs
+            on my own player, not Spotify&apos;s.
+          </p>
+        </div>
       </section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* Player + track list                                              */}
+      {/* Now-playing marquee — inverted band, giant scrolling title        */}
+      {/* ---------------------------------------------------------------- */}
+      <div
+        className="overflow-hidden py-3 select-none"
+        style={{ background: "var(--ink)", color: "var(--ground)" }}
+      >
+        <div className="flex w-max animate-marquee">
+          {[...marqueeHalf, ...marqueeHalf].map((_, i) => (
+            <span
+              key={i}
+              className="font-display whitespace-nowrap px-6"
+              style={{ fontSize: "clamp(1.75rem, 5vw, 4rem)" }}
+              aria-hidden={i > 0}
+            >
+              {marqueeWord}
+              <span style={{ opacity: 0.4 }}> ✳ </span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Player                                                           */}
       {/* ---------------------------------------------------------------- */}
       <section
-        className="grid grid-cols-1 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
+        className="grid grid-cols-1 lg:grid-cols-[20rem_minmax(0,1fr)] gap-8 lg:gap-12 px-6 md:px-8 py-12"
+        style={{ borderBottom: "3px solid var(--ink)" }}
       >
-        {/* --- Now playing --------------------------------------------- */}
-        <div
-          className="px-6 md:px-8 py-10 lg:py-12"
-          style={{ borderBottom: "1px solid rgba(255,255,255,0.12)" }}
-        >
-          <div className="lg:sticky lg:top-28">
-            <p
-              className="text-xs uppercase tracking-[0.2em] mb-5"
-              style={{ color: "rgba(255,255,255,0.35)" }}
-            >
-              {isPaused ? "Paused" : "Now playing"}
-            </p>
-
-            {/* Album art */}
-            <div
-              className="relative w-full aspect-square overflow-hidden mb-6"
-              style={{ background: "rgba(255,255,255,0.06)" }}
-            >
-              {current?.albumArt && (
-                <Image
-                  key={current.id}
-                  src={current.albumArt}
-                  alt={`${current.album} cover`}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 22rem, 100vw"
-                  priority
-                />
-              )}
-            </div>
-
-            <h2 className="text-h4 leading-tight mb-1" style={{ textTransform: "none" }}>
-              {current?.name}
-            </h2>
-            <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
-              {current?.artists}
-            </p>
-
-            {/* Scrubber — a real range input, so keyboard and AT work for free */}
-            <label className="sr-only" htmlFor="seek">
-              Seek within track
-            </label>
-            <input
-              id="seek"
-              type="range"
-              min={0}
-              max={scrubMax || 1}
-              value={scrubValue ?? Math.min(position, scrubMax || 1)}
-              disabled={!ready}
-              onChange={(e) => setScrubValue(Number(e.target.value))}
-              onPointerUp={(e) => commitSeek(Number(e.currentTarget.value))}
-              onKeyUp={(e) => commitSeek(Number(e.currentTarget.value))}
-              onBlur={() => setScrubValue(null)}
-              className="w-full"
-              style={{ accentColor: ACCENT }}
-            />
-
-            <div
-              className="flex justify-between text-xs tabular-nums mt-1"
-              style={{ color: "rgba(255,255,255,0.4)" }}
-            >
-              <span>{formatTime(position)}</span>
-              <span>{formatTime(scrubMax)}</span>
-            </div>
-
-            {/* Transport */}
-            <div className="flex items-center gap-3 mt-6">
-              <button
-                onClick={() => select(index - 1)}
-                aria-label="Previous track"
-                className="p-2 transition-opacity hover:opacity-60"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
-                </svg>
-              </button>
-
-              <button
-                onClick={() => controllerRef.current?.togglePlay()}
-                disabled={!ready}
-                aria-label={isPaused ? "Play" : "Pause"}
-                className="flex items-center justify-center w-14 h-14 rounded-full transition-transform hover:scale-105 disabled:opacity-40"
-                style={{ background: ACCENT, color: "#111" }}
-              >
-                {isPaused ? (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                ) : (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
-                  </svg>
-                )}
-              </button>
-
-              <button
-                onClick={() => select(index + 1)}
-                aria-label="Next track"
-                className="p-2 transition-opacity hover:opacity-60"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z" />
-                </svg>
-              </button>
-            </div>
-
-            {/* The embed is the licensed audio engine and carries Spotify's
-                attribution, so it stays visible — just small. */}
-            <div className="mt-8">
-              <div ref={embedRef} />
-              <p
-                className="mt-3 text-xs leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.3)" }}
-              >
-                {isPreview
-                  ? "Playing a 30-second preview. Sign in to Spotify for full tracks."
-                  : "Full tracks play if you're signed in to Spotify."}
-              </p>
-            </div>
+        {/* Sleeve — tilted, because a square would be the safe choice */}
+        <div className="w-full max-w-[20rem]">
+          <div
+            className="music-sleeve relative w-full aspect-square overflow-hidden"
+            style={{
+              transform: isPaused ? "rotate(-2.5deg)" : "rotate(1.5deg)",
+              boxShadow: "10px 10px 0 var(--ink)",
+            }}
+          >
+            {current?.albumArt && (
+              <Image
+                key={current.id}
+                src={current.albumArt}
+                alt={`${current.album} cover`}
+                fill
+                className="object-cover"
+                sizes="20rem"
+                priority
+              />
+            )}
           </div>
         </div>
 
-        {/* --- Track list ---------------------------------------------- */}
-        <ol style={{ borderLeft: "1px solid rgba(255,255,255,0.12)" }}>
-          {tracks.map((t, i) => {
-            const active = i === index;
-            const playing = active && !isPaused;
-            return (
-              <li
-                key={t.id}
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
-              >
-                <div
-                  className="group flex items-center gap-4 px-5 md:px-7 py-4 transition-colors"
-                  style={{ background: active ? "rgba(29,185,84,0.08)" : undefined }}
-                >
-                  {/* Index / play toggle */}
-                  <button
-                    onClick={() => onRowClick(i)}
-                    aria-label={playing ? `Pause ${t.name}` : `Play ${t.name}`}
-                    className="w-7 shrink-0 text-left tabular-nums"
-                    style={{ color: active ? ACCENT : "rgba(255,255,255,0.35)" }}
-                  >
-                    {playing ? (
-                      <EqualiserBars />
-                    ) : (
-                      <>
-                        <span className="group-hover:hidden text-sm">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <svg
-                          className="hidden group-hover:block"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </>
-                    )}
-                  </button>
+        {/* Controls */}
+        <div className="flex flex-col justify-center min-w-0">
+          <p className="text-xs uppercase tracking-[0.3em] mb-4" style={{ opacity: 0.65 }}>
+            {isPaused ? "Paused" : "Now playing"} — {String(index + 1).padStart(2, "0")} of{" "}
+            {String(tracks.length).padStart(2, "0")}
+          </p>
 
-                  {/* Art */}
-                  <div
-                    className="relative w-11 h-11 shrink-0 overflow-hidden"
-                    style={{ background: "rgba(255,255,255,0.06)" }}
-                  >
-                    {t.albumArt && (
-                      <Image
-                        src={t.albumArt}
-                        alt=""
-                        fill
-                        className="object-cover"
-                        sizes="44px"
-                      />
-                    )}
-                  </div>
+          <h2
+            className="font-display leading-[0.9] mb-2 break-words"
+            style={{ fontSize: "clamp(1.75rem, 4.5vw, 3.5rem)" }}
+          >
+            {current?.name}
+          </h2>
+          <p className="text-base md:text-lg mb-8" style={{ opacity: 0.7 }}>
+            {current?.artists}
+          </p>
 
-                  {/* Title / artist */}
-                  <button
-                    onClick={() => onRowClick(i)}
-                    className="flex-1 min-w-0 text-left"
-                  >
-                    <span className="flex items-center gap-2">
-                      <span
-                        className="truncate text-sm md:text-base"
-                        style={{ color: active ? ACCENT : "#fff" }}
-                      >
-                        {t.name}
-                      </span>
-                      {t.explicit && (
-                        <span
-                          className="shrink-0 text-[9px] px-1 leading-4 rounded-sm"
-                          style={{
-                            background: "rgba(255,255,255,0.2)",
-                            color: "rgba(255,255,255,0.75)",
-                          }}
-                          title="Explicit"
-                        >
-                          E
-                        </span>
-                      )}
-                      {isNew(t.addedAt) && (
-                        <span
-                          className="shrink-0 text-[9px] uppercase tracking-wider px-1.5 leading-4 rounded-sm"
-                          style={{ background: ACCENT, color: "#111" }}
-                        >
-                          New
-                        </span>
-                      )}
-                    </span>
-                    <span
-                      className="block truncate text-xs mt-0.5"
-                      style={{ color: "rgba(255,255,255,0.45)" }}
-                    >
-                      {t.artists}
-                    </span>
-                  </button>
+          {/* Scrubber */}
+          <label className="sr-only" htmlFor="seek">
+            Seek within track
+          </label>
+          <input
+            id="seek"
+            type="range"
+            min={0}
+            max={scrubMax || 1}
+            value={shownPos}
+            disabled={!ready}
+            onChange={(e) => setScrubValue(Number(e.target.value))}
+            onPointerUp={(e) => commitSeek(Number(e.currentTarget.value))}
+            onKeyUp={(e) => commitSeek(Number(e.currentTarget.value))}
+            onBlur={() => setScrubValue(null)}
+            className="music-seek"
+            style={{ "--pct": `${playedPct}%` } as React.CSSProperties}
+          />
 
-                  {/* Album — desktop only, it is the first thing worth dropping */}
-                  <span
-                    className="hidden xl:block flex-1 min-w-0 truncate text-xs"
-                    style={{ color: "rgba(255,255,255,0.3)" }}
-                  >
-                    {t.album}
-                    {releaseYear(t.releaseDate) && ` · ${releaseYear(t.releaseDate)}`}
-                  </span>
+          <div className="flex justify-between text-xs tabular-nums mt-2" style={{ opacity: 0.7 }}>
+            <span>{formatTime(position)}</span>
+            <span>{formatTime(scrubMax)}</span>
+          </div>
 
-                  <span
-                    className="shrink-0 text-xs tabular-nums"
-                    style={{ color: "rgba(255,255,255,0.35)" }}
-                  >
-                    {formatTime(t.durationMs)}
-                  </span>
+          {/* Transport */}
+          <div className="flex items-center gap-4 mt-7">
+            <TransportButton label="Previous track" onClick={() => select(index - 1)}>
+              <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
+            </TransportButton>
 
-                  <a
-                    href={t.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Open ${t.name} in Spotify`}
-                    className="shrink-0 p-1 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity"
-                    style={{ color: "rgba(255,255,255,0.5)" }}
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14zM5 5h5v2H7v10h10v-3h2v5H5z" />
-                    </svg>
-                  </a>
-                </div>
-              </li>
-            );
-          })}
-
-          {/* Footer row */}
-          <li className="px-5 md:px-7 py-8 flex flex-wrap items-center justify-between gap-4">
-            <p className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-              Track data from the Spotify Web API · refreshed every 6 hours
-            </p>
-            <a
-              href={playlist.url || PLAYLIST_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70"
-              style={{ color: ACCENT }}
+            <button
+              onClick={() => controllerRef.current?.togglePlay()}
+              disabled={!ready}
+              aria-label={isPaused ? "Play" : "Pause"}
+              className="flex items-center justify-center w-16 h-16 rounded-full transition-transform hover:scale-110 active:scale-95 disabled:opacity-40"
+              style={{ background: "var(--ink)", color: "var(--ground)" }}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
-              </svg>
-              Follow on Spotify
-            </a>
-          </li>
-        </ol>
+              {isPaused ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
+                </svg>
+              )}
+            </button>
+
+            <TransportButton label="Next track" onClick={() => select(index + 1)}>
+              <path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z" />
+            </TransportButton>
+
+            <p className="ml-2 text-xs leading-snug max-w-[16rem]" style={{ opacity: 0.6 }}>
+              {isPreview
+                ? "30-second preview. Sign in to Spotify for the full track."
+                : "Full tracks play if you're signed in to Spotify."}
+            </p>
+          </div>
+
+          {/* The embed is the licensed audio engine and carries Spotify's
+              attribution, so it stays on the page — just out of the way. */}
+          <div className="mt-8 max-w-md opacity-70 hover:opacity-100 transition-opacity">
+            <div ref={embedRef} />
+          </div>
+        </div>
       </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Track list — giant numerals, rows invert on hover and when live   */}
+      {/* ---------------------------------------------------------------- */}
+      <ol>
+        {tracks.map((t, i) => {
+          const active = i === index;
+          const playing = active && !isPaused;
+          return (
+            <li key={t.id} style={{ borderBottom: "1px solid var(--ink)" }}>
+              <button
+                onClick={() => onRowClick(i)}
+                data-active={active}
+                aria-label={playing ? `Pause ${t.name}` : `Play ${t.name}`}
+                className="track-row w-full text-left flex items-center gap-4 md:gap-7 px-6 md:px-8 py-4 md:py-5"
+              >
+                {/* Numeral */}
+                <span
+                  className="font-display leading-none shrink-0 tabular-nums w-[2.2ch]"
+                  style={{
+                    fontSize: "clamp(2rem, 6vw, 4.5rem)",
+                    opacity: active ? 1 : 0.35,
+                  }}
+                >
+                  {i + 1}
+                </span>
+
+                {/* Equaliser / sleeve */}
+                <span
+                  className="relative shrink-0 w-12 h-12 md:w-16 md:h-16 overflow-hidden flex items-center justify-center"
+                  style={{ outline: "1px solid currentColor" }}
+                >
+                  {playing ? (
+                    <EqualiserBars />
+                  ) : (
+                    t.albumArt && (
+                      <Image src={t.albumArt} alt="" fill className="object-cover" sizes="64px" />
+                    )
+                  )}
+                </span>
+
+                {/* Title + artist */}
+                <span className="flex-1 min-w-0">
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="font-display truncate leading-tight"
+                      style={{ fontSize: "clamp(1rem, 2.4vw, 1.75rem)" }}
+                    >
+                      {t.name}
+                    </span>
+                    {t.explicit && <Tag>E</Tag>}
+                    {isNew(t.addedAt) && <Tag>New</Tag>}
+                  </span>
+                  <span className="block truncate text-xs md:text-sm mt-1" style={{ opacity: 0.7 }}>
+                    {t.artists}
+                    <span className="hidden md:inline">
+                      {" · "}
+                      {t.album}
+                      {releaseYear(t.releaseDate) && ` (${releaseYear(t.releaseDate)})`}
+                    </span>
+                  </span>
+                </span>
+
+                <span className="shrink-0 text-xs md:text-sm tabular-nums" style={{ opacity: 0.7 }}>
+                  {formatTime(t.durationMs)}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ol>
+
+      {/* Footer */}
+      <div className="px-6 md:px-8 py-10 flex flex-wrap items-center justify-between gap-5">
+        <p className="text-xs" style={{ opacity: 0.6 }}>
+          Track data from the Spotify Web API · refreshed every 6 hours
+        </p>
+        <a
+          href={playlist.url || PLAYLIST_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium transition-transform hover:-translate-y-0.5"
+          style={{ background: "var(--ink)", color: "var(--ground)" }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+          </svg>
+          Follow on Spotify
+        </a>
+      </div>
     </main>
   );
 }
@@ -592,28 +575,58 @@ export default function MusicClient({
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt
-        className="text-xs uppercase tracking-[0.2em] mb-2"
-        style={{ color: "rgba(255,255,255,0.35)" }}
-      >
+      <p className="text-xs uppercase tracking-[0.25em] mb-1" style={{ opacity: 0.65 }}>
         {label}
-      </dt>
-      <dd className="font-display leading-none" style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)" }}>
+      </p>
+      <p className="font-display leading-none" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)" }}>
         {value}
-      </dd>
+      </p>
     </div>
+  );
+}
+
+function Tag({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="shrink-0 text-[10px] uppercase tracking-wider px-1.5 py-0.5 leading-none"
+      style={{ border: "1px solid currentColor", opacity: 0.75 }}
+    >
+      {children}
+    </span>
+  );
+}
+
+function TransportButton({
+  label,
+  onClick,
+  children,
+}: {
+  label: string;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={label}
+      className="p-2 transition-transform hover:scale-125 active:scale-95"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        {children}
+      </svg>
+    </button>
   );
 }
 
 /** Three bars that bounce while a row is playing. */
 function EqualiserBars() {
   return (
-    <span className="flex items-end gap-[2px] h-3.5" aria-hidden="true">
+    <span className="relative flex items-end gap-[3px] h-6" aria-hidden="true">
       {[0, 1, 2].map((i) => (
         <span
           key={i}
-          className="equaliser-bar w-[3px]"
-          style={{ background: ACCENT, animationDelay: `${i * 0.15}s` }}
+          className="equaliser-bar w-[4px]"
+          style={{ background: "currentColor", animationDelay: `${i * 0.15}s` }}
         />
       ))}
     </span>

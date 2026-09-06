@@ -206,3 +206,79 @@ body:has([data-no-chrome]) [data-site-nav] {
     height: 70%;
   }
 }
+
+/* --- /music -------------------------------------------------------------- */
+/* The page takes its ground from whichever track is playing. --ground and
+   --ink are set on the <main> in MusicClient; everything below reads them,
+   so the whole page re-themes from those two values alone. */
+
+.music-page {
+  /* A cross-fade between grounds, rather than a hard cut on every track
+     change. Colour, not movement, so it stands under reduced motion too. */
+  transition: background-color 450ms ease, color 450ms ease;
+}
+
+/* Rows invert into the ink colour on hover and while playing */
+.track-row {
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.track-row:hover,
+.track-row:focus-visible,
+.track-row[data-active="true"] {
+  background: var(--ink);
+  color: var(--ground);
+}
+
+/* The sleeve sits off-square; straightening it is the one bit of motion here
+   that is purely decorative. */
+.music-sleeve {
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-sleeve {
+    transform: none !important;
+    transition: none;
+  }
+}
+
+/* Scrubber, drawn in the current ink. --pct carries the played fraction. */
+.music-seek {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.18);
+  background: linear-gradient(
+    to right,
+    var(--ink) 0 var(--pct, 0%),
+    color-mix(in srgb, var(--ink) 22%, transparent) var(--pct, 0%) 100%
+  );
+  outline-offset: 4px;
+}
+
+.music-seek:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.music-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--ground);
+}
+
+.music-seek::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--ground);
+}
