@@ -186,3 +186,23 @@ body:has([data-no-chrome]) [data-site-nav] {
     animation: none;
   }
 }
+
+/* Playing-row equaliser — three bars out of phase with each other */
+.equaliser-bar {
+  height: 100%;
+  animation: equalise 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes equalise {
+  from { height: 25%; }
+  to   { height: 100%; }
+}
+
+/* A looping bounce is exactly what this setting is for; the bars stay put and
+   still read as an active row against the muted track numbers. */
+@media (prefers-reduced-motion: reduce) {
+  .equaliser-bar {
+    animation: none;
+    height: 70%;
+  }
+}
