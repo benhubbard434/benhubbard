@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { sideQuests } from "@/lib/side-quests";
+import { sideQuests, sideQuestHref } from "@/lib/side-quests";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -437,7 +437,7 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
             {sideQuests.map((quest) => (
               <Link
                 key={quest.slug}
-                href={`/side-quests/${quest.slug}`}
+                href={sideQuestHref(quest)}
                 className="block rounded-lg border border-gray-200 bg-white p-5 transition-colors hover:bg-gray-50"
               >
                 <div className="flex items-start gap-3">
