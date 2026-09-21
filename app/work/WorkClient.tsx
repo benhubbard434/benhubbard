@@ -440,14 +440,10 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
                 href={sideQuestHref(quest)}
                 className="block rounded-lg border border-gray-200 bg-white p-5 transition-colors hover:bg-gray-50"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex items-center gap-3">
                   <span className="text-2xl">{quest.emoji}</span>
-                  <div>
-                    <h3 className="text-2xl text-gray-900">{quest.title}</h3>
-                    {quest.description && (
-                      <p className="mt-1 text-sm leading-relaxed text-gray-500">{quest.description}</p>
-                    )}
-                  </div>
+                  {/* Descriptions are kept in lib/side-quests.ts but hidden for now */}
+                  <h3 className="text-2xl text-gray-900">{quest.title}</h3>
                 </div>
               </Link>
             ))}

@@ -48,6 +48,11 @@ export const sideQuests: SideQuest[] = [
       "Designed and built this personal site with Lovable — experimenting with AI-assisted development, Spotify integrations, and Strava APIs.",
   },
   {
+    slug: "website-projects",
+    title: "Website Projects",
+    emoji: "🌐",
+  },
+  {
     slug: "music-curation",
     title: "Music Curation",
     emoji: "🎵",
