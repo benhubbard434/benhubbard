@@ -249,6 +249,17 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
     return () => observers.forEach((o) => o.disconnect());
   }, [activeTab]);
 
+  // Paint the document too, so overscroll shows the company colour rather
+  // than white. See body:has([data-full-bleed]) in globals.css.
+  const ground = activeTab === "work" ? bgColor : "#fff";
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--page-ground", ground);
+    return () => {
+      root.style.removeProperty("--page-ground");
+    };
+  }, [ground]);
+
   const handleNavClick = (id: string) => {
     const idx = companyGroups.findIndex((g) => g.id === id);
     sectionRefs.current[idx]?.scrollIntoView({ behavior: "smooth" });
@@ -256,9 +267,10 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
 
   return (
     <div
+      data-full-bleed
       className="min-h-screen"
       style={{
-        backgroundColor: activeTab === "work" ? bgColor : "#fff",
+        backgroundColor: ground,
         color: activeTab === "work" ? textColor : "#111",
         transition: "background-color 700ms ease-in-out, color 700ms ease-in-out",
       }}

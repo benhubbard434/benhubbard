@@ -296,3 +296,12 @@ body:has(.music-page) {
 .music-page {
   padding-bottom: 6rem; /* the pb-24 the layout would have applied */
 }
+
+/* The same fix for any other full-bleed page: mark its outermost element
+   data-full-bleed and it takes over the nav clearance itself, so the body
+   drops its padding. A page whose ground changes (Work) keeps --page-ground
+   in step so overscroll matches; the rest fall back to white there. */
+body:has([data-full-bleed]) {
+  padding-bottom: 0;
+  background: var(--page-ground, #fff);
+}

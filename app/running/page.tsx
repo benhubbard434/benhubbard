@@ -76,7 +76,7 @@ const lorem = [
 
 export default function RunningPage() {
   return (
-    <main className="flex flex-col" style={{ background: "#f5f5f0", color: "#111" }}>
+    <main data-full-bleed className="flex flex-col pb-24" style={{ background: "#f5f5f0", color: "#111" }}>
 
       {/* Hero */}
       <section className="px-8 pt-20 pb-10">
