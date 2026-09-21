@@ -6,17 +6,19 @@ import Link from "next/link";
 /**
  * A side-quest card. On hover the card fills with its own solid colour, and a
  * white bubble grows under the cursor, follows it, then pops into smaller
- * bubbles that drift upwards — and another starts growing. The motion is in
- * globals.css; this only tracks the cursor and runs the grow → pop cycle.
+ * bubbles that drift upwards. After a break of a few seconds another starts
+ * growing. The motion is in globals.css; this only tracks the cursor and runs
+ * the grow → pop cycle.
  *
  * Mouse only: on touch a tap navigates straight away, so there is nothing to
  * hover. Keyboard focus and reduced motion get the colour without bubbles.
  */
 
-/** Pause between a pop and the next bubble starting to grow. */
-const REST_MS = 220;
+/** Random break between a pop and the next bubble starting to grow. */
+const REST_MIN_MS = 3000;
+const REST_MAX_MS = 7000;
 /** Longest a burst can run (duration + delay), after which it is removed. */
-const BURST_MS = 1300;
+const BURST_MS = 2400;
 
 type Point = { x: number; y: number };
 
@@ -57,8 +59,8 @@ function makeParticles(): Particle[] {
       ex: cos * (RADIUS + throwBy) + (Math.random() - 0.5) * 16,
       ey: -(45 + Math.random() * 45),
       size: 4 + Math.random() * 7,
-      dur: 800 + Math.random() * 350,
-      delay: Math.random() * 80,
+      dur: 1500 + Math.random() * 600,
+      delay: Math.random() * 150,
     };
   });
 }
@@ -82,11 +84,23 @@ export default function QuestCard({
   const hovering = useRef(false);
   const nextId = useRef(0);
   const timers = useRef(new Set<ReturnType<typeof setTimeout>>());
+  /** The break before the next bubble; cancelled on leave, so re-entering
+      during it cannot restart a freshly grown bubble halfway through. */
+  const restTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const pending = timers.current;
-    return () => pending.forEach(clearTimeout);
+    const rest = restTimer;
+    return () => {
+      pending.forEach(clearTimeout);
+      if (rest.current) clearTimeout(rest.current);
+    };
   }, []);
+
+  const cancelRest = () => {
+    if (restTimer.current) clearTimeout(restTimer.current);
+    restTimer.current = null;
+  };
 
   const later = (fn: () => void, ms: number) => {
     const t = setTimeout(() => {
@@ -111,6 +125,8 @@ export default function QuestCard({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     hovering.current = true;
     pos.current = toLocal(e);
+    // The first bubble starts straight away; only the ones after a pop wait.
+    cancelRest();
     grow();
   };
 
@@ -124,6 +140,7 @@ export default function QuestCard({
 
   const onPointerLeave = () => {
     hovering.current = false;
+    cancelRest();
     // The growing bubble goes; any burst already in the air finishes.
     setBubble(null);
   };
@@ -134,7 +151,11 @@ export default function QuestCard({
     setBubble(null);
     setBursts((b) => [...b, { id, x, y, particles: makeParticles() }]);
     later(() => setBursts((b) => b.filter((burst) => burst.id !== id)), BURST_MS);
-    later(grow, REST_MS);
+    cancelRest();
+    restTimer.current = setTimeout(() => {
+      restTimer.current = null;
+      grow();
+    }, REST_MIN_MS + Math.random() * (REST_MAX_MS - REST_MIN_MS));
   };
 
   return (

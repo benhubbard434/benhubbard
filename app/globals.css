@@ -349,7 +349,7 @@ body:has([data-full-bleed]) {
   margin: -28px 0 0 -28px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
-  animation: quest-grow 1200ms ease-out forwards;
+  animation: quest-grow 2000ms ease-out forwards;
 }
 
 @keyframes quest-grow {
@@ -373,7 +373,7 @@ body:has([data-full-bleed]) {
   margin: -28px 0 0 -28px;
   border: 2px solid #fff;
   border-radius: 50%;
-  animation: quest-ring 300ms ease-out forwards;
+  animation: quest-ring 450ms ease-out forwards;
 }
 
 @keyframes quest-ring {
