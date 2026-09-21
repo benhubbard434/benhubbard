@@ -204,6 +204,61 @@ function InfoTooltip({ text }: { text: string }) {
   );
 }
 
+// ─── Hover bubbles ────────────────────────────────────────────────────────────
+
+/** The three brand colours from /style, plus the brightest of /music's grounds. */
+const BUBBLE_COLOURS = [
+  "var(--color-spring-green)",
+  "var(--color-blue)",
+  "var(--color-tomato-jam)",
+  "#FFD400", // Acid yellow
+  "#FF4FD8", // Magenta
+  "#00D9E0", // Cyan
+];
+
+/**
+ * Fixed rather than random, so the server and client render the same markup.
+ * x is across the card, size in px, dur/delay in seconds, drift in px.
+ */
+const BUBBLES = [
+  { x: 4, size: 14, dur: 2.1, delay: 0, drift: 6 },
+  { x: 13, size: 24, dur: 2.6, delay: 0.5, drift: -8 },
+  { x: 22, size: 10, dur: 1.7, delay: 0.9, drift: 4 },
+  { x: 31, size: 18, dur: 2.3, delay: 0.2, drift: 10 },
+  { x: 40, size: 12, dur: 1.9, delay: 1.1, drift: -5 },
+  { x: 49, size: 26, dur: 2.8, delay: 0.4, drift: 7 },
+  { x: 58, size: 11, dur: 1.8, delay: 0.7, drift: -9 },
+  { x: 67, size: 20, dur: 2.4, delay: 0.1, drift: 5 },
+  { x: 76, size: 13, dur: 2.0, delay: 1.0, drift: -6 },
+  { x: 85, size: 22, dur: 2.5, delay: 0.6, drift: 8 },
+  { x: 94, size: 12, dur: 1.9, delay: 0.3, drift: -4 },
+];
+
+/** Decorative only; the styling and motion live in globals.css. */
+function Bubbles({ offset }: { offset: number }) {
+  return (
+    <span className="quest-bubbles" aria-hidden="true">
+      {BUBBLES.map((b, i) => (
+        <span
+          key={i}
+          className="quest-bubble"
+          style={
+            {
+              "--x": `${b.x}%`,
+              "--size": `${b.size}px`,
+              "--dur": `${b.dur}s`,
+              "--delay": `${b.delay}s`,
+              "--drift": `${b.drift}px`,
+              // Offset per card, so no two cards bubble in the same order.
+              "--colour": BUBBLE_COLOURS[(i + offset) % BUBBLE_COLOURS.length],
+            } as React.CSSProperties
+          }
+        />
+      ))}
+    </span>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export type TabKey = "work" | "side-quests";
@@ -434,13 +489,15 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
       {activeTab === "side-quests" && (
         <div className="mx-auto max-w-3xl px-6 pt-24 pb-28">
           <div className="grid gap-4">
-            {sideQuests.map((quest) => (
+            {sideQuests.map((quest, qi) => (
               <Link
                 key={quest.slug}
                 href={sideQuestHref(quest)}
-                className="block rounded-lg border border-gray-200 bg-white p-5 transition-colors hover:bg-gray-50"
+                className="quest-card relative block overflow-hidden rounded-lg border border-gray-200 bg-white p-5 transition-colors hover:bg-gray-50"
               >
-                <div className="flex items-center gap-3">
+                <Bubbles offset={qi} />
+                {/* relative, so the title paints above the bubbles */}
+                <div className="relative flex items-center gap-3">
                   <span className="text-2xl">{quest.emoji}</span>
                   {/* Descriptions are kept in lib/side-quests.ts but hidden for now */}
                   <h3 className="text-2xl text-gray-900">{quest.title}</h3>
