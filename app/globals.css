@@ -308,63 +308,106 @@ body:has([data-full-bleed]) {
 
 /* --- /work side quests ---------------------------------------------------- */
 
-/* Bubbles in the brand colours rise through a side-quest card while it is
-   hovered or keyboard-focused. They run paused rather than restarting, so
-   leaving the card fades the bubbles out where they are. Decorative, so they
-   are left out entirely when reduced motion is asked for. */
-.quest-bubbles {
-  display: none;
+/* Each card fills with its own colour (--quest-ground, set per card) on hover
+   or keyboard focus. The colour change is not motion, so it stays under
+   reduced motion; only its easing is dropped there. */
+.quest-card {
+  transition:
+    background-color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* The rise is about a card's height, so each bubble fades out as it reaches
-   the top edge rather than lingering there half-clipped. */
-@keyframes quest-bubble {
-  0%   { transform: translate(0, 0) scale(0.5); opacity: 0; }
-  20%  { opacity: 0.9; }
-  75%  { opacity: 0.9; }
-  100% { transform: translate(var(--drift), -88px) scale(1); opacity: 0; }
+.quest-card:focus-visible {
+  background-color: var(--quest-ground);
+  border-color: var(--quest-ground);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .quest-bubbles {
-    display: block;
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 285ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .quest-bubble {
-    position: absolute;
-    left: var(--x);
-    bottom: calc(var(--size) * -1);
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    background: var(--colour);
-    opacity: 0;
-    animation: quest-bubble var(--dur) ease-in-out var(--delay) infinite;
-    animation-play-state: paused;
-  }
-
-  .quest-card:focus-visible .quest-bubbles {
-    opacity: 1;
-    transition-duration: 380ms;
-  }
-
-  .quest-card:focus-visible .quest-bubble {
-    animation-play-state: running;
+@media (hover: hover) {
+  .quest-card:hover {
+    background-color: var(--quest-ground);
+    border-color: var(--quest-ground);
   }
 }
 
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .quest-card:hover .quest-bubbles {
-    opacity: 1;
-    transition-duration: 380ms;
+/* The grow → pop cycle. QuestCard follows the cursor and swaps the growing
+   bubble for a burst when its animation ends; everything it draws sits in
+   .quest-pops, positioned from the card's top-left corner. */
+.quest-pops {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Inflates, catches its breath, then overshoots — the pop follows on
+   animationend. 56px, so it nearly fills a card; RADIUS in QuestCard.tsx. */
+.quest-grow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  animation: quest-grow 1200ms ease-out forwards;
+}
+
+@keyframes quest-grow {
+  0%   { transform: scale(0); }
+  75%  { transform: scale(1); }
+  88%  { transform: scale(0.93); }
+  100% { transform: scale(1.08); }
+}
+
+.quest-burst {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* The skin, flashing outwards as it breaks */
+.quest-ring {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  animation: quest-ring 300ms ease-out forwards;
+}
+
+@keyframes quest-ring {
+  from { transform: scale(1.08); opacity: 0.9; }
+  to   { transform: scale(1.5); opacity: 0; }
+}
+
+/* Thrown out from the skin, then drifting upwards as they fade */
+.quest-particle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  border-radius: 50%;
+  background: #fff;
+  animation-name: quest-rise;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes quest-rise {
+  0%   { transform: translate(var(--sx), var(--sy)) scale(1); opacity: 1; }
+  20%  { transform: translate(var(--bx), var(--by)) scale(0.9); opacity: 1; }
+  60%  { opacity: 0.9; }
+  100% { transform: translate(var(--ex), var(--ey)) scale(0.5); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quest-card {
+    transition-duration: 0.01ms;
   }
 
-  .quest-card:hover .quest-bubble {
-    animation-play-state: running;
+  /* QuestCard skips the bubbles too; this is the belt to its braces. */
+  .quest-pops {
+    display: none;
   }
 }
