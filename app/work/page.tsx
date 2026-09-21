@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { sideQuests } from "@/lib/side-quests";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -23,7 +25,6 @@ type CompanyGroup = {
   entries: TimelineEntry[];
 };
 
-type SideQuest = { title: string; emoji: string; description: string };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -131,38 +132,6 @@ const companyGroups: CompanyGroup[] = [
   },
 ];
 
-const sideQuests: SideQuest[] = [
-  {
-    title: "Post Sales Party 🎉",
-    emoji: "🎙️",
-    description:
-      "Launching a community and content series for post-sales professionals. Conversations, events, and resources for CS, support, and enablement leaders.",
-  },
-  {
-    title: "CS Mentoring @ Tangent",
-    emoji: "🧭",
-    description:
-      "Mentoring the next generation of customer success professionals through structured programmes and 1:1 coaching.",
-  },
-  {
-    title: "Running & Triathlon",
-    emoji: "🏃",
-    description:
-      "Training for marathons and triathlons. Tracking every mile on Strava and writing about the journey.",
-  },
-  {
-    title: "Building This Website",
-    emoji: "🛠️",
-    description:
-      "Designed and built this personal site with Lovable — experimenting with AI-assisted development, Spotify integrations, and Strava APIs.",
-  },
-  {
-    title: "Music Discovery",
-    emoji: "🎵",
-    description:
-      "Curating playlists and exploring new sounds. Always looking for the next track that stops you mid-scroll.",
-  },
-];
 
 // ─── Inline SVG icons ─────────────────────────────────────────────────────────
 
@@ -444,19 +413,22 @@ export default function WorkPage() {
       {activeTab === "side-quests" && (
         <div className="mx-auto max-w-3xl px-6 pt-24 pb-28">
           <div className="grid gap-4">
-            {sideQuests.map((quest, i) => (
-              <div
-                key={i}
-                className="rounded-lg border border-gray-200 bg-white p-5 transition-colors hover:bg-gray-50"
+            {sideQuests.map((quest) => (
+              <Link
+                key={quest.slug}
+                href={`/side-quests/${quest.slug}`}
+                className="block rounded-lg border border-gray-200 bg-white p-5 transition-colors hover:bg-gray-50"
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{quest.emoji}</span>
                   <div>
                     <h3 className="text-2xl text-gray-900">{quest.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-gray-500">{quest.description}</p>
+                    {quest.description && (
+                      <p className="mt-1 text-sm leading-relaxed text-gray-500">{quest.description}</p>
+                    )}
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
