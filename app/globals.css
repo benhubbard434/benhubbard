@@ -411,3 +411,99 @@ body:has([data-full-bleed]) {
     display: none;
   }
 }
+
+/* --- /work company headings ----------------------------------------------- */
+
+/* Split-flap name → logo swap; see CompanyWordmark.tsx. Each strip is a flap
+   with the name on its front and the logo on its back. It turns over on a
+   horizontal hinge and overshoots a touch, so it lands like a board flap. */
+.company-flip-box {
+  position: relative;
+  display: inline-block;
+  perspective: 600px;
+}
+
+.company-flip-strip {
+  position: absolute;
+  top: -0.3em;
+  bottom: -0.3em;
+  transform-style: preserve-3d;
+  transition: transform 650ms cubic-bezier(0.34, 1.45, 0.5, 1);
+}
+
+.company-flip-front,
+.company-flip-back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: filter 650ms ease-out;
+}
+
+.company-flip-back {
+  transform: rotateX(180deg);
+  filter: brightness(0.5);
+}
+
+/* One slice of the full-width face, offset so the strips line up */
+.company-flip-slice {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Painted in the section's text colour through the logo's shape */
+.company-flip-logo {
+  width: 100%;
+  background-color: currentColor;
+  -webkit-mask: var(--logo) left center / contain no-repeat;
+  mask: var(--logo) left center / contain no-repeat;
+}
+
+@media (hover: hover) {
+  .company-flip:hover .company-flip-strip {
+    transform: rotateX(-180deg);
+  }
+
+  /* The face turning away from the light dims; the one arriving brightens */
+  .company-flip:hover .company-flip-front {
+    filter: brightness(0.5);
+  }
+
+  .company-flip:hover .company-flip-back {
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* No flip: the name and logo simply crossfade, all at once */
+  .company-flip-strip,
+  .company-flip:hover .company-flip-strip {
+    transform: none;
+    transition: none;
+    transition-delay: 0ms !important;
+  }
+
+  .company-flip-front,
+  .company-flip-back {
+    transform: none;
+    filter: none !important;
+    transition: opacity 200ms ease-out;
+  }
+
+  .company-flip-back {
+    opacity: 0;
+  }
+
+  @media (hover: hover) {
+    .company-flip:hover .company-flip-front {
+      opacity: 0;
+    }
+
+    .company-flip:hover .company-flip-back {
+      opacity: 1;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { sideQuests, sideQuestHref } from "@/lib/side-quests";
 import QuestCard from "./QuestCard";
+import CompanyWordmark, { type CompanyLogo } from "./CompanyWordmark";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -23,6 +24,7 @@ type CompanyGroup = {
   bgColor: string;
   textColor: string;
   accentColor: string;
+  logo: CompanyLogo;
   entries: TimelineEntry[];
 };
 
@@ -36,6 +38,7 @@ const companyGroups: CompanyGroup[] = [
     bgColor: "#473bce",
     textColor: "hsl(252, 20%, 95%)",
     accentColor: "hsl(252, 60%, 80%)",
+    logo: { src: "/images/logos/ashby.svg", height: "0.95em" },
     entries: [
       {
         company: "Ashby",
@@ -69,6 +72,7 @@ const companyGroups: CompanyGroup[] = [
     bgColor: "#141414",
     textColor: "hsl(0, 0%, 92%)",
     accentColor: "hsl(0, 0%, 50%)",
+    logo: { src: "/images/logos/bird-taxi.png", height: "1.5em" },
     entries: [
       {
         company: "Bird (MessageBird)",
@@ -95,6 +99,7 @@ const companyGroups: CompanyGroup[] = [
     bgColor: "#126dfe",
     textColor: "hsl(210, 20%, 97%)",
     accentColor: "hsl(210, 80%, 80%)",
+    logo: { src: "/images/logos/gathercontent.svg", height: "0.9em" },
     entries: [
       {
         company: "GatherContent",
@@ -120,6 +125,7 @@ const companyGroups: CompanyGroup[] = [
     bgColor: "#f05000",
     textColor: "hsl(0, 0%, 97%)",
     accentColor: "hsl(20, 80%, 80%)",
+    logo: { src: "/images/logos/paymill.png", height: "1.6em" },
     entries: [
       {
         company: "PAYMILL",
@@ -397,8 +403,7 @@ export default function WorkClient() {
               >
                 <div className="mx-auto w-full max-w-2xl">
                   {/* Company heading */}
-                  <div className="mb-8 flex items-center gap-3">
-                    <h2 className="font-display text-h2">{group.name}</h2>
+                  <CompanyWordmark name={group.name} logo={group.logo}>
                     {group.entries[0]?.url && (
                       <a
                         href={group.entries[0].url}
@@ -410,7 +415,7 @@ export default function WorkClient() {
                         <IconExternalLink />
                       </a>
                     )}
-                  </div>
+                  </CompanyWordmark>
 
                   {/* Timeline entries */}
                   <div className="relative pl-8">
