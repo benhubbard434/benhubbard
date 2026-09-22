@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Netlify restores .next/cache between deploys, and Turbopack's cache has
+    // shipped a stale globals.css from it (new markup, old styles). Build
+    // from scratch every time instead.
+    turbopackFileSystemCacheForBuild: false,
+  },
   images: {
     remotePatterns: [
       // Spotify album art / playlist covers
