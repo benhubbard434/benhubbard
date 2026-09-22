@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { sideQuests, sideQuestHref } from "@/lib/side-quests";
 import QuestCard from "./QuestCard";
 
@@ -232,7 +232,19 @@ const TAB_HREF: Record<TabKey, string> = {
   "side-quests": "/work?tab=side-quests",
 };
 
-export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
+export default function WorkClient() {
+  // Read the tab from the URL on the client, so switching tabs is a
+  // history.pushState rather than a round trip to the server.
+  const searchParams = useSearchParams();
+  const activeTab: TabKey = searchParams.get("tab") === "side-quests" ? "side-quests" : "work";
+
+  const switchTab = (e: React.MouseEvent<HTMLAnchorElement>, tab: TabKey) => {
+    // Let cmd/ctrl/middle-click open the tab in a new window as normal.
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    if (tab !== activeTab) window.history.pushState(null, "", TAB_HREF[tab]);
+  };
+
   const [bgColor, setBgColor] = useState(companyGroups[0].bgColor);
   const [textColor, setTextColor] = useState(companyGroups[0].textColor);
   const [activeCompanyId, setActiveCompanyId] = useState(companyGroups[0].id);
@@ -308,9 +320,9 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
       {/* Tabs — fixed top-centre */}
       <div className="fixed top-0 left-0 right-0 z-40 flex justify-center px-6 pt-6">
         <div className="flex gap-1 rounded-md border border-white/20 bg-black/30 p-1 backdrop-blur-md">
-          <Link
+          <a
             href={TAB_HREF["work"]}
-            scroll={false}
+            onClick={(e) => switchTab(e, "work")}
             aria-current={activeTab === "work" ? "page" : undefined}
             className={`flex items-center justify-center gap-2 rounded-sm px-6 py-2 text-sm font-medium transition-colors ${
               activeTab === "work"
@@ -319,10 +331,10 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
             }`}
           >
             <IconBriefcase /> Work
-          </Link>
-          <Link
+          </a>
+          <a
             href={TAB_HREF["side-quests"]}
-            scroll={false}
+            onClick={(e) => switchTab(e, "side-quests")}
             aria-current={activeTab === "side-quests" ? "page" : undefined}
             className={`flex items-center justify-center gap-2 rounded-sm px-6 py-2 text-sm font-medium transition-colors ${
               activeTab === "side-quests"
@@ -331,7 +343,7 @@ export default function WorkClient({ activeTab }: { activeTab: TabKey }) {
             }`}
           >
             <IconRocket /> Side Quests
-          </Link>
+          </a>
         </div>
       </div>
 

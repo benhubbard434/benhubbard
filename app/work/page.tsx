@@ -1,12 +1,12 @@
-import WorkClient, { type TabKey } from "./WorkClient";
+import WorkClient from "./WorkClient";
 
 type Props = {
   searchParams: Promise<{ tab?: string | string[] }>;
 };
 
 export default async function WorkPage({ searchParams }: Props) {
-  const { tab } = await searchParams;
-  // Anything unrecognised falls back to the Work tab.
-  const activeTab: TabKey = tab === "side-quests" ? "side-quests" : "work";
-  return <WorkClient activeTab={activeTab} />;
+  // Awaiting searchParams renders the page per request, so the first paint
+  // already shows the right tab. Tab switches after that happen client-side.
+  await searchParams;
+  return <WorkClient />;
 }
