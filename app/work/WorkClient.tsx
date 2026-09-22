@@ -413,6 +413,7 @@ export default function WorkClient() {
                         href={group.entries[0].url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Visit ${group.name} (opens in a new tab)`}
                         className="opacity-50 transition-opacity hover:opacity-80"
                         style={{ color: "inherit" }}
                       >
