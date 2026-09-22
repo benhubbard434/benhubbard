@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { sideQuests } from "@/lib/side-quests";
+import { sideQuests, sideQuestGround } from "@/lib/side-quests";
+import ComingSoon from "./ComingSoon";
 
 // Only side quests without their own page elsewhere get one here; anything
 // else 404s.
@@ -27,6 +28,6 @@ export default async function SideQuestPage({ params }: Props) {
   const quest = ownPages.find((q) => q.slug === slug);
   if (!quest) notFound();
 
-  // Blank for now.
-  return <main className="flex-1" />;
+  // Nothing written up yet, so every one is a placeholder for now.
+  return <ComingSoon title={quest.title} emoji={quest.emoji} ground={sideQuestGround(quest)} />;
 }

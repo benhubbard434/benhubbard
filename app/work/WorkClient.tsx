@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { sideQuests, sideQuestHref } from "@/lib/side-quests";
+import { sideQuests, sideQuestHref, sideQuestGround } from "@/lib/side-quests";
 import QuestCard from "./QuestCard";
 import CompanyWordmark, { type CompanyLogo } from "./CompanyWordmark";
 
@@ -213,23 +213,6 @@ function InfoTooltip({ text }: { text: string }) {
     </span>
   );
 }
-
-// ─── Side quest colours ───────────────────────────────────────────────────────
-
-/**
- * Each card's solid fill on hover, taken from the brightest of the brand and
- * /music colours. Only ones that carry dark ink, so the title stays legible
- * and the white bubbles show against every one of them.
- */
-const QUEST_GROUNDS = [
-  "#04F06A", // Spring Green — brand
-  "#FFD400", // Acid yellow
-  "#00D9E0", // Cyan
-  "#FF4FD8", // Magenta
-  "#C8FF00", // Lime
-  "#FF6B00", // Orange
-  "#FF3366", // Coral
-];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
@@ -474,11 +457,11 @@ export default function WorkClient() {
       {activeTab === "side-quests" && (
         <div className="mx-auto max-w-3xl px-6 pt-24 pb-28">
           <div className="grid gap-4">
-            {sideQuests.map((quest, qi) => (
+            {sideQuests.map((quest) => (
               <QuestCard
                 key={quest.slug}
                 href={sideQuestHref(quest)}
-                ground={QUEST_GROUNDS[qi % QUEST_GROUNDS.length]}
+                ground={sideQuestGround(quest)}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{quest.emoji}</span>

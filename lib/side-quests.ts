@@ -17,6 +17,25 @@ export function sideQuestHref(quest: SideQuest): string {
   return quest.href ?? `/side-quests/${quest.slug}`;
 }
 
+/**
+ * Each side quest's own colour: its card's fill on hover, and the ground of
+ * its page. Taken from the brightest of the brand and /music colours, and
+ * only ones that carry dark ink, so type on them stays legible.
+ */
+const GROUNDS = [
+  "#04F06A", // Spring Green — brand
+  "#FFD400", // Acid yellow
+  "#00D9E0", // Cyan
+  "#FF4FD8", // Magenta
+  "#C8FF00", // Lime
+  "#FF6B00", // Orange
+  "#FF3366", // Coral
+];
+
+export function sideQuestGround(quest: SideQuest): string {
+  return GROUNDS[sideQuests.indexOf(quest) % GROUNDS.length];
+}
+
 export const sideQuests: SideQuest[] = [
   {
     slug: "post-sales-party",

@@ -512,3 +512,22 @@ body:has([data-full-bleed]) {
     }
   }
 }
+
+/* --- /side-quests coming soon --------------------------------------------- */
+
+/* The quest's emoji, bobbing and tipping like it's being worked on */
+.coming-soon-emoji {
+  display: inline-block;
+  animation: coming-soon-tinker 2.4s ease-in-out infinite;
+}
+
+@keyframes coming-soon-tinker {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50%      { transform: translateY(-14px) rotate(6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon-emoji {
+    animation: none;
+  }
+}
