@@ -25,6 +25,8 @@ type CompanyGroup = {
   textColor: string;
   accentColor: string;
   logo: CompanyLogo;
+  /** Shown in an info tooltip beside the company heading. */
+  tooltip?: string;
   entries: TimelineEntry[];
 };
 
@@ -73,6 +75,7 @@ const companyGroups: CompanyGroup[] = [
     textColor: "hsl(0, 0%, 92%)",
     accentColor: "hsl(0, 0%, 50%)",
     logo: { src: "/images/logos/bird-taxi.png", height: "1.5em" },
+    tooltip: "Bird (formerly MessageBird) bought Taxi for Email and SparkPost in 2021.",
     entries: [
       {
         company: "Bird (MessageBird)",
@@ -404,6 +407,7 @@ export default function WorkClient() {
                 <div className="mx-auto w-full max-w-2xl">
                   {/* Company heading */}
                   <CompanyWordmark name={group.name} logo={group.logo}>
+                    {group.tooltip && <InfoTooltip text={group.tooltip} />}
                     {group.entries[0]?.url && (
                       <a
                         href={group.entries[0].url}
