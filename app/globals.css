@@ -421,6 +421,10 @@ body:has([data-full-bleed]) {
   position: relative;
   display: inline-block;
   perspective: 600px;
+  /* The display face is a heavy italic whose letters lean past their box.
+     Widen the strips' area so they don't clip it, without moving the name. */
+  padding-inline: 0.15em;
+  margin-inline: -0.15em;
 }
 
 .company-flip-strip {
@@ -452,6 +456,7 @@ body:has([data-full-bleed]) {
   bottom: 0;
   display: flex;
   align-items: center;
+  padding-inline: 0.15em;
 }
 
 /* Painted in the section's text colour through the logo's shape */
