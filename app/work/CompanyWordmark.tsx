@@ -64,7 +64,8 @@ export default function CompanyWordmark({
 
   return (
     <div className="company-flip mb-8 flex w-fit items-center gap-3" onMouseEnter={onEnter}>
-      <h2 className="font-display text-h2">
+      {/* relative keeps the sr-only name inside the scroll container */}
+      <h2 className="relative font-display text-h2">
         <span className="sr-only">{name}</span>
         <span className="company-flip-box" aria-hidden="true">
           {/* Sizes the box to the name; the strips sit over it */}
