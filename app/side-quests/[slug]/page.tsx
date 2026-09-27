@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { sideQuests, sideQuestGround } from "@/lib/side-quests";
 import ComingSoon from "./ComingSoon";
+import PublicSpeaking from "./PublicSpeaking";
 
 // Only side quests without their own page elsewhere get one here; anything
 // else 404s.
@@ -28,6 +29,7 @@ export default async function SideQuestPage({ params }: Props) {
   const quest = ownPages.find((q) => q.slug === slug);
   if (!quest) notFound();
 
-  // Nothing written up yet, so every one is a placeholder for now.
+  // Written-up quests have their own page; the rest are placeholders for now.
+  if (quest.slug === "public-speaking") return <PublicSpeaking />;
   return <ComingSoon title={quest.title} emoji={quest.emoji} ground={sideQuestGround(quest)} />;
 }

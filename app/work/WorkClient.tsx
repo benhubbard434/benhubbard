@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { sideQuests, sideQuestHref, sideQuestGround } from "@/lib/side-quests";
+import { sideQuests, sideQuestHref, sideQuestGround, sideQuestInk } from "@/lib/side-quests";
 import QuestCard from "./QuestCard";
 import CompanyWordmark, { type CompanyLogo } from "./CompanyWordmark";
 
@@ -462,11 +462,12 @@ export default function WorkClient() {
                 key={quest.slug}
                 href={sideQuestHref(quest)}
                 ground={sideQuestGround(quest)}
+                ink={sideQuestInk(quest)}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{quest.emoji}</span>
                   {/* Descriptions are kept in lib/side-quests.ts but hidden for now */}
-                  <h3 className="text-2xl text-gray-900">{quest.title}</h3>
+                  <h3 className="text-2xl">{quest.title}</h3>
                 </div>
               </QuestCard>
             ))}

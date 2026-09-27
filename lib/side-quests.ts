@@ -11,6 +11,10 @@ export type SideQuest = {
   description?: string;
   /** Links here instead, and no /side-quests page is generated for it. */
   href?: string;
+  /** Its own colour, in place of one from GROUNDS. Set `ink` too if it's dark. */
+  ground?: string;
+  /** Type colour on the ground; dark unless set. */
+  ink?: string;
 };
 
 export function sideQuestHref(quest: SideQuest): string {
@@ -33,10 +37,28 @@ const GROUNDS = [
 ];
 
 export function sideQuestGround(quest: SideQuest): string {
-  return GROUNDS[sideQuests.indexOf(quest) % GROUNDS.length];
+  if (quest.ground) return quest.ground;
+  // Counted among the quests without a colour of their own, so giving one a
+  // colour doesn't reshuffle everyone else's.
+  const i = sideQuests.filter((q) => !q.ground).indexOf(quest);
+  return GROUNDS[i % GROUNDS.length];
+}
+
+export function sideQuestInk(quest: SideQuest): string {
+  return quest.ink ?? "#111";
 }
 
 export const sideQuests: SideQuest[] = [
+  {
+    slug: "public-speaking",
+    title: "Public Speaking",
+    emoji: "🎤",
+    // Ashby purple, as on the Ashby section of the Work tab
+    ground: "#473bce",
+    ink: "#fff",
+    description:
+      "Hosting panels and presenting on stage — most recently debuting Ashby's first EMEA Talent Trends report at Ashby One London.",
+  },
   {
     slug: "post-sales-party",
     title: "Post Sales Party 🎉",

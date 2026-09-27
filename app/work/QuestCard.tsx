@@ -68,11 +68,14 @@ function makeParticles(): Particle[] {
 export default function QuestCard({
   href,
   ground,
+  ink,
   children,
 }: {
   href: string;
   /** Solid fill on hover and focus. */
   ground: string;
+  /** Type colour while filled. */
+  ink: string;
   children: React.ReactNode;
 }) {
   const [bubble, setBubble] = useState<(Point & { key: number }) | null>(null);
@@ -165,8 +168,8 @@ export default function QuestCard({
       onPointerEnter={onPointerEnter}
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
-      className="quest-card relative block overflow-hidden rounded-lg border border-gray-200 bg-white p-5"
-      style={{ "--quest-ground": ground } as React.CSSProperties}
+      className="quest-card relative block overflow-hidden rounded-lg border border-gray-200 bg-white p-5 text-gray-900"
+      style={{ "--quest-ground": ground, "--quest-ink": ink } as React.CSSProperties}
     >
       <span className="quest-pops" aria-hidden="true">
         {bubble && (

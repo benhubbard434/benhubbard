@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "mosaic.scdn.co" },
       { protocol: "https", hostname: "*.spotifycdn.com" },
       { protocol: "https", hostname: "image-cdn-fa.spotifycdn.com" },
+      // YouTube thumbnails (the poster for embedded videos)
+      { protocol: "https", hostname: "i.ytimg.com" },
       // Supabase storage (if you upload images there)
       { protocol: "https", hostname: "*.supabase.co" },
     ],

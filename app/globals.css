@@ -314,18 +314,21 @@ body:has([data-full-bleed]) {
 .quest-card {
   transition:
     background-color 250ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+    border-color 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .quest-card:focus-visible {
   background-color: var(--quest-ground);
   border-color: var(--quest-ground);
+  color: var(--quest-ink);
 }
 
 @media (hover: hover) {
   .quest-card:hover {
     background-color: var(--quest-ground);
     border-color: var(--quest-ground);
+    color: var(--quest-ink);
   }
 }
 
@@ -529,5 +532,209 @@ body:has([data-full-bleed]) {
 @media (prefers-reduced-motion: reduce) {
   .coming-soon-emoji {
     animation: none;
+  }
+}
+
+/* --- /side-quests/public-speaking ----------------------------------------- */
+
+/* The follow-spot: a pool of light that PublicSpeaking moves to the cursor
+   through --spot-x/--spot-y. It rests high and centre until then. */
+.ps-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    circle 420px at var(--spot-x, 50%) var(--spot-y, 35%),
+    rgba(255, 255, 255, 0.2),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Two stage beams from the rig, sweeping slowly out of step */
+.ps-beam {
+  position: absolute;
+  top: -10%;
+  z-index: -1;
+  width: 38vw;
+  height: 130%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.28), transparent 85%);
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  filter: blur(10px);
+  transform-origin: 50% 0;
+  pointer-events: none;
+}
+
+.ps-beam-left {
+  left: 4%;
+  animation: ps-sweep 9s ease-in-out infinite alternate;
+}
+
+.ps-beam-right {
+  right: 4%;
+  animation: ps-sweep 11s ease-in-out -4s infinite alternate-reverse;
+}
+
+@keyframes ps-sweep {
+  from { transform: rotate(-16deg); }
+  to   { transform: rotate(16deg); }
+}
+
+/* The second line of the title, drawn in outline only */
+.ps-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  /* The italic leans past its box; keep the last letter's stroke */
+  padding-right: 0.1em;
+}
+
+@media (min-width: 768px) {
+  .ps-outline {
+    -webkit-text-stroke-width: 3px;
+  }
+}
+
+/* The on-air tally light */
+.ps-tally {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff3b30;
+  box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.6);
+  animation: ps-tally 1.8s ease-out infinite;
+}
+
+@keyframes ps-tally {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.6); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+}
+
+.ps-stamp {
+  animation: ps-spin 22s linear infinite;
+}
+
+@keyframes ps-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* The poster: purple-washed until hovered, when the frame shows through */
+.ps-poster-tint {
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  transition: opacity 300ms ease;
+}
+
+.ps-poster:hover .ps-poster-tint,
+.ps-poster:focus-visible .ps-poster-tint {
+  opacity: 0.2;
+}
+
+.ps-poster:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -8px;
+}
+
+/* A ring pulsing out from the play button, like a speaker cone */
+.ps-play {
+  transition: transform 300ms cubic-bezier(0.34, 1.45, 0.5, 1);
+}
+
+.ps-play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  animation: ps-pulse 2s ease-out infinite;
+}
+
+.ps-poster:hover .ps-play {
+  transform: scale(1.1);
+}
+
+@keyframes ps-pulse {
+  from { transform: scale(1); opacity: 0.9; }
+  to   { transform: scale(1.7); opacity: 0; }
+}
+
+/* Setlist rows invert to white on hover, and stay that way while cued */
+.ps-cue {
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.ps-cue:hover,
+.ps-cue:focus-visible,
+.ps-cue[data-active="true"] {
+  background: #fff;
+  color: #473bce;
+}
+
+.ps-cue:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Lineup cards sit slightly askew, like tickets pinned to a board */
+.ps-ticket {
+  rotate: var(--tilt, 0deg);
+  transition: rotate 300ms cubic-bezier(0.34, 1.45, 0.5, 1), translate 300ms cubic-bezier(0.34, 1.45, 0.5, 1);
+}
+
+@media (hover: hover) {
+  .ps-ticket:hover {
+    rotate: 0deg;
+    translate: 0 -6px;
+  }
+}
+
+.ps-encore {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.ps-encore:hover,
+.ps-encore:focus-visible {
+  background: #fff;
+  color: #473bce;
+}
+
+.ps-encore-arrow {
+  transition: transform 300ms cubic-bezier(0.34, 1.45, 0.5, 1);
+}
+
+.ps-encore:hover .ps-encore-arrow {
+  transform: translate(6px, -6px);
+}
+
+/* Stats and tickets rise in as they scroll into view. Scroll-driven, so
+   browsers without it simply show them in place. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ps-reveal {
+      animation: ps-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes ps-reveal {
+  from { opacity: 0; translate: 0 40px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-beam,
+  .ps-tally,
+  .ps-stamp,
+  .ps-play::after {
+    animation: none;
+  }
+
+  .ps-ticket,
+  .ps-play,
+  .ps-encore-arrow {
+    transition: none;
   }
 }
