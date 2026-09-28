@@ -62,8 +62,8 @@ export default function Mentoring({ ground }: { ground: string }) {
         </div>
 
         <p className="font-subhead max-w-2xl text-h3">
-          I mentor aspiring CSMs and BDRs through Tangent: people with every bit of the drive for a
-          career in tech, just not yet the network to get a foot in.
+          I mentor aspiring CSMs through Tangent, to help people get jobs in tech from
+          underrepresented backgrounds, who don&apos;t yet have the network to get a foot in.
         </p>
       </section>
 
