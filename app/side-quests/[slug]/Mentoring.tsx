@@ -30,10 +30,6 @@ const HELP = [
     title: "Interview prep",
     body: "Practice runs for the questions CS hiring managers ask, from the side of the table that asks them.",
   },
-  {
-    title: "Referrals",
-    body: "When the fit is right, putting someone forward to a recruiting team instead of into a pile of applications.",
-  },
 ];
 
 const MARQUEE = ["Intro calls", "CV reviews", "Interview prep", "Referrals", "Paying it forward"];
