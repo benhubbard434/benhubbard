@@ -48,7 +48,11 @@ const SITEWIDE: AiProvenance = {
 };
 
 /** Only pages that differ from the sitewide claims above. */
-const PAGES: Record<string, Partial<AiProvenance>> = {};
+const PAGES: Record<string, Partial<AiProvenance>> = {
+  "/side-quests/public-speaking": {
+    words: { level: "some", note: "Copy taken from the talk, with AI." },
+  },
+};
 
 /**
  * A page's provenance, falling back to the sitewide claims. Posts pass their
