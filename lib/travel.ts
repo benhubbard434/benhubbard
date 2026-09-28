@@ -75,6 +75,7 @@ export const cities: City[] = [
   { name: "Marbella", country: "Spain", lat: 36.5101, lon: -4.8825 },
   { name: "Benidorm", country: "Spain", lat: 38.5411, lon: -0.1225 },
   { name: "Palma de Mallorca", country: "Spain", lat: 39.5696, lon: 2.6502 },
+  { name: "Ibiza Town", country: "Spain", lat: 38.9067, lon: 1.4206 },
   { name: "Pollensa", country: "Spain", lat: 39.877, lon: 3.016 },
   { name: "Puerto Pollensa", country: "Spain", lat: 39.9056, lon: 3.0853 },
 ];
