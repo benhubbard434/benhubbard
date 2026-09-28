@@ -68,8 +68,9 @@ export const places: Place[] = [
   { name: "Croatia", country: "Croatia", lat: 45.1, lon: 15.4 },
   { name: "Greece", country: "Greece", lat: 39.1, lon: 22.0 },
   { name: "Turkey", country: "Turkey", lat: 39.0, lon: 35.2 },
-  { name: "Dubai", country: "United Arab Emirates", lat: 25.2048, lon: 55.2708 },
-  // Too small to draw at this scale, so it's a pin without a fill
+  { name: "United Arab Emirates", country: "United Arab Emirates", lat: 23.9, lon: 54.3 },
+  { name: "Estonia", country: "Estonia", lat: 58.7, lon: 25.5 },
+  // Too small for the coarse outline, so drawn from the detailed one
   { name: "Maldives", country: "Maldives", lat: 4.1755, lon: 73.5093 },
 ];
 
@@ -79,7 +80,8 @@ export const cities: City[] = [
   { name: "Seville", country: "Spain", lat: 37.3891, lon: -5.9845 },
   { name: "Valencia", country: "Spain", lat: 39.4699, lon: -0.3763 },
   { name: "Marbella", country: "Spain", lat: 36.5101, lon: -4.8825 },
-  { name: "Benidorm", country: "Spain", lat: 38.5411, lon: -0.1225 },
+  // Nudged inland from the centre, which the outline puts just offshore
+  { name: "Benidorm", country: "Spain", lat: 38.548, lon: -0.14 },
   { name: "Palma de Mallorca", country: "Spain", lat: 39.5696, lon: 2.6502 },
   { name: "Ibiza Town", country: "Spain", lat: 38.9067, lon: 1.4206 },
   { name: "Pollensa", country: "Spain", lat: 39.877, lon: 3.016 },
@@ -87,4 +89,38 @@ export const cities: City[] = [
   // France
   { name: "Paris", country: "France", lat: 48.8566, lon: 2.3522 },
   { name: "Saint-Tropez", country: "France", lat: 43.2727, lon: 6.6406 },
+  // Italy
+  { name: "Venice", country: "Italy", lat: 45.4408, lon: 12.3155 },
+  // Netherlands
+  { name: "Amsterdam", country: "Netherlands", lat: 52.3676, lon: 4.9041 },
+  // Germany
+  { name: "Munich", country: "Germany", lat: 48.1351, lon: 11.582 },
+  { name: "Berlin", country: "Germany", lat: 52.52, lon: 13.405 },
+  // Denmark
+  { name: "Copenhagen", country: "Denmark", lat: 55.6761, lon: 12.5683 },
+  // Sweden
+  { name: "Stockholm", country: "Sweden", lat: 59.3293, lon: 18.0686 },
+  // Estonia
+  { name: "Tallinn", country: "Estonia", lat: 59.437, lon: 24.7536 },
+  // Greece
+  { name: "Kos", country: "Greece", lat: 36.8933, lon: 27.2889 },
+  { name: "Heraklion", country: "Greece", lat: 35.3387, lon: 25.1442 },
+  { name: "Chania", country: "Greece", lat: 35.5138, lon: 24.018 },
+  { name: "Sougia", country: "Greece", lat: 35.25, lon: 23.8083 },
+  // Croatia
+  { name: "Split", country: "Croatia", lat: 43.5081, lon: 16.4402 },
+  // Turkey
+  // Old Istanbul, rather than the centre point on the Golden Horn
+  { name: "Istanbul", country: "Turkey", lat: 41.015, lon: 28.95 },
+  // United States
+  { name: "Boston", country: "United States", lat: 42.3601, lon: -71.0589 },
+  { name: "Minneapolis", country: "United States", lat: 44.9778, lon: -93.265 },
+  { name: "Denver", country: "United States", lat: 39.7392, lon: -104.9903 },
+  { name: "Los Angeles", country: "United States", lat: 34.0522, lon: -118.2437 },
+  // Mexico
+  { name: "Cancún", country: "Mexico", lat: 21.1619, lon: -86.8515 },
+  // United Arab Emirates
+  { name: "Dubai", country: "United Arab Emirates", lat: 25.2048, lon: 55.2708 },
+  // Maldives
+  { name: "Ari Atoll", country: "Maldives", lat: 3.87, lon: 72.83 },
 ];
