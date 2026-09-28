@@ -53,6 +53,9 @@ const PAGES: Record<string, Partial<AiProvenance>> = {
     words: { level: "some", note: "Copy taken from the talk, with AI." },
     media: { level: "none", note: "Talk recording by Ashby, embedded from YouTube." },
   },
+  "/side-quests/cs-mentoring": {
+    words: { level: "some", note: "Copy drawn from jointangent.com, with AI." },
+  },
 };
 
 /**
