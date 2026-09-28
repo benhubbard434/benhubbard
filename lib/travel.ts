@@ -45,6 +45,12 @@ export type City = {
 export const notVisited: { name: string; lat: number; lon: number }[] = [
   // Part of France, but in South America
   { name: "French Guiana", lat: 4.0, lon: -53.0 },
+  // France's other overseas departments. Only the detailed outline has
+  // them, which France is drawn from if a pin or city ever needs it.
+  { name: "Martinique", lat: 14.66, lon: -61.02 },
+  { name: "Guadeloupe", lat: 16.17, lon: -61.67 },
+  { name: "Réunion", lat: -21.12, lon: 55.54 },
+  { name: "Mayotte", lat: -12.82, lon: 45.13 },
 ];
 
 export const places: Place[] = [
@@ -78,4 +84,7 @@ export const cities: City[] = [
   { name: "Ibiza Town", country: "Spain", lat: 38.9067, lon: 1.4206 },
   { name: "Pollensa", country: "Spain", lat: 39.877, lon: 3.016 },
   { name: "Puerto Pollensa", country: "Spain", lat: 39.9056, lon: 3.0853 },
+  // France
+  { name: "Paris", country: "France", lat: 48.8566, lon: 2.3522 },
+  { name: "Saint-Tropez", country: "France", lat: 43.2727, lon: 6.6406 },
 ];
