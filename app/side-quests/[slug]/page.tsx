@@ -32,6 +32,6 @@ export default async function SideQuestPage({ params }: Props) {
 
   // Written-up quests have their own page; the rest are placeholders for now.
   if (quest.slug === "public-speaking") return <PublicSpeaking />;
-  if (quest.slug === "cs-mentoring") return <Mentoring />;
+  if (quest.slug === "cs-mentoring") return <Mentoring ground={sideQuestGround(quest)} />;
   return <ComingSoon title={quest.title} emoji={quest.emoji} ground={sideQuestGround(quest)} />;
 }

@@ -740,117 +740,16 @@ body:has([data-full-bleed]) {
 }
 
 /* --- /side-quests/cs-mentoring -------------------------------------------- */
-/* Tangent's components, from jointangent.com: see Mentoring.tsx. */
 
-/* The hero's curved bottom edge, as on Tangent's own pages */
-.tg-hero {
-  border-bottom-left-radius: 50% 90px;
-  border-bottom-right-radius: 50% 90px;
-}
-
-@media (min-width: 768px) {
-  .tg-hero {
-    border-bottom-left-radius: 50% 160px;
-    border-bottom-right-radius: 50% 160px;
-  }
-}
-
-/* The coral pen marks draw themselves in, once */
-.tg-scribble path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: tg-draw 900ms cubic-bezier(0.65, 0, 0.35, 1) 300ms forwards;
-}
-
-@keyframes tg-draw {
-  to { stroke-dashoffset: 0; }
-}
-
-/* Pastel shapes bobbing about the hero */
-.tg-float {
-  animation: tg-float 6s ease-in-out infinite;
-}
-
-@keyframes tg-float {
-  0%, 100% { translate: 0 0; rotate: 0deg; }
-  50%      { translate: 0 -14px; rotate: 8deg; }
-}
-
-/* Tangent's button: sits on a hard shadow and presses down into it */
-.tg-button {
-  box-shadow: 0 5px 0 #111;
-  transition: translate 120ms ease, box-shadow 120ms ease;
-}
-
-.tg-button:hover {
-  translate: 0 2px;
-  box-shadow: 0 3px 0 #111;
-}
-
-.tg-button:active {
-  translate: 0 5px;
-  box-shadow: 0 0 0 #111;
-}
-
-.tg-button:focus-visible {
-  outline: 3px solid #111;
-  outline-offset: 4px;
-}
-
-/* Outlined cards on the same hard shadow, lifting off it on hover. --tilt
-   sets some slightly askew. */
-.tg-card {
-  box-shadow: 6px 6px 0 #111;
-  rotate: var(--tilt, 0deg);
-  transition:
-    translate 250ms cubic-bezier(0.34, 1.45, 0.5, 1),
-    box-shadow 250ms cubic-bezier(0.34, 1.45, 0.5, 1),
-    rotate 250ms cubic-bezier(0.34, 1.45, 0.5, 1);
+/* "What I help with" rows invert into ink on hover, as /music's track rows
+   do. --ground is the quest's colour, set on the page's <main>. */
+.mt-row {
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
 @media (hover: hover) {
-  .tg-card:hover {
-    translate: -3px -3px;
-    box-shadow: 9px 9px 0 #111;
-    rotate: 0deg;
-  }
-}
-
-/* Step numbers sit on the dashed trail, so they need to cover it */
-.tg-step {
-  box-shadow: 0 4px 0 #111;
-}
-
-/* Cards and steps rise in as they scroll into view, as .ps-reveal does. On
-   transform rather than translate, which the cards' hover lift uses; a
-   filled animation on the same property would hold it in place. */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .tg-reveal {
-      animation: tg-reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 60%;
-    }
-  }
-}
-
-@keyframes tg-reveal {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tg-scribble path {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-
-  .tg-float {
-    animation: none;
-  }
-
-  .tg-button,
-  .tg-card {
-    transition: none;
+  .mt-row:hover {
+    background: #111;
+    color: var(--ground);
   }
 }

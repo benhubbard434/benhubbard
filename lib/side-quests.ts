@@ -70,8 +70,6 @@ export const sideQuests: SideQuest[] = [
     slug: "cs-mentoring",
     title: "CS Mentoring @ Tangent",
     emoji: "🧭",
-    // Tangent's peach, from its buttons at jointangent.com
-    ground: "#F5BF9E",
     description:
       "Mentoring aspiring CSMs and BDRs from low-income backgrounds through Tangent: CV reviews, interview prep, and a foot in the door to tech.",
   },
