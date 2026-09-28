@@ -99,6 +99,10 @@ export const cities: City[] = [
   { name: "Newbury", country: "United Kingdom", lat: 51.4014, lon: -1.3231 },
   { name: "Brighton", country: "United Kingdom", lat: 50.8225, lon: -0.1372 },
   { name: "Newquay", country: "United Kingdom", lat: 50.4155, lon: -5.0737 },
+  { name: "Reading", country: "United Kingdom", lat: 51.4543, lon: -0.9781 },
+  { name: "Cambridge", country: "United Kingdom", lat: 52.2053, lon: 0.1218 },
+  { name: "Cardiff", country: "United Kingdom", lat: 51.4816, lon: -3.1791 },
+  { name: "Belfast", country: "United Kingdom", lat: 54.5973, lon: -5.9301 },
   { name: "Cotswolds", country: "United Kingdom", lat: 51.93, lon: -1.72 },
   { name: "North Norfolk", country: "United Kingdom", lat: 52.9, lon: 1.08 },
   // Ireland
