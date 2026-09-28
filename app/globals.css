@@ -783,10 +783,11 @@ body:has([data-full-bleed]) {
   stroke-width: calc(0.8 / var(--zoom, 1));
 }
 
-/* Filled-in countries zoom to themselves when clicked */
+/* Filled-in countries zoom to themselves when clicked. The fill eases as
+   they grey out around a focused country, and back. */
 .travel-country {
   cursor: pointer;
-  transition: opacity 150ms ease;
+  transition: opacity 150ms ease, fill 400ms ease;
 }
 
 @media (hover: hover) {
@@ -863,7 +864,8 @@ body:has([data-full-bleed]) {
   transition: scale 200ms cubic-bezier(0.34, 1.45, 0.5, 1), background-color 200ms ease;
 }
 
-.travel-pin[data-active="true"] .travel-pin-dot {
+.travel-pin[data-active="true"] .travel-pin-dot,
+.travel-pin[data-focused="true"] .travel-pin-dot {
   scale: 1.5;
   background: var(--ground);
 }
@@ -904,6 +906,16 @@ body:has([data-full-bleed]) {
   to   { opacity: 1; translate: 0 0; }
 }
 
+/* The focused place's name, in the map's top-left corner */
+.travel-focus {
+  animation: travel-focus 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes travel-focus {
+  from { opacity: 0; translate: 0 -6px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
 /* Place names in the list, inverting with their pin */
 .travel-chip {
   border: 2px solid #111;
@@ -917,7 +929,8 @@ body:has([data-full-bleed]) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .travel-pin {
+  .travel-pin,
+  .travel-focus {
     animation: none;
   }
 

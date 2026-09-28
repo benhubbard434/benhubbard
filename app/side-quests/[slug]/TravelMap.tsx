@@ -5,6 +5,12 @@ import Link from "next/link";
 import type { Place } from "@/lib/travel";
 
 const INK = "#111";
+/** The brand blue, as on the AI tab */
+const BLUE = "#470FF4";
+/** Country fills: visited, visited while another is focused, and unvisited */
+const FILL_VISITED = INK;
+const FILL_DIMMED = "rgba(17,17,17,0.45)";
+const FILL_UNVISITED = "rgba(17,17,17,0.16)";
 
 /** How far the map zooms in: all the way out, and as far as it goes. */
 const MIN_ZOOM = 1;
@@ -59,7 +65,8 @@ export default function TravelMap({
   pins: Pin[];
 }) {
   const [active, setActive] = useState<number | null>(null);
-  /** The pin last zoomed to; its name stays up until you move on. */
+  /** The pin last zoomed to. Its country stays black and the rest of the
+      visited ones grey out, with its name in the map's corner, until reset. */
   const [focused, setFocused] = useState<number | null>(null);
   const [view, setView] = useState<View>(HOME);
   /** Eased for button and list moves; immediate while a finger is on it. */
@@ -114,6 +121,8 @@ export default function TravelMap({
 
   const apply = (next: View, eased: boolean) => {
     const v = clamp(next);
+    // Zoomed all the way back out, nothing's in focus any more
+    if (v.k <= MIN_ZOOM + 0.01) setFocused(null);
     viewRef.current = v;
     setAnimate(eased);
     setView(v);
@@ -250,6 +259,13 @@ export default function TravelMap({
     .sort((a, b) => a.label.localeCompare(b.label));
 
   const zoomed = view.k > 1.01;
+  const focusedPin = focused === null ? null : pins[focused];
+  const focusedCountry = focusedPin?.countryIndex ?? null;
+  const fillFor = (c: MapCountry, i: number) => {
+    if (!c.visited) return FILL_UNVISITED;
+    if (focused === null || i === focusedCountry) return FILL_VISITED;
+    return FILL_DIMMED;
+  };
 
   return (
     <main
@@ -299,7 +315,7 @@ export default function TravelMap({
                     d={c.d}
                     className={c.visited ? "travel-country" : undefined}
                     onClick={c.visited ? () => showCountry(i) : undefined}
-                    fill={c.visited ? INK : "rgba(17,17,17,0.16)"}
+                    style={{ fill: fillFor(c, i) }}
                     stroke={ground}
                     strokeLinejoin="round"
                   />
@@ -312,7 +328,8 @@ export default function TravelMap({
                   type="button"
                   data-pin={i}
                   className="travel-pin absolute"
-                  data-active={active === i || focused === i}
+                  data-active={active === i}
+                  data-focused={focused === i}
                   style={
                     {
                       left: `${(pin.x / width) * 100}%`,
@@ -335,6 +352,18 @@ export default function TravelMap({
               ))}
             </div>
 
+            {/* The focused place's name, pinned to the map's corner rather
+                than its pin, where it would sit over the country it names */}
+            {focusedPin && (
+              <p
+                key={focused}
+                className="travel-focus font-display pointer-events-none absolute top-2 left-2 rounded-md px-3 py-1.5 text-sm uppercase text-white"
+                style={{ backgroundColor: BLUE }}
+                aria-live="polite"
+              >
+                {focusedPin.name}
+              </p>
+            )}
           </div>
 
           {/* Under the map rather than over it, where on a phone they'd
