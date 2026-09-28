@@ -753,3 +753,94 @@ body:has([data-full-bleed]) {
     color: var(--ground);
   }
 }
+
+/* --- /side-quests/travel -------------------------------------------------- */
+
+/* A pin: a white dot ringed in ink, centred on its spot. It drops in on load,
+   staggered by TravelMap, and grows with its name beside it when it or its
+   row in the list below is hovered or focused. */
+.travel-pin {
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: travel-drop 500ms cubic-bezier(0.34, 1.45, 0.5, 1) both;
+}
+
+.travel-pin[data-active="true"] {
+  z-index: 1;
+}
+
+.travel-pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #111;
+  transition: scale 200ms cubic-bezier(0.34, 1.45, 0.5, 1), background-color 200ms ease;
+}
+
+.travel-pin[data-active="true"] .travel-pin-dot {
+  scale: 1.5;
+  background: var(--ground);
+}
+
+.travel-pin:focus-visible {
+  outline: none;
+}
+
+.travel-pin:focus-visible .travel-pin-dot {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.travel-pin-label {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 2px);
+  translate: -50% 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, translate 150ms ease;
+}
+
+.travel-pin[data-active="true"] .travel-pin-label {
+  opacity: 1;
+  translate: -50% 0;
+}
+
+@keyframes travel-drop {
+  from { opacity: 0; translate: 0 -24px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+/* Place names in the list, inverting with their pin */
+.travel-chip {
+  border: 2px solid #111;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.travel-chip[data-active="true"] {
+  background: #111;
+  color: var(--ground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .travel-pin {
+    animation: none;
+  }
+
+  .travel-pin-dot,
+  .travel-pin-label {
+    transition: none;
+  }
+}

@@ -4,6 +4,7 @@ import { sideQuests, sideQuestGround } from "@/lib/side-quests";
 import ComingSoon from "./ComingSoon";
 import Mentoring from "./Mentoring";
 import PublicSpeaking from "./PublicSpeaking";
+import Travel from "./Travel";
 
 // Only side quests without their own page elsewhere get one here; anything
 // else 404s.
@@ -33,5 +34,6 @@ export default async function SideQuestPage({ params }: Props) {
   // Written-up quests have their own page; the rest are placeholders for now.
   if (quest.slug === "public-speaking") return <PublicSpeaking />;
   if (quest.slug === "cs-mentoring") return <Mentoring ground={sideQuestGround(quest)} />;
+  if (quest.slug === "travel") return <Travel ground={sideQuestGround(quest)} />;
   return <ComingSoon title={quest.title} emoji={quest.emoji} ground={sideQuestGround(quest)} />;
 }
