@@ -57,7 +57,7 @@ export default function Mentoring({ ground }: { ground: string }) {
         <div>
           <p className="mb-6 text-sm uppercase tracking-[0.2em]">Side quest · Mentor at Tangent</p>
           <h1 className="font-display mx-auto max-w-5xl text-[clamp(3rem,1rem+7vw,7rem)] leading-[0.95]">
-            Holding the door open
+            Getting people into tech
           </h1>
         </div>
 
