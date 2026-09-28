@@ -67,4 +67,14 @@ export const places: Place[] = [
   { name: "Maldives", country: "Maldives", lat: 4.1755, lon: 73.5093 },
 ];
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  // Spain
+  { name: "Barcelona", country: "Spain", lat: 41.3874, lon: 2.1686 },
+  { name: "Seville", country: "Spain", lat: 37.3891, lon: -5.9845 },
+  { name: "Valencia", country: "Spain", lat: 39.4699, lon: -0.3763 },
+  { name: "Marbella", country: "Spain", lat: 36.5101, lon: -4.8825 },
+  { name: "Benidorm", country: "Spain", lat: 38.5411, lon: -0.1225 },
+  { name: "Palma de Mallorca", country: "Spain", lat: 39.5696, lon: 2.6502 },
+  { name: "Pollensa", country: "Spain", lat: 39.877, lon: 3.016 },
+  { name: "Puerto Pollensa", country: "Spain", lat: 39.9056, lon: 3.0853 },
+];
