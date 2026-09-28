@@ -15,6 +15,16 @@ export type Place = {
   lon: number;
 };
 
+/**
+ * Far-flung parts of a visited country that I haven't been to, so they stay
+ * unfilled. Each is a point inside the territory: whichever piece of its
+ * country's outline contains it is left out.
+ */
+export const notVisited: { name: string; lat: number; lon: number }[] = [
+  // Part of France, but in South America
+  { name: "French Guiana", lat: 4.0, lon: -53.0 },
+];
+
 export const places: Place[] = [
   { name: "United States", country: "United States", lat: 39.8, lon: -98.6 },
   { name: "Mexico", country: "Mexico", lat: 23.6, lon: -102.5 },

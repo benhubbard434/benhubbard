@@ -32,21 +32,24 @@ export type MapCountry = {
   bounds?: [number, number, number, number];
 };
 
-/** Scale, then offset in screen pixels, applied to the map from its top-left. */
-type View = { k: number; x: number; y: number };
+/**
+ * Scale, then offset, applied to the map from its top-left. Offsets are
+ * fractions of the map's own size, so a view means the same at any width and
+ * the server can render the starting one.
+ */
+export type View = { k: number; x: number; y: number };
 
 type Point = { x: number; y: number };
-
-const HOME: View = { k: 1, x: 0, y: 0 };
 
 /**
  * The map and the list of places under it.
  *
  * The map pans and zooms: pinch or drag on a phone, the +/− buttons anywhere.
  * Clicking a pin, a filled-in country or a place in the list zooms to fit
- * that country. It's all one CSS transform on the
- * layer holding the SVG and the pins; the pins counter-scale so they stay a
- * finger-sized 14px, and country borders don't thicken as it zooms.
+ * that country. It starts zoomed in on everywhere I've been, `home`, rather
+ * than the whole world. It's all one CSS transform on the layer holding the
+ * SVG and the pins; the pins counter-scale so they stay a finger-sized 14px,
+ * and country borders thin out so they don't thicken as it zooms.
  *
  * Pins are HTML laid over the SVG rather than SVG circles for the same reason.
  * Hovering or focusing a pin or a place lights up both.
@@ -57,23 +60,26 @@ export default function TravelMap({
   height,
   countries,
   pins,
+  home,
 }: {
   ground: string;
   width: number;
   height: number;
   countries: MapCountry[];
   pins: Pin[];
+  /** The starting view, and where Reset goes back to. */
+  home: View;
 }) {
   const [active, setActive] = useState<number | null>(null);
   /** The pin last zoomed to. Its country stays black and the rest of the
       visited ones grey out, with its name in the map's corner, until reset. */
   const [focused, setFocused] = useState<number | null>(null);
-  const [view, setView] = useState<View>(HOME);
+  const [view, setView] = useState<View>(home);
   /** Eased for button and list moves; immediate while a finger is on it. */
   const [animate, setAnimate] = useState(false);
 
   const frameRef = useRef<HTMLDivElement>(null);
-  const viewRef = useRef<View>(HOME);
+  const viewRef = useRef<View>(home);
   const pointers = useRef(new Map<number, Point>());
   const gesture = useRef<{ start: Point; dragging: boolean } | null>(null);
 
@@ -86,36 +92,13 @@ export default function TravelMap({
     };
   }, [ground]);
 
-  // The view's offset is in pixels, so when the frame resizes (a rotated
-  // phone, a resized window) scale it with the frame to stay on the same spot.
-  useEffect(() => {
-    const frame = frameRef.current;
-    if (!frame) return;
-    let last = frame.getBoundingClientRect().width;
-    const observer = new ResizeObserver(() => {
-      const now = frame.getBoundingClientRect().width;
-      if (!last || now === last) return;
-      const ratio = now / last;
-      last = now;
-      const { k, x, y } = viewRef.current;
-      const v = { k, x: x * ratio, y: y * ratio };
-      viewRef.current = v;
-      setAnimate(false);
-      setView(v);
-    });
-    observer.observe(frame);
-    return () => observer.disconnect();
-  }, []);
-
   /** Keeps the map covering its frame: no dragging it off into the void. */
   const clamp = (v: View): View => {
-    const rect = frameRef.current?.getBoundingClientRect();
-    if (!rect) return v;
     const k = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, v.k));
     return {
       k,
-      x: Math.min(0, Math.max(rect.width * (1 - k), v.x)),
-      y: Math.min(0, Math.max(rect.height * (1 - k), v.y)),
+      x: Math.min(0, Math.max(1 - k, v.x)),
+      y: Math.min(0, Math.max(1 - k, v.y)),
     };
   };
 
@@ -128,7 +111,7 @@ export default function TravelMap({
     setView(v);
   };
 
-  /** Zoom by a factor, keeping the point under `at` (frame pixels) in place. */
+  /** Zoom by a factor, keeping the point under `at` (a fraction of the map) in place. */
   const zoomAbout = (factor: number, at: Point, eased: boolean) => {
     const { k, x, y } = viewRef.current;
     const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, k * factor));
@@ -136,15 +119,11 @@ export default function TravelMap({
     apply({ k: next, x: at.x - (at.x - x) * ratio, y: at.y - (at.y - y) * ratio }, eased);
   };
 
-  const zoomButton = (factor: number) => {
-    const rect = frameRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    zoomAbout(factor, { x: rect.width / 2, y: rect.height / 2 }, true);
-  };
+  const zoomButton = (factor: number) => zoomAbout(factor, { x: 0.5, y: 0.5 }, true);
 
   const reset = () => {
     setFocused(null);
-    apply(HOME, true);
+    apply(home, true);
   };
 
   /** Brings the map into view, for zooms started from the list below it. */
@@ -153,16 +132,15 @@ export default function TravelMap({
     frameRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
   };
 
+  /** Zoom to centre a point, in the SVG's units, at zoom k. */
+  const centreOn = (px: number, py: number, k: number) => {
+    apply({ k, x: 0.5 - (px / width) * k, y: 0.5 - (py / height) * k }, true);
+  };
+
   /** Zoom so a box, in the SVG's units, fills the frame with a margin. */
   const fit = ([x0, y0, x1, y1]: [number, number, number, number]) => {
-    const rect = frameRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const s = rect.width / width; // SVG units to frame pixels at zoom 1
-    const k = FIT * Math.min(rect.width / ((x1 - x0) * s), rect.height / ((y1 - y0) * s));
-    const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, k));
-    const cx = ((x0 + x1) / 2) * s;
-    const cy = ((y0 + y1) / 2) * s;
-    apply({ k: next, x: rect.width / 2 - cx * next, y: rect.height / 2 - cy * next }, true);
+    const k = FIT * Math.min(width / (x1 - x0), height / (y1 - y0));
+    centreOn((x0 + x1) / 2, (y0 + y1) / 2, Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, k)));
   };
 
   /** Zoom to a country, naming the first pin in it. */
@@ -182,15 +160,8 @@ export default function TravelMap({
     const pin = pins[i];
     const bounds = pin.countryIndex === null ? undefined : countries[pin.countryIndex].bounds;
     setFocused(i);
-    if (bounds && pin.name === pin.country) {
-      fit(bounds);
-      return;
-    }
-    const rect = frameRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const px = (pin.x / width) * rect.width;
-    const py = (pin.y / height) * rect.height;
-    apply({ k: PLACE_ZOOM, x: rect.width / 2 - px * PLACE_ZOOM, y: rect.height / 2 - py * PLACE_ZOOM }, true);
+    if (bounds && pin.name === pin.country) fit(bounds);
+    else centreOn(pin.x, pin.y, PLACE_ZOOM);
   };
 
   // ── Gestures ───────────────────────────────────────────────────────────────
@@ -224,6 +195,8 @@ export default function TravelMap({
       } catch {}
     }
 
+    if (!frame) return;
+    const rect = frame.getBoundingClientRect();
     if (pointers.current.size === 2) {
       // Pinch: scale by the change in finger spread, about their midpoint,
       // and pan by how far the midpoint moved.
@@ -237,11 +210,17 @@ export default function TravelMap({
         const { k, x, y } = viewRef.current;
         const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, k * (spread / spread0)));
         const ratio = next / k;
-        apply({ k: next, x: mid.x - (mid0.x - x) * ratio, y: mid.y - (mid0.y - y) * ratio }, false);
+        // Pixels to fractions of the map, which views are kept in
+        const fx = (px: number) => px / rect.width;
+        const fy = (py: number) => py / rect.height;
+        apply(
+          { k: next, x: fx(mid.x) - (fx(mid0.x) - x) * ratio, y: fy(mid.y) - (fy(mid0.y) - y) * ratio },
+          false,
+        );
       }
     } else if (g.dragging && viewRef.current.k > 1) {
       const { k, x, y } = viewRef.current;
-      apply({ k, x: x + now.x - prev.x, y: y + now.y - prev.y }, false);
+      apply({ k, x: x + (now.x - prev.x) / rect.width, y: y + (now.y - prev.y) / rect.height }, false);
     }
 
     pointers.current.set(e.pointerId, now);
@@ -258,7 +237,9 @@ export default function TravelMap({
     .map((pin, i) => ({ pin, i, label: pin.name === pin.country ? pin.name : `${pin.name}, ${pin.country}` }))
     .sort((a, b) => a.label.localeCompare(b.label));
 
-  const zoomed = view.k > 1.01;
+  const zoomed = view.k > MIN_ZOOM + 0.01;
+  const atHome =
+    Math.abs(view.k - home.k) < 0.01 && Math.abs(view.x - home.x) < 0.001 && Math.abs(view.y - home.y) < 0.001;
   const focusedPin = focused === null ? null : pins[focused];
   const focusedCountry = focusedPin?.countryIndex ?? null;
   const fillFor = (c: MapCountry, i: number) => {
@@ -303,7 +284,8 @@ export default function TravelMap({
               data-animate={animate}
               style={
                 {
-                  transform: `translate(${view.x}px, ${view.y}px) scale(${view.k})`,
+                  // Percentages of the layer's own size, which is the map's
+                  transform: `translate(${view.x * 100}%, ${view.y * 100}%) scale(${view.k})`,
                   "--zoom": view.k,
                 } as React.CSSProperties
               }
@@ -371,7 +353,7 @@ export default function TravelMap({
           <div className="mt-4 flex items-center justify-between gap-4">
             <p className="travel-hint text-sm opacity-70">Pinch to zoom, drag to look around.</p>
             <div className="ml-auto flex gap-1.5">
-              {zoomed && (
+              {!atHome && (
                 <button type="button" className="travel-control font-display px-3 text-xs uppercase" onClick={reset}>
                   Reset
                 </button>
