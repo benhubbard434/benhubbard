@@ -8,13 +8,23 @@ const INK = "#111";
 
 /** How far the map zooms in: all the way out, and as far as it goes. */
 const MIN_ZOOM = 1;
-const MAX_ZOOM = 8;
-/** How close a place in the list zooms to its pin. */
+const MAX_ZOOM = 12;
+/** How close a place zooms when it has no country to fit, like a city. */
 const PLACE_ZOOM = 4;
+/** How much of the frame a country fills when zoomed to, leaving a margin. */
+const FIT = 0.8;
 /** Movement before a press becomes a drag rather than a tap. */
 const DRAG_SLOP = 6;
 
-type Pin = Place & { x: number; y: number };
+/** In the SVG's units. `countryIndex` is the country it falls in, if drawn. */
+type Pin = Place & { x: number; y: number; countryIndex: number | null };
+
+export type MapCountry = {
+  d: string;
+  visited: boolean;
+  /** Visited countries only: [x0, y0, x1, y1] of their mainland, to zoom to. */
+  bounds?: [number, number, number, number];
+};
 
 /** Scale, then offset in screen pixels, applied to the map from its top-left. */
 type View = { k: number; x: number; y: number };
@@ -26,8 +36,9 @@ const HOME: View = { k: 1, x: 0, y: 0 };
 /**
  * The map and the list of places under it.
  *
- * The map pans and zooms: pinch or drag on a phone, the +/− buttons anywhere,
- * and a place in the list flies to its pin. It's all one CSS transform on the
+ * The map pans and zooms: pinch or drag on a phone, the +/− buttons anywhere.
+ * Clicking a pin, a filled-in country or a place in the list zooms to fit
+ * that country. It's all one CSS transform on the
  * layer holding the SVG and the pins; the pins counter-scale so they stay a
  * finger-sized 14px, and country borders don't thicken as it zooms.
  *
@@ -44,11 +55,11 @@ export default function TravelMap({
   ground: string;
   width: number;
   height: number;
-  countries: { d: string; visited: boolean }[];
+  countries: MapCountry[];
   pins: Pin[];
 }) {
   const [active, setActive] = useState<number | null>(null);
-  /** The pin a place in the list flew to; its name stays up until you move on. */
+  /** The pin last zoomed to; its name stays up until you move on. */
   const [focused, setFocused] = useState<number | null>(null);
   const [view, setView] = useState<View>(HOME);
   /** Eased for button and list moves; immediate while a finger is on it. */
@@ -57,7 +68,7 @@ export default function TravelMap({
   const frameRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<View>(HOME);
   const pointers = useRef(new Map<number, Point>());
-  const gesture = useRef<{ start: Point; dragging: boolean; pin: number | null } | null>(null);
+  const gesture = useRef<{ start: Point; dragging: boolean } | null>(null);
 
   // Paint the document too, so overscroll shows the quest's colour.
   useEffect(() => {
@@ -127,17 +138,50 @@ export default function TravelMap({
     apply(HOME, true);
   };
 
-  /** Fly to a pin, bringing the map into view first if the list is on screen. */
-  const flyTo = (i: number) => {
-    const frame = frameRef.current;
-    if (!frame) return;
-    const rect = frame.getBoundingClientRect();
-    const px = (pins[i].x / width) * rect.width;
-    const py = (pins[i].y / height) * rect.height;
-    setFocused(i);
-    apply({ k: PLACE_ZOOM, x: rect.width / 2 - px * PLACE_ZOOM, y: rect.height / 2 - py * PLACE_ZOOM }, true);
+  /** Brings the map into view, for zooms started from the list below it. */
+  const bringIntoView = () => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    frame.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    frameRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  };
+
+  /** Zoom so a box, in the SVG's units, fills the frame with a margin. */
+  const fit = ([x0, y0, x1, y1]: [number, number, number, number]) => {
+    const rect = frameRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const s = rect.width / width; // SVG units to frame pixels at zoom 1
+    const k = FIT * Math.min(rect.width / ((x1 - x0) * s), rect.height / ((y1 - y0) * s));
+    const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, k));
+    const cx = ((x0 + x1) / 2) * s;
+    const cy = ((y0 + y1) / 2) * s;
+    apply({ k: next, x: rect.width / 2 - cx * next, y: rect.height / 2 - cy * next }, true);
+  };
+
+  /** Zoom to a country, naming the first pin in it. */
+  const showCountry = (ci: number) => {
+    const bounds = countries[ci].bounds;
+    if (!bounds) return;
+    const first = pins.findIndex((p) => p.countryIndex === ci);
+    setFocused(first === -1 ? null : first);
+    fit(bounds);
+  };
+
+  /**
+   * Zoom to a pin: to fit its whole country if the pin stands for one, or
+   * close in on the spot if it's a city (or somewhere too small to draw).
+   */
+  const showPin = (i: number) => {
+    const pin = pins[i];
+    const bounds = pin.countryIndex === null ? undefined : countries[pin.countryIndex].bounds;
+    setFocused(i);
+    if (bounds && pin.name === pin.country) {
+      fit(bounds);
+      return;
+    }
+    const rect = frameRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const px = (pin.x / width) * rect.width;
+    const py = (pin.y / height) * rect.height;
+    apply({ k: PLACE_ZOOM, x: rect.width / 2 - px * PLACE_ZOOM, y: rect.height / 2 - py * PLACE_ZOOM }, true);
   };
 
   // ── Gestures ───────────────────────────────────────────────────────────────
@@ -149,12 +193,7 @@ export default function TravelMap({
 
   const onPointerDown = (e: React.PointerEvent) => {
     pointers.current.set(e.pointerId, local(e));
-    const pinEl = (e.target as HTMLElement).closest<HTMLElement>("[data-pin]");
-    gesture.current = {
-      start: local(e),
-      dragging: pointers.current.size > 1,
-      pin: pinEl ? Number(pinEl.dataset.pin) : null,
-    };
+    gesture.current = { start: local(e), dragging: pointers.current.size > 1 };
   };
 
   const onPointerMove = (e: React.PointerEvent) => {
@@ -168,7 +207,8 @@ export default function TravelMap({
     }
     const frame = frameRef.current;
     if (g.dragging && frame && !frame.hasPointerCapture(e.pointerId)) {
-      // Captured only once it's a real drag, so a tap still reaches a pin.
+      // Captured only once it's a real drag, so a tap still clicks a pin or
+      // a country, and a drag that ends on one doesn't.
       // Throws if the pointer has already gone, which just means no capture.
       try {
         frame.setPointerCapture(e.pointerId);
@@ -199,12 +239,7 @@ export default function TravelMap({
   };
 
   const onPointerUp = (e: React.PointerEvent) => {
-    const g = gesture.current;
     pointers.current.delete(e.pointerId);
-    // A tap on a pin on a touch screen, which has no hover, shows its name
-    if (g && !g.dragging && e.pointerType !== "mouse") {
-      setFocused(g.pin);
-    }
     if (pointers.current.size === 0) gesture.current = null;
   };
 
@@ -262,11 +297,11 @@ export default function TravelMap({
                   <path
                     key={i}
                     d={c.d}
+                    className={c.visited ? "travel-country" : undefined}
+                    onClick={c.visited ? () => showCountry(i) : undefined}
                     fill={c.visited ? INK : "rgba(17,17,17,0.16)"}
                     stroke={ground}
-                    strokeWidth={0.8}
                     strokeLinejoin="round"
-                    vectorEffect="non-scaling-stroke"
                   />
                 ))}
               </svg>
@@ -289,7 +324,8 @@ export default function TravelMap({
                   onPointerLeave={() => setActive(null)}
                   onFocus={() => setActive(i)}
                   onBlur={() => setActive(null)}
-                  aria-label={`${pin.name}, ${pin.country}`}
+                  onClick={() => showPin(i)}
+                  aria-label={`Zoom to ${pin.name === pin.country ? pin.name : `${pin.name}, ${pin.country}`}`}
                 >
                   <span className="travel-pin-dot" />
                   <span className="travel-pin-label font-display" aria-hidden="true">
@@ -339,7 +375,10 @@ export default function TravelMap({
                   data-active={active === i || focused === i}
                   onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
                   onPointerLeave={() => setActive(null)}
-                  onClick={() => flyTo(i)}
+                  onClick={() => {
+                    bringIntoView();
+                    showPin(i);
+                  }}
                   aria-label={`Show ${label} on the map`}
                 >
                   {label}

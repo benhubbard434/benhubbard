@@ -777,6 +777,24 @@ body:has([data-full-bleed]) {
   transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Borders thin out as the map zooms, so they stay hairlines. (SVG's own
+   non-scaling-stroke can't do this: it ignores the CSS zoom on the layer.) */
+.travel-layer svg path {
+  stroke-width: calc(0.8 / var(--zoom, 1));
+}
+
+/* Filled-in countries zoom to themselves when clicked */
+.travel-country {
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+
+@media (hover: hover) {
+  .travel-country:hover {
+    opacity: 0.75;
+  }
+}
+
 /* Pins undo the layer's zoom, so they stay the same size at any zoom */
 .travel-layer .travel-pin {
   scale: calc(1 / var(--zoom, 1));
