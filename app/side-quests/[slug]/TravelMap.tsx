@@ -16,7 +16,9 @@ const FILL_UNVISITED = "rgba(17,17,17,0.16)";
 
 /** How far the map zooms in: all the way out, and as far as it goes. */
 const MIN_ZOOM = 1;
-const MAX_ZOOM = 12;
+const MAX_ZOOM = 36;
+/** As far as clicking a country zooms on its own; the rest is by hand. */
+const MAX_FIT_ZOOM = 12;
 /** How close a place zooms when it has no country to fit, like a city. */
 const PLACE_ZOOM = 4;
 /** How much of the frame a country fills when zoomed to, leaving a margin. */
@@ -163,7 +165,7 @@ export default function TravelMap({
 
   /** The zoom at which a box, in the SVG's units, fills the frame with a margin. */
   const fitZoom = ([x0, y0, x1, y1]: [number, number, number, number]) =>
-    Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, FIT * Math.min(width / (x1 - x0), height / (y1 - y0))));
+    Math.min(MAX_FIT_ZOOM, Math.max(MIN_ZOOM, FIT * Math.min(width / (x1 - x0), height / (y1 - y0))));
 
   const fit = (bounds: [number, number, number, number]) => {
     const [x0, y0, x1, y1] = bounds;
