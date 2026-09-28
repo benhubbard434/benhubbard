@@ -36,14 +36,6 @@ const HELP = [
   },
 ];
 
-/** How mentoring on Tangent works, as its mentors page lays it out. */
-const STEPS = [
-  { title: "Sign up", body: "Every mentor is vetted: you have to work in tech and sign up with LinkedIn." },
-  { title: "Discover", body: "Jobseekers post a short video intro instead of a cover letter. You browse the feed." },
-  { title: "Connect", body: "Message someone whose story lands with you, and set up a call." },
-  { title: "Support", body: "Mentor them until they're hired: CV, interviews, and a referral if you choose." },
-];
-
 const MARQUEE = ["Intro calls", "CV reviews", "Interview prep", "Referrals", "Paying it forward"];
 
 const COMPASS = 148;
@@ -229,24 +221,6 @@ export default function Mentoring({ ground }: { ground: string }) {
               <span className="font-display text-sm opacity-60">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="text-h2">{item.title}</h3>
               <p className="leading-relaxed">{item.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* ── How it works ──────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-6 pt-32 md:px-10" aria-labelledby="mt-how">
-        <p className="mb-3 text-sm uppercase tracking-[0.2em]">On Tangent</p>
-        <h2 id="mt-how" className="font-display text-h2">
-          Four steps
-        </h2>
-
-        <ol className="mt-12 grid gap-10 md:grid-cols-4 md:gap-8">
-          {STEPS.map((step, i) => (
-            <li key={step.title} className="ps-reveal pt-4" style={{ borderTop: `3px solid ${INK}` }}>
-              <span className="font-display text-display leading-none">{i + 1}</span>
-              <h3 className="text-h3 mt-4">{step.title}</h3>
-              <p className="mt-2 leading-relaxed">{step.body}</p>
             </li>
           ))}
         </ol>
