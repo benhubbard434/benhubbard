@@ -70,6 +70,8 @@ export const places: Place[] = [
   { name: "Turkey", country: "Turkey", lat: 39.0, lon: 35.2 },
   { name: "United Arab Emirates", country: "United Arab Emirates", lat: 23.9, lon: 54.3 },
   { name: "Estonia", country: "Estonia", lat: 58.7, lon: 25.5 },
+  // A Crown Dependency rather than part of the UK, with its own outline
+  { name: "Jersey", country: "Jersey", lat: 49.214, lon: -2.131 },
   // Too small for the coarse outline, so drawn from the detailed one
   { name: "Maldives", country: "Maldives", lat: 4.1755, lon: 73.5093 },
 ];
@@ -103,6 +105,9 @@ export const cities: City[] = [
   { name: "Cambridge", country: "United Kingdom", lat: 52.2053, lon: 0.1218 },
   { name: "Cardiff", country: "United Kingdom", lat: 51.4816, lon: -3.1791 },
   { name: "Belfast", country: "United Kingdom", lat: 54.5973, lon: -5.9301 },
+  { name: "Lewes", country: "United Kingdom", lat: 50.8739, lon: 0.0088 },
+  // The stay was in Boxgrove, beside the Goodwood estate
+  { name: "Goodwood", country: "United Kingdom", lat: 50.8588, lon: -0.7143 },
   { name: "Cotswolds", country: "United Kingdom", lat: 51.93, lon: -1.72 },
   { name: "North Norfolk", country: "United Kingdom", lat: 52.9, lon: 1.08 },
   // Ireland
@@ -128,6 +133,7 @@ export const cities: City[] = [
   { name: "Heraklion", country: "Greece", lat: 35.3387, lon: 25.1442 },
   { name: "Chania", country: "Greece", lat: 35.5138, lon: 24.018 },
   { name: "Sougia", country: "Greece", lat: 35.25, lon: 23.8083 },
+  { name: "Mykonos", country: "Greece", lat: 37.4467, lon: 25.3289 },
   // Croatia
   { name: "Split", country: "Croatia", lat: 43.5081, lon: 16.4402 },
   // Turkey
