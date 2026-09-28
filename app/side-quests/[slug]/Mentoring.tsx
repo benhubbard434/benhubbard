@@ -252,22 +252,6 @@ export default function Mentoring({ ground }: { ground: string }) {
         </ol>
       </section>
 
-      {/* ── Time ──────────────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-6 pt-32 md:px-10">
-        <div className="grid items-end gap-6 md:grid-cols-[auto_1fr] md:gap-14" style={{ borderBlock: `3px solid ${INK}` }}>
-          <p className="font-display py-6 text-[clamp(4rem,2rem+8vw,9rem)] leading-none whitespace-nowrap pr-[0.1em] uppercase">
-            1–4 hrs
-          </p>
-          <div className="pb-8">
-            <p className="font-display text-h3 uppercase">A month. That&apos;s it.</p>
-            <p className="font-subhead mt-3 text-h4">
-              Mentors on Tangent typically give an hour or a few a month, until the person
-              they&apos;re supporting gets hired. Low time, huge swing.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ── Call to action ────────────────────────────────────────────────── */}
       <section className="px-6 pt-32 text-center md:px-10" aria-labelledby="mt-cta">
         <h2 id="mt-cta" className="font-display mx-auto max-w-3xl text-h1">
