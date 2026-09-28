@@ -32,8 +32,6 @@ const HELP = [
   },
 ];
 
-const MARQUEE = ["Intro calls", "CV reviews", "Interview prep", "Referrals", "Paying it forward"];
-
 const COMPASS = 148;
 
 /**
@@ -147,23 +145,6 @@ export default function Mentoring({ ground }: { ground: string }) {
         </p>
       </section>
 
-      {/* ── Marquee ───────────────────────────────────────────────────────── */}
-      <div className="w-screen overflow-hidden py-3" style={{ borderBlock: `3px solid ${INK}` }}>
-        <div className="flex w-max animate-marquee">
-          {/* Twice over: the keyframe travels -50%, so the second copy is
-              already in place when the first runs out. */}
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0" aria-hidden={copy === 1}>
-              {MARQUEE.map((word) => (
-                <span key={word} className="font-display text-h3 px-6 whitespace-nowrap">
-                  {word} ✦
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ── Why referrals ─────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 pt-28 md:px-10" aria-labelledby="mt-why">
         <p className="mb-3 text-sm uppercase tracking-[0.2em]">Don&apos;t apply</p>
@@ -211,7 +192,7 @@ export default function Mentoring({ ground }: { ground: string }) {
           {HELP.map((item, i) => (
             <li
               key={item.title}
-              className="mt-row grid gap-2 px-3 py-6 md:grid-cols-[4rem_1fr_1.4fr] md:items-baseline md:gap-8"
+              className="mt-row grid gap-2 px-3 py-6 md:grid-cols-[4rem_1fr_1.4fr] md:items-center md:gap-8"
               style={{ borderBottom: "1px solid rgba(17,17,17,0.3)" }}
             >
               <span className="font-display text-sm opacity-60">{String(i + 1).padStart(2, "0")}</span>
