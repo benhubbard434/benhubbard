@@ -86,6 +86,8 @@ export const cities: City[] = [
   { name: "Ibiza Town", country: "Spain", lat: 38.9067, lon: 1.4206 },
   { name: "Pollensa", country: "Spain", lat: 39.877, lon: 3.016 },
   { name: "Puerto Pollensa", country: "Spain", lat: 39.9056, lon: 3.0853 },
+  // Ireland
+  { name: "Dublin", country: "Ireland", lat: 53.3498, lon: -6.2603 },
   // France
   { name: "Paris", country: "France", lat: 48.8566, lon: 2.3522 },
   { name: "Saint-Tropez", country: "France", lat: 43.2727, lon: 6.6406 },
