@@ -209,10 +209,10 @@ export default function TravelMap({
   };
 
   const countryNames = [...new Set(pins.map((p) => p.country))].sort();
-  const byCountry = countryNames.map((country) => ({
-    country,
-    places: pins.map((pin, i) => ({ pin, i })).filter(({ pin }) => pin.country === country),
-  }));
+  // A whole country goes by its name; a city carries its country after it
+  const listed = pins
+    .map((pin, i) => ({ pin, i, label: pin.name === pin.country ? pin.name : `${pin.name}, ${pin.country}` }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 
   const zoomed = view.k > 1.01;
 
@@ -229,8 +229,7 @@ export default function TravelMap({
           <h1 className="font-display text-display">Travel</h1>
           {pins.length > 0 && (
             <p className="font-subhead text-h3 pb-2">
-              {countryNames.length} {countryNames.length === 1 ? "country" : "countries"} ·{" "}
-              {pins.length} {pins.length === 1 ? "place" : "places"}
+              {countryNames.length} {countryNames.length === 1 ? "country" : "countries"}
             </p>
           )}
         </div>
@@ -331,31 +330,20 @@ export default function TravelMap({
           <h2 id="travel-places" className="font-display text-h2">
             Where I&apos;ve been
           </h2>
-          <ul className="mt-10" style={{ borderTop: `3px solid ${INK}` }}>
-            {byCountry.map(({ country, places }) => (
-              <li
-                key={country}
-                className="grid gap-2 py-5 md:grid-cols-[1fr_2fr] md:items-center md:gap-8"
-                style={{ borderBottom: "1px solid rgba(17,17,17,0.3)" }}
-              >
-                <h3 className="text-h3">{country}</h3>
-                <ul className="flex flex-wrap gap-2">
-                  {places.map(({ pin, i }) => (
-                    <li key={pin.name}>
-                      <button
-                        type="button"
-                        className="travel-chip inline-block rounded-full px-3 py-1 text-sm"
-                        data-active={active === i || focused === i}
-                        onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
-                        onPointerLeave={() => setActive(null)}
-                        onClick={() => flyTo(i)}
-                        aria-label={`Show ${pin.name} on the map`}
-                      >
-                        {pin.name}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+          <ul className="mt-10 flex flex-wrap gap-3 pt-8" style={{ borderTop: `3px solid ${INK}` }}>
+            {listed.map(({ i, label }) => (
+              <li key={label}>
+                <button
+                  type="button"
+                  className="travel-chip font-subhead rounded-full px-5 py-2 text-h4"
+                  data-active={active === i || focused === i}
+                  onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
+                  onPointerLeave={() => setActive(null)}
+                  onClick={() => flyTo(i)}
+                  aria-label={`Show ${label} on the map`}
+                >
+                  {label}
+                </button>
               </li>
             ))}
           </ul>
