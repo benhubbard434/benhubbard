@@ -1098,16 +1098,45 @@ body:has([data-full-bleed]) {
   to   { opacity: 1; translate: 0 0; }
 }
 
-/* Place names in the list, inverting with their pin */
-.travel-chip {
-  border: 2px solid #111;
-  cursor: pointer;
-  transition: background-color 150ms ease, color 150ms ease;
+/* The list's country rows. The selected country's row inverts into ink,
+   as rows do elsewhere on the site, and its city chips follow suit. */
+.travel-row {
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
-.travel-chip[data-active="true"] {
+.travel-row[data-selected="true"] {
   background: #111;
   color: var(--ground);
+}
+
+.travel-country-name {
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.travel-country-name:hover,
+.travel-country-name[data-active="true"] {
+  text-decoration-color: currentColor;
+}
+
+.travel-row[data-selected="true"] .travel-city-chip {
+  border-color: var(--ground);
+}
+
+.travel-row[data-selected="true"] .travel-city-chip[data-active="true"] {
+  background: var(--ground);
+  color: #111;
+}
+
+/* A selected city stays blue, even in its inverted row */
+.travel-row[data-selected="true"] .travel-city-chip[data-selected="true"] {
+  background: #470ff4;
+  border-color: #470ff4;
+  color: #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {

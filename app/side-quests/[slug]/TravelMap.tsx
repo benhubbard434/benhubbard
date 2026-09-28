@@ -519,18 +519,25 @@ export default function TravelMap({
               </button>
             )}
           </div>
-          <ul className="mt-10 flex flex-wrap gap-3 pt-8" style={{ borderTop: `3px solid ${INK}` }}>
+          {/* A ruled row per country: its name on the left, and on the right
+              its cities once it's selected (or with the switch on), or a
+              count of them until then */}
+          <ul className="mt-10" style={{ borderTop: `3px solid ${INK}` }}>
             {listed.map(({ pin, i, label }) => {
-              // A country's cities show under it once it's selected, or all
-              // of them with the switch on
-              const open = allCities || focusedPin?.country === pin.country;
-              const own = open ? citiesOf(pin.country) : [];
+              const selected = focusedPin?.country === pin.country;
+              const own = citiesOf(pin.country);
+              const open = allCities || selected;
               return (
-                <li key={label} className="flex flex-wrap items-center gap-2">
+                <li
+                  key={label}
+                  className="travel-row grid gap-3 px-3 py-4 md:grid-cols-[minmax(14rem,1fr)_2fr] md:items-center md:gap-8"
+                  data-selected={selected}
+                  style={{ borderBottom: "1px solid rgba(17,17,17,0.3)" }}
+                >
                   <button
                     type="button"
-                    className="travel-chip font-subhead rounded-full px-5 py-2 text-h4"
-                    data-active={active === i || focused === i}
+                    className="travel-country-name font-subhead text-left text-h3"
+                    data-active={active === i}
                     onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
                     onPointerLeave={() => setActive(null)}
                     onClick={() => {
@@ -538,28 +545,41 @@ export default function TravelMap({
                       showPin(i);
                     }}
                     aria-label={`Show ${label} on the map`}
+                    aria-current={selected ? "true" : undefined}
                   >
                     {label}
                   </button>
-                  {own.map(({ city, ci }) => (
-                    <button
-                      key={city.name}
-                      type="button"
-                      className="travel-city-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm"
-                      data-active={activeCity === ci}
-                      data-selected={selectedCity === ci}
-                      onPointerEnter={(e) => e.pointerType === "mouse" && setActiveCity(ci)}
-                      onPointerLeave={() => setActiveCity(null)}
-                      onClick={() => {
-                        bringIntoView();
-                        showCity(ci);
-                      }}
-                      aria-label={`Show ${city.name}, ${city.country} on the map`}
-                    >
-                      {city.name}
-                      {city.album && city.album.length > 0 && <ImageIcon size={12} weight="bold" aria-hidden="true" />}
-                    </button>
-                  ))}
+
+                  {open && own.length > 0 ? (
+                    <ul className="flex flex-wrap gap-2" aria-label={`Cities in ${pin.country}`}>
+                      {own.map(({ city, ci }) => (
+                        <li key={city.name}>
+                          <button
+                            type="button"
+                            className="travel-city-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm"
+                            data-active={activeCity === ci}
+                            data-selected={selectedCity === ci}
+                            onPointerEnter={(e) => e.pointerType === "mouse" && setActiveCity(ci)}
+                            onPointerLeave={() => setActiveCity(null)}
+                            onClick={() => {
+                              bringIntoView();
+                              showCity(ci);
+                            }}
+                            aria-label={`Show ${city.name}, ${city.country} on the map`}
+                          >
+                            {city.name}
+                            {city.album && city.album.length > 0 && (
+                              <ImageIcon size={12} weight="bold" aria-hidden="true" />
+                            )}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : own.length > 0 ? (
+                    <p className="text-sm opacity-70">
+                      {own.length} {own.length === 1 ? "city" : "cities"}
+                    </p>
+                  ) : null}
                 </li>
               );
             })}
