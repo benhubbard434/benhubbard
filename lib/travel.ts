@@ -15,6 +15,28 @@ export type Place = {
   lon: number;
 };
 
+export type Photo = {
+  /** A path under /public, or a full URL on an allowed image host. */
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+/**
+ * A city within a visited country. Cities stay hidden until their country
+ * is selected on the map (or the list's "show all cities" is on), and only
+ * appear on the map once it's zoomed in far enough to tell them apart.
+ */
+export type City = {
+  name: string;
+  /** Must match the `country` of a place below, which it's grouped under. */
+  country: string;
+  lat: number;
+  lon: number;
+  /** Photos from the trip. The pin gets a photo button that opens them. */
+  album?: Photo[];
+};
+
 /**
  * Far-flung parts of a visited country that I haven't been to, so they stay
  * unfilled. Each is a point inside the territory: whichever piece of its
@@ -44,3 +66,5 @@ export const places: Place[] = [
   // Too small to draw at this scale, so it's a pin without a fill
   { name: "Maldives", country: "Maldives", lat: 4.1755, lon: 73.5093 },
 ];
+
+export const cities: City[] = [];

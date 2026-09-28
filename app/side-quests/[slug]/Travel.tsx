@@ -3,7 +3,7 @@ import { feature } from "topojson-client";
 import type { Topology, GeometryCollection } from "topojson-specification";
 import type { Feature, Geometry, MultiPolygon, Polygon } from "geojson";
 import countries110m from "world-atlas/countries-110m.json";
-import { notVisited, places } from "@/lib/travel";
+import { cities, notVisited, places } from "@/lib/travel";
 import TravelMap, { type MapCountry } from "./TravelMap";
 
 const WIDTH = 1000;
@@ -85,6 +85,11 @@ export default function Travel({ ground }: { ground: string }) {
     return { ...p, x, y, countryIndex: country === -1 ? null : country };
   });
 
+  const cityPins = cities.map((c) => {
+    const [x, y] = projection([c.lon, c.lat]) ?? [0, 0];
+    return { ...c, x, y };
+  });
+
   // The starting view: everywhere I've been, filling most of the map. Most of
   // it is in Europe, which is a speck on the whole world.
   const boxes: Box[] = [
@@ -104,7 +109,15 @@ export default function Travel({ ground }: { ground: string }) {
   );
 
   return (
-    <TravelMap ground={ground} width={WIDTH} height={height} countries={countries} pins={pins} home={home} />
+    <TravelMap
+      ground={ground}
+      width={WIDTH}
+      height={height}
+      countries={countries}
+      pins={pins}
+      cities={cityPins}
+      home={home}
+    />
   );
 }
 

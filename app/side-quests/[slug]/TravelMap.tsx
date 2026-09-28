@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import type { Place } from "@/lib/travel";
+import { Image as ImageIcon } from "@phosphor-icons/react";
+import type { City, Place } from "@/lib/travel";
+import TravelLightbox from "./TravelLightbox";
 
 const INK = "#111";
 /** The brand blue, as on the AI tab */
@@ -19,11 +21,16 @@ const MAX_ZOOM = 12;
 const PLACE_ZOOM = 4;
 /** How much of the frame a country fills when zoomed to, leaving a margin. */
 const FIT = 0.8;
+/** How far in the map has to be before a selected country's cities show. */
+const CITY_ZOOM = 3;
 /** Movement before a press becomes a drag rather than a tap. */
 const DRAG_SLOP = 6;
 
 /** In the SVG's units. `countryIndex` is the country it falls in, if drawn. */
 type Pin = Place & { x: number; y: number; countryIndex: number | null };
+
+/** A city, in the SVG's units. */
+type CityPin = City & { x: number; y: number };
 
 export type MapCountry = {
   d: string;
@@ -53,6 +60,12 @@ type Point = { x: number; y: number };
  *
  * Pins are HTML laid over the SVG rather than SVG circles for the same reason.
  * Hovering or focusing a pin or a place lights up both.
+ *
+ * Cities stay out of sight until their country is selected: then they appear
+ * on the map, once it's zoomed in far enough to separate them, and in the
+ * list under their country (or all of them, with "show all cities"). A
+ * selected city's name shows over its pin in blue. A city with an album gets
+ * a photo button on its pin, which opens the album full screen.
  */
 export default function TravelMap({
   ground,
@@ -60,6 +73,7 @@ export default function TravelMap({
   height,
   countries,
   pins,
+  cities,
   home,
 }: {
   ground: string;
@@ -67,6 +81,7 @@ export default function TravelMap({
   height: number;
   countries: MapCountry[];
   pins: Pin[];
+  cities: CityPin[];
   /** The starting view, and where Reset goes back to. */
   home: View;
 }) {
@@ -77,6 +92,11 @@ export default function TravelMap({
   const [view, setView] = useState<View>(home);
   /** Eased for button and list moves; immediate while a finger is on it. */
   const [animate, setAnimate] = useState(false);
+  /** Cities, by index: hovered, selected (named in blue), and album open. */
+  const [activeCity, setActiveCity] = useState<number | null>(null);
+  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+  const [album, setAlbum] = useState<number | null>(null);
+  const [allCities, setAllCities] = useState(false);
 
   const frameRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<View>(home);
@@ -105,7 +125,10 @@ export default function TravelMap({
   const apply = (next: View, eased: boolean) => {
     const v = clamp(next);
     // Zoomed all the way back out, nothing's in focus any more
-    if (v.k <= MIN_ZOOM + 0.01) setFocused(null);
+    if (v.k <= MIN_ZOOM + 0.01) {
+      setFocused(null);
+      setSelectedCity(null);
+    }
     viewRef.current = v;
     setAnimate(eased);
     setView(v);
@@ -123,6 +146,7 @@ export default function TravelMap({
 
   const reset = () => {
     setFocused(null);
+    setSelectedCity(null);
     apply(home, true);
   };
 
@@ -137,10 +161,13 @@ export default function TravelMap({
     apply({ k, x: 0.5 - (px / width) * k, y: 0.5 - (py / height) * k }, true);
   };
 
-  /** Zoom so a box, in the SVG's units, fills the frame with a margin. */
-  const fit = ([x0, y0, x1, y1]: [number, number, number, number]) => {
-    const k = FIT * Math.min(width / (x1 - x0), height / (y1 - y0));
-    centreOn((x0 + x1) / 2, (y0 + y1) / 2, Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, k)));
+  /** The zoom at which a box, in the SVG's units, fills the frame with a margin. */
+  const fitZoom = ([x0, y0, x1, y1]: [number, number, number, number]) =>
+    Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, FIT * Math.min(width / (x1 - x0), height / (y1 - y0))));
+
+  const fit = (bounds: [number, number, number, number]) => {
+    const [x0, y0, x1, y1] = bounds;
+    centreOn((x0 + x1) / 2, (y0 + y1) / 2, fitZoom(bounds));
   };
 
   /** Zoom to a country, naming the first pin in it. */
@@ -149,6 +176,7 @@ export default function TravelMap({
     if (!bounds) return;
     const first = pins.findIndex((p) => p.countryIndex === ci);
     setFocused(first === -1 ? null : first);
+    setSelectedCity(null);
     fit(bounds);
   };
 
@@ -160,8 +188,26 @@ export default function TravelMap({
     const pin = pins[i];
     const bounds = pin.countryIndex === null ? undefined : countries[pin.countryIndex].bounds;
     setFocused(i);
+    setSelectedCity(null);
     if (bounds && pin.name === pin.country) fit(bounds);
     else centreOn(pin.x, pin.y, PLACE_ZOOM);
+  };
+
+  /**
+   * Select a city from the list: zoom to its country, as its country's pin
+   * would, and name the city in blue. If fitting the whole country leaves the
+   * map too far out for cities to show, it closes in on the city instead.
+   */
+  const showCity = (ci: number) => {
+    const city = cities[ci];
+    const pi = pins.findIndex((p) => p.country === city.country);
+    if (pi === -1) return;
+    const pin = pins[pi];
+    const bounds = pin.countryIndex === null ? undefined : countries[pin.countryIndex].bounds;
+    setFocused(pi);
+    setSelectedCity(ci);
+    if (bounds && pin.name === pin.country && fitZoom(bounds) >= CITY_ZOOM) fit(bounds);
+    else centreOn(city.x, city.y, Math.max(PLACE_ZOOM, CITY_ZOOM));
   };
 
   // ── Gestures ───────────────────────────────────────────────────────────────
@@ -248,6 +294,15 @@ export default function TravelMap({
     return FILL_DIMMED;
   };
 
+  const citiesOf = (country: string) =>
+    cities.map((city, ci) => ({ city, ci })).filter(({ city }) => city.country === country);
+  // The selected country's cities, once the map is in close enough
+  const shownCities =
+    focusedPin && view.k >= CITY_ZOOM - 0.01 ? citiesOf(focusedPin.country) : [];
+  const albumCity = album === null ? null : cities[album];
+  // A country's own pin steps aside for its cities
+  const hidePin = (i: number) => i === focused && shownCities.length > 0 && pins[i].name === pins[i].country;
+
   return (
     <main
       data-full-bleed
@@ -304,7 +359,7 @@ export default function TravelMap({
                 ))}
               </svg>
 
-              {pins.map((pin, i) => (
+              {pins.map((pin, i) => hidePin(i) ? null : (
                 <button
                   key={`${pin.name}-${pin.country}`}
                   type="button"
@@ -331,6 +386,50 @@ export default function TravelMap({
                     {pin.name}
                   </span>
                 </button>
+              ))}
+
+              {shownCities.map(({ city, ci }, n) => (
+                <div
+                  key={`${city.name}-${city.country}`}
+                  className="travel-pin travel-city absolute"
+                  data-active={activeCity === ci}
+                  data-selected={selectedCity === ci}
+                  style={
+                    {
+                      left: `${(city.x / width) * 100}%`,
+                      top: `${(city.y / height) * 100}%`,
+                      animationDelay: `${Math.min(n * 50, 600)}ms`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <button
+                    type="button"
+                    className="travel-city-hit"
+                    onPointerEnter={(e) => e.pointerType === "mouse" && setActiveCity(ci)}
+                    onPointerLeave={() => setActiveCity(null)}
+                    onFocus={() => setActiveCity(ci)}
+                    onBlur={() => setActiveCity(null)}
+                    onClick={() => setSelectedCity(ci)}
+                    aria-label={city.name}
+                    aria-pressed={selectedCity === ci}
+                  >
+                    <span className="travel-pin-dot" />
+                  </button>
+                  <span className="travel-pin-label font-display" aria-hidden="true">
+                    {city.name}
+                  </span>
+                  {city.album && city.album.length > 0 && (
+                    <button
+                      type="button"
+                      className="travel-album"
+                      data-album={ci}
+                      onClick={() => setAlbum(ci)}
+                      aria-label={`Open photos from ${city.name}`}
+                    >
+                      <ImageIcon size={14} weight="bold" />
+                    </button>
+                  )}
+                </div>
               ))}
             </div>
 
@@ -374,30 +473,87 @@ export default function TravelMap({
       {/* ── Places ────────────────────────────────────────────────────────── */}
       {pins.length > 0 && (
         <section className="mx-auto max-w-6xl px-6 pt-24 md:px-10" aria-labelledby="travel-places">
-          <h2 id="travel-places" className="font-display text-h2">
-            Where I&apos;ve been
-          </h2>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="travel-places" className="font-display text-h2">
+              Where I&apos;ve been
+            </h2>
+            {cities.length > 0 && (
+              <button
+                type="button"
+                role="switch"
+                aria-checked={allCities}
+                onClick={() => setAllCities((on) => !on)}
+                className="travel-switch flex items-center gap-3 pb-1 text-sm"
+              >
+                <span className="travel-switch-track" aria-hidden="true">
+                  <span className="travel-switch-thumb" />
+                </span>
+                Show all cities
+              </button>
+            )}
+          </div>
           <ul className="mt-10 flex flex-wrap gap-3 pt-8" style={{ borderTop: `3px solid ${INK}` }}>
-            {listed.map(({ i, label }) => (
-              <li key={label}>
-                <button
-                  type="button"
-                  className="travel-chip font-subhead rounded-full px-5 py-2 text-h4"
-                  data-active={active === i || focused === i}
-                  onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
-                  onPointerLeave={() => setActive(null)}
-                  onClick={() => {
-                    bringIntoView();
-                    showPin(i);
-                  }}
-                  aria-label={`Show ${label} on the map`}
-                >
-                  {label}
-                </button>
-              </li>
-            ))}
+            {listed.map(({ pin, i, label }) => {
+              // A country's cities show under it once it's selected, or all
+              // of them with the switch on
+              const open = allCities || focusedPin?.country === pin.country;
+              const own = open ? citiesOf(pin.country) : [];
+              return (
+                <li key={label} className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    className="travel-chip font-subhead rounded-full px-5 py-2 text-h4"
+                    data-active={active === i || focused === i}
+                    onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
+                    onPointerLeave={() => setActive(null)}
+                    onClick={() => {
+                      bringIntoView();
+                      showPin(i);
+                    }}
+                    aria-label={`Show ${label} on the map`}
+                  >
+                    {label}
+                  </button>
+                  {own.map(({ city, ci }) => (
+                    <button
+                      key={city.name}
+                      type="button"
+                      className="travel-city-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm"
+                      data-active={activeCity === ci}
+                      data-selected={selectedCity === ci}
+                      onPointerEnter={(e) => e.pointerType === "mouse" && setActiveCity(ci)}
+                      onPointerLeave={() => setActiveCity(null)}
+                      onClick={() => {
+                        bringIntoView();
+                        showCity(ci);
+                      }}
+                      aria-label={`Show ${city.name}, ${city.country} on the map`}
+                    >
+                      {city.name}
+                      {city.album && city.album.length > 0 && <ImageIcon size={12} weight="bold" aria-hidden="true" />}
+                    </button>
+                  ))}
+                </li>
+              );
+            })}
           </ul>
         </section>
+      )}
+
+      {albumCity?.album && (
+        <TravelLightbox
+          title={`${albumCity.name}, ${albumCity.country}`}
+          photos={albumCity.album}
+          onClose={() => {
+            const ci = album;
+            setAlbum(null);
+            // Back to the photo button it came from. Safari doesn't focus a
+            // button on click, so the lightbox can't rely on remembering it.
+            requestAnimationFrame(() =>
+              frameRef.current?.querySelector<HTMLElement>(`[data-album="${ci}"]`)?.focus(),
+            );
+          }}
+        />
       )}
 
       <div className="mt-24 flex justify-center px-6">
