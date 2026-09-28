@@ -67,15 +67,18 @@ export default function Mentoring({ ground }: { ground: string }) {
         </p>
       </section>
 
-      {/* ── Why referrals ─────────────────────────────────────────────────── */}
+      {/* ── Why I do it ────────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 pt-28 md:px-10" aria-labelledby="mt-why">
-        <p className="mb-3 text-sm uppercase tracking-[0.2em]">Don&apos;t apply</p>
+        <p className="mb-3 text-sm uppercase tracking-[0.2em]">Why I do it</p>
         <h2 id="mt-why" className="font-display text-h2">
-          Get referred
+          CS is a great way in
         </h2>
         <p className="font-subhead mt-4 max-w-2xl text-h4">
-          A referral is someone on the inside putting your name forward. It changes everything,
-          and it&apos;s the one thing you can&apos;t get without knowing someone.
+          Customer success doesn&apos;t need a degree or a coding background. It needs curiosity,
+          empathy and problem-solving, and plenty of people already have those. They just
+          don&apos;t know the job exists, or how to get past the first screen. I&apos;d like to
+          help with that. If you don&apos;t have a network in tech, you&apos;re up against it
+          with just a CV.
         </p>
 
         {/* One per row, so the figures can run as big as the title */}
