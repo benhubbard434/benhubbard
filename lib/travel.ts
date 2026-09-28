@@ -86,6 +86,21 @@ export const cities: City[] = [
   { name: "Ibiza Town", country: "Spain", lat: 38.9067, lon: 1.4206 },
   { name: "Pollensa", country: "Spain", lat: 39.877, lon: 3.016 },
   { name: "Puerto Pollensa", country: "Spain", lat: 39.9056, lon: 3.0853 },
+  // United Kingdom. The two regions are pinned near their middles.
+  { name: "London", country: "United Kingdom", lat: 51.5072, lon: -0.1276 },
+  { name: "Birmingham", country: "United Kingdom", lat: 52.4862, lon: -1.8904 },
+  { name: "Manchester", country: "United Kingdom", lat: 53.4808, lon: -2.2426 },
+  // Nudged inland from the centre, which the outline puts in the Mersey
+  { name: "Liverpool", country: "United Kingdom", lat: 53.41, lon: -2.95 },
+  { name: "Leeds", country: "United Kingdom", lat: 53.8008, lon: -1.5491 },
+  { name: "Aberdeen", country: "United Kingdom", lat: 57.1497, lon: -2.0943 },
+  { name: "Bristol", country: "United Kingdom", lat: 51.4545, lon: -2.5879 },
+  { name: "Bath", country: "United Kingdom", lat: 51.3811, lon: -2.359 },
+  { name: "Newbury", country: "United Kingdom", lat: 51.4014, lon: -1.3231 },
+  { name: "Brighton", country: "United Kingdom", lat: 50.8225, lon: -0.1372 },
+  { name: "Newquay", country: "United Kingdom", lat: 50.4155, lon: -5.0737 },
+  { name: "Cotswolds", country: "United Kingdom", lat: 51.93, lon: -1.72 },
+  { name: "North Norfolk", country: "United Kingdom", lat: 52.9, lon: 1.08 },
   // Ireland
   { name: "Dublin", country: "Ireland", lat: 53.3498, lon: -6.2603 },
   // France
