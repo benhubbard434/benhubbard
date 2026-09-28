@@ -99,6 +99,25 @@ export default function TravelMap({
   const [selectedCity, setSelectedCity] = useState<number | null>(null);
   const [album, setAlbum] = useState<number | null>(null);
   const [allCities, setAllCities] = useState(false);
+  /** Closing a city's tooltip waits a beat, so a pointer cutting a corner
+      between the dot and the tooltip doesn't close it on the way. */
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const hoverCity = (ci: number) => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    setActiveCity(ci);
+  };
+
+  const leaveCity = (ci: number, now = false) => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    const close = () => setActiveCity((current) => (current === ci ? null : current));
+    if (now) close();
+    else leaveTimer.current = setTimeout(close, 150);
+  };
+
+  useEffect(() => () => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+  }, []);
 
   const frameRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<View>(home);
@@ -391,6 +410,9 @@ export default function TravelMap({
               ))}
 
               {shownCities.map(({ city, ci }, n) => (
+                // Hover and focus belong to the whole pin, tooltip included,
+                // so the pointer can travel from the dot up to the photo
+                // button in the tooltip without it closing
                 <div
                   key={`${city.name}-${city.country}`}
                   className="travel-pin travel-city absolute"
@@ -403,34 +425,37 @@ export default function TravelMap({
                       animationDelay: `${Math.min(n * 50, 600)}ms`,
                     } as React.CSSProperties
                   }
+                  onPointerEnter={(e) => e.pointerType === "mouse" && hoverCity(ci)}
+                  onPointerLeave={() => leaveCity(ci)}
+                  onFocus={() => hoverCity(ci)}
+                  onBlur={(e) => {
+                    // Tabbing from the dot to its photo button stays inside
+                    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) leaveCity(ci, true);
+                  }}
                 >
                   <button
                     type="button"
                     className="travel-city-hit"
-                    onPointerEnter={(e) => e.pointerType === "mouse" && setActiveCity(ci)}
-                    onPointerLeave={() => setActiveCity(null)}
-                    onFocus={() => setActiveCity(ci)}
-                    onBlur={() => setActiveCity(null)}
                     onClick={() => setSelectedCity(ci)}
                     aria-label={city.name}
                     aria-pressed={selectedCity === ci}
                   >
                     <span className="travel-pin-dot" />
                   </button>
-                  <span className="travel-pin-label font-display" aria-hidden="true">
-                    {city.name}
+                  <span className="travel-pin-label travel-city-label font-display">
+                    <span aria-hidden="true">{city.name}</span>
+                    {city.album && city.album.length > 0 && (
+                      <button
+                        type="button"
+                        className="travel-album"
+                        data-album={ci}
+                        onClick={() => setAlbum(ci)}
+                        aria-label={`Open photos from ${city.name}`}
+                      >
+                        <ImageIcon size={13} weight="bold" />
+                      </button>
+                    )}
                   </span>
-                  {city.album && city.album.length > 0 && (
-                    <button
-                      type="button"
-                      className="travel-album"
-                      data-album={ci}
-                      onClick={() => setAlbum(ci)}
-                      aria-label={`Open photos from ${city.name}`}
-                    >
-                      <ImageIcon size={14} weight="bold" />
-                    </button>
-                  )}
                 </div>
               ))}
             </div>
