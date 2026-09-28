@@ -51,6 +51,7 @@ const SITEWIDE: AiProvenance = {
 const PAGES: Record<string, Partial<AiProvenance>> = {
   "/side-quests/public-speaking": {
     words: { level: "some", note: "Copy taken from the talk, with AI." },
+    media: { level: "none", note: "Talk recording by Ashby, embedded from YouTube." },
   },
 };
 
