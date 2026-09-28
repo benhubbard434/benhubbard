@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     // shipped a stale globals.css from it (new markup, old styles). Build
     // from scratch every time instead.
     turbopackFileSystemCacheForBuild: false,
+    // The dev server does the same: edits to globals.css keep failing to
+    // reach the page until .next is cleared. Slower cold starts, but current.
+    turbopackFileSystemCacheForDev: false,
   },
   images: {
     remotePatterns: [
