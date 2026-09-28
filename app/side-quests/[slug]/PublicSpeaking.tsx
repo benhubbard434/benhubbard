@@ -153,7 +153,7 @@ export default function PublicSpeaking() {
         <div className="relative mx-auto w-full max-w-6xl">
           <p className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.2em]" style={{ color: LAVENDER }}>
             <span className="ps-tally" aria-hidden="true" />
-            Side quest · Live at {TALK.event}
+            Live from {TALK.event}
           </p>
 
           <h1 className="font-display text-[clamp(3.75rem,1rem+12vw,11rem)] leading-[0.85]">
