@@ -756,6 +756,69 @@ body:has([data-full-bleed]) {
 
 /* --- /side-quests/travel -------------------------------------------------- */
 
+/* The map's frame. Unzoomed, a vertical swipe still scrolls the page and
+   only a pinch is ours; once zoomed, every gesture moves the map. */
+.travel-frame {
+  touch-action: pan-y;
+}
+
+.travel-frame[data-zoomed="true"] {
+  touch-action: none;
+  cursor: grab;
+}
+
+.travel-frame[data-zoomed="true"]:active {
+  cursor: grabbing;
+}
+
+/* The layer that zooms. Eased when a button or a place moves it; immediate
+   under a finger, which it has to keep up with. */
+.travel-layer[data-animate="true"] {
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Pins undo the layer's zoom, so they stay the same size at any zoom */
+.travel-layer .travel-pin {
+  scale: calc(1 / var(--zoom, 1));
+}
+
+.travel-layer[data-animate="true"] .travel-pin {
+  transition: scale 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.travel-control {
+  height: 36px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  transition: opacity 150ms ease;
+}
+
+.travel-control:hover {
+  opacity: 0.8;
+}
+
+.travel-control:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.travel-control:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Only touch screens can pinch */
+.travel-hint {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .travel-hint {
+    display: block;
+  }
+}
+
 /* A pin: a white dot ringed in ink, centred on its spot. It drops in on load,
    staggered by TravelMap, and grows with its name beside it when it or its
    row in the list below is hovered or focused. */
@@ -826,6 +889,7 @@ body:has([data-full-bleed]) {
 /* Place names in the list, inverting with their pin */
 .travel-chip {
   border: 2px solid #111;
+  cursor: pointer;
   transition: background-color 150ms ease, color 150ms ease;
 }
 
@@ -837,6 +901,11 @@ body:has([data-full-bleed]) {
 @media (prefers-reduced-motion: reduce) {
   .travel-pin {
     animation: none;
+  }
+
+  .travel-layer[data-animate="true"],
+  .travel-layer[data-animate="true"] .travel-pin {
+    transition: none;
   }
 
   .travel-pin-dot,
