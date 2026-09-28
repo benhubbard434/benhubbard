@@ -63,10 +63,10 @@ type Point = { x: number; y: number };
  * Pins are HTML laid over the SVG rather than SVG circles for the same reason.
  * Hovering or focusing a pin or a place lights up both.
  *
- * Cities stay out of sight until their country is selected: then they appear
- * on the map, once it's zoomed in far enough to separate them, and in the
- * list under their country (or all of them, with "show all cities"). A
- * selected city's name shows over its pin in blue. A city with an album gets
+ * Cities stay off the map until their country is selected, and then appear
+ * once it's zoomed in far enough to separate them. The list below always
+ * shows them, beside their country. A selected city's name shows over its
+ * pin in blue. A city with an album gets
  * a photo button on its pin, which opens the album full screen.
  */
 export default function TravelMap({
@@ -98,7 +98,6 @@ export default function TravelMap({
   const [activeCity, setActiveCity] = useState<number | null>(null);
   const [selectedCity, setSelectedCity] = useState<number | null>(null);
   const [album, setAlbum] = useState<number | null>(null);
-  const [allCities, setAllCities] = useState(false);
   /** Closing a city's tooltip waits a beat, so a pointer cutting a corner
       between the dot and the tooltip doesn't close it on the way. */
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -504,29 +503,13 @@ export default function TravelMap({
             <h2 id="travel-places" className="font-display text-h2">
               Where I&apos;ve been
             </h2>
-            {cities.length > 0 && (
-              <button
-                type="button"
-                role="switch"
-                aria-checked={allCities}
-                onClick={() => setAllCities((on) => !on)}
-                className="travel-switch flex items-center gap-3 pb-1 text-sm"
-              >
-                <span className="travel-switch-track" aria-hidden="true">
-                  <span className="travel-switch-thumb" />
-                </span>
-                Show all cities
-              </button>
-            )}
           </div>
-          {/* A ruled row per country: its name on the left, and on the right
-              its cities once it's selected (or with the switch on), or a
-              count of them until then */}
+          {/* A ruled row per country: its name on the left, its cities on
+              the right */}
           <ul className="mt-10" style={{ borderTop: `3px solid ${INK}` }}>
             {listed.map(({ pin, i, label }) => {
               const selected = focusedPin?.country === pin.country;
               const own = citiesOf(pin.country);
-              const open = allCities || selected;
               return (
                 <li
                   key={label}
@@ -550,7 +533,7 @@ export default function TravelMap({
                     {label}
                   </button>
 
-                  {open && own.length > 0 ? (
+                  {own.length > 0 && (
                     <ul className="flex flex-wrap gap-2" aria-label={`Cities in ${pin.country}`}>
                       {own.map(({ city, ci }) => (
                         <li key={city.name}>
@@ -575,11 +558,7 @@ export default function TravelMap({
                         </li>
                       ))}
                     </ul>
-                  ) : own.length > 0 ? (
-                    <p className="text-sm opacity-70">
-                      {own.length} {own.length === 1 ? "city" : "cities"}
-                    </p>
-                  ) : null}
+                  )}
                 </li>
               );
             })}

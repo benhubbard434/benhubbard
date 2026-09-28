@@ -23,9 +23,9 @@ export type Photo = {
 };
 
 /**
- * A city within a visited country. Cities stay hidden until their country
- * is selected on the map (or the list's "show all cities" is on), and only
- * appear on the map once it's zoomed in far enough to tell them apart.
+ * A city within a visited country. It's listed beside its country, but only
+ * appears on the map once its country is selected and the map is zoomed in
+ * far enough to tell cities apart.
  */
 export type City = {
   name: string;
