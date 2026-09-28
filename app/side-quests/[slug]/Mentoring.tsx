@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 
 const INK = "#111";
@@ -32,82 +32,6 @@ const HELP = [
   },
 ];
 
-const COMPASS = 148;
-
-/**
- * An oversized compass whose needle swings round to point at the cursor,
- * the 404's googly eyes' cousin. Left alone, it settles back to north.
- */
-function Compass() {
-  const ref = useRef<HTMLDivElement>(null);
-  // Accumulated rather than 0–360, so crossing south doesn't spin it the
-  // long way round.
-  const [angle, setAngle] = useState(0);
-  const last = useRef(0);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let idle: ReturnType<typeof setTimeout>;
-
-    const turnTo = (target: number) => {
-      let delta = target - (last.current % 360);
-      delta = ((delta + 540) % 360) - 180;
-      last.current += delta;
-      setAngle(last.current);
-    };
-
-    const onMove = (e: MouseEvent) => {
-      const el = ref.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const dx = e.clientX - (rect.left + rect.width / 2);
-      const dy = e.clientY - (rect.top + rect.height / 2);
-      if (Math.hypot(dx, dy) < 4) return;
-      // 0° is up, as the needle is drawn
-      turnTo((Math.atan2(dy, dx) * 180) / Math.PI + 90);
-      clearTimeout(idle);
-      idle = setTimeout(() => turnTo(0), 2500);
-    };
-
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      clearTimeout(idle);
-      window.removeEventListener("mousemove", onMove);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className="relative rounded-full bg-white"
-      style={{ width: COMPASS, height: COMPASS, border: `6px solid ${INK}` }}
-      aria-hidden="true"
-    >
-      {["N", "E", "S", "W"].map((point, i) => (
-        <span
-          key={point}
-          className="font-display absolute inset-0 flex justify-center pt-1.5 text-xs"
-          style={{ rotate: `${i * 90}deg` }}
-        >
-          {point}
-        </span>
-      ))}
-      <svg
-        viewBox="0 0 100 100"
-        className="absolute inset-0 h-full w-full"
-        style={{
-          rotate: `${angle}deg`,
-          transition: "rotate 700ms cubic-bezier(0.34, 1.45, 0.5, 1)",
-        }}
-      >
-        <path d="M50 14 L59 50 L41 50 Z" fill="#c4392c" />
-        <path d="M50 86 L59 50 L41 50 Z" fill={INK} />
-        <circle cx="50" cy="50" r="6" fill="#fff" stroke={INK} strokeWidth="3" />
-      </svg>
-    </div>
-  );
-}
-
 /**
  * The Tangent mentoring side quest, on its own side quest colour in this
  * site's type, like the Public Speaking page.
@@ -130,8 +54,6 @@ export default function Mentoring({ ground }: { ground: string }) {
     >
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="flex min-h-[88dvh] flex-col items-center justify-center gap-10 px-6 pt-32 pb-16 text-center">
-        <Compass />
-
         <div>
           <p className="mb-6 text-sm uppercase tracking-[0.2em]">Side quest · Mentor at Tangent</p>
           <h1 className="font-display mx-auto max-w-5xl text-[clamp(3rem,1rem+7vw,7rem)] leading-[0.95]">
