@@ -27,6 +27,10 @@ const FIT = 0.8;
 const CITY_ZOOM = 3;
 /** Movement before a press becomes a drag rather than a tap. */
 const DRAG_SLOP = 6;
+/** How long a zoom from a button or the list takes. */
+const EASE_MS = 700;
+/** Fast out, settling gently: close to cubic-bezier(0.16, 1, 0.3, 1). */
+const ease = (t: number) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
 /** In the SVG's units. `countryIndex` is the country it falls in, if drawn. */
 type Pin = Place & { x: number; y: number; countryIndex: number | null };
@@ -34,11 +38,11 @@ type Pin = Place & { x: number; y: number; countryIndex: number | null };
 /** A city, in the SVG's units. */
 type CityPin = City & { x: number; y: number };
 
+/** A visited country. */
 export type MapCountry = {
   d: string;
-  visited: boolean;
-  /** Visited countries only: [x0, y0, x1, y1] of their mainland, to zoom to. */
-  bounds?: [number, number, number, number];
+  /** [x0, y0, x1, y1] of its mainland, to zoom to. */
+  bounds: [number, number, number, number];
 };
 
 /**
@@ -56,11 +60,12 @@ type Point = { x: number; y: number };
  * The map pans and zooms: pinch or drag on a phone, the +/− buttons anywhere.
  * Clicking a pin, a filled-in country or a place in the list zooms to fit
  * that country. It starts zoomed in on everywhere I've been, `home`, rather
- * than the whole world. It's all one CSS transform on the layer holding the
- * SVG and the pins; the pins counter-scale so they stay a finger-sized 14px,
- * and country borders thin out so they don't thicken as it zooms.
+ * than the whole world. It zooms by the SVG's viewBox rather than a CSS
+ * transform, which would scale a snapshot of the map and blur it; the pins
+ * are HTML laid over it, placed by CSS variables for the same view, so they
+ * stay a finger-sized 14px. While it eases, each frame is painted straight
+ * onto the DOM, and React only hears about where it's heading.
  *
- * Pins are HTML laid over the SVG rather than SVG circles for the same reason.
  * Hovering or focusing a pin or a place lights up both.
  *
  * Cities stay off the map until their country is selected, and then appear
@@ -74,6 +79,7 @@ export default function TravelMap({
   width,
   height,
   countries,
+  unvisited,
   pins,
   cities,
   home,
@@ -82,6 +88,8 @@ export default function TravelMap({
   width: number;
   height: number;
   countries: MapCountry[];
+  /** Every other country, as one path. */
+  unvisited: string;
   pins: Pin[];
   cities: CityPin[];
   /** The starting view, and where Reset goes back to. */
@@ -91,9 +99,8 @@ export default function TravelMap({
   /** The pin last zoomed to. Its country stays black and the rest of the
       visited ones grey out, with its name in the map's corner, until reset. */
   const [focused, setFocused] = useState<number | null>(null);
+  /** Where the map is, or is heading if it's easing there. */
   const [view, setView] = useState<View>(home);
-  /** Eased for button and list moves; immediate while a finger is on it. */
-  const [animate, setAnimate] = useState(false);
   /** Cities, by index: hovered, selected (named in blue), and album open. */
   const [activeCity, setActiveCity] = useState<number | null>(null);
   const [selectedCity, setSelectedCity] = useState<number | null>(null);
@@ -119,7 +126,15 @@ export default function TravelMap({
   }, []);
 
   const frameRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const viewRef = useRef<View>(home);
+  /** What's on screen right now, partway through an ease or not. */
+  const painted = useRef<View>(home);
+  const frame = useRef<number | null>(null);
+
+  useEffect(() => () => {
+    if (frame.current !== null) cancelAnimationFrame(frame.current);
+  }, []);
   const pointers = useRef(new Map<number, Point>());
   const gesture = useRef<{ start: Point; dragging: boolean } | null>(null);
 
@@ -142,6 +157,17 @@ export default function TravelMap({
     };
   };
 
+  /** Puts a view on screen: the SVG's viewBox, and the variables pins go by. */
+  const paint = (v: View) => {
+    painted.current = v;
+    svgRef.current?.setAttribute("viewBox", viewBox(v, width, height));
+    const style = frameRef.current?.style;
+    style?.setProperty("--k", String(v.k));
+    style?.setProperty("--x", String(v.x));
+    style?.setProperty("--y", String(v.y));
+  };
+
+  /** Eased for button and list moves; immediate while a finger is on it. */
   const apply = (next: View, eased: boolean) => {
     const v = clamp(next);
     // Zoomed all the way back out, nothing's in focus any more
@@ -150,8 +176,23 @@ export default function TravelMap({
       setSelectedCity(null);
     }
     viewRef.current = v;
-    setAnimate(eased);
     setView(v);
+
+    if (frame.current !== null) cancelAnimationFrame(frame.current);
+    frame.current = null;
+    if (!eased || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      paint(v);
+      return;
+    }
+    const from = painted.current;
+    let start: number | null = null;
+    const step = (now: number) => {
+      start ??= now;
+      const t = ease((now - start) / EASE_MS);
+      paint({ k: from.k + (v.k - from.k) * t, x: from.x + (v.x - from.x) * t, y: from.y + (v.y - from.y) * t });
+      frame.current = t < 1 ? requestAnimationFrame(step) : null;
+    };
+    frame.current = requestAnimationFrame(step);
   };
 
   /** Zoom by a factor, keeping the point under `at` (a fraction of the map) in place. */
@@ -193,7 +234,6 @@ export default function TravelMap({
   /** Zoom to a country, naming the first pin in it. */
   const showCountry = (ci: number) => {
     const bounds = countries[ci].bounds;
-    if (!bounds) return;
     const first = pins.findIndex((p) => p.countryIndex === ci);
     setFocused(first === -1 ? null : first);
     setSelectedCity(null);
@@ -308,11 +348,7 @@ export default function TravelMap({
     Math.abs(view.k - home.k) < 0.01 && Math.abs(view.x - home.x) < 0.001 && Math.abs(view.y - home.y) < 0.001;
   const focusedPin = focused === null ? null : pins[focused];
   const focusedCountry = focusedPin?.countryIndex ?? null;
-  const fillFor = (c: MapCountry, i: number) => {
-    if (!c.visited) return FILL_UNVISITED;
-    if (focused === null || i === focusedCountry) return FILL_VISITED;
-    return FILL_DIMMED;
-  };
+  const fillFor = (i: number) => (focused === null || i === focusedCountry ? FILL_VISITED : FILL_DIMMED);
 
   const citiesOf = (country: string) =>
     cities.map((city, ci) => ({ city, ci })).filter(({ city }) => city.country === country);
@@ -348,31 +384,30 @@ export default function TravelMap({
           <div
             ref={frameRef}
             className="travel-frame relative overflow-hidden"
+            // The starting view. paint() moves these on from here, and they
+            // never change as far as React knows, so it leaves them be.
+            style={{ "--k": home.k, "--x": home.x, "--y": home.y } as React.CSSProperties}
             data-zoomed={zoomed}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
             onPointerCancel={onPointerUp}
           >
-            <div
-              className="travel-layer relative origin-top-left"
-              data-animate={animate}
-              style={
-                {
-                  // Percentages of the layer's own size, which is the map's
-                  transform: `translate(${view.x * 100}%, ${view.y * 100}%) scale(${view.k})`,
-                  "--zoom": view.k,
-                } as React.CSSProperties
-              }
-            >
-              <svg viewBox={`0 0 ${width} ${height}`} className="block h-auto w-full" aria-hidden="true">
+            <div className="relative">
+              <svg
+                ref={svgRef}
+                viewBox={viewBox(home, width, height)}
+                className="block h-auto w-full"
+                aria-hidden="true"
+              >
+                <path d={unvisited} style={{ fill: FILL_UNVISITED }} stroke={ground} strokeLinejoin="round" />
                 {countries.map((c, i) => (
                   <path
                     key={i}
                     d={c.d}
-                    className={c.visited ? "travel-country" : undefined}
-                    onClick={c.visited ? () => showCountry(i) : undefined}
-                    style={{ fill: fillFor(c, i) }}
+                    className="travel-country"
+                    onClick={() => showCountry(i)}
+                    style={{ fill: fillFor(i) }}
                     stroke={ground}
                     strokeLinejoin="round"
                   />
@@ -389,9 +424,9 @@ export default function TravelMap({
                   data-focused={focused === i}
                   style={
                     {
-                      left: `${(pin.x / width) * 100}%`,
-                      top: `${(pin.y / height) * 100}%`,
-                      animationDelay: `${Math.min(i * 60, 1200)}ms`,
+                      left: place(pin.x / width, "x"),
+                      top: place(pin.y / height, "y"),
+                      animationDelay: `${Math.min(i * 20, 400)}ms`,
                     } as React.CSSProperties
                   }
                   onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
@@ -419,8 +454,8 @@ export default function TravelMap({
                   data-selected={selectedCity === ci}
                   style={
                     {
-                      left: `${(city.x / width) * 100}%`,
-                      top: `${(city.y / height) * 100}%`,
+                      left: place(city.x / width, "x"),
+                      top: place(city.y / height, "y"),
                       animationDelay: `${Math.min(n * 50, 600)}ms`,
                     } as React.CSSProperties
                   }
@@ -593,4 +628,14 @@ export default function TravelMap({
       </div>
     </main>
   );
+}
+
+/** The viewBox showing a view: the part of the map it has in frame. */
+function viewBox({ k, x, y }: View, width: number, height: number) {
+  return `${(-x * width) / k} ${(-y * height) / k} ${width / k} ${height / k}`;
+}
+
+/** Where a spot on the map, as a fraction of it, sits in the frame. */
+function place(at: number, axis: "x" | "y") {
+  return `calc((${at} * var(--k) + var(--${axis})) * 100%)`;
 }

@@ -7,6 +7,9 @@ import countries50m from "world-atlas/countries-50m.json";
 import { cities, notVisited, places } from "@/lib/travel";
 import TravelMap, { type MapCountry } from "./TravelMap";
 
+/** A country as drawn here, before the unvisited ones are merged. */
+type Drawn = { d: string; visited: boolean; bounds?: Box };
+
 const WIDTH = 1000;
 /** How much of the map the starting view gives to everywhere I've been. */
 const HOME_FIT = 0.92;
@@ -74,7 +77,7 @@ export default function Travel({ ground }: { ground: string }) {
   // end, so every coarse country keeps its index, which pins refer to it by.
   const cutOut: Feature<Polygon>[] = [];
   const inside = (f: Feature<Geometry>, p: { lat: number; lon: number }) => geoContains(f, [p.lon, p.lat]);
-  const visitedCountry = (coarse: Feature<Geometry>): MapCountry => {
+  const visitedCountry = (coarse: Feature<Geometry>): Drawn => {
     // Its places, and the cities listed under them
     const names = new Set(places.filter((p) => inside(coarse, p)).map((p) => p.country));
     const spots = [...places, ...cities].filter((p) => names.has(p.country));
@@ -91,7 +94,7 @@ export default function Travel({ ground }: { ground: string }) {
       bounds: path.bounds(mainland(kept)).flat() as Box,
     };
   };
-  const countries: MapCountry[] = land.map((f) =>
+  const countries: Drawn[] = land.map((f) =>
     places.some((p) => inside(f, p)) ? visitedCountry(f) : { d: path(f) ?? "", visited: false },
   );
 
@@ -135,17 +138,69 @@ export default function Travel({ ground }: { ground: string }) {
     HOME_FIT,
   );
 
+  // Only visited countries are clickable or change colour, so they're drawn
+  // one by one; every other country goes into a single path.
+  const index = new Map<number, number>();
+  const visited: MapCountry[] = [];
+  countries.forEach((c, i) => {
+    if (!c.visited) return;
+    index.set(i, visited.length);
+    visited.push({ d: compact(c.d), bounds: c.bounds! });
+  });
+  const unvisited = compact(countries.filter((c) => !c.visited).map((c) => c.d).join(""));
+
   return (
     <TravelMap
       ground={ground}
       width={WIDTH}
       height={height}
-      countries={countries}
-      pins={pins}
+      countries={visited}
+      unvisited={unvisited}
+      pins={pins.map((p) => ({ ...p, countryIndex: p.countryIndex === null ? null : (index.get(p.countryIndex) ?? null) }))}
       cities={cityPins}
       home={home}
     />
   );
+}
+
+/**
+ * Rewrites a path from d3's absolute coordinates into relative ones, which
+ * are mostly a digit or two each and roughly halve the page's map data.
+ * Coordinates are rounded to a tenth before the differences are taken, so
+ * the outline doesn't drift.
+ */
+function compact(d: string): string {
+  const num = (n: number) => String(Math.round(n * 10) / 10).replace(/^(-?)0\./, "$1.");
+  // Numbers run together wherever the next starts with a minus sign
+  const join = (ns: number[]) =>
+    ns.map(num).reduce((out, s) => (out === "" ? s : out + (s.startsWith("-") ? "" : ",") + s), "");
+
+  let out = "";
+  let run: number[] = [];
+  let x = 0;
+  let y = 0;
+  const flush = () => {
+    if (run.length) out += "l" + join(run);
+    run = [];
+  };
+  for (const [, cmd, args] of d.matchAll(/([MLZ])([^MLZ]*)/g)) {
+    if (cmd === "Z") {
+      flush();
+      out += "z";
+      continue;
+    }
+    const [ax, ay] = args.split(",").map((n) => Math.round(Number(n) * 10) / 10);
+    if (cmd === "M") {
+      flush();
+      out += "M" + join([ax, ay]);
+    } else {
+      run.push(ax - x, ay - y);
+    }
+    x = ax;
+    y = ay;
+  }
+  flush();
+  return out;
 }
 
 /**
