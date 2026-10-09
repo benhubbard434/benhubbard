@@ -32,13 +32,13 @@ const challenges = [
     title: "5k on the hour, every hour",
     meta: "50km total · one Saturday · April 2025",
     description:
-      "Ten 5k loops. One hour of rest between each. By round seven, walking to the start line counted as strategy.",
+      "Ten 5k loops. One hour of rest between each.",
   },
   {
     tag: "Race",
-    stat: "DNF",
+    stat: "74km",
     title: "Isle of Wight Ultra",
-    meta: "73.7km covered · 12h 23m · May 2025",
+    meta: "DNF · 73.7km of 100km · 12h 23m · May 2025",
     description:
       "Signed up for 100km. Made it to 73.7. Still proud of every single one of them.",
   },
