@@ -12,12 +12,23 @@ type Pb = {
  * Entered by hand rather than read from Strava: its API has no list of PBs,
  * and its "best efforts" can't be trusted here anyway, since a GPS track that
  * runs long inflates them (it credits a 3:55 marathon inside a 45km track).
- * Race times are each activity's elapsed time. The 400m and mile came from
- * outside Strava.
+ * Race times are each activity's elapsed time. The 400m was a rep inside a
+ * track session, and the mile is the watch time from the activity's title
+ * (Strava's elapsed time for it is a second slower).
  */
 const PBS: Pb[] = [
-  { distance: "400m", time: "1:00" },
-  { distance: "1 mile", time: "5:23" },
+  {
+    distance: "400m",
+    time: "1:00",
+    note: "Track East, Jun 2018",
+    strava: "https://www.strava.com/activities/1638773836",
+  },
+  {
+    distance: "1 mile",
+    time: "5:23",
+    note: "Jul 2019",
+    strava: "https://www.strava.com/activities/2509715650",
+  },
   {
     distance: "5k",
     time: "19:39",
