@@ -97,9 +97,6 @@ export default async function RunningPage() {
       {/* Strava stats */}
       <StravaStats stats={stats} />
 
-      {/* Parkrun */}
-      <ParkrunSection stats={stats?.parkrun ?? null} />
-
       {/* Profile banner */}
       <section
         className="relative flex items-end"
@@ -142,6 +139,9 @@ export default async function RunningPage() {
           </a>
         </div>
       </section>
+
+      {/* Parkrun */}
+      <ParkrunSection stats={stats?.parkrun ?? null} />
 
       {/* Notable runs */}
       <section className="px-8 py-16" style={{ background: "#111", color: "#fff" }}>
