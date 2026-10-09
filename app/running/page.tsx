@@ -1,5 +1,15 @@
 import Image from "next/image";
+import { getStravaStats } from "@/lib/strava";
 import StravaStats from "./StravaStats";
+
+/**
+ * Stats are fetched at render time and the page is regenerated every three
+ * hours, so visitors get them in the HTML and never wait on Strava.
+ * `force-static` stops the uncached token POST from flipping the route to
+ * dynamic rendering (see app/music/page.tsx).
+ */
+export const dynamic = "force-static";
+export const revalidate = 10800;
 
 const runningPhotos = [
   "/images/running-1.jpg",
@@ -74,7 +84,8 @@ const lorem = [
   "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
 ];
 
-export default function RunningPage() {
+export default async function RunningPage() {
+  const stats = await getStravaStats();
   return (
     <main data-full-bleed className="flex flex-col pb-24" style={{ background: "#f5f5f0", color: "#111" }}>
 
@@ -111,7 +122,7 @@ export default function RunningPage() {
       </div>
 
       {/* Strava stats */}
-      <StravaStats />
+      <StravaStats stats={stats} />
 
       {/* Parkrun alphabet */}
       <section
