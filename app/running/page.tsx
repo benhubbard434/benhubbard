@@ -51,10 +51,9 @@ const challenges = [
   },
 ];
 
-const lorem = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-  "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+const story = [
+  "Running was something that I fell into by accident. I started out trying to get fitter to play football and then entered a half marathon on a whim. When I moved to London, I started taking it a bit more seriously and based a lot of my social life around the running groups that I joined, eventually becoming leader of Track East.",
+  "This led to a challenge that I set myself: completing 100 races before I turned 30, completing my 100th just a week before. Then COVID hit, and my rate of racing reduced somewhat. However, I've taken on more extreme challenges since then, including an ultra marathon around the Isle of Wight. Whilst I did not finish the Isle of Wight Ultra, I still managed to complete 74 km, which to this day is probably my greatest physical achievement.",
 ];
 
 export default async function RunningPage() {
@@ -190,7 +189,7 @@ export default async function RunningPage() {
         style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}
       >
         <div className="max-w-2xl mx-auto px-8 flex flex-col gap-6">
-          {lorem.map((p, i) => (
+          {story.map((p, i) => (
             <p key={i} className="leading-relaxed" style={{ color: "rgba(0,0,0,0.6)" }}>
               {p}
             </p>
