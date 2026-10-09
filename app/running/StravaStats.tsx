@@ -27,7 +27,7 @@ export default function StravaStats({ stats }: { stats: Stats | null }) {
   );
 }
 
-function StatCell({
+export function StatCell({
   label,
   value,
   unit,

@@ -8,6 +8,8 @@
  * front and the pages are fetched in parallel rather than one after another.
  */
 
+import { parkrunStats, type ParkrunActivity, type ParkrunStats } from "./parkrun";
+
 const ATHLETE_ID = "938645";
 const API_BASE = "https://www.strava.com/api/v3";
 const PER_PAGE = 200;
@@ -20,8 +22,8 @@ export type StravaStats = {
   allTimeDistanceKm: number | null;
   racesThisYear: number;
   allTimeRaces: number;
-  /** Runs with "parkrun" in the name. Only as complete as the tagging. */
-  parkruns: number;
+  /** From runs with "parkrun" in the name. Only as complete as the tagging. */
+  parkrun: ParkrunStats;
 };
 
 type Totals = { count: number; distance: number };
@@ -31,8 +33,7 @@ type AthleteStats = {
   all_ride_totals?: Totals;
   all_swim_totals?: Totals;
 };
-type Activity = {
-  name: string;
+type Activity = ParkrunActivity & {
   type: string;
   workout_type: number | null;
   start_date: string;
@@ -84,7 +85,11 @@ async function fetchAllActivities(token: string, estimatedCount: number): Promis
 
 const toKm = (t?: Totals) => (t?.distance != null ? Math.round(t.distance / 1000) : null);
 
-/** Returns null when Strava is unreachable, so the page still renders. */
+/**
+ * During a build a Strava outage returns null, so the deploy still goes out
+ * with the stats blanked. At runtime it throws instead: a failed regeneration
+ * keeps serving the last good page rather than replacing it with blanks.
+ */
 export async function getStravaStats(): Promise<StravaStats | null> {
   try {
     const token = await getAccessToken();
@@ -107,10 +112,11 @@ export async function getStravaStats(): Promise<StravaStats | null> {
         (a) => new Date(a.start_date).getFullYear() === currentYear
       ).length,
       allTimeRaces: races.length,
-      parkruns: runs.filter((a) => /park\s*run/i.test(a.name)).length,
+      parkrun: parkrunStats(runs.filter((a) => /park\s*run/i.test(a.name))),
     };
   } catch (err) {
     console.error("Strava API error:", err);
-    return null;
+    if (process.env.NEXT_PHASE === "phase-production-build") return null;
+    throw err;
   }
 }

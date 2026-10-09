@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getStravaStats } from "@/lib/strava";
 import StravaStats from "./StravaStats";
+import ParkrunSection from "./ParkrunSection";
 
 /**
  * Stats are fetched at render time and the page is regenerated every three
@@ -23,53 +24,6 @@ const runningPhotos = [
 ];
 
 const marqueePhotos = [...runningPhotos, ...runningPhotos];
-
-const alphabetData: { letter: string; location: string | null }[] = [
-  { letter: "A", location: "Aldenham" },
-  { letter: "B", location: "Bury St Edmunds" },
-  { letter: "C", location: "Canterbury" },
-  { letter: "D", location: "Dulwich" },
-  { letter: "E", location: "East Brighton" },
-  { letter: "F", location: "Fulham Palace" },
-  { letter: "G", location: "Gadebridge" },
-  { letter: "H", location: "Hackney Marshes" },
-  { letter: "I", location: null },
-  { letter: "J", location: "Jersey Farm" },
-  { letter: "K", location: null },
-  { letter: "L", location: "Lanhydrock" },
-  { letter: "M", location: "Mile End" },
-  { letter: "N", location: "Nonsuch" },
-  { letter: "O", location: "Oak Hill" },
-  { letter: "P", location: "Parke" },
-  { letter: "Q", location: null },
-  { letter: "R", location: "Roding Valley" },
-  { letter: "S", location: "Stevenage" },
-  { letter: "T", location: "Tooting Common" },
-  { letter: "U", location: "University of Northampton" },
-  { letter: "V", location: "Victoria Dock" },
-  { letter: "W", location: "Wimpole Estate" },
-  { letter: "Y", location: null },
-  { letter: "Z", location: null },
-];
-
-const lettersDone = alphabetData.filter((l) => l.location !== null).length;
-
-/**
- * The parkrun count as of October 2026, entered by hand. Most older parkruns
- * on Strava are named "Morning Run", so Strava's count (runs with "parkrun"
- * in the name) sits well below this until they are retagged. The page shows
- * whichever is higher, so the number never goes backwards.
- */
-const PARKRUN_FLOOR = 242;
-
-function parkrunCount(fromStrava: number | undefined): number {
-  if (fromStrava != null && fromStrava < PARKRUN_FLOOR) {
-    console.warn(
-      `Strava finds ${fromStrava} parkruns, ${PARKRUN_FLOOR - fromStrava} short of the ${PARKRUN_FLOOR} entered by hand. Showing ${PARKRUN_FLOOR}.`
-    );
-  }
-  return Math.max(fromStrava ?? 0, PARKRUN_FLOOR);
-}
 
 const challenges = [
   {
@@ -105,7 +59,6 @@ const lorem = [
 
 export default async function RunningPage() {
   const stats = await getStravaStats();
-  const parkruns = parkrunCount(stats?.parkruns);
   return (
     <main data-full-bleed className="flex flex-col pb-24" style={{ background: "#f5f5f0", color: "#111" }}>
 
@@ -144,59 +97,8 @@ export default async function RunningPage() {
       {/* Strava stats */}
       <StravaStats stats={stats} />
 
-      {/* Parkrun alphabet */}
-      <section
-        className="px-8 py-16"
-        style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}
-      >
-        <div className="flex items-baseline justify-between mb-3">
-          <h2 className="font-display text-4xl md:text-5xl">Parkrun alphabet</h2>
-          <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
-            {lettersDone} of {alphabetData.length}
-          </span>
-        </div>
-        <p className="text-sm mb-10" style={{ color: "rgba(0,0,0,0.45)" }}>
-          {parkruns} parkruns. PB 20:33. Visiting one in every letter of the alphabet.
-        </p>
-
-        <div
-          className="grid grid-cols-5"
-          style={{ border: "1px solid rgba(0,0,0,0.1)" }}
-        >
-          {alphabetData.map(({ letter, location }, i) => {
-            const done = location !== null;
-            const isLastInRow = (i + 1) % 5 === 0;
-            const isLastRow = i >= 20;
-            return (
-              <div
-                key={letter}
-                className="p-4 md:p-6 flex flex-col"
-                style={{
-                  borderRight: isLastInRow ? "none" : "1px solid rgba(0,0,0,0.1)",
-                  borderBottom: isLastRow ? "none" : "1px solid rgba(0,0,0,0.1)",
-                  background: done ? "#fff" : "transparent",
-                  minHeight: "5rem",
-                }}
-              >
-                <span
-                  className="font-display text-3xl md:text-4xl leading-none"
-                  style={{ color: done ? "#fc4c02" : "rgba(0,0,0,0.18)" }}
-                >
-                  {letter}
-                </span>
-                {done && location && (
-                  <span
-                    className="mt-2 text-[10px] leading-tight uppercase tracking-wider"
-                    style={{ color: "rgba(0,0,0,0.4)" }}
-                  >
-                    {location}
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      {/* Parkrun */}
+      <ParkrunSection stats={stats?.parkrun ?? null} />
 
       {/* Profile banner */}
       <section
