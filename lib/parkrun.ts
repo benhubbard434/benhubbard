@@ -6,9 +6,11 @@
  * runs without GPS. New venues need adding to VENUES; until then their runs
  * still count, but are logged as unplaced and left out of the alphabet.
  *
+ * Every tagged run counts, whatever its length, apart from EXCLUDED_IDS.
  * Times are Strava's elapsed time, which runs a few seconds off the official
  * result (hence no PB here: Strava's fastest beats the real one), and only
- * runs that are recognisably a single 5k are timed. Runs with a warm-up, a cool-down or a watch left off still count towards the totals.
+ * clean 5k recordings are timed (see isTimed), so warm-ups and short
+ * recordings count towards the totals without skewing the times.
  */
 
 export type ParkrunActivity = {
@@ -69,6 +71,11 @@ const ALPHABET_PICKS = new Set([
   "Parke",
   "Stevenage",
   "Wimpole Estate",
+]);
+
+/** Tagged runs that shouldn't count as a parkrun, by Strava activity id. */
+const EXCLUDED_IDS = new Set([
+  9722205900, // "The first km of parkrun", 26 Aug 2023
 ]);
 
 /** A start further than this from every known venue is left unplaced. */
@@ -140,7 +147,9 @@ export type ParkrunStats = {
 };
 
 export function parkrunStats(activities: ParkrunActivity[]): ParkrunStats {
-  const runs = [...activities].sort((a, b) =>
+  const runs = activities
+    .filter((a) => !EXCLUDED_IDS.has(a.id))
+    .sort((a, b) =>
     a.start_date_local.localeCompare(b.start_date_local)
   );
   const placed = runs.map((a) => ({ a, venue: venueFor(a)?.name ?? null }));
