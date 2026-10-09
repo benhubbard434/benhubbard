@@ -52,6 +52,25 @@ const alphabetData: { letter: string; location: string | null }[] = [
   { letter: "Z", location: null },
 ];
 
+const lettersDone = alphabetData.filter((l) => l.location !== null).length;
+
+/**
+ * The parkrun count as of October 2026, entered by hand. Most older parkruns
+ * on Strava are named "Morning Run", so Strava's count (runs with "parkrun"
+ * in the name) sits well below this until they are retagged. The page shows
+ * whichever is higher, so the number never goes backwards.
+ */
+const PARKRUN_FLOOR = 242;
+
+function parkrunCount(fromStrava: number | undefined): number {
+  if (fromStrava != null && fromStrava < PARKRUN_FLOOR) {
+    console.warn(
+      `Strava finds ${fromStrava} parkruns, ${PARKRUN_FLOOR - fromStrava} short of the ${PARKRUN_FLOOR} entered by hand. Showing ${PARKRUN_FLOOR}.`
+    );
+  }
+  return Math.max(fromStrava ?? 0, PARKRUN_FLOOR);
+}
+
 const challenges = [
   {
     tag: "Challenge",
@@ -86,6 +105,7 @@ const lorem = [
 
 export default async function RunningPage() {
   const stats = await getStravaStats();
+  const parkruns = parkrunCount(stats?.parkruns);
   return (
     <main data-full-bleed className="flex flex-col pb-24" style={{ background: "#f5f5f0", color: "#111" }}>
 
@@ -132,11 +152,11 @@ export default async function RunningPage() {
         <div className="flex items-baseline justify-between mb-3">
           <h2 className="font-display text-4xl md:text-5xl">Parkrun alphabet</h2>
           <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
-            20 of 25
+            {lettersDone} of {alphabetData.length}
           </span>
         </div>
         <p className="text-sm mb-10" style={{ color: "rgba(0,0,0,0.45)" }}>
-          242 parkruns. PB 20:33. Visiting one in every letter of the alphabet.
+          {parkruns} parkruns. PB 20:33. Visiting one in every letter of the alphabet.
         </p>
 
         <div

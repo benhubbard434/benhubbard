@@ -20,6 +20,8 @@ export type StravaStats = {
   allTimeDistanceKm: number | null;
   racesThisYear: number;
   allTimeRaces: number;
+  /** Runs with "parkrun" in the name. Only as complete as the tagging. */
+  parkruns: number;
 };
 
 type Totals = { count: number; distance: number };
@@ -29,7 +31,12 @@ type AthleteStats = {
   all_ride_totals?: Totals;
   all_swim_totals?: Totals;
 };
-type Activity = { type: string; workout_type: number | null; start_date: string };
+type Activity = {
+  name: string;
+  type: string;
+  workout_type: number | null;
+  start_date: string;
+};
 
 async function getAccessToken(): Promise<string> {
   const res = await fetch("https://www.strava.com/oauth/token", {
@@ -90,7 +97,8 @@ export async function getStravaStats(): Promise<StravaStats | null> {
     const activities = await fetchAllActivities(token, estimatedCount);
 
     const currentYear = new Date().getFullYear();
-    const races = activities.filter((a) => a.type === "Run" && a.workout_type === 1);
+    const runs = activities.filter((a) => a.type === "Run");
+    const races = runs.filter((a) => a.workout_type === 1);
 
     return {
       ytdDistanceKm: toKm(stats.ytd_run_totals),
@@ -99,6 +107,7 @@ export async function getStravaStats(): Promise<StravaStats | null> {
         (a) => new Date(a.start_date).getFullYear() === currentYear
       ).length,
       allTimeRaces: races.length,
+      parkruns: runs.filter((a) => /park\s*run/i.test(a.name)).length,
     };
   } catch (err) {
     console.error("Strava API error:", err);
