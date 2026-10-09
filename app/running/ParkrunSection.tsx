@@ -1,5 +1,7 @@
 import type { ParkrunStats } from "@/lib/parkrun";
 import { StatCell } from "./StravaStats";
+import ParkrunMap from "./ParkrunMap";
+import { parkrunMapViews } from "./mapViews";
 
 const ORANGE = "#fc4c02";
 const RULE = "1px solid rgba(0,0,0,0.08)";
@@ -191,9 +193,10 @@ function ParkrunStatsBody({ stats }: { stats: ParkrunStats }) {
             ))}
           </ul>
           {otherVenues > 0 && (
-            <p className="text-sm mt-3" style={{ color: "rgba(0,0,0,0.4)" }}>
+            <div className="text-sm mt-3" style={{ color: "rgba(0,0,0,0.4)" }}>
               And {otherVenues} more, {oneOffs} of them just once.
-            </p>
+              <ParkrunMap views={parkrunMapViews(stats.venues)} />
+            </div>
           )}
 
           {/* Milestones */}

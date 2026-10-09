@@ -126,7 +126,7 @@ const median = (xs: number[]) => {
   return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
 };
 
-export type VenueTally = { name: string; count: number; first: string };
+export type VenueTally = { name: string; count: number; first: string; lat: number; lng: number };
 
 export type ParkrunStats = {
   total: number;
@@ -149,17 +149,25 @@ export type ParkrunStats = {
 export function parkrunStats(activities: ParkrunActivity[]): ParkrunStats {
   const runs = activities
     .filter((a) => !EXCLUDED_IDS.has(a.id))
-    .sort((a, b) =>
-    a.start_date_local.localeCompare(b.start_date_local)
-  );
-  const placed = runs.map((a) => ({ a, venue: venueFor(a)?.name ?? null }));
+    .sort((a, b) => a.start_date_local.localeCompare(b.start_date_local));
+  const placed = runs.map((a) => {
+    const place = venueFor(a);
+    return { a, place, venue: place?.name ?? null };
+  });
 
   const tally = new Map<string, VenueTally>();
-  for (const { a, venue } of placed) {
-    if (!venue) continue;
-    const t = tally.get(venue);
+  for (const { a, place } of placed) {
+    if (!place) continue;
+    const t = tally.get(place.name);
     if (t) t.count++;
-    else tally.set(venue, { name: venue, count: 1, first: a.start_date_local });
+    else
+      tally.set(place.name, {
+        name: place.name,
+        count: 1,
+        first: a.start_date_local,
+        lat: place.lat,
+        lng: place.lng,
+      });
   }
   const venues = [...tally.values()].sort((a, b) => b.count - a.count);
 
