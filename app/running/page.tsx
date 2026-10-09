@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getStravaStats } from "@/lib/strava";
 import StravaStats from "./StravaStats";
 import ParkrunSection from "./ParkrunSection";
+import PersonalBests from "./PersonalBests";
 
 /**
  * Stats are fetched at render time and the page is regenerated every three
@@ -196,6 +197,9 @@ export default async function RunningPage() {
           ))}
         </div>
       </section>
+
+      {/* Personal bests */}
+      <PersonalBests />
 
     </main>
   );
