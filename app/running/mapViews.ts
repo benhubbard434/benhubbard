@@ -30,7 +30,9 @@ function uk() {
 
 function view(id: string, label: string, venues: VenueTally[]): MapView {
   const points: MultiPoint = { type: "MultiPoint", coordinates: venues.map((v) => [v.lng, v.lat]) };
-  const projection = geoMercator().fitExtent([[PAD, PAD], [WIDTH - PAD, HEIGHT - PAD]], points);
+  const projection = geoMercator()
+    .fitExtent([[PAD, PAD], [WIDTH - PAD, HEIGHT - PAD]], points)
+    .clipExtent([[0, 0], [WIDTH, HEIGHT]]);
   const path = geoPath(projection).digits(1);
 
   return {
