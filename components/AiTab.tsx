@@ -5,6 +5,7 @@ import { TAB_BASE, TAB_SHAPE, type RailItem } from "./TabRail";
 import {
   AI_CATEGORIES,
   AI_LEVEL_LABEL,
+  type AiCategory,
   type AiProvenance,
 } from "@/lib/ai-provenance";
 
@@ -42,7 +43,7 @@ export function aiRailItem(provenance: AiProvenance): RailItem {
             however far a label wraps at narrow widths. */}
         <ul className="grid grid-cols-4 grid-rows-[auto_auto_auto] gap-x-3 gap-y-1.5 sm:gap-x-6 md:gap-x-8">
           {AI_CATEGORIES.map(({ key, label }) => {
-            const { level, note } = provenance[key];
+            const { level, note, link } = provenance[key];
             // Categories AI stayed out of recede, so the eye lands on the
             // ones it actually touched.
             const used = level !== "none";
@@ -65,7 +66,9 @@ export function aiRailItem(provenance: AiProvenance): RailItem {
                 >
                   {AI_LEVEL_LABEL[level]}
                 </p>
-                <p className="text-xs leading-relaxed text-gray-500">{note}</p>
+                <p className="text-xs leading-relaxed text-gray-500">
+                  <NoteText note={note} link={link} />
+                </p>
               </li>
             );
           })}
@@ -91,4 +94,24 @@ export function aiRailItem(provenance: AiProvenance): RailItem {
       </button>
     ),
   };
+}
+
+/** The note, with `link.text` turned into a link where it appears. */
+function NoteText({ note, link }: Pick<AiCategory, "note" | "link">) {
+  const at = link ? note.indexOf(link.text) : -1;
+  if (!link || at === -1) return <>{note}</>;
+  return (
+    <>
+      {note.slice(0, at)}
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline underline-offset-2 hover:text-black"
+      >
+        {link.text}
+      </a>
+      {note.slice(at + link.text.length)}
+    </>
+  );
 }

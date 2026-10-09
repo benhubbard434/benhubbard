@@ -12,6 +12,8 @@ export type AiCategory = {
   level: AiLevel;
   /** One line of specifics. A level on its own says too little to be honest. */
   note: string;
+  /** Optional link; `text` is the part of the note that becomes the link. */
+  link?: { text: string; href: string };
 };
 
 export type AiProvenance = {
@@ -52,6 +54,13 @@ const PAGES: Record<string, Partial<AiProvenance>> = {
   "/side-quests/public-speaking": {
     words: { level: "some", note: "Copy taken from the talk, with AI." },
     media: { level: "none", note: "Talk recording by Ashby, embedded from YouTube." },
+  },
+  "/running": {
+    media: {
+      level: "none",
+      note: "Photography by professional photographers, mostly @simonrphoto.",
+      link: { text: "@simonrphoto", href: "https://www.instagram.com/simonrphoto/" },
+    },
   },
   "/side-quests/cs-mentoring": {
     words: { level: "some", note: "Copy drawn from jointangent.com, with AI." },
