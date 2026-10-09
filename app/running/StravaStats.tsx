@@ -31,11 +31,14 @@ export function StatCell({
   label,
   value,
   unit,
+  note,
   border,
 }: {
   label: string;
   value: string;
   unit: string;
+  /** A line of detail under the number. */
+  note?: React.ReactNode;
   border?: boolean;
 }) {
   return (
@@ -58,6 +61,11 @@ export function StatCell({
           {unit}
         </span>
       </p>
+      {note && (
+        <p className="text-xs mt-3" style={{ color: "rgba(0,0,0,0.45)" }}>
+          {note}
+        </p>
+      )}
     </div>
   );
 }

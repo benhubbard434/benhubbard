@@ -6,8 +6,16 @@ import { parkrunMapViews } from "./mapViews";
 const ORANGE = "#fc4c02";
 const RULE = "1px solid rgba(0,0,0,0.08)";
 
-/** Official result, entered by hand. Strava's elapsed times run a few seconds fast. */
-const OFFICIAL_PB = "20:33";
+/**
+ * Official PB, entered by hand. Strava's elapsed times run a few seconds off,
+ * so its own fastest (20:28 at Coldham's Common) isn't the real one.
+ */
+const OFFICIAL_PB = {
+  time: "20:33",
+  venue: "Wanstead Flats",
+  date: "6 Jun 2015",
+  strava: "https://www.strava.com/activities/319303827",
+};
 
 const TOP_VENUES = 6;
 
@@ -30,8 +38,8 @@ export default function ParkrunSection({ stats }: { stats: ParkrunStats | null }
         <h2 className="font-display text-4xl md:text-5xl mb-3">Parkrun</h2>
         <p className="text-sm" style={{ color: "rgba(0,0,0,0.45)" }}>
           {stats
-            ? `${stats.total} parkruns at ${stats.venues.length} venues. PB ${OFFICIAL_PB}.`
-            : `PB ${OFFICIAL_PB}.`}
+            ? `${stats.total} parkruns at ${stats.venues.length} venues. PB ${OFFICIAL_PB.time}.`
+            : `PB ${OFFICIAL_PB.time}.`}
           {stats?.nextMilestone &&
             ` ${stats.nextMilestone.toGo} to go until the ${stats.nextMilestone.at} club.`}
         </p>
@@ -63,7 +71,22 @@ function ParkrunStatsBody({ stats }: { stats: ParkrunStats }) {
         style={{ background: "#fff", borderTop: RULE, borderBottom: RULE }}
       >
         <StatCell label="Parkruns" value={String(stats.total)} unit="runs" />
-        <StatCell label="Venues" value={String(stats.venues.length)} unit="parks" border />
+        <StatCell
+          label="Fastest"
+          value={OFFICIAL_PB.time}
+          unit="pb"
+          note={
+            <a
+              href={OFFICIAL_PB.strava}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-black"
+            >
+              {OFFICIAL_PB.venue}, {OFFICIAL_PB.date}
+            </a>
+          }
+          border
+        />
         <StatCell label="Typical time" value={clock(stats.medianSeconds)} unit="median" border />
         <StatCell
           label="Longest streak"
