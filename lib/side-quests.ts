@@ -26,7 +26,7 @@ export function sideQuestHref(quest: SideQuest): string {
  * its page. Taken from the brightest of the brand and /music colours, and
  * only ones that carry dark ink, so type on them stays legible.
  */
-const GROUNDS = [
+export const GROUNDS = [
   "#04F06A", // Spring Green — brand
   "#FFD400", // Acid yellow
   "#00D9E0", // Cyan

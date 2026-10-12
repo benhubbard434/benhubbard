@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { Inter_Tight } from "next/font/google";
+import { GROUNDS } from "@/lib/side-quests";
 import FlapTitle from "./FlapTitle";
 
 // Laid out after graphicalui.com rather than this site's own design system:
@@ -13,7 +14,9 @@ const interTight = Inter_Tight({ subsets: ["latin"], weight: ["400", "500", "600
 const GROUND = "#f7f7f7";
 const INK = "#111";
 const MUTED = "#8a8a8a";
-const CHIP = "#ececec";
+/** Grey at rest; on hover, a slow fade to one of the site's side quest colours. */
+const PILL = "bg-[#ececec] transition-colors duration-700 ease-out hover:bg-(--pill)";
+const pillColour = (i: number) => ({ "--pill": GROUNDS[i % GROUNDS.length] }) as React.CSSProperties;
 const HAIRLINE = "#e4e4e4";
 
 type Layout = "landing" | "app" | "editorial";
@@ -66,11 +69,11 @@ const PROJECTS: Project[] = [
 /** Headings here opt out of the global caps and Instrument Serif. */
 const heading = { fontFamily: "inherit", textTransform: "none" } as const;
 
-function Chip({ icon, children }: { icon: string; children: React.ReactNode }) {
+function Chip({ icon, colour, children }: { icon: string; colour: number; children: React.ReactNode }) {
   return (
     <span
-      className="inline-flex items-center gap-[0.25em] rounded-full py-[0.04em] pr-[0.4em] pl-[0.2em] align-baseline"
-      style={{ background: CHIP }}
+      className={`${PILL} inline-flex items-center gap-[0.25em] rounded-full py-[0.04em] pr-[0.4em] pl-[0.2em] align-baseline`}
+      style={pillColour(colour)}
     >
       <span className="text-[0.85em]" aria-hidden="true">
         {icon}
@@ -251,8 +254,8 @@ export default function WebsiteProjects() {
           className="font-display text-[clamp(2rem,1rem+5vw,4rem)] leading-[1.1]"
         />
         <p className="max-w-4xl text-[clamp(1.6rem,1rem+2.6vw,3rem)] font-medium leading-[1.3] tracking-[-0.025em]">
-          Sites I&apos;ve <Chip icon="✏️">designed</Chip>, <Chip icon="🛠️">built</Chip> and{" "}
-          <Chip icon="🚀">shipped</Chip> for other people, outside the day job.
+          Sites I&apos;ve <Chip icon="✏️" colour={0}>designed</Chip>, <Chip icon="🛠️" colour={1}>built</Chip> and{" "}
+          <Chip icon="🚀" colour={3}>shipped</Chip> for other people, outside the day job.
         </p>
       </section>
 
@@ -279,8 +282,12 @@ export default function WebsiteProjects() {
           <BrowserWindow project={project} />
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm">
-            {[project.year, project.role, project.stack].map((tag) => (
-              <span key={tag} className="rounded-full px-3.5 py-1.5" style={{ background: CHIP }}>
+            {[project.year, project.role, project.stack].map((tag, j) => (
+              <span
+                key={tag}
+                className={`${PILL} rounded-full px-3.5 py-1.5`}
+                style={pillColour(i * 3 + j)}
+              >
                 {tag}
               </span>
             ))}
@@ -298,7 +305,7 @@ export default function WebsiteProjects() {
       {/* ── Close ─────────────────────────────────────────────────────────── */}
       <section className="px-4 pt-32 text-center sm:px-8 md:pt-44">
         <p className="mx-auto max-w-2xl text-[clamp(1.5rem,1rem+2vw,2.5rem)] font-medium leading-[1.25] tracking-[-0.025em]">
-          More <Chip icon="🌐">projects</Chip> on the way.
+          More <Chip icon="🌐" colour={2}>projects</Chip> on the way.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3 text-sm">
           <Link
