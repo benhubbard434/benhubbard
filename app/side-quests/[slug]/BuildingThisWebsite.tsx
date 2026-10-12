@@ -99,11 +99,11 @@ const STACK = [
 const WORKFLOW = [
   {
     title: "Describe it",
-    body: "I say what I want in plain English, usually one change at a time: \"swap these two sections\", \"make this less orange\".",
+    body: "I say what I want in plain English, usually one change at a time. For anything new, I share a design I've already made in Sketch.",
   },
   {
     title: "Build it",
-    body: "Claude Code reads the code, makes the change and checks it in a browser preview running on my machine.",
+    body: "Claude Code makes the change using the /style page as its theme, then checks it in a browser preview running on my machine.",
   },
   {
     title: "Review it",
@@ -303,9 +303,18 @@ export default function BuildingThisWebsite() {
         {/* ── Workflow ────────────────────────────────────────────────────── */}
         <section className="pt-24" aria-labelledby="btw-workflow">
           <SectionHead index="04" title="How a change gets made" id="btw-workflow" />
-          <p className="mb-8 max-w-2xl leading-relaxed" style={{ color: "rgba(27,27,25,0.75)" }}>
+          <p className="mb-4 max-w-2xl leading-relaxed" style={{ color: "rgba(27,27,25,0.75)" }}>
             I don&apos;t write the code by hand. 145 of this year&apos;s 150 commits were made with
             Claude Code. I decide what to build, how it should look and what it should say.
+          </p>
+          <p className="mb-8 max-w-2xl leading-relaxed" style={{ color: "rgba(27,27,25,0.75)" }}>
+            The look comes from two places. I design pages in Sketch first and share them as the
+            reference. And the{" "}
+            <Link href="/style" className="underline underline-offset-4 hover:opacity-60">
+              /style
+            </Link>{" "}
+            page sets out the site&apos;s colours, type and motion, so Claude uses it as the theme
+            for anything it builds.
           </p>
           <ol className="grid gap-px md:grid-cols-4" style={{ background: "rgba(27,27,25,0.16)", border: RULE }}>
             {WORKFLOW.map((step, i) => (
