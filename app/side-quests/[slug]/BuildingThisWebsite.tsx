@@ -169,7 +169,13 @@ export default function BuildingThisWebsite() {
         {/* ── Title block ─────────────────────────────────────────────────── */}
         <header className="pt-28 md:pt-36">
           <p className={`${plexMono.className} mb-6 text-xs`} style={{ color: MUTED }}>
-            side-quests / building-this-website
+            <Link
+              href="/work?tab=side-quests"
+              className="underline underline-offset-4 transition-colors hover:text-[#1b1b19]"
+            >
+              side-quests
+            </Link>{" "}
+            / building-this-website
           </p>
           <h1
             className="text-[clamp(2.5rem,1.5rem+4vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.03em]"
