@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { Inter_Tight } from "next/font/google";
+import FlapTitle from "./FlapTitle";
 
 // Laid out after graphicalui.com rather than this site's own design system:
 // a pill-outlined wordmark, one big centred sentence with inline chips, and
@@ -245,11 +246,10 @@ export default function WebsiteProjects() {
     >
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="flex min-h-[92dvh] flex-col items-center justify-center gap-14 px-4 pt-24 pb-16 text-center sm:px-8">
-        <h1
+        <FlapTitle
+          text="Website Projects"
           className="font-display text-[clamp(2rem,1rem+5vw,4rem)] leading-[1.1]"
-        >
-          Website Projects
-        </h1>
+        />
         <p className="max-w-4xl text-[clamp(1.6rem,1rem+2.6vw,3rem)] font-medium leading-[1.3] tracking-[-0.025em]">
           Sites I&apos;ve <Chip icon="✏️">designed</Chip>, <Chip icon="🛠️">built</Chip> and{" "}
           <Chip icon="🚀">shipped</Chip> for other people, outside the day job.
