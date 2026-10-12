@@ -96,60 +96,6 @@ function ParkrunStatsBody({ stats }: { stats: ParkrunStats }) {
         />
       </div>
 
-      {/* Alphabet */}
-      <div className="px-8 pt-16">
-        <div className="flex items-baseline justify-between mb-3">
-          <h3 className="text-h3">The alphabet</h3>
-          <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
-            {stats.lettersDone} of {stats.alphabet.length}
-          </span>
-        </div>
-        <p className="text-sm mb-8" style={{ color: "rgba(0,0,0,0.45)" }}>
-          A parkrun for every letter. There&apos;s no X, so 25 is the full set.
-        </p>
-
-        {/* Bleeds into the gutter on phones so venue names fit their cells. */}
-        <div
-          className="grid grid-cols-5 -mx-4 md:mx-0"
-          style={{ border: "1px solid rgba(0,0,0,0.1)" }}
-        >
-          {stats.alphabet.map(({ letter, venue, others }, i) => {
-            const isLastInRow = (i + 1) % 5 === 0;
-            const isLastRow = i >= stats.alphabet.length - 5;
-            return (
-              <div
-                key={letter}
-                className="p-1 md:p-6 flex flex-col min-w-0"
-                style={{
-                  borderRight: isLastInRow ? "none" : "1px solid rgba(0,0,0,0.1)",
-                  borderBottom: isLastRow ? "none" : "1px solid rgba(0,0,0,0.1)",
-                  background: venue ? "#fff" : "transparent",
-                  minHeight: "5rem",
-                }}
-              >
-                <span
-                  className="font-display text-3xl md:text-4xl leading-none"
-                  style={{ color: venue ? ORANGE : "rgba(0,0,0,0.18)" }}
-                >
-                  {letter}
-                </span>
-                {venue && (
-                  <span
-                    className="mt-2 text-[9px] md:text-[10px] leading-tight md:uppercase md:tracking-wider break-words"
-                    style={{ color: "rgba(0,0,0,0.4)" }}
-                  >
-                    {venue}
-                    {others > 0 && (
-                      <span style={{ color: "rgba(0,0,0,0.25)" }}> +{others}</span>
-                    )}
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
       <div className="px-8 pt-16 grid gap-16 md:grid-cols-2">
         {/* Volume and pace by year */}
         <div>
@@ -240,6 +186,60 @@ function ParkrunStatsBody({ stats }: { stats: ParkrunStats }) {
               </li>
             )}
           </ol>
+        </div>
+      </div>
+
+      {/* Alphabet */}
+      <div className="px-8 pt-16">
+        <div className="flex items-baseline justify-between mb-3">
+          <h3 className="text-h3">The alphabet</h3>
+          <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
+            {stats.lettersDone} of {stats.alphabet.length}
+          </span>
+        </div>
+        <p className="text-sm mb-8" style={{ color: "rgba(0,0,0,0.45)" }}>
+          A parkrun for every letter. There&apos;s no X, so 25 is the full set.
+        </p>
+
+        {/* Bleeds into the gutter on phones so venue names fit their cells. */}
+        <div
+          className="grid grid-cols-5 -mx-4 md:mx-0"
+          style={{ border: "1px solid rgba(0,0,0,0.1)" }}
+        >
+          {stats.alphabet.map(({ letter, venue, others }, i) => {
+            const isLastInRow = (i + 1) % 5 === 0;
+            const isLastRow = i >= stats.alphabet.length - 5;
+            return (
+              <div
+                key={letter}
+                className="p-1 md:p-6 flex flex-col min-w-0"
+                style={{
+                  borderRight: isLastInRow ? "none" : "1px solid rgba(0,0,0,0.1)",
+                  borderBottom: isLastRow ? "none" : "1px solid rgba(0,0,0,0.1)",
+                  background: venue ? "#fff" : "transparent",
+                  minHeight: "5rem",
+                }}
+              >
+                <span
+                  className="font-display text-3xl md:text-4xl leading-none"
+                  style={{ color: venue ? ORANGE : "rgba(0,0,0,0.18)" }}
+                >
+                  {letter}
+                </span>
+                {venue && (
+                  <span
+                    className="mt-2 text-[9px] md:text-[10px] leading-tight md:uppercase md:tracking-wider break-words"
+                    style={{ color: "rgba(0,0,0,0.4)" }}
+                  >
+                    {venue}
+                    {others > 0 && (
+                      <span style={{ color: "rgba(0,0,0,0.25)" }}> +{others}</span>
+                    )}
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
