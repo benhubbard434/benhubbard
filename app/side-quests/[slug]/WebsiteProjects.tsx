@@ -246,8 +246,8 @@ export default function WebsiteProjects() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="flex min-h-[92dvh] flex-col items-center justify-center gap-14 px-4 pt-24 pb-16 text-center sm:px-8">
         <h1
-          className="rounded-full px-[0.55em] py-[0.12em] text-[clamp(2rem,1rem+5vw,4rem)] font-bold leading-[1.1] tracking-[-0.035em]"
-          style={{ ...heading, border: `0.11em solid ${INK}` }}
+          className="font-display rounded-full px-[0.6em] py-[0.15em] text-[clamp(2rem,1rem+5vw,4rem)] leading-[1.1]"
+          style={{ border: `0.11em solid ${INK}` }}
         >
           Website Projects
         </h1>
