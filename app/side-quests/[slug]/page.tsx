@@ -6,6 +6,7 @@ import ComingSoon from "./ComingSoon";
 import Mentoring from "./Mentoring";
 import PublicSpeaking from "./PublicSpeaking";
 import Travel from "./Travel";
+import WebsiteProjects from "./WebsiteProjects";
 
 // Only side quests without their own page elsewhere get one here; anything
 // else 404s.
@@ -37,5 +38,6 @@ export default async function SideQuestPage({ params }: Props) {
   if (quest.slug === "cs-mentoring") return <Mentoring ground={sideQuestGround(quest)} />;
   if (quest.slug === "travel") return <Travel ground={sideQuestGround(quest)} />;
   if (quest.slug === "building-this-website") return <BuildingThisWebsite />;
+  if (quest.slug === "website-projects") return <WebsiteProjects />;
   return <ComingSoon title={quest.title} emoji={quest.emoji} ground={sideQuestGround(quest)} />;
 }

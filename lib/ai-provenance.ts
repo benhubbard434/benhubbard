@@ -65,6 +65,9 @@ const PAGES: Record<string, Partial<AiProvenance>> = {
   "/side-quests/building-this-website": {
     words: { level: "mostly", note: "Drafted with Claude from the site's git history." },
   },
+  "/side-quests/website-projects": {
+    words: { level: "mostly", note: "Placeholder copy by Claude, until the projects are written up." },
+  },
   "/side-quests/cs-mentoring": {
     words: { level: "some", note: "Copy drawn from jointangent.com, with AI." },
   },
