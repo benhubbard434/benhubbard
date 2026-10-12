@@ -305,7 +305,7 @@ export default function BuildingThisWebsite() {
           <SectionHead index="04" title="How a change gets made" id="btw-workflow" />
           <p className="mb-4 max-w-2xl leading-relaxed" style={{ color: "rgba(27,27,25,0.75)" }}>
             I don&apos;t write the code by hand. 145 of this year&apos;s 150 commits were made with
-            Claude Code. I decide what to build, how it should look and what it should say.
+            Claude Code.
           </p>
           <p className="mb-8 max-w-2xl leading-relaxed" style={{ color: "rgba(27,27,25,0.75)" }}>
             The look comes from two places. I design pages in Sketch first and share them as the
