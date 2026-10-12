@@ -62,6 +62,9 @@ const PAGES: Record<string, Partial<AiProvenance>> = {
       link: { text: "@simonrphoto", href: "https://www.instagram.com/simonrphoto/" },
     },
   },
+  "/side-quests/building-this-website": {
+    words: { level: "mostly", note: "Drafted with Claude from the site's git history." },
+  },
   "/side-quests/cs-mentoring": {
     words: { level: "some", note: "Copy drawn from jointangent.com, with AI." },
   },

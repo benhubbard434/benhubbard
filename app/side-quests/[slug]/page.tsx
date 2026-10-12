@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { sideQuests, sideQuestGround } from "@/lib/side-quests";
+import BuildingThisWebsite from "./BuildingThisWebsite";
 import ComingSoon from "./ComingSoon";
 import Mentoring from "./Mentoring";
 import PublicSpeaking from "./PublicSpeaking";
@@ -35,5 +36,6 @@ export default async function SideQuestPage({ params }: Props) {
   if (quest.slug === "public-speaking") return <PublicSpeaking />;
   if (quest.slug === "cs-mentoring") return <Mentoring ground={sideQuestGround(quest)} />;
   if (quest.slug === "travel") return <Travel ground={sideQuestGround(quest)} />;
+  if (quest.slug === "building-this-website") return <BuildingThisWebsite />;
   return <ComingSoon title={quest.title} emoji={quest.emoji} ground={sideQuestGround(quest)} />;
 }
