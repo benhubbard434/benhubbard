@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 /** Time each letter shows for as a letter cycles, like a board's flap rate. */
-const FLAP_MS = 40;
+const FLAP_MS = 100;
 
 /**
  * A heading whose letters each run through the alphabet when hovered, like a
@@ -60,7 +60,11 @@ function FlapLetter({ letter }: { letter: string }) {
   };
 
   return (
-    <span className="letter-flap-cell" onMouseEnter={cycle}>
+    <span
+      className="letter-flap-cell"
+      style={{ "--flap-ms": `${FLAP_MS}ms` } as React.CSSProperties}
+      onMouseEnter={cycle}
+    >
       {/* Holds the cell at the letter's own width while others pass through */}
       <span className="invisible">{letter}</span>
       <span key={flaps} className={flaps ? "letter-flap letter-flap-moving" : "letter-flap"}>

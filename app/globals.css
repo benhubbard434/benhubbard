@@ -534,7 +534,7 @@ body:has([data-full-bleed]) {
 }
 
 .letter-flap-moving {
-  animation: letter-flap 40ms ease-in;
+  animation: letter-flap var(--flap-ms) ease-out;
 }
 
 /* The board's split, showing only while a letter is turning over */
@@ -546,7 +546,7 @@ body:has([data-full-bleed]) {
   height: 0.04em;
   background: var(--page-ground, #fff);
   opacity: 0;
-  animation: letter-flap-split 40ms linear;
+  animation: letter-flap-split var(--flap-ms) linear;
 }
 
 @keyframes letter-flap-split {
