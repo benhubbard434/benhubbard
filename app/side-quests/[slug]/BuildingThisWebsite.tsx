@@ -27,6 +27,9 @@ const FACTS = [
   { label: "Hosting", value: "Netlify" },
 ];
 
+/** Years the site lived on Framer, with the repo left as an archive. */
+const FRAMER_YEARS = new Set([2024, 2025]);
+
 const COMMITS_BY_YEAR = [
   { year: 2015, count: 212 },
   { year: 2016, count: 228 },
@@ -59,7 +62,7 @@ const VERSIONS = [
     version: "v3",
     when: "Dec 2015",
     title: "Moving to Jekyll",
-    body: "Layouts and includes instead of copy and paste, and a blog written in files. It stayed a static site on GitHub Pages until 2026.",
+    body: "Layouts and includes instead of copy and paste, and a blog written in files. It stayed a static site on GitHub Pages until 2024.",
   },
   {
     version: "v4",
@@ -69,9 +72,15 @@ const VERSIONS = [
   },
   {
     version: "v5",
+    when: "2024 – 2025",
+    title: "Off to Framer",
+    body: "I moved the site to Framer and designed it visually instead of in code. The GitHub repo stayed put as an archive, which is why it has no commits for two years.",
+  },
+  {
+    version: "v6",
     when: "Apr 2026",
     title: "Starting again",
-    body: "Everything deleted in one commit, then rebuilt from scratch in Next.js by pairing with Claude Code. This is the version you're reading.",
+    body: "Back to GitHub: the archive deleted in one commit, then the site rebuilt from scratch in Next.js by pairing with Claude Code. This is the version you're reading.",
   },
 ];
 
@@ -170,8 +179,8 @@ export default function BuildingThisWebsite() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: "rgba(27,27,25,0.75)" }}>
             I&apos;ve had a site at benhubbard.co.uk since 2015. It has been hand-written HTML, a
-            Jekyll blog and a GitHub web editor project. In 2026 I deleted the lot and rebuilt it
-            from scratch with AI. These are the notes on how.
+            Jekyll blog, a GitHub web editor project and a Framer site. In 2026 I deleted the lot
+            and rebuilt it from scratch with AI. These are the notes on how.
           </p>
 
           <dl
@@ -198,7 +207,7 @@ export default function BuildingThisWebsite() {
         <section className="pt-24" aria-labelledby="btw-history">
           <SectionHead index="01" title="Eleven years in one repo" id="btw-history" />
           <p className="mb-8 max-w-2xl leading-relaxed" style={{ color: "rgba(27,27,25,0.75)" }}>
-            Commits per year. It goes quiet whenever life got busy, and loud in lockdown.
+            Commits per year. It goes quiet whenever life got busy, loud in lockdown, and silent for the two years it lived on Framer.
           </p>
           <ul className={`${plexMono.className} flex flex-col gap-1.5 text-xs md:text-sm`}>
             {COMMITS_BY_YEAR.map(({ year, count }) => (
@@ -207,14 +216,20 @@ export default function BuildingThisWebsite() {
                 className="grid grid-cols-[3rem_1fr_2.5rem] items-center gap-3 tabular-nums"
               >
                 <span style={{ color: MUTED }}>{year}</span>
-                <span className="h-2.5" style={{ background: "rgba(27,27,25,0.07)" }}>
-                  <span
-                    className="block h-full"
-                    style={{ width: `${(count / maxCommits) * 100}%`, background: INK }}
-                  />
-                </span>
+                {FRAMER_YEARS.has(year) ? (
+                  <span className="leading-none" style={{ color: MUTED }}>
+                    on Framer
+                  </span>
+                ) : (
+                  <span className="h-2.5" style={{ background: "rgba(27,27,25,0.07)" }}>
+                    <span
+                      className="block h-full"
+                      style={{ width: `${(count / maxCommits) * 100}%`, background: INK }}
+                    />
+                  </span>
+                )}
                 <span className="text-right" style={{ color: count ? INK : MUTED }}>
-                  {count}
+                  {FRAMER_YEARS.has(year) ? "—" : count}
                 </span>
               </li>
             ))}
@@ -223,7 +238,7 @@ export default function BuildingThisWebsite() {
 
         {/* ── Versions ────────────────────────────────────────────────────── */}
         <section className="pt-24" aria-labelledby="btw-versions">
-          <SectionHead index="02" title="Five versions" id="btw-versions" />
+          <SectionHead index="02" title="Six versions" id="btw-versions" />
           <ol>
             {VERSIONS.map((v) => (
               <li
