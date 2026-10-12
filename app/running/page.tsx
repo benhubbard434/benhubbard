@@ -71,8 +71,8 @@ export default async function RunningPage() {
           Running
         </h1>
         <p
-          className="font-display mt-3"
-          style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)", color: "#fc4c02" }}
+          className="mt-3 text-sm uppercase tracking-[0.25em]"
+          style={{ color: "rgba(0,0,0,0.45)" }}
         >
           Fuelled by Margaritas
         </p>
