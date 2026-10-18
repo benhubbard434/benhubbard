@@ -20,7 +20,14 @@ export default function StravaStats({ stats }: { stats: Stats | null }) {
         style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}
       >
         <p className="text-xs uppercase tracking-[0.15em]" style={{ color: "rgba(0,0,0,0.35)" }}>
-          Via Strava
+          <a
+            href="https://www.strava.com/athletes/938645"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity hover:opacity-70"
+          >
+            Via Strava
+          </a>
         </p>
       </div>
     </section>
