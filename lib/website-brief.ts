@@ -352,7 +352,7 @@ export const briefSections: BriefSection[] = [
         type: "choice",
         label: "What budget do you have in mind?",
         required: true,
-        options: ["Under £1,000", "£1,000 – £3,000", "£3,000 – £6,000", "£6,000 – £10,000", "£10,000+", "Not sure yet"],
+        options: ["Under £500", "£500 – £1,000", "£1,000 – £3,000", "£3,000 – £5,000", "£5,000+", "Not sure yet"],
       },
       { id: "launchDate", type: "date", label: "Ideal launch date" },
       {
