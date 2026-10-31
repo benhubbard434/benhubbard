@@ -42,7 +42,8 @@ export default function BriefForm() {
   function go(to: number) {
     setStep(to);
     setError("");
-    top.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    top.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   }
 
   function set(id: string, value: string | string[]) {
@@ -77,7 +78,9 @@ export default function BriefForm() {
   }
 
   return (
-    <div ref={top} className="w-full max-w-2xl scroll-mt-8">
+    // Kept clearly narrower than the bottom nav (95vw / 75vw), so the two never
+    // sit at almost-but-not-quite the same width.
+    <div ref={top} className="w-[88vw] sm:w-[min(60vw,36rem)] scroll-mt-8">
       <div className="rounded-2xl p-6 sm:p-10 shadow-2xl" style={{ backgroundColor: "rgba(245,243,255,0.97)" }}>
         {step === 0 && (
           <div>
@@ -111,13 +114,13 @@ export default function BriefForm() {
               </div>
               <div className="h-1 rounded-full bg-gray-200 overflow-hidden">
                 <div
-                  className="h-full bg-black transition-[width] duration-300"
+                  className="h-full bg-black transition-[width] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none"
                   style={{ width: `${(step / total) * 100}%` }}
                 />
               </div>
             </div>
 
-            <h2 className="font-subhead text-h3 mb-1">{section.title}</h2>
+            <h3 className="text-h3 mb-1">{section.title}</h3>
             <p className="text-gray-500 text-sm mb-8">{section.intro}</p>
 
             <div className="flex flex-col gap-7">
@@ -169,7 +172,7 @@ export default function BriefForm() {
               )}
             </div>
             {missing.length > 0 && (
-              <p className="text-gray-400 text-xs mt-3 text-center">Fill in the fields marked * to continue.</p>
+              <p className="text-gray-500 text-xs mt-3 text-center">Fill in the fields marked * to continue.</p>
             )}
           </div>
         )}
@@ -177,7 +180,7 @@ export default function BriefForm() {
         {step === total + 1 && (
           <div className="text-center py-4">
             <div className="text-4xl mb-4">🚀</div>
-            <h2 className="font-subhead text-h3 mb-3">Brief received!</h2>
+            <h3 className="text-h3 mb-3">Brief received!</h3>
             <p className="text-gray-500">
               Thanks{answers.name ? ` ${String(answers.name).split(" ")[0]}` : ""}! I&apos;ll read through it and
               be in touch soon to talk next steps.
@@ -205,7 +208,7 @@ function Field({
       {field.required && <span className="text-[var(--color-tomato-jam)]"> *</span>}
     </>
   );
-  const hint = field.hint && <p className="text-xs text-gray-400 mb-2">{field.hint}</p>;
+  const hint = field.hint && <p className="text-xs text-gray-500 mb-2">{field.hint}</p>;
 
   if (field.type === "choice" || field.type === "multi") {
     const selected = Array.isArray(value) ? value : value ? [value] : [];
