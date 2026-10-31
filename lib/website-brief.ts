@@ -30,8 +30,14 @@ export const briefSections: BriefSection[] = [
     fields: [
       { id: "name", type: "text", label: "Your name", required: true, placeholder: "Full name" },
       { id: "email", type: "email", label: "Email", required: true, placeholder: "you@company.com" },
-      { id: "phone", type: "text", label: "Phone", hint: "Optional — if you'd rather talk.", placeholder: "07…" },
-      { id: "organisation", type: "text", label: "Business or organisation name", placeholder: "Company name" },
+      { id: "phone", type: "text", label: "Phone", placeholder: "07…" },
+      {
+        id: "organisation",
+        type: "text",
+        label: "Business or organisation name",
+        required: true,
+        placeholder: "Company name",
+      },
       { id: "role", type: "text", label: "Your role", placeholder: "e.g. Founder, Marketing lead" },
       { id: "currentSite", type: "url", label: "Current website, if you have one", placeholder: "https://" },
       { id: "referral", type: "text", label: "How did you hear about me?" },
