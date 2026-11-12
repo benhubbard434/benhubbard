@@ -35,8 +35,8 @@ search engines.
 
 ## Anti-goals
 
-- Anyone, including Ben through the admin screens, seeing who drew whom other
-  than their own draw.
+- A participant seeing anyone's draw but their own. (Ben, as admin, can
+  reveal the pairs: his decision.)
 - The drawn name appearing in an email.
 - The pages turning up in search results, or the site nav linking to them.
 - Passwords or secrets committed to the repo.
@@ -51,7 +51,7 @@ search engines.
   persist (attempt limits, state) lives in Supabase or a signed cookie.
 - Never `git push` without Ben saying so.
 - One honest limit, already explained to Ben: the draw is stored in Supabase,
-  so Ben could read it there if he went looking. The app itself never shows it.
+  so Ben could read it there anyway. Admin shows it only on an explicit click.
 
 ## Approaches considered
 
@@ -92,10 +92,13 @@ The site's `BottomNav` and `GlobalTabRail` must not render on these pages.
     enabled only at exactly 9 and not yet drawn. After: "drawn, N emails
     sent", with any failed sends named so Ben can resend.
   - "delete everything", behind a typed confirmation.
-  - Never shows a pairing.
+  - per drawn santa: the pairs (giver → receiver), hidden by default behind
+    a single "show pairs" click, and hidden again on reload. The pairs are
+    fetched from the server only when that button is clicked. (Ben's
+    decision.)
 
-The two santas need display names (shown to the six who are in both). They
-live in one config constant. **Open for Ben:** what to call the two sides.
+Only Ben runs the draws, from admin. The two santas are called **Hubbard**
+(side `a`) and **Algar** (side `b`); the names live in one config constant.
 
 ### Access
 
