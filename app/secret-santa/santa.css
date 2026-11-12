@@ -1,0 +1,517 @@
+/* Secret santa: modern Scandi Christmas. Everything is scoped to .santa so
+   none of it reaches the rest of the site, and the site's own heading rules
+   (caps, display face) are undone inside it. */
+
+.santa {
+  --oat: #f3eee4;
+  --paper: #fcfaf5;
+  --line: #ddd5c4;
+  --pine: #1f3329;
+  --moss: #5f6f64;
+  --berry: #a8322a;
+  --berry-deep: #8a261f;
+
+  --page-ground: var(--oat);
+  --serif: var(--font-instrument-serif), Georgia, serif;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--oat);
+  color: var(--pine);
+  font-family: var(--font-jost), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+body:has(.santa) {
+  background: var(--oat);
+}
+
+/* A knitted band: a row of small diamonds with a stitch between each. */
+.santa-band {
+  height: 28px;
+  flex: none;
+  background-color: var(--berry);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M14 6l8 8-8 8-8-8z' fill='none' stroke='%23fcfaf5' stroke-width='1.6'/%3E%3Crect x='12.5' y='12.5' width='3' height='3' fill='%23fcfaf5'/%3E%3Crect x='-1.5' y='12.5' width='3' height='3' fill='%23fcfaf5'/%3E%3Crect x='26.5' y='12.5' width='3' height='3' fill='%23fcfaf5'/%3E%3C/svg%3E");
+  background-position: center;
+}
+
+.santa-main {
+  flex: 1;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 8vw, 4.5rem) 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.santa-main:has(.santa-admin) {
+  max-width: 54rem;
+  justify-content: flex-start;
+}
+
+.santa-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: clamp(1.75rem, 6vw, 2.75rem) clamp(1.25rem, 6vw, 2.5rem);
+}
+
+.santa-center {
+  text-align: center;
+}
+
+.santa-star,
+.santa-fir {
+  display: block;
+  margin: 0 auto 1.25rem;
+  fill: var(--berry);
+}
+
+.santa-fir {
+  fill: var(--pine);
+}
+
+.santa-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--berry);
+}
+
+.santa .santa-title,
+.santa .santa-name {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--pine);
+}
+
+.santa .santa-title {
+  font-size: clamp(2.25rem, 9vw, 3rem);
+}
+
+.santa .santa-name {
+  font-size: clamp(2.5rem, 11vw, 3.5rem);
+  margin: 0.25rem 0 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.santa-lede {
+  margin: 0.9rem auto 0;
+  max-width: 24rem;
+  color: var(--moss);
+}
+
+.santa-lede strong {
+  color: var(--pine);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.santa-small,
+.santa-note {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--moss);
+}
+
+.santa-note {
+  text-align: center;
+}
+
+/* Forms */
+
+.santa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.santa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.santa-field > span,
+.santa-wishes legend,
+.santa-partner > span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+
+.santa-field small {
+  font-size: 0.8125rem;
+  color: var(--moss);
+}
+
+.santa input:not([type="checkbox"]),
+.santa select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.625rem 0.875rem;
+  font: inherit;
+  /* 16px or more stops iOS zooming the page when a field is tapped */
+  font-size: 1.0625rem;
+  color: var(--pine);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  appearance: none;
+}
+
+.santa select {
+  padding-right: 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231f3329' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+.santa input:focus-visible,
+.santa select:focus-visible,
+.santa button:focus-visible {
+  outline: 2px solid var(--berry);
+  outline-offset: 2px;
+}
+
+.santa input:disabled,
+.santa select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.santa-wishes {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.santa-wishes legend {
+  padding: 0;
+  margin-bottom: 0.375rem;
+}
+
+.santa-wish {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.santa-wish > span {
+  flex: none;
+  width: 1.75rem;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  color: var(--berry);
+  text-align: center;
+}
+
+.santa-button {
+  min-height: 3.25rem;
+  padding: 0.75rem 1.75rem;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  background: var(--pine);
+  border: 0;
+  border-radius: 999px;
+  transition: background-color 0.15s ease;
+}
+
+.santa-button:hover:not(:disabled) {
+  background: #2c4739;
+}
+
+.santa-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.santa-button-danger {
+  background: var(--berry);
+}
+
+.santa-button-danger:hover:not(:disabled) {
+  background: var(--berry-deep);
+}
+
+.santa-link {
+  padding: 0.5rem 0;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--pine);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.santa-link:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.santa-danger {
+  color: var(--berry-deep);
+}
+
+.santa-error,
+.santa-notice {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  color: var(--berry-deep);
+  background: #f7e9e4;
+  border-left: 3px solid var(--berry);
+  border-radius: 2px;
+}
+
+.santa-notice {
+  color: var(--pine);
+  background: #e9eee6;
+  border-left-color: var(--pine);
+}
+
+/* The draw */
+
+.santa-draw {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.santa-draw > .santa-center {
+  margin-bottom: 0.75rem;
+}
+
+.santa-gift .santa-eyebrow {
+  margin-bottom: 1.25rem;
+}
+
+.santa-reveal {
+  width: 100%;
+}
+
+.santa-list {
+  list-style: none;
+  margin: 0.75rem 0 1.25rem;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.santa-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+/* Admin */
+
+.santa-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.santa-admin .santa-lede {
+  margin-left: 0;
+  max-width: 40rem;
+}
+
+.santa-sides {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+}
+
+.santa-sides .santa-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.santa-sides .santa-button {
+  margin-top: 0.75rem;
+}
+
+.santa-count {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 2.75rem;
+  line-height: 1;
+}
+
+.santa-count span {
+  font-size: 1.25rem;
+  color: var(--moss);
+}
+
+.santa-pairs {
+  list-style: none;
+  width: 100%;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.santa-pairs li {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9375rem;
+}
+
+.santa-pairs li span:nth-child(2) {
+  color: var(--berry);
+}
+
+.santa-people {
+  padding: 0.5rem 1.5rem;
+}
+
+.santa-people > .santa-small {
+  padding: 1rem 0;
+}
+
+.santa-person {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) auto minmax(9rem, 1fr) 6.5rem;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.santa-person:last-child {
+  border-bottom: 0;
+}
+
+.santa-who {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.santa-who strong {
+  font-weight: 500;
+}
+
+.santa-who span {
+  font-size: 0.875rem;
+  color: var(--moss);
+  overflow-wrap: anywhere;
+}
+
+.santa-ticks {
+  display: flex;
+  gap: 1rem;
+}
+
+.santa-ticks label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  font-size: 0.9375rem;
+}
+
+.santa-ticks input {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--pine);
+}
+
+.santa-partner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.santa-partner > span {
+  font-size: 0.6875rem;
+}
+
+.santa-partner select {
+  min-height: 2.75rem;
+  font-size: 1rem;
+}
+
+.santa-actions {
+  text-align: right;
+}
+
+.santa-actions .santa-link {
+  min-height: 2.75rem;
+}
+
+@media (max-width: 720px) {
+  .santa-person {
+    grid-template-columns: 1fr auto;
+  }
+
+  .santa-ticks {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .santa-partner {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .santa-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.santa-wipe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.santa-wipe-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.santa-wipe-row input {
+  flex: 1 1 10rem;
+  width: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .santa-button {
+    transition: none;
+  }
+}

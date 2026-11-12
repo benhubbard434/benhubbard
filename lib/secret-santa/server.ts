@@ -59,16 +59,24 @@ export async function setSession(role: Role): Promise<void> {
   });
 }
 
-/** Refuses form posts that another website tricked a browser into sending. */
+/**
+ * Refuses form posts that another website tricked a browser into sending:
+ * the page that sent the request has to be this site.
+ */
 export function sameOrigin(req: NextRequest): boolean {
   const origin = req.headers.get("origin");
-  const host = req.headers.get("x-forwarded-host") ?? req.headers.get("host");
-  if (!origin || !host) return false;
+  if (!origin) return false;
+  let host: string;
   try {
-    return new URL(origin).host === host;
+    host = new URL(origin).host;
   } catch {
     return false;
   }
+  // Behind Netlify the original host can arrive in either header, and URL is
+  // the site's own address.
+  const ours = [req.headers.get("host"), req.headers.get("x-forwarded-host")];
+  if (process.env.URL) ours.push(new URL(process.env.URL).host);
+  return ours.includes(host);
 }
 
 function visitor(req: NextRequest): string {

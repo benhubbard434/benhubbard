@@ -3,6 +3,7 @@ import { Archivo, Google_Sans_Flex, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import GlobalTabRail from "@/components/GlobalTabRail";
+import SiteChrome from "@/components/SiteChrome";
 
 const googleSansFlex = Google_Sans_Flex({
   subsets: ["latin"],
@@ -39,9 +40,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${googleSansFlex.variable} ${archivo.variable} ${instrumentSerif.variable}`}>
       <body className="min-h-screen pb-24">
-        <GlobalTabRail />
+        <SiteChrome>
+          <GlobalTabRail />
+        </SiteChrome>
         {children}
-        <BottomNav />
+        <SiteChrome>
+          <BottomNav />
+        </SiteChrome>
       </body>
     </html>
   );
