@@ -2,5 +2,12 @@
   command = "npm run build"
   publish = ".next"
 
+# Netlify fails a build when a secret's value appears in the code. The shared
+# secret santa password is an ordinary word that the pages and docs use in
+# plain sentences, so the scan can't tell the two apart. Every other secret is
+# still scanned.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "SANTA_PASSWORD"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
