@@ -8,6 +8,9 @@ export const MAX_PARTICIPANTS = 12;
 /** Longest accepted value for each sign-up field. */
 export const LIMITS = { name: 80, email: 254, item: 200 } as const;
 
+/** Everyone gives at least three wishes and can add more, up to the cap. */
+export const WISHES = { min: 3, max: 8 } as const;
+
 /** Wrong password or link guesses allowed per visitor before a lockout. */
 export const ATTEMPTS = { max: 5, windowMs: 15 * 60_000 } as const;
 

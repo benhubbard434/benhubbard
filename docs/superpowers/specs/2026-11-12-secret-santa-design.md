@@ -14,7 +14,8 @@ search engines.
 
 ## Goals
 
-- Sign-up page: name, email, three wish list items.
+- Sign-up page: name, email, three wish list items, with the option to add
+  up to five more (added 2026-11-16).
 - Draw page: blank ("the draw hasn't happened yet") until Ben runs the draw,
   then shows each person only their own recipient(s) and that person's three
   items.

@@ -4,7 +4,8 @@ export type Participant = {
   id: string;
   name: string;
   email: string;
-  items: [string, string, string];
+  /** At least three wishes, in the order they were given. */
+  items: string[];
   inA: boolean;
   inB: boolean;
   partnerId: string | null;

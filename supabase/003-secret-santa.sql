@@ -11,11 +11,16 @@ CREATE TABLE IF NOT EXISTS santa_participants (
   item_1 TEXT NOT NULL,
   item_2 TEXT NOT NULL,
   item_3 TEXT NOT NULL,
+  more_items TEXT[] NOT NULL DEFAULT '{}',
   in_side_a BOOLEAN NOT NULL DEFAULT false,
   in_side_b BOOLEAN NOT NULL DEFAULT false,
   partner_id UUID REFERENCES santa_participants(id) ON DELETE SET NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+-- Wishes beyond the first three. Added after the table first went live, so
+-- this line brings an existing table up to date.
+ALTER TABLE santa_participants ADD COLUMN IF NOT EXISTS more_items TEXT[] NOT NULL DEFAULT '{}';
 
 -- One row per gift. The primary key means a side can only be drawn once:
 -- a second draw for the same people fails as a whole.

@@ -9,6 +9,7 @@ type Row = {
   item_1: string;
   item_2: string;
   item_3: string;
+  more_items: string[] | null;
   in_side_a: boolean;
   in_side_b: boolean;
   partner_id: string | null;
@@ -21,7 +22,7 @@ const toParticipant = (r: Row): Participant => ({
   id: r.id,
   name: r.name,
   email: r.email,
-  items: [r.item_1, r.item_2, r.item_3],
+  items: [r.item_1, r.item_2, r.item_3, ...(r.more_items ?? [])],
   inA: r.in_side_a,
   inB: r.in_side_b,
   partnerId: r.partner_id,
@@ -60,6 +61,7 @@ export function createSupabaseStore(url: string, serviceRoleKey: string): Store 
         item_1: person.items[0],
         item_2: person.items[1],
         item_3: person.items[2],
+        more_items: person.items.slice(3),
       });
       if (error?.code === UNIQUE_VIOLATION) return "duplicate";
       check({ error }, "saving a sign-up");

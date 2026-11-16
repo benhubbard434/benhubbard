@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LIMITS } from "@/lib/secret-santa/config";
+import { LIMITS, WISHES } from "@/lib/secret-santa/config";
 import { Fir, Star } from "./Motifs";
 
 const ERRORS: Record<string, string> = {
@@ -55,7 +55,7 @@ export default function SignupForm() {
         <Star />
         <p className="santa-eyebrow">Christmas</p>
         <h1 className="santa-title">Secret Santa</h1>
-        <p className="santa-lede">Add your name and three things you&rsquo;d be glad to unwrap.</p>
+        <p className="santa-lede">Add your name and at least three things you&rsquo;d be glad to unwrap.</p>
       </div>
 
       <form onSubmit={submit} className="santa-form">
@@ -86,10 +86,15 @@ export default function SignupForm() {
                 value={item}
                 onChange={(e) => setItems(items.map((old, j) => (j === i ? e.target.value : old)))}
                 maxLength={LIMITS.item}
-                required
+                required={i < WISHES.min}
               />
             </label>
           ))}
+          {items.length < WISHES.max && (
+            <button type="button" className="santa-link santa-add" onClick={() => setItems([...items, ""])}>
+              + Add another wish
+            </button>
+          )}
         </fieldset>
 
         {error && <p className="santa-error" role="alert">{error}</p>}
@@ -97,7 +102,7 @@ export default function SignupForm() {
           {busy ? "Adding you…" : "Add me to the hat"}
         </button>
         <p className="santa-note">
-          We keep your name, email and these three wishes, and nothing else. It is all deleted after Christmas.
+          We keep your name, email and your wishes, and nothing else. It is all deleted after Christmas.
         </p>
       </form>
     </section>

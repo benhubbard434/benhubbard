@@ -5,7 +5,7 @@ import { createMemoryStore } from "./memory-store.ts";
 const person = (n: number) => ({
   name: `Person ${n}`,
   email: `p${n}@example.com`,
-  items: ["one", "two", "three"] as [string, string, string],
+  items: ["one", "two", "three"],
 });
 
 test("the same email in a different case or with spaces is a duplicate", async () => {
@@ -75,4 +75,10 @@ test("wipe removes people, draws and attempts", async () => {
   assert.equal((await store.list()).length, 0);
   assert.equal((await store.pairs()).length, 0);
   assert.equal(await store.countAttempts("one", 0), 0);
+});
+
+test("wishes beyond the first three are kept", async () => {
+  const store = createMemoryStore();
+  await store.add({ ...person(1), items: ["one", "two", "three", "four", "five"] });
+  assert.deepEqual((await store.list())[0].items, ["one", "two", "three", "four", "five"]);
 });
